@@ -1,5 +1,12 @@
 import React from 'react';
 import { connect } from 'dva';
+import { Row, Col } from 'antd'
+import email from 'assets/email.png'
+import tel from 'assets/tel.png'
+import qq from 'assets/qq.png'
+import time from 'assets/time.png'
+import logo from 'assets/LOGO.png'
+import qrcode from 'assets/qrcode.jpg'
 import styles from './index.less'
 import Navigation from 'components/Navigation'
 
@@ -12,6 +19,39 @@ const Layout = ({ children }) => {
       <div className={styles.mainContent}>
         {children}
       </div>
+      <Row className={styles.buttomSection}>
+        <Col span={4}>
+          <img alt="" src={logo} className={styles.logo} />
+        </Col>
+        <Col span={5}>
+          <ul>
+            <li>首页</li>
+            <li>产品介绍</li>
+            <li>服务介绍</li>
+            <li>关于我们</li>
+          </ul>
+        </Col>
+        <Col span={5}>
+          <ul>
+            <li>商务咨询</li>
+            <li><img alt="" src={tel} />0411-39551681</li>
+            <li><img alt="" src={email} />bd@elephantbi.com</li>
+          </ul>
+        </Col>
+        <Col span={5}>
+          <ul>
+            <li>技术支持</li>
+            <li><img alt="" src={time} />工作日  09:00~19:00</li>
+            <li><img alt="" src={qq} />【待定】12345678</li>
+            <li><img alt="" src={tel} />0411-39551681</li>
+            <li><img alt="" src={email} />support@elephantbi.com</li>
+          </ul>
+        </Col>
+        <Col span={5} className={styles.qrcode}>
+          <div><img alt="" src={qrcode} /></div>
+          <div>关注ElephantBI</div>
+        </Col>
+      </Row>
     </div>
   )
 }
