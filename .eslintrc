@@ -1,0 +1,31 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "comma-dangle": [2 , "never"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-boolean-value": [0],
+    "import/no-unresolved": [0],
+    "spaced-comment": [0],
+    "no-unused-vars": [0],
+    "no-empty": [0],
+    "react/wrap-multilines": [0],
+    "react/no-multi-comp": [0],
+    "import/extensions": [1, "always"],
+    "no-constant-condition": [0],
+    "react/jsx-no-bind": [0],
+    "react/prop-types": [0],
+    "arrow-body-style": [0],
+    "react/prefer-stateless-function": [0],
+    "semi": [0],
+    "global-require": [0],
+    "no-shadow": [0],
+    "no-useless-computed-key": [0],
+    "no-underscore-dangle": [0],
+    "import/no-dynamic-require": [0],
+    "no-console": [2],
+    "no-script-url": [0]
+  }
+}
