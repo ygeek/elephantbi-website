@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, Switch } from 'dva/router';
 import dynamic from 'dva/dynamic';
 import creatRoute from 'routes';
+import Layout from 'routes/Layout'
 import 'antd/dist/antd.css';
 
 function RouterConfig({ history, app }) {
@@ -16,10 +17,10 @@ function RouterConfig({ history, app }) {
   return (
     <Router history={history}>
       <Switch>
-      <Route
+        <Route
           path="/"
           component={(props) => {
-            return routeChild
+            return <Layout>{routeChild}</Layout>
           }}
         />
       </Switch>

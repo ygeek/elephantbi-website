@@ -12,7 +12,8 @@ const app = dva({
 app.use(createLoading());
 
 [
-  'example'
+  'example',
+  'homepage'
 ].forEach((fileName) => {
   app.model(require(`./models/${fileName}.js`).default);
 });

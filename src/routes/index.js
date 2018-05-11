@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'dva/router';
 import dynamic from 'dva/dynamic';
+import Homepage from 'routes/Homepage'
 import IndexPage from 'pages/index.js'
 import _ from 'lodash'
 
@@ -12,7 +13,14 @@ export default function (app, goBack) {
   
   return (
     <Switch>
-      <Route exact path="/" component={IndexPage} />
+      <Route
+        exact
+        path="/"
+        component={() => {
+          return <Redirect to="home" />
+        }}
+      />
+      <Route path="/home" component={Homepage} />
     </Switch>
   );
 }
