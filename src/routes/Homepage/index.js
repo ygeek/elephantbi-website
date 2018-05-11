@@ -6,19 +6,13 @@ import Character from 'components/Character'
 import Industry from 'components/Industry'
 import ReservationExperience from 'components/ReservationExperience'
 import HeadSection from 'components/HeadSection'
-import email from 'assets/email.png'
-import tel from 'assets/tel.png'
-import qq from 'assets/qq.png'
-import time from 'assets/time.png'
-import logo from 'assets/LOGO.png'
-import qrcode from 'assets/qrcode.jpg'
 import styles from './index.less'
 import contents from './contents'
 import FreeTrialModal from './modal/index.js'
 
 const { sectionContents, characterContents, industryContents, formContents } = contents
 const headSectionContent = {
-  title: 'EliphantBI',
+  title: 'ElephantBI',
   subTitle: '数据驱动管理，人人都是数据专家',
   content: '通过数据整合，可以提高跨系统数据的统一性、准确性和时效性，更容易获得全面的观点深入洞察数据与精准决策，用数据驱动行为，让数据融入工作的每个环节'
 }

@@ -2,7 +2,7 @@ import pathToRegexp from 'path-to-regexp'
 
 export default {
 
-  namespace: 'homepage',
+  namespace: 'production',
   
   state: {
     freeTrialVisible: false
@@ -12,7 +12,7 @@ export default {
     setup({ dispatch, history }) {
       history.listen((location) => {
         const { pathname } = location
-        const match = pathToRegexp('/home').exec(pathname);
+        const match = pathToRegexp('/production').exec(pathname);
         if (match) {
   
         }
@@ -33,4 +33,3 @@ export default {
     }
   }
 }
-  
