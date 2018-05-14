@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Button, Row, Form, Input, Col } from 'antd'
-import HomeSection from 'components/HomeSection'
+import HomeIntroduceItem from 'components/HomeIntroduceItem'
 import Character from 'components/Character'
 import Industry from 'components/Industry'
 import ReservationExperience from 'components/ReservationExperience'
-import HeadSection from 'components/HeadSection'
+import HomeHeadSection from 'components/HomeHeadSection'
 import styles from './index.less'
 import contents from './contents'
 import FreeTrialModal from './modal/index.js'
@@ -28,11 +28,11 @@ const Homepage = ({ homepage: modelState, dispatch, form }) => {
 
   return (
     <div className={styles.container}>
-      <HeadSection headSectionContent={headSectionContent} />
+      <HomeHeadSection headSectionContent={headSectionContent} />
       <div className={styles.homeSections}>
         {
           sectionContents.map(item => (
-            <HomeSection
+            <HomeIntroduceItem
               section={item}
             />
           ))

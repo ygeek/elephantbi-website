@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import ProductionSection from 'components/ProductionSection'
+import ProductionHeadSection from 'components/ProductionHeadSection'
 import ReservationExperience from 'components/ReservationExperience'
 import ProIntroduceItem from 'components/ProIntroduceItem'
 import proIntroduceContent from './contents'
@@ -14,7 +14,7 @@ const headSectionContent = {
 const Production = ({ dispatch }) => {
   return (
     <div className={styles.container}>
-      <ProductionSection headSectionContent={headSectionContent} />
+      <ProductionHeadSection headSectionContent={headSectionContent} />
       {
         proIntroduceContent.map(item => (
           <ProIntroduceItem

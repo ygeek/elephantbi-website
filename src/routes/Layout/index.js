@@ -34,17 +34,17 @@ const Layout = ({ children }) => {
         <Col span={5}>
           <ul>
             <li>商务咨询</li>
-            <li><img alt="" src={tel} />0411-39551681</li>
-            <li><img alt="" src={email} />bd@elephantbi.com</li>
+            <li><img alt="" src={tel} /><span>0411-39551681</span></li>
+            <li><img alt="" src={email} /><span>bd@elephantbi.com</span></li>
           </ul>
         </Col>
         <Col span={5}>
           <ul>
             <li>技术支持</li>
-            <li><img alt="" src={time} />工作日  09:00~19:00</li>
-            <li><img alt="" src={qq} />【待定】12345678</li>
-            <li><img alt="" src={tel} />0411-39551681</li>
-            <li><img alt="" src={email} />support@elephantbi.com</li>
+            <li><img alt="" src={time} /><span>工作日  09:00~19:00</span></li>
+            <li><img alt="" src={qq} /><span>【待定】12345678</span></li>
+            <li><img alt="" src={tel} /><span>0411-39551681</span></li>
+            <li><img alt="" src={email} /><span>support@elephantbi.com</span></li>
           </ul>
         </Col>
         <Col span={5} className={styles.qrcode}>

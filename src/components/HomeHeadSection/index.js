@@ -4,7 +4,7 @@ import { Button } from 'antd'
 import _ from 'lodash'
 import styles from './index.less'
 
-const HeadSection = ({ headSectionContent }) => {
+const HomeHeadSection = ({ headSectionContent }) => {
   return (
     <div
       className={styles.mainIntroduction}
@@ -23,4 +23,4 @@ const HeadSection = ({ headSectionContent }) => {
   )
 }
 
-export default HeadSection
+export default HomeHeadSection

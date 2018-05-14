@@ -4,7 +4,7 @@ import styles from './index.less'
 const leftImg = { height: '350px', width: '250px' }
 const rightImg = { height: '350px', width: '500px' }
 
-const HomeSection = ({ section }) => {
+const HomeIntroduceItem = ({ section }) => {
   const { title, subTitle, lists, type, backImg } = section
   return (
     <div
@@ -51,4 +51,4 @@ const HomeSection = ({ section }) => {
   )
 }
 
-export default HomeSection
+export default HomeIntroduceItem
