@@ -7,9 +7,18 @@ import styles from './index.less'
 const FormItem = Form.Item
 const { formContents } = contents
 
-const ReservationExperience = ({ form }) => {
+const ReservationExperience = ({ form, dispatch }) => {
   const { getFieldDecorator } = form
-
+  const onSubmit = () => {
+    form.validateFields((errors, values) => {
+      if (!errors) {
+        dispatch({
+          type: 'layout/reserveExperience',
+          payload: values
+        })
+      }
+    })
+  }
   return (
     <div className={styles.formSection}>
       <div className={styles.title}>预约体验大象BI</div>
@@ -21,7 +30,9 @@ const ReservationExperience = ({ form }) => {
                 <Col span={12} className={styles.formItem}>
                 <FormItem>
                 {
-                    getFieldDecorator(`${item.key}`,)(
+                    getFieldDecorator(`${item.key}`, {
+                      rules: [{ required: true, message: '此项是必填的' }]
+                    })(
                     <Input
                         placeholder={item.placeholder}
                         prefix={<img alt="" src={item.icon} className={styles.inputIcon} />}
@@ -35,7 +46,12 @@ const ReservationExperience = ({ form }) => {
         </Form>
       </div>
       <div className={styles.submitButton}>
-        <Button type="primary">提交</Button>
+        <Button
+          type="primary"
+          onClick={onSubmit}
+        >
+          提交
+        </Button>
       </div>
     </div>
   )

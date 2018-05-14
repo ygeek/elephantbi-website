@@ -9,12 +9,33 @@ import logo from 'assets/LOGO.png'
 import qrcode from 'assets/qrcode.jpg'
 import styles from './index.less'
 import Navigation from 'components/Navigation'
+import { routerRedux } from 'dva/router'
+import FreeTrialModal from 'components/FreeTrialModal'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, layout, dispatch }) => {
+  const { freeTrailModalVisible } = layout
+  const toHome = () => {
+    dispatch(routerRedux.push('/'))
+  } 
+  const toProduction = () => {
+    dispatch(routerRedux.push('/production'))
+  }
+  const toService = () => {
+    dispatch(routerRedux.push('/service'))
+  }
+  const toAbout = () => {
+    dispatch(routerRedux.push('/about'))
+  }
   return (
     <div>
       <div className={styles.navigation}>
-        <Navigation />
+        <Navigation
+          dispatch={dispatch}
+          toHome={toHome}
+          toProduction={toProduction}
+          toService={toService}
+          toAbout={toAbout}
+        />
       </div>
       <div className={styles.mainContent}>
         {children}
@@ -25,10 +46,10 @@ const Layout = ({ children }) => {
         </Col>
         <Col span={5}>
           <ul>
-            <li>首页</li>
-            <li>产品介绍</li>
-            <li>服务介绍</li>
-            <li>关于我们</li>
+            <li><a href="javascript:void(0);" onClick={toHome}>首页</a></li>
+            <li><a href="javascript:void(0);" onClick={toProduction}>产品介绍</a></li>
+            <li><a href="javascript:void(0);" onClick={toService}>服务介绍</a></li>
+            <li><a href="javascript:void(0);" onClick={toAbout}>关于我们</a></li>
           </ul>
         </Col>
         <Col span={5}>
@@ -52,8 +73,19 @@ const Layout = ({ children }) => {
           <div>关注ElephantBI</div>
         </Col>
       </Row>
+      {
+        freeTrailModalVisible ? (
+          <FreeTrialModal
+            dispatch={dispatch}
+          />
+        ) : null
+      }
     </div>
   )
 }
 
-export default connect()(Layout)
+const mapStateToProps = ({ layout }) => ({
+  layout
+})
+
+export default connect(mapStateToProps)(Layout)

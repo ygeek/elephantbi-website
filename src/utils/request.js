@@ -1,7 +1,7 @@
 import fetch from 'dva/fetch';
 import _ from 'lodash';
 import urljoin from 'url-join';
-import jsonToQuery from './url_helper';
+import jsonToQuery from './url_helper'
 import { HOST } from 'constants/APIConstants';
 
 export function getRequestHeaders() {

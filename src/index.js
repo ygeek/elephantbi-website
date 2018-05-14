@@ -1,5 +1,6 @@
 import dva from 'dva';
 import createLoading from 'dva-loading';
+import Layout from 'antd';
 
 const getInitialState = () => {
 
@@ -12,11 +13,6 @@ const app = dva({
 app.use(createLoading());
 
 [
-  'example',
-  'homepage',
-  'production',
-  'service',
-  'about'
 ].forEach((fileName) => {
   app.model(require(`./models/${fileName}.js`).default);
 });

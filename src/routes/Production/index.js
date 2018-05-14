@@ -12,9 +12,15 @@ const headSectionContent = {
 }
 
 const Production = ({ dispatch }) => {
+  const showFreeTrialModal = () => {
+    dispatch({ type: 'layout/showFreeTrailModal' })
+  }
   return (
     <div className={styles.container}>
-      <ProductionHeadSection headSectionContent={headSectionContent} />
+      <ProductionHeadSection
+        headSectionContent={headSectionContent}
+        showFreeTrialModal={showFreeTrialModal}
+      />
       {
         proIntroduceContent.map(item => (
           <ProIntroduceItem
@@ -23,7 +29,9 @@ const Production = ({ dispatch }) => {
         ))
       }
       
-      <ReservationExperience />
+      <ReservationExperience
+        dispatch={dispatch}
+      />
     </div>
   )
 }

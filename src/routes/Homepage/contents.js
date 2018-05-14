@@ -186,10 +186,10 @@ const industryContents = [
 const formContents = [
   { key: 'name', placeholder: '姓名', icon: name },
   { key: 'email', placeholder: '邮箱', icon: email },
-  { key: 'telephone', placeholder: '联系电话', icon: tel },
+  { key: 'mobile', placeholder: '联系电话', icon: tel },
   { key: 'company', placeholder: '公司名称', icon: company },
   { key: 'department', placeholder: '所属部门', icon: department },
-  { key: 'position', placeholder: '职位', icon: position }
+  { key: 'title', placeholder: '职位', icon: position }
 ]
 
 export default { sectionContents, characterContents, industryContents, formContents }

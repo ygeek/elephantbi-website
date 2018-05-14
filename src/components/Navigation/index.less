@@ -14,7 +14,12 @@
     display: inline-block;
     list-style-type: none;
     padding: 0 25px;
-    
+    a {
+      color: #4a4a4a;
+      &:focus {
+        text-decoration: none
+      }
+    }
   }
   .actionButton {
     :global(.ant-btn) {
@@ -25,7 +30,6 @@
 
 .loginContent {
   div {
-    margin: 10px 0px;
     color: #666;
     font-size: 14px;
   }

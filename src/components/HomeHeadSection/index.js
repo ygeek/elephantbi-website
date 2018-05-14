@@ -4,7 +4,7 @@ import { Button } from 'antd'
 import _ from 'lodash'
 import styles from './index.less'
 
-const HomeHeadSection = ({ headSectionContent }) => {
+const HomeHeadSection = ({ headSectionContent, showFreeTrialModal }) => {
   return (
     <div
       className={styles.mainIntroduction}
@@ -17,7 +17,12 @@ const HomeHeadSection = ({ headSectionContent }) => {
         {_.get(headSectionContent, 'content', '')}
       </div>
       <div className={styles.actionButton}>
-        <Button type="primary">免费试用</Button>
+        <Button
+          type="primary"
+          onClick={showFreeTrialModal}
+        >
+          免费试用
+        </Button>
       </div>
     </div>
   )

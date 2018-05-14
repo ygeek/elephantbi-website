@@ -13,6 +13,7 @@ class Navigation extends React.Component {
     this.changeValue = this.changeValue.bind(this)
     this.onVisibleChange = this.onVisibleChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.showModal = this.showModal.bind(this)
   }
 
   changeValue(e) {
@@ -27,7 +28,12 @@ class Navigation extends React.Component {
     this.setState({ visible: false })
   }
 
+  showModal() {
+    this.props.dispatch({ type: 'layout/showFreeTrailModal' })
+  }
+
   render() {
+    const { dispatch, toHome, toProduction, toService, toAbout } = this.props
     const loginContent = (
       <div className={styles.loginContent}>
         <div>
@@ -56,10 +62,10 @@ class Navigation extends React.Component {
         <Col span={2}><img alt="" src={QR} /></Col>
         <Col span={6} offset={13}>
           <ul>
-            <li>首页</li>
-            <li>产品介绍</li>
-            <li>服务支持</li>
-            <li>关于我们</li>
+            <li><a href="javascript:void(0);" onClick={toHome}>首页</a></li>
+            <li><a href="javascript:void(0);" onClick={toProduction}>产品介绍</a></li>
+            <li><a href="javascript:void(0);" onClick={toService}>服务支持</a></li>
+            <li><a href="javascript:void(0);" onClick={toAbout}>关于我们</a></li>
           </ul>
         </Col>
         <Col span={3} className={styles.actionButton}>
@@ -72,7 +78,12 @@ class Navigation extends React.Component {
           >
             <Button>登录</Button>
           </Popover>
-          <Button type="primary">免费试用</Button>
+          <Button
+            type="primary"
+            onClick={this.showModal}
+          >
+          免费试用
+          </Button>
         </Col>
       </Row>
     )

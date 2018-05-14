@@ -5,12 +5,14 @@ import ServiceHeadSection from 'components/ServiceHeadSection'
 import ContractInformation from 'components/ContractInformation'
 import FeedbackAndSuggestions from 'components/FeedbackAndSuggestions'
 
-const Service = () => {
+const Service = ({ dispatch }) => {
   return (
     <div className={styles.container}>
       <ServiceHeadSection />
       <ContractInformation />
-      <FeedbackAndSuggestions />
+      <FeedbackAndSuggestions
+        dispatch={dispatch}
+      />
     </div>
   )
 }

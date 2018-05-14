@@ -8,7 +8,6 @@ import ReservationExperience from 'components/ReservationExperience'
 import HomeHeadSection from 'components/HomeHeadSection'
 import styles from './index.less'
 import contents from './contents'
-import FreeTrialModal from './modal/index.js'
 
 const { sectionContents, characterContents, industryContents, formContents } = contents
 const headSectionContent = {
@@ -18,17 +17,19 @@ const headSectionContent = {
 }
 const FormItem = Form.Item
 
-const Homepage = ({ homepage: modelState, dispatch, form }) => {
+const Homepage = ({ dispatch, form }) => {
   const { getFieldDecorator } = form
-  const { freeTrialVisible } = modelState
 
   const showFreeTrialModal = () => {
-    dispatch({ type: 'homepage/showFreeTrailModal' })
+    dispatch({ type: 'layout/showFreeTrailModal' })
   }
 
   return (
     <div className={styles.container}>
-      <HomeHeadSection headSectionContent={headSectionContent} />
+      <HomeHeadSection
+        headSectionContent={headSectionContent}
+        showFreeTrialModal={showFreeTrialModal}
+      />
       <div className={styles.homeSections}>
         {
           sectionContents.map(item => (
@@ -94,20 +95,11 @@ const Homepage = ({ homepage: modelState, dispatch, form }) => {
           </Button>
         </div>
       </div>
-      <ReservationExperience />
-      {
-        freeTrialVisible ? (
-          <FreeTrialModal
-            dispatch={dispatch}
-          />
-        ) : null
-      }
+      <ReservationExperience
+        dispatch={dispatch}
+      />
     </div>
   )
 }
 
-const mapStateToProps = ({ homepage }) => ({
-  homepage
-})
-
-export default connect(mapStateToProps)(Form.create()(Homepage))
+export default connect()(Form.create()(Homepage))

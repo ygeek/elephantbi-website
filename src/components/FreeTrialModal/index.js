@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Input, Form, Modal } from 'antd'
-import contents from '../contents'
+import contents from 'routes/Homepage/contents'
 import styles from './index.less'
 
 const { formContents } = contents
@@ -9,7 +9,17 @@ const FreeTrialModal = ({ form, dispatch }) => {
   const { getFieldDecorator } = form
   const FormItem = Form.Item
   const closeModal = () => {
-    dispatch({ type: 'homepage/hideFreeTrailModal' })
+    dispatch({ type: 'layout/hideFreeTrailModal' })
+  }
+  const onSubmit = () => {
+    form.validateFields((errors, values) => {
+      if (!errors) {
+        dispatch({
+          type: 'layout/reserveExperience',
+          payload: values
+        })
+      }
+    })
   }
   return (
     <Modal
@@ -17,7 +27,7 @@ const FreeTrialModal = ({ form, dispatch }) => {
       okText="确认"
       cancelText="取消"
       visible={true}
-      onOk={() => {}}
+      onOk={onSubmit}
       onCancel={closeModal}
     >
       <Form>
@@ -27,7 +37,9 @@ const FreeTrialModal = ({ form, dispatch }) => {
               key={item.key}
             >
               {
-                getFieldDecorator(`${item.key}`)(
+                getFieldDecorator(`${item.key}`, {
+                  rules: [{ required: true, message: '此项是必填的' }]
+                })(
                   <Input
                     placeholder={item.placeholder}
                     prefix={<img alt="" src={item.icon} className={styles.inputIcon} />}

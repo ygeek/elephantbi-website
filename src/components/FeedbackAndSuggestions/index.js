@@ -13,7 +13,7 @@ const { TextArea } = Input
 const formContents = [
   { name: 'name', placeholder: '姓名', icon: name },
   { name: 'email', placeholder: '邮箱', icon: email },
-  { name: 'tel', placeholder: '电话', icon: tel },
+  { name: 'mobile', placeholder: '电话', icon: tel },
   { name: 'company', placeholder: '公司', icon: company }
 ]
 class FeedbackAndSuggestions extends React.Component {
@@ -25,8 +25,18 @@ class FeedbackAndSuggestions extends React.Component {
   }
 
   render() {
-    const { form } = this.props
+    const { form, dispatch } = this.props
     const { getFieldDecorator } = form
+    const onSubmit = () => {
+      form.validateFields((errors, values) => {
+        if (!errors) {
+          dispatch({
+            type: 'layout/submitFeedbacks',
+            payload: values
+          })
+        }
+      })
+    }
 
     return (
       <div className={styles.container}>
@@ -40,7 +50,9 @@ class FeedbackAndSuggestions extends React.Component {
                   <Col className={styles.formItem} span={12}>
                     <FormItem>
                       {
-                        getFieldDecorator(`${formItem.name}`)(
+                        getFieldDecorator(`${formItem.name}`, {
+                          rules: [{ required: true, message: '此项是必填的' }]
+                        })(
                           <Input
                             prefix={<img alt="" src={formItem.icon} />}
                             placeholder={formItem.placeholder}
@@ -56,6 +68,7 @@ class FeedbackAndSuggestions extends React.Component {
               <FormItem>
                 {
                   getFieldDecorator('type', {
+                    rules: [{ required: true, message: '此项是必填的' }],
                     initialValue: '0'
                   })(
                     <RadioGroup>
@@ -69,7 +82,9 @@ class FeedbackAndSuggestions extends React.Component {
             <Col span={24} className={styles.textareaField}>
               <FormItem>
                 {
-                  getFieldDecorator('content')(
+                  getFieldDecorator('content', {
+                    rules: [{ required: true, message: '此项是必填的' }]
+                  })(
                     <TextArea
                       placeholder="请填写您项反馈的问题或建议"
                       className={styles.textarea}
@@ -81,7 +96,12 @@ class FeedbackAndSuggestions extends React.Component {
           </Form>
         </Row>
         <div className={styles.submitButton}>
-          <Button type="primary">提交</Button>
+          <Button
+            type="primary"
+            onClick={onSubmit}
+          >
+            提交
+          </Button>
         </div>
       </div>
     )
