@@ -15,7 +15,8 @@ app.use(createLoading());
   'example',
   'homepage',
   'production',
-  'service'
+  'service',
+  'about'
 ].forEach((fileName) => {
   app.model(require(`./models/${fileName}.js`).default);
 });
