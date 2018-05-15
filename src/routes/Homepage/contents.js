@@ -5,6 +5,7 @@ import character2 from 'assets/character2.png'
 import character3 from 'assets/character3.png'
 import character4 from 'assets/character4.png'
 import name from 'assets/name.png'
+import name1 from 'assets/name1.png'
 import email from 'assets/email.png'
 import tel from 'assets/tel.png'
 import company from 'assets/company.png'
@@ -184,7 +185,7 @@ const industryContents = [
 ]
 
 const formContents = [
-  { key: 'name', placeholder: '姓名', icon: name },
+  { key: 'name', placeholder: '姓名', icon: name1 },
   { key: 'email', placeholder: '邮箱', icon: email },
   { key: 'mobile', placeholder: '联系电话', icon: tel },
   { key: 'company', placeholder: '公司名称', icon: company },

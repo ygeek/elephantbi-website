@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Form, Input, Col, Button } from 'antd'
+import uuid from 'uuid'
 import contents from 'routes/Homepage/contents'
 import styles from './index.less'
 

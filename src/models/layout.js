@@ -1,5 +1,5 @@
 import pathToRegexp from 'path-to-regexp'
-import { _reserveExperience, _submitFeedbacks } from 'services/layout'
+import { _reserveExperience, _submitFeedbacks, _confirmDomain } from 'services/layout'
 import globalMessage from 'helpers/messages'
 
 export default {
@@ -55,6 +55,18 @@ export default {
         } else {
           globalMessage('error', '提交失败，请重试')
         }
+      }
+    },
+
+    * confirmDomain({ payload }, { select, call, put }) {
+      const { data, err } = yield call(_confirmDomain, payload)
+      if (err) {
+
+      }
+      if (data) {
+        return new Promise((resolve, reject) => {
+          resolve(data)
+        })
       }
     }
   },

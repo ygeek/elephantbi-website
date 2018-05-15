@@ -15,3 +15,11 @@ export async function _submitFeedbacks(params) {
     body: params
   })
 }
+
+export async function _confirmDomain(params) {
+  return requestSimple({
+    url: '/website/domain',
+    method: 'POST',
+    body: params
+  })
+}

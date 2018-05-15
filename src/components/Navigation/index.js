@@ -1,23 +1,19 @@
 import React from 'react';
-import { Button, Col, Row, Popover, Input } from 'antd'
+import { Button, Col, Row, Popover, Input, Form } from 'antd'
 import QR from 'assets/LOGO 2.png'
 import styles from './index.less'
+
+const FormItem = Form.Item
 
 class Navigation extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      submitValue: null,
       visible: false
     }
-    this.changeValue = this.changeValue.bind(this)
     this.onVisibleChange = this.onVisibleChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
     this.showModal = this.showModal.bind(this)
-  }
-
-  changeValue(e) {
-    this.setState({ submitValue: e.target.value })
   }
 
   onVisibleChange(visible) {
@@ -25,7 +21,29 @@ class Navigation extends React.Component {
   }
 
   onSubmit() {
-    this.setState({ visible: false })
+    const { form, dispatch } = this.props
+    form.validateFields((errors, values) => {
+      if (!errors) {
+        dispatch({
+          type: 'layout/confirmDomain',
+          payload: values
+        }).then((data) => {
+          if (data.exists === 1) {
+            window.location.href = `http://${form.getFieldValue('domain')}.elephantBI.com:8686`
+          }
+          if (data.exists === 0) {
+            form.setFields({
+              domain: {
+                value: form.getFieldValue('domain'),
+                errors: [new Error('输入的域名不存在，请重新检查。如果您还没有团队请联系我们申请试用')]
+              }
+            })
+          }
+        }).catch((err) => {
+
+        })
+      }
+    })
   }
 
   showModal() {
@@ -33,18 +51,27 @@ class Navigation extends React.Component {
   }
 
   render() {
-    const { dispatch, toHome, toProduction, toService, toAbout } = this.props
+    const { dispatch, toHome, toProduction, toService, toAbout, form } = this.props
+    const { getFieldDecorator } = form
     const loginContent = (
       <div className={styles.loginContent}>
         <div>
-          <Input
-            placeholder="请输入团队域名"
-            addonAfter="elephantbi.com"
-            value={this.state.submitValue}
-            onChange={this.changeValue}
-          />
+          <Form>
+            <FormItem>
+              {
+                getFieldDecorator('domain', {
+                  rules: [{ required: true, message: '此项是必填的' }]
+                })(
+                  <Input
+                    placeholder="请输入团队域名"
+                    addonAfter="elephantbi.com"
+                />
+                )
+              }
+            </FormItem>
+          </Form>
+
         </div>
-        <div>请输入您的团队登录域名</div>
         <div className={styles.submitButton}>
           <Button
             type="primary"
@@ -90,4 +117,4 @@ class Navigation extends React.Component {
   }
 }
 
-export default Navigation
+export default Form.create()(Navigation)

@@ -3,6 +3,7 @@ import { Form, Input, Row, Col, Radio, Button } from 'antd'
 import name from 'assets/name1.png'
 import company from 'assets/company1.png'
 import email from 'assets/email.png'
+import uuid from 'uuid'
 import tel from 'assets/tel.png'
 import styles from './index.less'
 
@@ -47,7 +48,7 @@ class FeedbackAndSuggestions extends React.Component {
             {
               formContents.map((formItem) => {
                 return (
-                  <Col className={styles.formItem} span={12}>
+                  <Col key={uuid()} className={styles.formItem} span={12}>
                     <FormItem>
                       {
                         getFieldDecorator(`${formItem.name}`, {

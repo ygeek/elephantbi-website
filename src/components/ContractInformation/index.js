@@ -4,6 +4,7 @@ import tecSupport from 'assets/tecSupport.png'
 import complaints from 'assets/complaints.png'
 import emailblack from 'assets/email.png'
 import telblack from 'assets/tel.png'
+import uuid from 'uuid'
 import qqblack from 'assets/qq.png'
 import timeblack from 'assets/time.png'
 import styles from './index.less'
@@ -42,13 +43,13 @@ const ContractInformation = () => {
       {
         contractContent.map((item) => {
           return (
-            <div className={styles.contractItem}>
+            <div key={uuid()} className={styles.contractItem}>
               <div><img alt="" src={item.icon}  /></div>
               <div className={styles.title}>{item.title}</div>
               <ul>
                 {
                   item.lists.map((item) => {
-                    return <li><img alt="" src={item.icon} /><span>{item.content}</span></li>
+                    return <li key={uuid()}><img alt="" src={item.icon} /><span>{item.content}</span></li>
                   })
                 }
               </ul>

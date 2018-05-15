@@ -4,6 +4,7 @@ import { Button, Row, Form, Input, Col } from 'antd'
 import HomeIntroduceItem from 'components/HomeIntroduceItem'
 import Character from 'components/Character'
 import Industry from 'components/Industry'
+import uuid from 'uuid'
 import ReservationExperience from 'components/ReservationExperience'
 import HomeHeadSection from 'components/HomeHeadSection'
 import styles from './index.less'
@@ -32,24 +33,28 @@ const Homepage = ({ dispatch, form }) => {
       />
       <div className={styles.homeSections}>
         {
-          sectionContents.map(item => (
-            <HomeIntroduceItem
-              section={item}
-            />
-          ))
+          sectionContents.map((item, index) => {
+            return (
+              <HomeIntroduceItem
+                section={item}
+                key={uuid()}
+              />
+            )
+          })
         }
       </div>
       <div className={styles.characters}>
         <div className={styles.title}>角色解决方案</div>
         <div className={styles.characterContents}>
           {
-            characterContents.map((item) => {
+            characterContents.map((item, index) => {
               return (
-                <Row>
+                <Row key={uuid()}>
                   {
                     item.map(character => (
                       <Character
                         character={character}
+                        key={uuid()}
                       />
                     ))
                   }
@@ -71,13 +76,14 @@ const Homepage = ({ dispatch, form }) => {
         <div className={styles.title}>行业解决方案</div>
         <div>
           {
-            industryContents.map((item) => {
+            industryContents.map((item, index) => {
               return (
-                <Row>
+                <Row key={uuid()}>
                   {
                     item.map(industry => (
                       <Industry
                         industry={industry}
+                        key={uuid()}
                       />
                     ))
                   }

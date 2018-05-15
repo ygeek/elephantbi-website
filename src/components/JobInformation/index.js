@@ -1,5 +1,6 @@
 import React from 'react';
 import { Collapse } from 'antd';
+import uuid from 'uuid'
 import styles from './index.less'
 
 const { Panel } = Collapse;
@@ -138,7 +139,7 @@ const JobInformation = () => {
         <div>
           <ol>
             {
-              content.lists.map(list => (<li>{list}</li>))
+              content.lists.map(list => (<li key={uuid()}>{list}</li>))
             }
           </ol>
         </div>
@@ -149,13 +150,13 @@ const JobInformation = () => {
         <div>【岗位职责】</div>
         <ol>
           {
-            content.lists.responsibility.map(list => <li>{list}</li>)
+            content.lists.responsibility.map(list => <li key={uuid()}>{list}</li>)
           }
         </ol>
         <div>【任职要求】</div>
         <ol>
           {
-            content.lists.claim.map(list => (<li>{list}</li>))
+            content.lists.claim.map(list => (<li key={uuid()}>{list}</li>))
           }
         </ol>
       </div>
