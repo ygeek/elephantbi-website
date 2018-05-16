@@ -45,10 +45,11 @@ class FeedbackAndSuggestions extends React.Component {
         <div className={styles.subTitle}>填写下面的表格，我们会尽快与您联系</div>
         <Row className={styles.formField}>
           <Form>
+            <Row>
             {
               formContents.map((formItem) => {
                 return (
-                  <Col key={uuid()} className={styles.formItem} span={12}>
+                  <div className={styles.formItem}>
                     <FormItem>
                       {
                         getFieldDecorator(`${formItem.name}`, {
@@ -61,11 +62,12 @@ class FeedbackAndSuggestions extends React.Component {
                         )
                       }
                     </FormItem>
-                  </Col>
+                  </div>
                 )
               })
             }
-            <Col span={24} className={styles.radioField}>
+            </Row>
+            <div className={styles.radioField}>
               <FormItem>
                 {
                   getFieldDecorator('type', {
@@ -79,8 +81,8 @@ class FeedbackAndSuggestions extends React.Component {
                   )
                 }
               </FormItem>
-            </Col>
-            <Col span={24} className={styles.textareaField}>
+            </div>
+            <div className={styles.textareaField}>
               <FormItem>
                 {
                   getFieldDecorator('content', {
@@ -93,7 +95,7 @@ class FeedbackAndSuggestions extends React.Component {
                   )
                 }
               </FormItem>
-            </Col>
+            </div>
           </Form>
         </Row>
         <div className={styles.submitButton}>

@@ -12,14 +12,21 @@
     margin-bottom: 50px;
   }
   .formField {
-    margin: 0 400px;
+    width: 1000px;
+    display: inline-block;
+    overflow: hidden;
     .formItem {
       padding: 0px 40px;
+      display: inline-block;
+      width: 50%;
+      float: left;
+      text-align: left;
       :global(.ant-input) {
         height: 50px;
         border: none;
         border-radius: 0px;
         border-bottom: 1px solid #ccc;
+        box-shadow: none;
       }
     }
   }

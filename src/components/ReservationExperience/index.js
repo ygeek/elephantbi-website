@@ -28,7 +28,7 @@ const ReservationExperience = ({ form, dispatch }) => {
         <Form>
             {
             formContents.map(item => (
-                <Col span={12} className={styles.formItem}>
+              <div className={styles.formItem}>
                 <FormItem>
                 {
                     getFieldDecorator(`${item.key}`, {
@@ -41,7 +41,7 @@ const ReservationExperience = ({ form, dispatch }) => {
                     )
                 }
                 </FormItem>
-            </Col>
+              </div>
             ))
             }
         </Form>

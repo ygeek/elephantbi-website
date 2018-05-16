@@ -1,6 +1,7 @@
 .container {
   height: 500px;
-  padding: 48px 360px 29px 360px;
+  padding: 48px 0px 29px 0px;
+  text-align: center;
   .title {
     font-size: 30px;
     color: #539ef2;
@@ -8,10 +9,14 @@
   }
   .content {
     height: calc(~"100% - 30px");
+    width: 80%;
+    display: inline-block;
     .introduceSection {
-      padding-top: 43px;
+      display: inline-block;
       float: left;
+      padding-top: 43px;
       width: 50%;
+      text-align: left;
       .subTitle {
         font-size: 18px;
         color: #4a4a4a;
@@ -29,7 +34,7 @@
     .backImgSection {
       width: 50%;
       float: left;
-      padding-top: 20px;
+      display: inline-block;
       text-align: center;
     }
   }

@@ -7,7 +7,8 @@ export default {
   namespace: 'layout',
   
   state: {
-    freeTrailModalVisible: false
+    freeTrailModalVisible: false,
+    page: null
   },
   
   subscriptions: {
@@ -16,7 +17,7 @@ export default {
         const { pathname } = location
         const match = pathToRegexp('/(.*)').exec(pathname);
         if (match) {
-  
+          dispatch({ type: 'setPage', payload: match[1] })
         }
       })
     }
@@ -77,6 +78,9 @@ export default {
     },
     hideFreeTrailModal(state) {
       return { ...state, freeTrailModalVisible: false }
+    },
+    setPage(state, { payload }) {
+      return { ...state, page: payload }
     }
   }
 }

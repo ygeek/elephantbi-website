@@ -5,6 +5,10 @@ import styles from './index.less'
 
 const FormItem = Form.Item
 
+const hoverStyle = {
+  fontWeight: 'bold'
+}
+
 class Navigation extends React.Component {
   constructor(props) {
     super(props)
@@ -51,7 +55,7 @@ class Navigation extends React.Component {
   }
 
   render() {
-    const { dispatch, toHome, toProduction, toService, toAbout, form } = this.props
+    const { dispatch, toHome, toProduction, toService, toAbout, form, page } = this.props
     const { getFieldDecorator } = form
     const loginContent = (
       <div className={styles.loginContent}>
@@ -86,16 +90,10 @@ class Navigation extends React.Component {
   
     return (
       <Row className={styles.navigation}>
-        <Col span={2}><img alt="" src={QR} /></Col>
-        <Col span={6} offset={13}>
-          <ul>
-            <li><a href="javascript:void(0);" onClick={toHome}>首页</a></li>
-            <li><a href="javascript:void(0);" onClick={toProduction}>产品介绍</a></li>
-            <li><a href="javascript:void(0);" onClick={toService}>服务支持</a></li>
-            <li><a href="javascript:void(0);" onClick={toAbout}>关于我们</a></li>
-          </ul>
-        </Col>
-        <Col span={3} className={styles.actionButton}>
+        <a href="javascript:void(0);" onClick={toHome}>
+          <img alt="" src={QR} />
+        </a>
+        <span span={3} className={styles.actionButton}>
           <Popover
             trigger="click"
             placement="bottom"
@@ -111,7 +109,13 @@ class Navigation extends React.Component {
           >
           免费试用
           </Button>
-        </Col>
+        </span>
+        <ul>
+          <li style={ page === '' ? hoverStyle : null }><a href="javascript:void(0);" onClick={toHome}>首页</a></li>
+          <li style={ page === 'production' ? hoverStyle : null }><a href="javascript:void(0);" onClick={toProduction}>产品介绍</a></li>
+          <li style={ page === 'service' ? hoverStyle : null }><a href="javascript:void(0);" onClick={toService}>服务支持</a></li>
+          <li style={ page === 'about' ? hoverStyle : null }><a href="javascript:void(0);" onClick={toAbout}>关于我们</a></li>
+        </ul>
       </Row>
     )
   }

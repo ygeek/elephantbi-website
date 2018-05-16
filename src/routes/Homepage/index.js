@@ -49,7 +49,7 @@ const Homepage = ({ dispatch, form }) => {
           {
             characterContents.map((item, index) => {
               return (
-                <Row key={uuid()}>
+                <div className={styles.rowCard} key={uuid()}>
                   {
                     item.map(character => (
                       <Character
@@ -58,7 +58,7 @@ const Homepage = ({ dispatch, form }) => {
                       />
                     ))
                   }
-                </Row>
+                </div>
               )
             })
           }
@@ -74,11 +74,11 @@ const Homepage = ({ dispatch, form }) => {
       </div>
       <div className={styles.industries}>
         <div className={styles.title}>行业解决方案</div>
-        <div>
+        <div className={styles.industryContents}>
           {
             industryContents.map((item, index) => {
               return (
-                <Row key={uuid()}>
+                <div className={styles.rowCard} key={uuid()}>
                   {
                     item.map(industry => (
                       <Industry
@@ -87,7 +87,7 @@ const Homepage = ({ dispatch, form }) => {
                       />
                     ))
                   }
-                </Row>
+                </div>
               )
             })
           }

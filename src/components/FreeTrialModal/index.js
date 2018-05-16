@@ -23,18 +23,20 @@ const FreeTrialModal = ({ form, dispatch }) => {
   }
   return (
     <Modal
-      title="预约体验大象BI"
-      okText="确认"
-      cancelText="取消"
+      footer={null}
       visible={true}
-      onOk={onSubmit}
+      className={styles.modalContainer}
+      width={500}
       onCancel={closeModal}
     >
+      <div className={styles.title}>预约体验大象BI</div>
+      <div className={styles.subTitle}>大象BI团队将尽快和您联系</div>
       <Form>
         {
           (formContents || []).map(item => (
             <FormItem
               key={item.key}
+              className={styles.formItem}
             >
               {
                 getFieldDecorator(`${item.key}`, {
@@ -51,6 +53,12 @@ const FreeTrialModal = ({ form, dispatch }) => {
           ))
         }
       </Form>
+      <Button
+        type="primary"
+        onClick={onSubmit}
+      >
+        提交
+      </Button>
     </Modal>
   )
 }
