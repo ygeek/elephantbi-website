@@ -37,19 +37,12 @@ function RouterConfig({ history, app }) {
   return (
     <Router history={history}>
       <Switch>
-        <Route
-          path="/"
-          component={(props) => {
-            return (
-              <Layout>
-                <Route exact path="/" component={Homepage} />
-                <Route path="/production" component={Production} />
-                <Route path="/service" component={Service} />
-                <Route path="/about" component={About} />
-              </Layout>
-            )
-          }}
-        />
+        <Layout>
+          <Route exact path="/" component={Homepage} />
+          <Route path="/production" component={Production} />
+          <Route path="/service" component={Service} />
+          <Route path="/about" component={About} />
+        </Layout>
       </Switch>
     </Router>
   );
