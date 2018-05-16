@@ -16,8 +16,6 @@
     "path-to-regexp": "^2.2.1",
     "qs": "^6.5.2",
     "roadhog": "^2.3.0",
-    "umi": "^1.0.0-0",
-    "umi-plugin-dva": "^0.1.5",
     "url-join": "^4.0.0",
     "uuid": "^3.2.1"
   },
