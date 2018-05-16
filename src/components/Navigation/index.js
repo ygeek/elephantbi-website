@@ -33,7 +33,7 @@ class Navigation extends React.Component {
           payload: values
         }).then((data) => {
           if (data.exists === 1) {
-            window.location.href = `http://${form.getFieldValue('domain')}.elephantBI.com:8686`
+            window.location.href = `http://${form.getFieldValue('domain')}.elephantbi.com`
           }
           if (data.exists === 0) {
             form.setFields({
