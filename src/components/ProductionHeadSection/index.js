@@ -9,7 +9,6 @@ const ProductionHeadSection = ({ headSectionContent, showFreeTrialModal }) => {
     <div
       className={styles.mainIntroduction}
     >
-      <div className={styles.title}>{_.get(headSectionContent, 'title', '')}</div>
       <div className={styles.firstLevelContent}>
         {_.get(headSectionContent, 'subTitle', '')}
       </div>

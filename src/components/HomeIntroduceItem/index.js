@@ -10,7 +10,7 @@ const HomeIntroduceItem = ({ section }) => {
   return (
     <div
       className={styles.container}
-      style={type === 1 ? { backgroundColor: '#f0f0f0' } : null}
+      style={type === 1 ? { backgroundColor: '#EAEEFE' } : null}
     >
       <div className={styles.title}>{title}</div>
       {

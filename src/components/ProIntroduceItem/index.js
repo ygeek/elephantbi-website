@@ -25,7 +25,7 @@ const ProIntroduceItem = ({ proIntroduce }) => {
         ) : (
           <div
             className={styles.container}
-            style={{ backgroundColor: '#f0f0f0' }}
+            style={{ backgroundColor: '#EAEEFE' }}
           >
             <div className={styles.imgSection}>
               <img
