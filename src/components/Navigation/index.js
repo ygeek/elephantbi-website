@@ -23,6 +23,8 @@ class Navigation extends React.Component {
   }
 
   onVisibleChange(visible) {
+    const { form } = this.props
+    form.resetFields()
     this.setState({ visible })
   }
 
