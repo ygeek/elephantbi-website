@@ -13,9 +13,9 @@ const { formContents } = contents
 const ReservationExperience = ({ form, toggleLoading }) => {
   const { getFieldDecorator } = form
   const onSubmit = () => {
-    toggleLoading()
     form.validateFields((errors, values) => {
       if (!errors) {
+        toggleLoading()
         async function reserveExperience() {
           const { data, err } = await _reserveExperience(values)
           if (err) {

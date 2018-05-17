@@ -31,9 +31,9 @@ class FeedbackAndSuggestions extends React.Component {
     const { form, toggleLoading } = this.props
     const { getFieldDecorator } = form
     const onSubmit = () => {
-      toggleLoading()
       form.validateFields((errors, values) => {
         if (!errors) {
+          toggleLoading()
           async function submitFeedbacks() {
             const { type } = values
             const { data, err } = await _submitFeedbacks(values)

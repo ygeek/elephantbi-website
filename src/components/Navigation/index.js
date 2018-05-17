@@ -23,6 +23,17 @@ class Navigation extends React.Component {
     this.onSubmit = this.onSubmit.bind(this)
   }
 
+  componentWillMount() {
+    const href = window.location.href
+    const match = href.split('/')
+    const matchPage = match[match.length - 1]
+    if (matchPage === '') {
+      this.setState({ page: 'home' })
+    } else {
+      this.setState({ page: matchPage })
+    }
+  }
+
   onVisibleChange(visible) {
     this.setState({ visible })
   }
