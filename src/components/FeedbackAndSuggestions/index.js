@@ -28,9 +28,10 @@ class FeedbackAndSuggestions extends React.Component {
   }
 
   render() {
-    const { form } = this.props
+    const { form, toggleLoading } = this.props
     const { getFieldDecorator } = form
     const onSubmit = () => {
+      toggleLoading()
       form.validateFields((errors, values) => {
         if (!errors) {
           async function submitFeedbacks() {
@@ -40,6 +41,7 @@ class FeedbackAndSuggestions extends React.Component {
               globalMessage('error', '网络出现错误，请连接网络后重试')
             }
             if (data) {
+              toggleLoading()
               if (data.beary_status === 200 || data.ding_status === 200) {
                 if (type === '0') {
                   globalMessage('success', '提交成功，您的问题非常重要，我们将会尽快以邮件回复您')

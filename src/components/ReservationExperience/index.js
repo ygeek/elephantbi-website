@@ -10,9 +10,10 @@ import styles from './index.less'
 const FormItem = Form.Item
 const { formContents } = contents
 
-const ReservationExperience = ({ form }) => {
+const ReservationExperience = ({ form, toggleLoading }) => {
   const { getFieldDecorator } = form
   const onSubmit = () => {
+    toggleLoading()
     form.validateFields((errors, values) => {
       if (!errors) {
         async function reserveExperience() {
@@ -21,6 +22,7 @@ const ReservationExperience = ({ form }) => {
             globalMessage('error', '网络出现错误，请连接网络后重试')
           }
           if (data) {
+            toggleLoading()
             if (data.beary_status === 200 || data.ding_status === 200) {
               globalMessage('success', '提交成功，我们将尽快与您取得联系')
             } else {

@@ -4,6 +4,7 @@ import ProductionHeadSection from 'components/ProductionHeadSection'
 import ReservationExperience from 'components/ReservationExperience'
 import ProIntroduceItem from 'components/ProIntroduceItem'
 import uuid from 'uuid'
+import { Spin } from 'antd'
 import FreeTrialModal from 'components/FreeTrialModal'
 import proIntroduceContent from './contents'
 import styles from './index.less'
@@ -17,7 +18,8 @@ class Production extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      modalVisible: false
+      modalVisible: false,
+      loading: false
     }
   }
 
@@ -27,6 +29,10 @@ class Production extends React.Component {
     }
     const hideFreeTrialModal = () => {
       this.setState({ modalVisible: false })
+    }
+    const toggleLoading = () => {
+      const { loading } = this.state
+      this.setState({ loading: !loading })
     }
     return (
       <div className={styles.container}>
@@ -42,8 +48,11 @@ class Production extends React.Component {
             />
           ))
         }
-        
-        <ReservationExperience />
+        <Spin spinning={this.state.loading}>
+          <ReservationExperience
+            toggleLoading={toggleLoading}
+          />
+        </Spin>
 
         <FreeTrialModal
           visible={this.state.modalVisible}
