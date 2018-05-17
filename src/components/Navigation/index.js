@@ -16,22 +16,10 @@ class Navigation extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      visible: false,
-      page: 'home'
+      visible: false
     }
     this.onVisibleChange = this.onVisibleChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-  }
-
-  componentWillMount() {
-    const href = window.location.href
-    const match = href.split('/')
-    const matchPage = match[match.length - 1]
-    if (matchPage === '') {
-      this.setState({ page: 'home' })
-    } else {
-      this.setState({ page: matchPage })
-    }
   }
 
   onVisibleChange(visible) {
@@ -74,13 +62,11 @@ class Navigation extends React.Component {
       toAbout,
       form,
       closeModal,
-      showModal
+      page,
+      showModal,
+      setStyle
     } = this.props
-    const { page } = this.state
     const { getFieldDecorator } = form
-    const setStyle = (value) => {
-      this.setState({ page: value })
-    }
     const loginContent = (
       <div className={styles.loginContent}>
         <div>
@@ -137,7 +123,7 @@ class Navigation extends React.Component {
         <ul>
           <li style={ page === 'home' ? hoverStyle : null }>
             <a
-              href="javascript:void(0);"
+              href="javascript:scrollTo(0,0);"
               onClick={() => {
                 toHome()
                 setStyle('home')
@@ -148,7 +134,7 @@ class Navigation extends React.Component {
           </li>
           <li style={ page === 'production' ? hoverStyle : null }>
             <a
-              href="javascript:void(0);"
+              href="javascript:scrollTo(0,0);"
               onClick={() => {
                 toProduction()
                 setStyle('production')
@@ -159,7 +145,7 @@ class Navigation extends React.Component {
           </li>
           <li style={ page === 'service' ? hoverStyle : null }>
             <a
-              href="javascript:void(0);"
+              href="javascript:scrollTo(0,0);"
               onClick={() => {
                 toService()
                 setStyle('service')
@@ -170,7 +156,7 @@ class Navigation extends React.Component {
           </li>
           <li style={ page === 'about' ? hoverStyle : null }>
             <a
-              href="javascript:void(0);"
+              href="javascript:scrollTo(0,0);"
               onClick={() => {
                 toAbout()
                 setStyle('about')

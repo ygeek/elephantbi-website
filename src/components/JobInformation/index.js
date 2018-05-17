@@ -168,7 +168,7 @@ const JobInformation = () => {
       <div className={styles.title}>加入我们</div>
       <div className={styles.subTitle}>请注明应聘岗位，投递简历至 recruit@elephantbi.com</div>
       <div className={styles.content}>
-        <Collapse>
+        <Collapse accordion>
           {
             jobContents.map((jobContent, index) => {
               const i = index

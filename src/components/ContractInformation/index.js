@@ -14,7 +14,7 @@ const contractContent = [
     icon: commerce,
     title: '商务咨询',
     lists: [
-      { icon: telblack, content: '15910603382' },
+      { icon: telblack, content: '+86-15910603382' },
       { icon: emailblack, content: 'bd@elephantbi.com' }
     ]
   },
@@ -31,7 +31,7 @@ const contractContent = [
     icon: complaints,
     title: '投诉',
     lists: [
-      { icon: telblack, content: '总裁办电话 15801196367' }
+      { icon: telblack, content: '总裁办电话 +86-15801196367' }
     ]
   }
 ]

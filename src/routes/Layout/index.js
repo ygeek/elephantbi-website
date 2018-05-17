@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Row, Col, Affix } from 'antd'
+import { Row, Col, Affix, BackTop } from 'antd'
 import email from 'assets/email.png'
 import tel from 'assets/tel.png'
 import qq from 'assets/qq.png'
@@ -21,9 +21,23 @@ class Layout extends React.Component {
     }
   }
 
+  componentWillMount() {
+    const href = window.location.href
+    const match = href.split('/')
+    const matchPage = match[match.length - 1]
+    if (matchPage === '') {
+      this.setState({ page: 'home' })
+    } else {
+      this.setState({ page: matchPage })
+    }
+  }
+
   render() {
     const { freeTrailModalVisible, page } = this.state
     const { children, layout, dispatch } = this.props
+    const setStyle = (value) => {
+      this.setState({ page: value })
+    }
     const toHome = () => {
       dispatch(routerRedux.push('/'))
     } 
@@ -55,6 +69,7 @@ class Layout extends React.Component {
             page={page}
             closeModal={closeModal}
             showModal={showModal}
+            setStyle={setStyle}
           />
         </div>
       </Affix>
@@ -67,16 +82,28 @@ class Layout extends React.Component {
           </span>
           <span className={styles.bottomItem}>
             <ul>
-              <li><a href="javascript:void(0);" onClick={toHome}>首页</a></li>
-              <li><a href="javascript:void(0);" onClick={toProduction}>产品介绍</a></li>
-              <li><a href="javascript:void(0);" onClick={toService}>服务介绍</a></li>
-              <li><a href="javascript:void(0);" onClick={toAbout}>关于我们</a></li>
+              <li><a href="javascript:scrollTo(0,0);" onClick={() => {
+                toHome()
+                setStyle('home')
+              }}>首页</a></li>
+              <li><a href="javascript:scrollTo(0,0);" onClick={() => {
+                toProduction()
+                setStyle('production')
+              }}>产品介绍</a></li>
+              <li><a href="javascript:scrollTo(0,0);" onClick={() => {
+                toService()
+                setStyle('service')
+              }}>服务介绍</a></li>
+              <li><a href="javascript:scrollTo(0,0);" onClick={() => {
+                toAbout()
+                setStyle('about')
+              }}>关于我们</a></li>
             </ul>
           </span>
           <span className={styles.bottomItem}>
             <ul>
               <li>商务咨询</li>
-              <li><img alt="" src={tel} /><span>15910603382</span></li>
+              <li><img alt="" src={tel} /><span>+86-15910603382</span></li>
               <li><img alt="" src={email} /><span>bd@elephantbi.com</span></li>
             </ul>
           </span>

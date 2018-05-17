@@ -10,6 +10,10 @@ const { formContents } = contents
 const FreeTrialModal = ({ form, visible, closeModal }) => {
   const { getFieldDecorator } = form
   const FormItem = Form.Item
+  const close = () => {
+    form.resetFields()
+    closeModal()
+  }
   const onSubmit = () => {
     form.validateFields((errors, values) => {
       if (!errors) {
@@ -27,8 +31,7 @@ const FreeTrialModal = ({ form, visible, closeModal }) => {
           }
         }
         reserveExperience()
-        closeModal()
-        form.resetFields()
+        close()
       }
     })
   }
@@ -38,7 +41,7 @@ const FreeTrialModal = ({ form, visible, closeModal }) => {
       visible={visible}
       className={styles.modalContainer}
       width={500}
-      onCancel={closeModal}
+      onCancel={close}
       style={{ top: '20%' }}
     >
       <div className={styles.title}>预约体验大象BI</div>
