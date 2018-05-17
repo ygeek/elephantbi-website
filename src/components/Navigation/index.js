@@ -1,23 +1,26 @@
 import React from 'react';
-import { Button, Col, Row, Popover, Input, Form } from 'antd'
+import { Button, Row, Popover, Input, Form } from 'antd'
+import { _confirmDomain } from 'services/layout'
+import globalMessage from 'helpers/messages'
 import QR from 'assets/LOGO 2.png'
 import styles from './index.less'
 
 const FormItem = Form.Item
 
 const hoverStyle = {
-  fontWeight: 'bold'
+  fontWeight: 'bold',
+  borderBottom: '3px solid #539ef2'
 }
 
 class Navigation extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      visible: false
+      visible: false,
+      page: 'home'
     }
     this.onVisibleChange = this.onVisibleChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-    this.showModal = this.showModal.bind(this)
   }
 
   onVisibleChange(visible) {
@@ -28,35 +31,45 @@ class Navigation extends React.Component {
     const { form, dispatch } = this.props
     form.validateFields((errors, values) => {
       if (!errors) {
-        dispatch({
-          type: 'layout/confirmDomain',
-          payload: values
-        }).then((data) => {
-          if (data.exists === 1) {
-            window.location.href = `http://${form.getFieldValue('domain')}.elephantbi.com`
+        async function confirmDomain() {
+          const { data, err } = await _confirmDomain(values)
+          if (err) {
+            globalMessage('error', '网络出现错误，请连接网络后重试')
           }
-          if (data.exists === 0) {
-            form.setFields({
-              domain: {
-                value: form.getFieldValue('domain'),
-                errors: [new Error('输入的域名不存在，请重新检查。如果您还没有团队请联系我们申请试用')]
-              }
-            })
+          if (data) {
+            if (data.exists === 1) {
+              window.location.href = `http://${form.getFieldValue('domain')}.elephantbi.com`
+            }
+            if (data.exists === 0) {
+              form.setFields({
+                domain: {
+                  value: form.getFieldValue('domain'),
+                  errors: [new Error('输入的域名不存在，请重新检查。如果您还没有团队请联系我们申请试用')]
+                }
+              })
+            }
           }
-        }).catch((err) => {
-
-        })
+        }
+        confirmDomain()
       }
     })
   }
 
-  showModal() {
-    this.props.dispatch({ type: 'layout/showFreeTrailModal' })
-  }
-
   render() {
-    const { dispatch, toHome, toProduction, toService, toAbout, form, page } = this.props
+    const {
+      toHome,
+      toProduction,
+      toService,
+      toAbout,
+      form,
+      closeModal,
+      showModal
+    } = this.props
+    const { page } = this.state
     const { getFieldDecorator } = form
+    const setStyle = (value) => {
+      this.setState({ page: value })
+    }
     const loginContent = (
       <div className={styles.loginContent}>
         <div>
@@ -104,17 +117,57 @@ class Navigation extends React.Component {
             <Button>登录</Button>
           </Popover>
           <Button
-            type="primary"
-            onClick={this.showModal}
+            onClick={showModal}
+            className={styles.trialButton}
           >
           免费试用
           </Button>
         </span>
         <ul>
-          <li style={ page === '' ? hoverStyle : null }><a href="javascript:void(0);" onClick={toHome}>首页</a></li>
-          <li style={ page === 'production' ? hoverStyle : null }><a href="javascript:void(0);" onClick={toProduction}>产品介绍</a></li>
-          <li style={ page === 'service' ? hoverStyle : null }><a href="javascript:void(0);" onClick={toService}>服务支持</a></li>
-          <li style={ page === 'about' ? hoverStyle : null }><a href="javascript:void(0);" onClick={toAbout}>关于我们</a></li>
+          <li style={ page === 'home' ? hoverStyle : null }>
+            <a
+              href="javascript:void(0);"
+              onClick={() => {
+                toHome()
+                setStyle('home')
+              }}
+            >
+              首页
+            </a>
+          </li>
+          <li style={ page === 'production' ? hoverStyle : null }>
+            <a
+              href="javascript:void(0);"
+              onClick={() => {
+                toProduction()
+                setStyle('production')
+              }}
+            >
+              产品介绍
+            </a>
+          </li>
+          <li style={ page === 'service' ? hoverStyle : null }>
+            <a
+              href="javascript:void(0);"
+              onClick={() => {
+                toService()
+                setStyle('service')
+              }}
+            >
+              服务支持
+            </a>
+          </li>
+          <li style={ page === 'about' ? hoverStyle : null }>
+            <a
+              href="javascript:void(0);"
+              onClick={() => {
+                toAbout()
+                setStyle('about')
+              }}
+            >
+              关于我们
+            </a>
+          </li>
         </ul>
       </Row>
     )

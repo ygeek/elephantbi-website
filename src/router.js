@@ -13,8 +13,7 @@ function RouterConfig({ history, app }) {
     app
   });
   const Layout = creatDynamic({
-    component: () => (import('routes/Layout')),
-    models: () => [import('models/layout')]
+    component: () => (import('routes/Layout'))
   })
 
   const Homepage = creatDynamic({

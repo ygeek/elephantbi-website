@@ -18,7 +18,6 @@ const HomeHeadSection = ({ headSectionContent, showFreeTrialModal }) => {
       </div>
       <div className={styles.actionButton}>
         <Button
-          type="primary"
           onClick={showFreeTrialModal}
         >
           免费试用

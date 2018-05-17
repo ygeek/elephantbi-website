@@ -4,6 +4,8 @@ import name from 'assets/name1.png'
 import company from 'assets/company1.png'
 import email from 'assets/email.png'
 import uuid from 'uuid'
+import { _submitFeedbacks } from 'services/layout'
+import globalMessage from 'helpers/messages'
 import tel from 'assets/tel.png'
 import styles from './index.less'
 
@@ -26,15 +28,31 @@ class FeedbackAndSuggestions extends React.Component {
   }
 
   render() {
-    const { form, dispatch } = this.props
+    const { form } = this.props
     const { getFieldDecorator } = form
     const onSubmit = () => {
       form.validateFields((errors, values) => {
         if (!errors) {
-          dispatch({
-            type: 'layout/submitFeedbacks',
-            payload: values
-          })
+          async function submitFeedbacks() {
+            const { type } = values
+            const { data, err } = await _submitFeedbacks(values)
+            if (err) {
+              globalMessage('error', '网络出现错误，请连接网络后重试')
+            }
+            if (data) {
+              if (data.beary_status === 200 || data.ding_status === 200) {
+                if (type === '0') {
+                  globalMessage('success', '提交成功，您的问题非常重要，我们将会尽快以邮件回复您')
+                }
+                if (type === '1') {
+                  globalMessage('success', '反馈成功，感谢您为我们提供的宝贵意见')
+                }
+              } else {
+                globalMessage('error', '提交失败，请重试')
+              }
+            }
+          }
+          submitFeedbacks()
         }
       })
     }
@@ -100,7 +118,6 @@ class FeedbackAndSuggestions extends React.Component {
         </Row>
         <div className={styles.submitButton}>
           <Button
-            type="primary"
             onClick={onSubmit}
           >
             提交

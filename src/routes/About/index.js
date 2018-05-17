@@ -4,7 +4,7 @@ import AboutHeadSection from 'components/AboutHeadSection'
 import JobInformation from 'components/JobInformation'
 import styles from './index.less'
 
-const About = ({ about }) => {
+const About = () => {
   return (
     <div className={styles.container}>
       <AboutHeadSection />
@@ -23,8 +23,4 @@ const About = ({ about }) => {
   )
 }
 
-const mapStateToProps = ({ about }) => ({
-  about
-})
-
-export default connect(mapStateToProps)(About)
+export default About

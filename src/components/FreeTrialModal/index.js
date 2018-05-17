@@ -1,24 +1,33 @@
 import React from 'react';
 import { Button, Input, Form, Modal } from 'antd'
 import contents from 'routes/Homepage/contents'
+import globalMessage from 'helpers/messages'
+import { _reserveExperience } from 'services/layout'
 import styles from './index.less'
 
 const { formContents } = contents
 
-const FreeTrialModal = ({ form, dispatch, visible }) => {
+const FreeTrialModal = ({ form, visible, closeModal }) => {
   const { getFieldDecorator } = form
   const FormItem = Form.Item
-  const closeModal = () => {
-    dispatch({ type: 'layout/hideFreeTrailModal' })
-    form.resetFields()
-  }
   const onSubmit = () => {
     form.validateFields((errors, values) => {
       if (!errors) {
-        dispatch({
-          type: 'layout/reserveExperience',
-          payload: values
-        })
+        async function reserveExperience() {
+          const { data, err } = await _reserveExperience(values)
+          if (err) {
+            globalMessage('error', '网络出现错误，请连接网络后重试')
+          }
+          if (data) {
+            if (data.beary_status === 200 || data.ding_status === 200) {
+              globalMessage('success', '提交成功，我们将尽快与您取得联系')
+            } else {
+              globalMessage('error', '提交失败，请重试')
+            }
+          }
+        }
+        reserveExperience()
+        closeModal()
         form.resetFields()
       }
     })
@@ -56,7 +65,6 @@ const FreeTrialModal = ({ form, dispatch, visible }) => {
         }
       </Form>
       <Button
-        type="primary"
         onClick={onSubmit}
       >
         提交

@@ -1,19 +1,26 @@
 .navigation {
-  padding: 10px 20px;
+  padding: 0px 20px;
+  height: 60px;
+  line-height: 60px;
   img {
     height: 30px;
     width: 90px;
   }
   ul {
     margin: 0;
-    padding: 5px;
+    padding: 0px;
     display: inline-block;
     float: right;
   }
   ul li {
     display: inline-block;
     list-style-type: none;
-    padding: 0 25px;
+    width: 76px;
+    margin: 0px 15px;
+    text-align: center;
+    height: 60px;
+    padding: 0 10px;
+    box-sizing: border-box;
     a {
       color: #4a4a4a;
       &:focus {
@@ -29,6 +36,11 @@
     :global(.ant-btn) {
       margin-left: 20px;
     }
+    .trialButton {
+      background-color: #539ef2;
+      color: #fff;
+      border: none;
+    }
   }
 }
 
@@ -39,5 +51,12 @@
   }
   .submitButton {
     text-align: center
+  }
+}
+
+:global(.ant-popover-inner-content) {
+  :global(.ant-form-explain) {
+    padding: 5px 0px 0px 13px;
+    color: #EE6A50;
   }
 }

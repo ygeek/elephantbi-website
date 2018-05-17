@@ -2,21 +2,33 @@ import React from 'react';
 import { connect } from 'dva';
 import { Form, Input, Col, Button } from 'antd'
 import uuid from 'uuid'
+import { _reserveExperience } from 'services/layout'
+import globalMessage from 'helpers/messages'
 import contents from 'routes/Homepage/contents'
 import styles from './index.less'
 
 const FormItem = Form.Item
 const { formContents } = contents
 
-const ReservationExperience = ({ form, dispatch }) => {
+const ReservationExperience = ({ form }) => {
   const { getFieldDecorator } = form
   const onSubmit = () => {
     form.validateFields((errors, values) => {
       if (!errors) {
-        dispatch({
-          type: 'layout/reserveExperience',
-          payload: values
-        })
+        async function reserveExperience() {
+          const { data, err } = await _reserveExperience(values)
+          if (err) {
+            globalMessage('error', '网络出现错误，请连接网络后重试')
+          }
+          if (data) {
+            if (data.beary_status === 200 || data.ding_status === 200) {
+              globalMessage('success', '提交成功，我们将尽快与您取得联系')
+            } else {
+              globalMessage('error', '提交失败，请重试')
+            }
+          }
+        }
+        reserveExperience()
       }
     })
   }
@@ -48,7 +60,6 @@ const ReservationExperience = ({ form, dispatch }) => {
       </div>
       <div className={styles.submitButton}>
         <Button
-          type="primary"
           onClick={onSubmit}
         >
           提交

@@ -5,20 +5,14 @@ import ServiceHeadSection from 'components/ServiceHeadSection'
 import ContractInformation from 'components/ContractInformation'
 import FeedbackAndSuggestions from 'components/FeedbackAndSuggestions'
 
-const Service = ({ dispatch }) => {
+const Service = () => {
   return (
     <div className={styles.container}>
       <ServiceHeadSection />
       <ContractInformation />
-      <FeedbackAndSuggestions
-        dispatch={dispatch}
-      />
+      <FeedbackAndSuggestions />
     </div>
   )
 }
 
-const mapStateToProps = ({ service }) => ({
-  service
-})
-
-export default connect(mapStateToProps)(Service)
+export default Service
