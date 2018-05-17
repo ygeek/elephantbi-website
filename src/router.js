@@ -18,20 +18,16 @@ function RouterConfig({ history, app }) {
   })
 
   const Homepage = creatDynamic({
-    component: () => (import('routes/Homepage')),
-    models: () => [import('models/homepage')]
+    component: () => (import('routes/Homepage'))
   })
   const Production = creatDynamic({
-    component: () => (import('routes/Production')),
-    models: () => [import('models/production')]
+    component: () => (import('routes/Production'))
   })
   const Service = creatDynamic({
-    component: () => (import('routes/Service')),
-    models: () => [import('models/service')]
+    component: () => (import('routes/Service'))
   })
   const About = creatDynamic({
-    component: () => (import('routes/About')),
-    models: () => [import('models/about')]
+    component: () => (import('routes/About'))
   })
   const routeChild = creatRoute(app, goBack);
   return (

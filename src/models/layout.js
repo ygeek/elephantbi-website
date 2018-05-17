@@ -27,7 +27,7 @@ export default {
     * reserveExperience({ payload }, { select, call, put }) {
       const { data, err } = yield call(_reserveExperience, payload)
       if (err) {
-
+        globalMessage('error', '网络出现错误，请连接网络后重试')
       }
       if (data) {
         yield put({ type: 'hideFreeTrailModal' })
@@ -43,7 +43,7 @@ export default {
       const { type } = payload
       const { data, err } = yield call(_submitFeedbacks, payload)
       if (err) {
-
+        globalMessage('error', '网络出现错误，请连接网络后重试')
       }
       if (data) {
         if (data.beary_status === 200 || data.ding_status === 200) {
@@ -62,7 +62,7 @@ export default {
     * confirmDomain({ payload }, { select, call, put }) {
       const { data, err } = yield call(_confirmDomain, payload)
       if (err) {
-
+        globalMessage('error', '网络出现错误，请连接网络后重试')
       }
       if (data) {
         return new Promise((resolve, reject) => {

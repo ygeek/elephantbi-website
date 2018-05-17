@@ -5,11 +5,12 @@ import styles from './index.less'
 
 const { formContents } = contents
 
-const FreeTrialModal = ({ form, dispatch }) => {
+const FreeTrialModal = ({ form, dispatch, visible }) => {
   const { getFieldDecorator } = form
   const FormItem = Form.Item
   const closeModal = () => {
     dispatch({ type: 'layout/hideFreeTrailModal' })
+    form.resetFields()
   }
   const onSubmit = () => {
     form.validateFields((errors, values) => {
@@ -18,13 +19,14 @@ const FreeTrialModal = ({ form, dispatch }) => {
           type: 'layout/reserveExperience',
           payload: values
         })
+        form.resetFields()
       }
     })
   }
   return (
     <Modal
       footer={null}
-      visible={true}
+      visible={visible}
       className={styles.modalContainer}
       width={500}
       onCancel={closeModal}

@@ -26,6 +26,10 @@
 
   .formItem {
     text-align: left;
+    :global(.ant-form-explain) {
+      padding: 5px 0px 0px 28px;
+      color: #EE6A50;
+    }
   }
     
   .formInput {
@@ -35,6 +39,14 @@
       box-shadow: none;
       border-radius: 0px;
       border-bottom: 1px solid #ccc;
+      outline: none;
+      &:hover {
+        border: none;
+        border-radius: 0px;
+        border-bottom: 1px solid #ccc;
+        box-shadow: none;
+        outline: none;
+      }
     }
   }
 }

@@ -14,7 +14,7 @@ const contractContent = [
     icon: commerce,
     title: '商务咨询',
     lists: [
-      { icon: telblack, content: '0411-39551681' },
+      { icon: telblack, content: '15910603382' },
       { icon: emailblack, content: 'bd@elephantbi.com' }
     ]
   },
@@ -23,7 +23,6 @@ const contractContent = [
     title: '技术支持',
     lists: [
       { icon: timeblack, content: '工作日  09:00 ~ 19:00' },
-      { icon: qqblack, content: '【待定】12345678' },
       { icon: telblack, content: '0411-39551681' },
       { icon: emailblack, content: 'support@elephantbi.com' }
     ]
@@ -32,7 +31,7 @@ const contractContent = [
     icon: complaints,
     title: '投诉',
     lists: [
-      { icon: telblack, content: '总裁办电话 15910603382' }
+      { icon: telblack, content: '总裁办电话 15801196367' }
     ]
   }
 ]

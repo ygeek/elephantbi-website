@@ -42,44 +42,41 @@ const Layout = ({ children, layout, dispatch }) => {
         {children}
       </div>
       <Row className={styles.buttomSection}>
-        <div className={styles.bottomItem}>
+        <span className={styles.bottomItem}>
           <img alt="" src={logo} className={styles.logo} />
-        </div>
-        <div className={styles.bottomItem}>
+        </span>
+        <span className={styles.bottomItem}>
           <ul>
             <li><a href="javascript:void(0);" onClick={toHome}>首页</a></li>
             <li><a href="javascript:void(0);" onClick={toProduction}>产品介绍</a></li>
             <li><a href="javascript:void(0);" onClick={toService}>服务介绍</a></li>
             <li><a href="javascript:void(0);" onClick={toAbout}>关于我们</a></li>
           </ul>
-        </div>
-        <div className={styles.bottomItem}>
+        </span>
+        <span className={styles.bottomItem}>
           <ul>
             <li>商务咨询</li>
-            <li><img alt="" src={tel} /><span>0411-39551681</span></li>
+            <li><img alt="" src={tel} /><span>15910603382</span></li>
             <li><img alt="" src={email} /><span>bd@elephantbi.com</span></li>
           </ul>
-        </div>
-        <div className={styles.bottomItem}>
+        </span>
+        <span className={styles.bottomItem}>
           <ul>
             <li>技术支持</li>
             <li><img alt="" src={time} /><span>工作日  09:00~19:00</span></li>
-            <li><img alt="" src={qq} /><span>【待定】12345678</span></li>
             <li><img alt="" src={tel} /><span>0411-39551681</span></li>
             <li><img alt="" src={email} /><span>support@elephantbi.com</span></li>
           </ul>
-        </div>
-        <div className={`${styles.bottomItem} ${styles.qrcode}`}>
+        </span>
+        <span className={`${styles.bottomItem} ${styles.qrcode}`}>
           <div><img alt="" src={qrcode} /></div>
           <div>关注ElephantBI</div>
-        </div>
+        </span>
       </Row>
-      {
-        freeTrailModalVisible ? (
-          <FreeTrialModal
-            dispatch={dispatch}
-          />
-        ) : null
+      <FreeTrialModal
+        dispatch={dispatch}
+        visible={freeTrailModalVisible}
+      />
       }
     </div>
   )

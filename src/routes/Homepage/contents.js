@@ -8,9 +8,9 @@ import name from 'assets/name.png'
 import name1 from 'assets/name1.png'
 import email from 'assets/email.png'
 import tel from 'assets/tel.png'
-import company from 'assets/company.png'
-import department from 'assets/department.png'
-import position from 'assets/position.png'
+import company from 'assets/company1.png'
+import department from 'assets/department1.png'
+import position from 'assets/position1.png'
 
 const sectionContents = [
   {
