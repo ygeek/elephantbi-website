@@ -9,6 +9,7 @@ const ProductionHeadSection = ({ headSectionContent, showFreeTrialModal }) => {
     <div
       className={styles.mainIntroduction}
     >
+      <div className={styles.title} />
       <div className={styles.firstLevelContent}>
         {_.get(headSectionContent, 'subTitle', '')}
       </div>

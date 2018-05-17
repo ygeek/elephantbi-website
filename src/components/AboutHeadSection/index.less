@@ -1,21 +1,45 @@
 .container {
-  padding: 270px 0px 172px 0px;
+  min-width: 1200px;
   background: url(assets/about.png) no-repeat;
   background-position-x: center;
   background-position-y: center;
   background-size: cover;
+  padding-top: 191px;
+  padding-bottom: 86px;
+  color: #fff;
   text-align: center;
   .title {
+    font-size: 60px;
+    margin-bottom: 24px;
+    height: 80px;
+  }
+  .firstLevelContent {
     font-size: 40px;
-    color: #fff;
-    margin-bottom: 78px;
-  };
-  .content {
+    margin-bottom: 21px;
+    font-weight: 300;
+    height: 50px;
+  }
+  .secondLevelContent {
+    height: 111px;
     display: inline-block;
+    font-size: 25px;
     width: 80%;
     max-width: 1200px;
-    font-size: 25px;
-    color: #ededed;
-    font-weight: 100;
+    margin-bottom: 56px;
+    font-weight: 100
+  }
+  .actionButton {
+    height: 60px;
+    button {
+      width: 215px;
+      height: 60px;
+      font-size: 16px;
+      border-radius: 60px;
+      font-size: 20px;
+      letter-spacing: 4px;
+      background-color: #539ef2;
+      color: #fff;
+      border: none;
+    }
   }
 }
