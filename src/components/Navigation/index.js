@@ -102,7 +102,10 @@ class Navigation extends React.Component {
   
     return (
       <Row className={styles.navigation}>
-        <a href="javascript:void(0);" onClick={toHome}>
+        <a href="javascript:scrollTo(0,0);" onClick={() => {
+          toHome()
+          setStyle('home')
+        }}>
           <img alt="" src={QR} />
         </a>
         <span span={3} className={styles.actionButton}>
