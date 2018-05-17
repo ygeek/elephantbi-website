@@ -39,6 +39,7 @@ const FreeTrialModal = ({ form, visible, closeModal }) => {
       className={styles.modalContainer}
       width={500}
       onCancel={closeModal}
+      style={{ top: '20%' }}
     >
       <div className={styles.title}>预约体验大象BI</div>
       <div className={styles.subTitle}>大象BI团队将尽快和您联系</div>
