@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Row, Col } from 'antd'
+import { Row, Col, Affix } from 'antd'
 import email from 'assets/email.png'
 import tel from 'assets/tel.png'
 import qq from 'assets/qq.png'
@@ -44,6 +44,7 @@ class Layout extends React.Component {
     }
     return (
       <div className={styles.container}>
+      <Affix>
         <div className={styles.navigation}>
           <Navigation
             dispatch={dispatch}
@@ -56,6 +57,7 @@ class Layout extends React.Component {
             showModal={showModal}
           />
         </div>
+      </Affix>
         <div className={styles.mainContent}>
           {children}
         </div>
