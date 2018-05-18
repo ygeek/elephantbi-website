@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Button } from 'antd'
-import _ from 'lodash'
 import styles from './index.less'
 
 const ProductionHeadSection = ({ headSectionContent, showFreeTrialModal }) => {
@@ -11,10 +10,10 @@ const ProductionHeadSection = ({ headSectionContent, showFreeTrialModal }) => {
     >
       <div className={styles.title} />
       <div className={styles.firstLevelContent}>
-        {_.get(headSectionContent, 'subTitle', '')}
+        {headSectionContent.subTitle}
       </div>
       <div className={styles.secondLevelContent}>
-        {_.get(headSectionContent, 'content', '')}
+        {headSectionContent.content}
       </div>
       <div className={styles.actionButton}>
         <Button

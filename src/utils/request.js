@@ -1,17 +1,5 @@
 import fetch from 'dva/fetch';
-import _ from 'lodash';
-import urljoin from 'url-join';
-import jsonToQuery from './url_helper'
 import { HOST } from 'constants/APIConstants';
-
-export function getRequestHeaders() {
-  const storageState = JSON.parse(localStorage.getItem('reduxState'));
-  const token = _.get(storageState, 'currentUser.token');
-
-  return {
-    token
-  }
-}
 
 function parseJSON(response) {
   return response.json();
@@ -25,15 +13,6 @@ function checkStatus(response) {
   const error = new Error(response.statusText);
   error.response = response;
   throw error;
-}
-
-export function requestUrl({ host, url, params }) {
-  const reqHost = host || HOST;
-  const queryString = _.isEmpty(params) ? '' : jsonToQuery(params);
-  if (queryString) {
-    return `${urljoin(reqHost, url)}${queryString}`;
-  }
-  return `${urljoin(reqHost, url)}`
 }
 
 /**
@@ -52,15 +31,12 @@ export default function request(url, options) {
 }
 
 export function requestSimple({ url, method, headers, params, body, token, host }) {
-  const reqURL = requestUrl({ host, url, params });
-  const requestHeaders = getRequestHeaders();
-  return request(reqURL, {
+  return request(`${HOST}${url}`, {
     method,
-    headers: _.pickBy({
+    headers: {
       'Content-Type': 'application/json',
-      Authorization: `jwt ${requestHeaders.token}`,
       ...headers
-    }),
+    },
     body: JSON.stringify(body)
   });
 }

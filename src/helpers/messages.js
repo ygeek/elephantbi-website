@@ -1,5 +1,4 @@
 import { message } from 'antd';
-import _ from 'lodash';
 
 const messages = {
   success: (text, duration) => { message.success(text, duration) },
@@ -8,7 +7,7 @@ const messages = {
 };
 
 const globalMessage = (type, text, duration = 3) => {
-  const messageFuc = _.get(messages, type);
+  const messageFuc = messages[type];
   if (messageFuc) {
     messageFuc(text, duration);
   }
