@@ -124,7 +124,6 @@ class Layout extends React.Component {
           visible={freeTrailModalVisible}
           closeModal={closeModal}
         />
-        }
       </div>
     )
   }
