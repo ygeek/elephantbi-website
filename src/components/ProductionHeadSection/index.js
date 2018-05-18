@@ -20,7 +20,7 @@ const ProductionHeadSection = ({ headSectionContent, showFreeTrialModal }) => {
         <Button
           onClick={showFreeTrialModal}
         >
-          免费试用
+           免费试用
         </Button>
       </div>
     </div>
