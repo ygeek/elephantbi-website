@@ -2,9 +2,6 @@ import React from 'react';
 import uuid from 'uuid'
 import styles from './index.less'
 
-const leftImg = { height: '350px', width: '250px' }
-const rightImg = { height: '350px', width: '500px' }
-
 const HomeIntroduceItem = ({ section }) => {
   const { title, subTitle, lists, type, backImg } = section
   return (
@@ -27,13 +24,13 @@ const HomeIntroduceItem = ({ section }) => {
               </div>
             </div>
             <div className={styles.backImgSection}>
-              <img alt="" src={backImg} style={type === 0 ? rightImg : leftImg} />
+              <img alt="" src={backImg} />
             </div>
           </div>
         ) : (
           <div className={styles.content}>
             <div className={styles.backImgSection}>
-              <img alt="" src={backImg} style={type === 0 ? rightImg : leftImg} />
+              <img alt="" src={backImg} />
             </div>
             <div className={styles.introduceSection}>
               <div className={styles.subTitle}>{subTitle}</div>

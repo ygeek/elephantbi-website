@@ -1,9 +1,12 @@
-import banner1 from 'assets/banner1.png'
-import banner2 from 'assets/banner2.png'
-import character1 from 'assets/character1.png'
-import character2 from 'assets/character2.png'
-import character3 from 'assets/character3.png'
-import character4 from 'assets/character4.png'
+import CEO from 'assets/charactor/CEO.png'
+import HR from 'assets/charactor/HR.png'
+import Caiwu from 'assets/charactor/caiwu.png'
+import Shichang from 'assets/charactor/shichang.png'
+import shuju from 'assets/charactor/shuju.png'
+import yewu from 'assets/charactor/yewu.png'
+import IT from 'assets/charactor/IT.png'
+import xiaoshou from 'assets/charactor/xiaoshou.png'
+import kefu from 'assets/charactor/kefu.png'
 import name from 'assets/name.png'
 import name1 from 'assets/name1.png'
 import email from 'assets/email.png'
@@ -11,6 +14,24 @@ import tel from 'assets/tel.png'
 import company from 'assets/company1.png'
 import department from 'assets/department1.png'
 import position from 'assets/position1.png'
+import lingshoudianshang from 'assets/industry/lingshoudianshang.png'
+import jinrongfuwu from 'assets/industry/jinrongfuwu.png'
+import jiaoyu from 'assets/industry/jiaoyu.png'
+import jiankangyiliao from 'assets/industry/jiankangyiliao.png'
+import dichan from 'assets/industry/dichan.png'
+import zhizaoye from 'assets/industry/zhizaoye.png'
+import qichehangye from 'assets/industry/qichehangye.png'
+import jiudian from 'assets/industry/jiudian.png'
+import gaoxinjishu from 'assets/industry/gaoxinjishu.png'
+import dianxinhangye from 'assets/industry/dianxinhangye.png'
+import meitiyule from 'assets/industry/meitiyule.png'
+import zhuanyefuwu from 'assets/industry/zhuanyefuwu.png'
+import home1 from 'assets/home/home1.png'
+import home2 from 'assets/home/home2.png'
+import home3 from 'assets/home/home3.png'
+import home4 from 'assets/home/home4.png'
+import home5 from 'assets/home/home5.png'
+import home6 from 'assets/home/home6.png'
 
 const sectionContents = [
   {
@@ -25,7 +46,7 @@ const sectionContents = [
       '通过API连接更多数据'
     ],
     type: 0,
-    backImg: banner1
+    backImg: home1
 
   },
   {
@@ -38,7 +59,7 @@ const sectionContents = [
       '图表联动，数据不再静止，让数据说话'
     ],
     type: 1,
-    backImg: banner2
+    backImg: home2
   },
   {
     title: '团队协作',
@@ -49,7 +70,7 @@ const sectionContents = [
       '以数据连接全体成员，打破团队成员见的信息隔阂。帮助团队时刻了解业务关键指标，保持清晰的业务共识'
     ],
     type: 0,
-    backImg: banner1
+    backImg: home3
   },
   {
     title: '精细化权限管理',
@@ -59,7 +80,7 @@ const sectionContents = [
       '提供行列粒度的数据权限控制，确保每一行每一列数据的访问都尽在控制'
     ],
     type: 1,
-    backImg: banner2
+    backImg: home4
   },
   {
     title: '移动BI',
@@ -71,7 +92,7 @@ const sectionContents = [
       '多种认证机制，设备绑定，加密传输，全面保障移动设备安全访问数据'
     ],
     type: 0,
-    backImg: banner1
+    backImg: home5
   },
   {
     title: '数据大屏',
@@ -81,53 +102,53 @@ const sectionContents = [
       '实时展示最新数据动态，即使了解关键数据变化。以数据了解企业脉搏，及时预警，时刻激励'
     ],
     type: 1,
-    backImg: banner2
+    backImg: home6
   }
 ]
 
 const characterContents = [
   [{
-    avatar: character1,
+    avatar: CEO,
     name: 'CEO',
     content: '第一时间获得企业全景，无论市场，销售，财务，还是人力部门等，任何时间点的经营状态都能一目了然'
   },
   {
-    avatar: character2,
+    avatar: HR,
     name: 'HR',
     content: '整合利用考勤，薪酬，招聘，绩效等各模块的数据，发挥他们的战略意义，提升HR管理实质作用'
   },
   {
-    avatar: character3,
+    avatar: Caiwu,
     name: '财务',
     content: '大象BI自动完成重复性复杂计算，支持财务人员随时随地监控数据，洞察数据，促进企业的可持续盈利与发展'
   }],
   [{
-    avatar: character4,
+    avatar: Shichang,
     name: '市场',
     content: '大象BI自动完成重复性复杂计算，支持财务人员随时随地监控数据，洞察数据，促进企业的可持续盈利与发展'
   },
   {
-    avatar: character1,
+    avatar: shuju,
     name: '数据分析师',
     content: '整合企业所有相关数据，通过灵活的可视化分析帮助企业内任何角色分析数据，洞察数据背后的线索，支持决策'
   },
   {
-    avatar: character2,
+    avatar: yewu,
     name: '业务人员',
     content: '大象BI助您整合数据，洞察背后的线索，以数据驱动决策，实施精益化商业运营'
   }],
   [{
-    avatar: character3,
+    avatar: IT,
     name: 'IT',
     content: '大象BI帮助企业员工自助查询所需数据，让IT工作不再陷入无尽的业务查询需求。数据访问安全可控，数据安全工作高枕无忧'
   },
   {
-    avatar: character4,
+    avatar: xiaoshou,
     name: '销售',
     content: '大象BI帮助您深刻洞察销售数据，以洞察驱动行动，精准分析预测销售机会和风险，大幅提高成单量'
   },
   {
-    avatar: character1,
+    avatar: kefu,
     name: '客户客服',
     content: '大象BI帮助您分析深度挖掘用户行为，提高沟通效率，祝您花更少的时间问询客户需求，节省更多的时间提供有效的服务，以数据驱动提升服务满意度'
   }]
@@ -136,51 +157,63 @@ const characterContents = [
 const industryContents = [
   [{
     name: '零售与电商',
-    content: '利用数据分析实时掌握金销存动态，选择可靠的供应商，指定最合理的销售价格，提升电商网站转化率同时降低退货率'
+    content: '利用数据分析实时掌握金销存动态，选择可靠的供应商，指定最合理的销售价格，提升电商网站转化率同时降低退货率',
+    backImg: lingshoudianshang
   },
   {
     name: '金融',
-    content: '实时监控数据保证覆盖众多复杂金融指标，依靠数据为客户提供精准保险服务，对关键财务指标预警并实时接受通知'
+    content: '实时监控数据保证覆盖众多复杂金融指标，依靠数据为客户提供精准保险服务，对关键财务指标预警并实时接受通知',
+    backImg: jinrongfuwu
   },
   {
     name: '教育',
-    content: '从重复琐碎工作中解放大脑，知道根据创新的教学方法，跟踪学生动态，提出具有针对性的提升方案'
+    content: '从重复琐碎工作中解放大脑，知道根据创新的教学方法，跟踪学生动态，提出具有针对性的提升方案',
+    backImg: jiaoyu
   }],
   [{
     name: '健康医疗',
-    content: '实现繁杂数据整合，提高就医效率，提供数据驱动的的解决方案，实时监控患者生理周期各项指标，轻松提高客户满意度'
+    content: '实现繁杂数据整合，提高就医效率，提供数据驱动的的解决方案，实时监控患者生理周期各项指标，轻松提高客户满意度',
+    backImg: jiankangyiliao
   },
   {
     name:'地产行业',
-    content: '整合企业复杂数据源，及时分析瞬息万变的房产行情，及时调整营销策略，辅助指定开发方案，各类销售分析促进楼盘回款率'
+    content: '整合企业复杂数据源，及时分析瞬息万变的房产行情，及时调整营销策略，辅助指定开发方案，各类销售分析促进楼盘回款率',
+    backImg: dichan
   },
   {
     name: '制造业',
-    content: '整合多业务系统和大型ERP数据互通，合理分配资源降低生产成本，优化生产线管理提升产品质量'
+    content: '整合多业务系统和大型ERP数据互通，合理分配资源降低生产成本，优化生产线管理提升产品质量',
+    backImg: zhizaoye
   }],
   [{
     name: '汽车行业',
-    content: '多业务系统和大型ERP的数据整合，打破信息孤岛，高效的客户关系管理及供应商合作管理，把握市场价格变化行情调整销售策略'
+    content: '多业务系统和大型ERP的数据整合，打破信息孤岛，高效的客户关系管理及供应商合作管理，把握市场价格变化行情调整销售策略',
+    backImg: qichehangye
   },
   {
     name: '酒店与交通',
-    content: '轻松了解追踪客户行为，领先竞争对手对购买趋势的预测，提高物流高效率，保证客户满意度'
+    content: '轻松了解追踪客户行为，领先竞争对手对购买趋势的预测，提高物流高效率，保证客户满意度',
+    backImg: jiudian
   },
   {
     name: '高新技术',
-    content: '实时跟踪访客数，流量走势，竞争对手策略趋势等关键业务指标，掌握最新科技动向，辅助决策和产品调整方向'
+    content: '实时跟踪访客数，流量走势，竞争对手策略趋势等关键业务指标，掌握最新科技动向，辅助决策和产品调整方向',
+    backImg: gaoxinjishu
   }],
   [{
     name: '电信行业',
-    content: '融合业务、计费、财务、网管、监控等多系统数据，大数据分析辅助决策，用户数据分析防止欺诈等行为，减少客户流失'
+    content: '融合业务、计费、财务、网管、监控等多系统数据，大数据分析辅助决策，用户数据分析防止欺诈等行为，减少客户流失',
+    backImg: dianxinhangye
   },
   {
     name: '媒体娱乐',
-    content: '时刻保持最新状态，对即将发生的事件进行趋势预测，让数据变得可靠实用，数据指导精准营销活动'
+    content: '时刻保持最新状态，对即将发生的事件进行趋势预测，让数据变得可靠实用，数据指导精准营销活动',
+    backImg: meitiyule
   },
   {
     name: '专业服务',
-    content: '从重复繁琐的工作中抽身以提升效率，更好的了解客户差异化需求，快速积累成功经验所需的信息，提供更专业的服务'
+    content: '从重复繁琐的工作中抽身以提升效率，更好的了解客户差异化需求，快速积累成功经验所需的信息，提供更专业的服务',
+    backImg: zhuanyefuwu
   }]
 ]
 

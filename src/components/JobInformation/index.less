@@ -32,17 +32,27 @@
       width: 100%;
       border: none;
       box-shadow: #eee 0px 0px 10px; 
-      :global(.ant-collapse-header){
-        padding: 25px 0px 21px 85px;
-        background-color: #fff;
-        color: #4a4a4a;
-        font-size: 16px;
-        i {
-          top: 12px;
-          left: 53px;
-          color: #539EF2
-        }
-      };
+      :global(.ant-collapse-item):last-child {
+        border: none;
+      }
+      :global(.ant-collapse-item) {
+        border-bottom: 1px solid #eee;
+        :global(.ant-collapse-header){
+          padding: 25px 0px 21px 85px;
+          background-color: #fff;
+          color: #4a4a4a;
+          font-size: 16px;
+          i {
+            top: 12px;
+            left: 53px;
+            color: #539EF2
+          }
+        };
+      }
+
+      :global(.ant-collapse-content) {
+        border-top: 1px solid #eee
+      }
       :global(.ant-collapse-content-box) {
         .jobSubTitle {
           margin-left: -28px;
