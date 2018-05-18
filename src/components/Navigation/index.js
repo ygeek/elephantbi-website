@@ -116,7 +116,7 @@ class Navigation extends React.Component {
             onVisibleChange={this.onVisibleChange}
             visible={this.state.visible}
           >
-            <Button>登录</Button>
+            <Button className={styles.login}>登录</Button>
           </Popover>
           <Button
             onClick={showModal}

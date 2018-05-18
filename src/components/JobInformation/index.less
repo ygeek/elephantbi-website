@@ -6,15 +6,19 @@
   .title {
     text-align: center;
     color: #539ef2;
-    font-size: 35px;
+    font-size: 24px;
     margin-bottom: 39px;
   }
   .subTitle {
     text-align: center;
     color: #aaa;
-    font-size: 20px;
+    font-size: 16px;
     margin-bottom: 35px;
-    font-weight: 100
+    font-weight: 100;
+    .email {
+      color: #539ef2;
+      text-decoration: underline
+    }
   };
   .content {
     display: inline-block;
@@ -27,12 +31,12 @@
       background-color: #fff;
       width: 100%;
       border: none;
-      box-shadow: #ccc 0px 0px 10px; 
+      box-shadow: #eee 0px 0px 10px; 
       :global(.ant-collapse-header){
         padding: 25px 0px 21px 85px;
         background-color: #fff;
         color: #4a4a4a;
-        font-size: 20px;
+        font-size: 16px;
         i {
           top: 12px;
           left: 53px;
@@ -40,8 +44,11 @@
         }
       };
       :global(.ant-collapse-content-box) {
+        .jobSubTitle {
+          margin-left: -28px;
+        }
         font-weight: 100;
-        font-size: 18px;
+        font-size: 14px;
         color: #4a4a4a;
         padding: 10px 0 10px 107px;
         ol {

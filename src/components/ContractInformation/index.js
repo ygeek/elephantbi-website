@@ -9,53 +9,33 @@ import qqblack from 'assets/qq.png'
 import timeblack from 'assets/time.png'
 import styles from './index.less'
 
-const contractContent = [
-  {
-    icon: commerce,
-    title: '商务咨询',
-    lists: [
-      { icon: telblack, content: '+86-15910603382' },
-      { icon: emailblack, content: 'bd@elephantbi.com' }
-    ]
-  },
-  {
-    icon: tecSupport,
-    title: '技术支持',
-    lists: [
-      { icon: timeblack, content: '工作日  09:00 ~ 19:00' },
-      { icon: telblack, content: '0411-39551681' },
-      { icon: emailblack, content: 'support@elephantbi.com' }
-    ]
-  },
-  {
-    icon: complaints,
-    title: '投诉',
-    lists: [
-      { icon: telblack, content: '总裁办电话 +86-15801196367' }
-    ]
-  }
-]
-
 const ContractInformation = () => {
   return (
     <div className={styles.container}>
-      {
-        contractContent.map((item) => {
-          return (
-            <div key={uuid()} className={styles.contractItem}>
-              <div><img alt="" src={item.icon}  /></div>
-              <div className={styles.title}>{item.title}</div>
-              <ul>
-                {
-                  item.lists.map((item) => {
-                    return <li key={uuid()}><img alt="" src={item.icon} /><span>{item.content}</span></li>
-                  })
-                }
-              </ul>
-            </div>
-          )
-        })
-      }
+      <div className={styles.contractItem}>
+        <div><img alt="" src={commerce}  /></div>
+        <div className={styles.title}>商务咨询</div>
+        <ul>
+          <li className={styles.commerce}><img alt="" src={telblack} /><span>+86-15910603382</span></li>
+          <li className={styles.commerce}><img alt="" src={emailblack} /><span>bd@elephantbi.com</span></li>
+        </ul>
+      </div>
+      <div className={styles.contractItem}>
+        <div><img alt="" src={tecSupport}  /></div>
+        <div className={styles.title}>技术支持</div>
+        <ul>
+          <li className={styles.tecSupport}><img alt="" src={timeblack} /><span>工作日  09:00 ~ 19:00</span></li>
+          <li className={styles.tecSupport}><img alt="" src={telblack} /><span>0411-39551681</span></li>
+          <li className={styles.tecSupport}><img alt="" src={emailblack} /><span>support@elephantbi.com</span></li>
+        </ul>
+      </div>
+      <div className={styles.contractItem}>
+        <div><img alt="" src={complaints}  /></div>
+        <div className={styles.title}>投诉</div>
+        <ul>
+          <li className={styles.complaints}><img alt="" src={telblack} /><span>总裁办电话 +86-15801196367</span></li>
+        </ul>
+      </div>
     </div>
   )
 }

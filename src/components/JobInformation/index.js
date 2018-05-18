@@ -147,13 +147,13 @@ const JobInformation = () => {
     }
     return (
       <div>
-        <div>【岗位职责】</div>
+        <div className={styles.jobSubTitle}>【岗位职责】</div>
         <ol>
           {
             content.lists.responsibility.map(list => <li key={uuid()}>{list}</li>)
           }
         </ol>
-        <div>【任职要求】</div>
+        <div className={styles.jobSubTitle}>【任职要求】</div>
         <ol>
           {
             content.lists.claim.map(list => (<li key={uuid()}>{list}</li>))
@@ -166,7 +166,7 @@ const JobInformation = () => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>加入我们</div>
-      <div className={styles.subTitle}>请注明应聘岗位，投递简历至 recruit@elephantbi.com</div>
+      <div className={styles.subTitle}>请注明应聘岗位，投递简历至 <span className={styles.email}>recruit@elephantbi.com</span></div>
       <div className={styles.content}>
         <Collapse accordion>
           {

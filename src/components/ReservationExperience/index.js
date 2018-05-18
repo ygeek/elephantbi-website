@@ -36,8 +36,8 @@ const ReservationExperience = ({ form, toggleLoading }) => {
   }
   return (
     <div className={styles.formSection}>
-      <div className={styles.title}>预约体验大象BI</div>
-      <div className={styles.subTitle}>大象BI团队会尽快跟您联系</div>
+      <div className={styles.title}>预约体验ElephantBI</div>
+      <div className={styles.subTitle}>ElephantBI团队会尽快跟您联系</div>
       <div className={styles.formContent}>
         <Form>
             {
