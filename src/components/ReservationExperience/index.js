@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Form, Input, Col, Button } from 'antd'
-import uuid from 'uuid'
 import { _reserveExperience } from 'services/layout'
 import globalMessage from 'helpers/messages'
 import contents from 'routes/Homepage/contents'

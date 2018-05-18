@@ -1,5 +1,4 @@
 import React from 'react';
-import uuid from 'uuid'
 import styles from './index.less'
 
 const HomeIntroduceItem = ({ section }) => {
@@ -18,7 +17,7 @@ const HomeIntroduceItem = ({ section }) => {
               <div className={styles.listContent}>
                 <ul>
                   {
-                    lists.map(list => (<li key={uuid()}>{list}</li>))
+                    lists.map(list => (<li>{list}</li>))
                   }
                 </ul>
               </div>
@@ -37,7 +36,7 @@ const HomeIntroduceItem = ({ section }) => {
               <div className={styles.listContent}>
                 <ul>
                   {
-                    lists.map(list => (<li key={uuid()}>{list}</li>))
+                    lists.map(list => (<li>{list}</li>))
                   }
                 </ul>
               </div>

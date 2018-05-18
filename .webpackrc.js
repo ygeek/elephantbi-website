@@ -11,12 +11,10 @@ export default {
     "assets": path.resolve(__dirname, "./src/assets"),
     "constants": path.resolve(__dirname, "./src/constants"),
     "components": path.resolve(__dirname, "./src/components"),
-    "models": path.resolve(__dirname, "./src/models"),
     "services": path.resolve(__dirname, "./src/services"),
     "utils": path.resolve(__dirname, "./src/utils"),
     "helpers": path.resolve(__dirname, "./src/helpers"),
     "routes": path.resolve(__dirname, "./src/routes"),
-    "styles": path.resolve(__dirname, "./src/styles"),
-    "pages": path.resolve(__dirname, "./src/pages")
+    "styles": path.resolve(__dirname, "./src/styles")
   }
 }

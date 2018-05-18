@@ -3,7 +3,6 @@ import { connect } from 'dva';
 import ProductionHeadSection from 'components/ProductionHeadSection'
 import ReservationExperience from 'components/ReservationExperience'
 import ProIntroduceItem from 'components/ProIntroduceItem'
-import uuid from 'uuid'
 import { Spin } from 'antd'
 import FreeTrialModal from 'components/FreeTrialModal'
 import proIntroduceContent from './contents'
@@ -44,7 +43,6 @@ class Production extends React.Component {
           proIntroduceContent.map(item => (
             <ProIntroduceItem
               proIntroduce={item}
-              key={uuid()}
             />
           ))
         }

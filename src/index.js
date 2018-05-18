@@ -1,5 +1,4 @@
 import dva from 'dva';
-import createLoading from 'dva-loading';
 import Layout from 'antd';
 
 const getInitialState = () => {
@@ -10,7 +9,7 @@ const app = dva({
   initialState: getInitialState()
 });
 
-app.use(createLoading());
+app.use({});
 
 [
 ].forEach((fileName) => {

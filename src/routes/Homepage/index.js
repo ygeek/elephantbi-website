@@ -4,7 +4,6 @@ import { Button, Row, Form, Input, Col, Spin } from 'antd'
 import HomeIntroduceItem from 'components/HomeIntroduceItem'
 import Character from 'components/Character'
 import Industry from 'components/Industry'
-import uuid from 'uuid'
 import ReservationExperience from 'components/ReservationExperience'
 import HomeHeadSection from 'components/HomeHeadSection'
 import FreeTrialModal from 'components/FreeTrialModal'
@@ -57,7 +56,6 @@ class Homepage extends React.Component {
               return (
                 <HomeIntroduceItem
                   section={item}
-                  key={uuid()}
                 />
               )
             })
@@ -69,12 +67,11 @@ class Homepage extends React.Component {
             {
               characterContents.map((item, index) => {
                 return (
-                  <div className={styles.rowCard} key={uuid()}>
+                  <div className={styles.rowCard}>
                     {
                       item.map(character => (
                         <Character
                           character={character}
-                          key={uuid()}
                         />
                       ))
                     }
@@ -98,12 +95,11 @@ class Homepage extends React.Component {
             {
               industryContents.map((item, index) => {
                 return (
-                  <div className={styles.rowCard} key={uuid()}>
+                  <div className={styles.rowCard}>
                     {
                       item.map(industry => (
                         <Industry
                           industry={industry}
-                          key={uuid()}
                         />
                       ))
                     }
