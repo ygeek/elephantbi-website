@@ -1,38 +1,3 @@
-@font-face {
-  font-family: "PingFang SC";
-  font-weight: 100;
-  src: local("PingFang SC Ultralight");
-  font-style: normal;
-}
-  
-@font-face {
-  font-family: "PingFang SC";
-  src: local("PingFang SC Light");
-  font-weight: 300;
-  font-style: normal;
-}
-  
-@font-face {
-  font-family: "PingFang SC";
-  font-weight: 400;
-  src: local("PingFang SC Regular");
-  font-style: normal;
-}
-  
-@font-face {
-  font-family: "PingFang SC";
-  font-weight: 500;
-  src: local("PingFang SC Medium");
-  font-style: normal;
-}
-  
-@font-face {
-  font-family: "PingFang SC";
-  font-weight: 700;
-  src: local("PingFang SC Semibold");
-  font-style: normal;
-}
-
 html, body, :global(#root) {
   height: 100%;
   font-family: "Microsoft YaHei","微软雅黑","MicrosoftJhengHei","华文细黑",STHeiti,MingLiu,sans-serif;
