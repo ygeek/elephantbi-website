@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Input, Form, Modal } from 'antd'
+import { Input, Form, Modal } from 'antd'
 import contents from 'routes/Homepage/contents'
 import globalMessage from 'helpers/messages'
 import { _reserveExperience } from 'services/layout'
@@ -68,11 +68,12 @@ const FreeTrialModal = ({ form, visible, closeModal }) => {
           ))
         }
       </Form>
-      <Button
+      <button
+        className={styles.submitButton}
         onClick={onSubmit}
       >
         提交
-      </Button>
+      </button>
     </Modal>
   )
 }

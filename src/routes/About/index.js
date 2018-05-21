@@ -1,13 +1,23 @@
 import React from 'react';
-import { connect } from 'dva';
-import AboutHeadSection from 'components/AboutHeadSection'
+import HomeHeadSection from 'components/HomeHeadSection'
+import aboutBackImg from 'assets/about.png'
 import JobInformation from 'components/JobInformation'
 import styles from './index.less'
+
+const headSectionContent = {
+  backImg: aboutBackImg,
+  title: '',
+  subTitle: '关于我们',
+  content: 'ElephantBI是由悦视光合科技（北京）有限公司出品， 公司专注于企业级互联网产品及云端服务， 创始成员均来自于百度、网易等一线互联网公司， 拥有多年知名互联网产品的设计和研发经验。',
+  button: false
+}
 
 const About = () => {
   return (
     <div className={styles.container}>
-      <AboutHeadSection />
+      <HomeHeadSection
+        headSectionContent={headSectionContent}
+      />
       <div className={styles.introduce}>
         扁平化的管理架构和组织模式，
         通过减少管理层次来建立高效而紧密的团队，

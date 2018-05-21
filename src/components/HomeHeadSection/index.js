@@ -1,12 +1,11 @@
 import React from 'react';
-import { connect } from 'dva';
-import { Button } from 'antd'
 import styles from './index.less'
 
 const HomeHeadSection = ({ headSectionContent, showFreeTrialModal }) => {
   return (
     <div
       className={styles.mainIntroduction}
+      style={{ backgroundImage: `url(${headSectionContent.backImg})` }}
     >
       <div className={styles.title}>{headSectionContent.title}</div>
       <div className={styles.firstLevelContent}>
@@ -16,11 +15,15 @@ const HomeHeadSection = ({ headSectionContent, showFreeTrialModal }) => {
         {headSectionContent.content}
       </div>
       <div className={styles.actionButton}>
-        <Button
-          onClick={showFreeTrialModal}
-        >
-          免费试用
-        </Button>
+        {
+          headSectionContent.button ? (
+            <button
+              onClick={showFreeTrialModal}
+            >
+              免费试用
+            </button>
+          ) : null
+        }
       </div>
     </div>
   )

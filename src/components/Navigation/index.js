@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Row, Popover, Input, Form } from 'antd'
+import { Button, Popover, Input, Form } from 'antd'
 import { _confirmDomain } from 'services/layout'
 import globalMessage from 'helpers/messages'
 import QR from 'assets/LOGO 2.png'
@@ -101,7 +101,7 @@ class Navigation extends React.Component {
   
   
     return (
-      <Row className={styles.navigation}>
+      <div className={styles.navigation}>
         <a href="javascript:scrollTo(0,0);" onClick={() => {
           toHome()
           setStyle('home')
@@ -171,7 +171,7 @@ class Navigation extends React.Component {
             </a>
           </li>
         </ul>
-      </Row>
+      </div>
     )
   }
 }

@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Row, Col, Affix, BackTop } from 'antd'
+import { Affix } from 'antd'
 import email from 'assets/email.png'
 import tel from 'assets/tel.png'
-import qq from 'assets/qq.png'
 import time from 'assets/time.png'
 import logo from 'assets/LOGO.png'
 import qrcode from 'assets/qrcode.jpg'
@@ -76,7 +75,7 @@ class Layout extends React.Component {
         <div className={styles.mainContent}>
           {children}
         </div>
-        <Row className={styles.buttomSection}>
+        <div className={styles.buttomSection}>
           <span className={styles.bottomItem}>
             <img alt="" src={logo} className={styles.logo} />
           </span>
@@ -119,7 +118,7 @@ class Layout extends React.Component {
             <div><img alt="" src={qrcode} /></div>
             <div>关注ElephantBI</div>
           </span>
-        </Row>
+        </div>
         <FreeTrialModal
           visible={freeTrailModalVisible}
           closeModal={closeModal}

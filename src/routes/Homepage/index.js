@@ -1,8 +1,8 @@
 import React from 'react';
-import { connect } from 'dva';
-import { Button, Row, Form, Input, Col, Spin } from 'antd'
+import { Spin } from 'antd'
 import HomeIntroduceItem from 'components/HomeIntroduceItem'
 import Character from 'components/Character'
+import homeBackImg from 'assets/home.png'
 import Industry from 'components/Industry'
 import ReservationExperience from 'components/ReservationExperience'
 import HomeHeadSection from 'components/HomeHeadSection'
@@ -12,11 +12,12 @@ import contents from './contents'
 
 const { sectionContents, characterContents, industryContents, formContents } = contents
 const headSectionContent = {
+  backImg: homeBackImg,
   title: 'ElephantBI',
   subTitle: '数据驱动管理，人人都是数据专家',
-  content: '通过数据整合，可以提高跨系统数据的统一性、准确性和时效性，更容易获得全面的观点深入洞察数据与精准决策，用数据驱动行为，让数据融入工作的每个环节'
+  content: '通过数据整合，可以提高跨系统数据的统一性、准确性和时效性，更容易获得全面的观点深入洞察数据与精准决策，用数据驱动行为，让数据融入工作的每个环节',
+  button: true
 }
-const FormItem = Form.Item
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -28,8 +29,7 @@ class Homepage extends React.Component {
   }
 
   render() {
-    const { dispatch, form } = this.props
-    const { getFieldDecorator } = form
+    const { dispatch } = this.props
 
     const toggleLoading = () => {
       const { loading } = this.state
@@ -81,12 +81,12 @@ class Homepage extends React.Component {
             }
           </div>
           <div>
-            <Button
+            <button
               type="primary"
               onClick={showFreeTrialModal}
             >
               免费试用
-            </Button>
+            </button>
           </div>
         </div>
         <div className={styles.industries}>
@@ -109,12 +109,12 @@ class Homepage extends React.Component {
             }
           </div>
           <div>
-            <Button
+            <button
               type="primary"
               onClick={showFreeTrialModal}
             >
               免费试用
-            </Button>
+            </button>
           </div>
         </div>
         <Spin spinning={this.state.loading}>
@@ -132,4 +132,4 @@ class Homepage extends React.Component {
   }
 }
 
-export default Form.create()(Homepage)
+export default Homepage

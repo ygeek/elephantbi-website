@@ -1,5 +1,4 @@
 import React from 'react';
-import { Col } from 'antd'
 import styles from './index.less'
 
 const Character = ({ character }) => {

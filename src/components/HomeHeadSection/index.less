@@ -1,5 +1,5 @@
 .mainIntroduction {
-  background: url(assets/home.png) no-repeat;
+  background: no-repeat;
   background-position-x: center;
   background-position-y: center;
   background-size: cover;
@@ -11,7 +11,6 @@
     font-size: 60px;
     margin-bottom: 24px;
     font-weight: 400;
-    height: 80px;
   }
   .firstLevelContent {
     font-size: 36px;
@@ -29,7 +28,7 @@
     max-width: 900px;
   }
   .actionButton {
-    height: 60px;
+    height: 80px;
     button {
       width: 180px;
       height: 50px;
@@ -39,6 +38,10 @@
       background-color: #539ef2;
       color: #fff;
       border: none;
+      cursor: pointer;
+      &:focus {
+        outline: none
+      }
     }
   }
 }

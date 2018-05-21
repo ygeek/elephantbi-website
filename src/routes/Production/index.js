@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'dva';
-import ProductionHeadSection from 'components/ProductionHeadSection'
+import HomeHeadSection from 'components/HomeHeadSection'
+import productionBackimg from 'assets/production.png'
 import ReservationExperience from 'components/ReservationExperience'
 import ProIntroduceItem from 'components/ProIntroduceItem'
 import { Spin } from 'antd'
@@ -9,8 +9,11 @@ import proIntroduceContent from './contents'
 import styles from './index.less'
 
 const headSectionContent = {
+  backImg: productionBackimg,
+  title: '',
   subTitle: '高效数据分析，聚焦团队协作与决策',
-  content: '快速多维度的数据整合，灵活、高效的数据分析，多群组的分析结果共享，让团队中人人都是数据分析师，将数据决策覆盖到每一个工作场景'
+  content: '快速多维度的数据整合，灵活、高效的数据分析，多群组的分析结果共享，让团队中人人都是数据分析师，将数据决策覆盖到每一个工作场景',
+  button: true
 }
 
 class Production extends React.Component {
@@ -35,7 +38,7 @@ class Production extends React.Component {
     }
     return (
       <div className={styles.container}>
-        <ProductionHeadSection
+        <HomeHeadSection
           headSectionContent={headSectionContent}
           showFreeTrialModal={showFreeTrialModal}
         />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Row, Col, Radio, Button } from 'antd' 
+import { Form, Input, Row, Radio } from 'antd' 
 import name from 'assets/name1.png'
 import company from 'assets/company1.png'
 import email from 'assets/email.png'
@@ -118,11 +118,11 @@ class FeedbackAndSuggestions extends React.Component {
           </Form>
         </Row>
         <div className={styles.submitButton}>
-          <Button
+          <button
             onClick={onSubmit}
           >
             提交
-          </Button>
+          </button>
         </div>
       </div>
     )

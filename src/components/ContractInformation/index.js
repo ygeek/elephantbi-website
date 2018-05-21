@@ -4,7 +4,6 @@ import tecSupport from 'assets/tecSupport.png'
 import complaints from 'assets/complaints.png'
 import emailblack from 'assets/email.png'
 import telblack from 'assets/tel.png'
-import qqblack from 'assets/qq.png'
 import timeblack from 'assets/time.png'
 import styles from './index.less'
 

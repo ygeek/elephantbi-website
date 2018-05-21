@@ -18,13 +18,17 @@
     width: 12px;
   }
 
-  :global(.ant-btn) {
+  button.submitButton {
     width: 120px;
     height: 40px;
     border-radius: 40px;
     background-color: #539ef2;
     color: #fff;
     border: none;
+    cursor: pointer;
+    &:focus {
+      outline: none
+    }
   }
 
   .formItem {
