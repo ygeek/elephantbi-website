@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Popover, Input, Form } from 'antd'
+import { Button, Popover, Input, Form} from 'antd'
+import { Link } from 'react-router-dom'
 import { _confirmDomain } from 'services/layout'
 import globalMessage from 'helpers/messages'
 import QR from 'assets/LOGO 2.png'
@@ -58,10 +59,6 @@ class Navigation extends React.Component {
 
   render() {
     const {
-      toHome,
-      toProduction,
-      toService,
-      toAbout,
       form,
       closeModal,
       page,
@@ -89,12 +86,12 @@ class Navigation extends React.Component {
 
         </div>
         <div className={styles.submitButton}>
-          <Button
+          <button
             type="primary"
             onClick={this.onSubmit}
           >
             登录
-          </Button>
+          </button>
         </div>
       </div>
     )
@@ -102,11 +99,12 @@ class Navigation extends React.Component {
   
     return (
       <div className={styles.navigation}>
-        <a href="javascript:scrollTo(0,0);" onClick={() => {
-          toHome()
+        <a
+          href="javascript:void(0)"
+          onClick={() => {
           setStyle('home')
         }}>
-          <img alt="" src={QR} />
+          <Link to="/"><img alt="" src={QR} /></Link>
         </a>
         <span span={3} className={styles.actionButton}>
           <Popover
@@ -128,46 +126,42 @@ class Navigation extends React.Component {
         <ul>
           <li style={ page === 'home' ? hoverStyle : null }>
             <a
-              href="javascript:scrollTo(0,0);"
+              href="javascript:void(0)"
               onClick={() => {
-                toHome()
                 setStyle('home')
               }}
             >
-              首页
+              <Link to="/">首页</Link>
             </a>
           </li>
           <li style={ page === 'production' ? hoverStyle : null }>
             <a
-              href="javascript:scrollTo(0,0);"
+              href="javascript:void(0)"
               onClick={() => {
-                toProduction()
                 setStyle('production')
               }}
             >
-              产品介绍
+              <Link to="/production">产品介绍</Link>
             </a>
           </li>
           <li style={ page === 'service' ? hoverStyle : null }>
-            <a
-              href="javascript:scrollTo(0,0);"
-              onClick={() => {
-                toService()
-                setStyle('service')
-              }}
-            >
-              服务支持
-            </a>
+              <a
+                href="javascript:void(0)"
+                onClick={() => {
+                  setStyle('service')
+                }}
+              >
+                <Link to="/service">服务支持</Link>
+              </a>
           </li>
           <li style={ page === 'about' ? hoverStyle : null }>
             <a
-              href="javascript:scrollTo(0,0);"
+              href="javascript:void(0)"
               onClick={() => {
-                toAbout()
                 setStyle('about')
               }}
             >
-              关于我们
+              <Link to="/about">关于我们</Link>
             </a>
           </li>
         </ul>

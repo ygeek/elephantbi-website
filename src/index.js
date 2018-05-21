@@ -1,10 +1,6 @@
-import dva from 'dva';
-import Layout from 'antd';
-const app = dva({});
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './router'
 
-// 4. Router
-app.router(require('./router').default);
-  
-// 5. Start
-app.start('#root');
+ReactDOM.render(<App />, document.getElementById('root'))
 

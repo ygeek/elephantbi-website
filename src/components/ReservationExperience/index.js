@@ -1,6 +1,5 @@
 import React from 'react';
-import { connect } from 'dva';
-import { Form, Input, Col, Button } from 'antd'
+import { Form, Input } from 'antd'
 import { _reserveExperience } from 'services/layout'
 import globalMessage from 'helpers/messages'
 import contents from 'routes/Homepage/contents'
@@ -60,11 +59,11 @@ const ReservationExperience = ({ form, toggleLoading }) => {
         </Form>
       </div>
       <div className={styles.submitButton}>
-        <Button
+        <button
           onClick={onSubmit}
         >
           提交
-        </Button>
+        </button>
       </div>
     </div>
   )

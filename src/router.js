@@ -1,34 +1,22 @@
 import React from 'react';
-import { Router, Route, Switch } from 'dva/router';
-import dynamic from 'dva/dynamic';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import AsyncComponent from './asyncComponent'
+// import Homepage from 'routes/Homepage'
+// import Production from 'routes/Production'
+// import Service from 'routes/Service'
+// import About from 'routes/About'
+import Layout from 'routes/Layout'
 import 'antd/dist/antd.css';
 
-function RouterConfig({ history, app }) {
-  const goBack = () => {
-    history.goBack();
-  };
-  const creatDynamic = props => dynamic({
-    ...props,
-    app
-  });
-  const Layout = creatDynamic({
-    component: () => (import('routes/Layout'))
-  })
+//const Layout = AsyncComponent(() => import('routes/Layout'))
+const Homepage = AsyncComponent(() => import('routes/Homepage'))
+const Production = AsyncComponent(() => import('routes/Production'))
+const Service = AsyncComponent(() => import('routes/Service'))
+const About = AsyncComponent(() => import('routes/About'))
 
-  const Homepage = creatDynamic({
-    component: () => (import('routes/Homepage'))
-  })
-  const Production = creatDynamic({
-    component: () => (import('routes/Production'))
-  })
-  const Service = creatDynamic({
-    component: () => (import('routes/Service'))
-  })
-  const About = creatDynamic({
-    component: () => (import('routes/About'))
-  })
+function RouterConfig() {
   return (
-    <Router history={history}>
+    <Router>
       <Switch>
         <Layout>
           <Route exact path="/" component={Homepage} />

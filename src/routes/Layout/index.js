@@ -1,14 +1,14 @@
+/*global scrollTo*/
 import React from 'react';
-import { connect } from 'dva';
-import { Affix } from 'antd'
+import Affix from 'antd/lib/affix'
 import email from 'assets/email.png'
 import tel from 'assets/tel.png'
 import time from 'assets/time.png'
 import logo from 'assets/LOGO.png'
 import qrcode from 'assets/qrcode.jpg'
+import { Link } from 'react-router-dom'
 import styles from './index.less'
 import Navigation from 'components/Navigation'
-import { routerRedux } from 'dva/router'
 import FreeTrialModal from 'components/FreeTrialModal'
 
 class Layout extends React.Component {
@@ -33,21 +33,10 @@ class Layout extends React.Component {
 
   render() {
     const { freeTrailModalVisible, page } = this.state
-    const { children, layout, dispatch } = this.props
+    const { children, layout } = this.props
     const setStyle = (value) => {
       this.setState({ page: value })
-    }
-    const toHome = () => {
-      dispatch(routerRedux.push('/'))
-    } 
-    const toProduction = () => {
-      dispatch(routerRedux.push('/production'))
-    }
-    const toService = () => {
-      dispatch(routerRedux.push('/service'))
-    }
-    const toAbout = () => {
-      dispatch(routerRedux.push('/about'))
+      window.scrollTo(0, 0)
     }
     const closeModal = () => {
       this.setState({ freeTrailModalVisible: false })
@@ -60,11 +49,6 @@ class Layout extends React.Component {
       <Affix>
         <div className={styles.navigation}>
           <Navigation
-            dispatch={dispatch}
-            toHome={toHome}
-            toProduction={toProduction}
-            toService={toService}
-            toAbout={toAbout}
             page={page}
             closeModal={closeModal}
             showModal={showModal}
@@ -81,22 +65,18 @@ class Layout extends React.Component {
           </span>
           <span className={styles.bottomItem}>
             <ul>
-              <li><a href="javascript:scrollTo(0,0);" onClick={() => {
-                toHome()
+              <li><a href="javascript:void(0)" onClick={() => {
                 setStyle('home')
-              }}>首页</a></li>
-              <li><a href="javascript:scrollTo(0,0);" onClick={() => {
-                toProduction()
+              }}><Link to="/">首页</Link></a></li>
+              <li><a href="javascript:void(0)" onClick={() => {
                 setStyle('production')
-              }}>产品介绍</a></li>
-              <li><a href="javascript:scrollTo(0,0);" onClick={() => {
-                toService()
+              }}><Link to="/production">产品介绍</Link></a></li>
+              <li><a href="javascript:void(0)" onClick={() => {
                 setStyle('service')
-              }}>服务介绍</a></li>
-              <li><a href="javascript:scrollTo(0,0);" onClick={() => {
-                toAbout()
+              }}><Link to="/service">服务介绍</Link></a></li>
+              <li><a href="javascript:void(0)" onClick={() => {
                 setStyle('about')
-              }}>关于我们</a></li>
+              }}><Link to="/about">关于我们</Link></a></li>
             </ul>
           </span>
           <span className={styles.bottomItem}>
@@ -128,8 +108,4 @@ class Layout extends React.Component {
   }
 }
 
-const mapStateToProps = ({ layout }) => ({
-  layout
-})
-
-export default connect(mapStateToProps)(Layout)
+export default Layout

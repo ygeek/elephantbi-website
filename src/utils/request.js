@@ -1,4 +1,3 @@
-import fetch from 'dva/fetch';
 import { HOST } from 'constants/APIConstants';
 
 function parseJSON(response) {

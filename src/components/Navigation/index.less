@@ -22,6 +22,7 @@
     height: 60px;
     padding: 0 10px;
     box-sizing: border-box;
+    font-size: 14px;
     a {
       color: #4a4a4a;
       &:focus {
@@ -37,16 +38,22 @@
     .login {
       border: 1px solid #539ef2;
       color: #539ef2;
+      background-color: #fff;
       &:hover {
         background-color: #539ef2;
         color: #fff
       }
     }
-    :global(.ant-btn) {
+    button {
       margin-left: 20px;
       border-radius: 32px;
       width: 86px;
+      height: 32px;
       font-size: 12px;
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
     }
     .trialButton {
       background-color: #539ef2;
@@ -68,19 +75,30 @@
 
 :global(.ant-popover-inner-content) {
   :global(.has-error) :global(.ant-input-group-addon) {
-    border-color: #d9d9d9
+    border-color: #d9d9d9;
+    color: #4a4a4a
   }
   :global(.ant-input-group-addon) {
     background-color: #EAEEFE;
     color: #4a4a4a
   }
+
+  :global(.has-error) :global(.ant-input) {
+    border-color: #EE6A50;
+  }
   button {
     background-color: #539ef2;
     color: #fff;
     border-radius: 32px;
+    letter-spacing: 4px;
     border: none;
     width: 86px;
+    height: 32px;
     font-size: 12px;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
   }
   width: 324px;
   :global(.ant-form-explain) {
