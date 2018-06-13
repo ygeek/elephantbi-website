@@ -29,7 +29,26 @@ class Navigation extends React.Component {
     this.setState({ visible })
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.visible && !prevState.visible) {
+      if (this.inputRef) {
+        this.inputRef.input.focus()
+      }
+    }
+  }
+
+  componentDidMount() {
+    document.body.onkeydown = (e) => {
+      if (e.keyCode === 13) {
+        if (document.getElementById('submit')) {
+          document.getElementById('submit').click()
+        }
+      }
+    }
+  }
+
   onSubmit() {
+    const component = this
     const { form, dispatch } = this.props
     form.validateFields((errors, values) => {
       if (!errors) {
@@ -41,6 +60,7 @@ class Navigation extends React.Component {
           if (data) {
             if (data.exists === 1) {
               window.open(`http://${form.getFieldValue('domain')}.elephantbi.com`)
+              component.setState({ visible: false })
             }
             if (data.exists === 0) {
               form.setFields({
@@ -78,6 +98,12 @@ class Navigation extends React.Component {
                   <Input
                     placeholder="请输入团队域名"
                     addonAfter="elephantbi.com"
+                    autoFocus={true}
+                    id="domainInput"
+                    ref={c => this.inputRef = c}
+                    onPressEnter={() => {
+                      document.getElementById('submit').click()
+                    }}
                 />
                 )
               }
@@ -89,14 +115,13 @@ class Navigation extends React.Component {
           <button
             type="primary"
             onClick={this.onSubmit}
+            id="submit"
           >
             登录
           </button>
         </div>
       </div>
     )
-  
-  
     return (
       <div className={styles.navigation}>
         <a
