@@ -98,6 +98,9 @@ class Layout extends React.Component {
             <div><img alt="" src={qrcode} /></div>
             <div>关注ElephantBI</div>
           </span>
+          <div className={styles.caseNumber}>
+            辽ICP备18008272号
+          </div>
         </div>
         <FreeTrialModal
           visible={freeTrailModalVisible}
