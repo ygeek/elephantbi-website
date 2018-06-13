@@ -95,7 +95,7 @@ class FeedbackAndSuggestions extends React.Component {
                   })(
                     <RadioGroup>
                       <Radio value="0">问题反馈</Radio>
-                      <Radio value="1">功能意见</Radio>
+                      <Radio value="1">功能建议</Radio>
                     </RadioGroup>
                   )
                 }
