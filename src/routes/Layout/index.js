@@ -99,7 +99,7 @@ class Layout extends React.Component {
             <div>关注ElephantBI</div>
           </span>
           <div className={styles.caseNumber}>
-            辽ICP备18008272号
+            辽ICP备18008272号-1
           </div>
         </div>
         <FreeTrialModal
