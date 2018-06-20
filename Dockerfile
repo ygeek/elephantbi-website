@@ -31,6 +31,7 @@ RUN NODE_ENV=production yarn run build
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 RUN rm -f /etc/nginx/sites-enabled/* && cp -r dist/* /usr/share/nginx/html
 COPY public/WW_verify_ko8aIKtaEWNkftlc.txt /usr/share/nginx/html
+COPY public/WW_verify_yBicWIaJMdytA5qf.txt /usr/share/nginx/html
 
 EXPOSE 80
 
