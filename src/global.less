@@ -1,0 +1,145 @@
+@import url(./base.less);
+
+@font-face {
+  font-family: "PingFang SC";
+  font-weight: 100;
+  src: local("PingFang SC Thin");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PingFang SC";
+  src: local("PingFang SC Light");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PingFang SC";
+  font-weight: 400;
+  src: local("PingFang SC Regular");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PingFang SC";
+  font-weight: 500;
+  src: local("PingFang SC Medium");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PingFang SC";
+  font-weight: 700;
+  src: local("PingFang SC Semibold");
+  font-style: normal;
+}
+
+html {
+  height: 100%;
+}
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+  background-color: #eee;
+
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "PingFang SC","Microsoft YaHei","微软雅黑","MicrosoftJhengHei","华文细黑",STHeiti,MingLiu,sans-serif;
+  font-weight: 300;
+}
+
+.baseButton {
+  .clearButtonStyle();
+
+  width: 120px;
+  height: 40px;
+  
+  line-height: 40px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+}
+
+.creatButton(@color) {
+  .baseButton;
+
+  border-color: @color;
+  color: @color;
+}
+.creatFullButton(@color, @fullColor) {
+  .baseButton;
+
+  border-color: @fullColor;
+  background-color: @fullColor;
+  color: @color;
+}
+
+
+.nav-content {
+  margin: 0 auto;
+  max-width: @max-width;
+
+  .nav-list {
+    display: inline-block;
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0;
+  }
+
+  .nav-section {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .login {
+    position: absolute;
+    top: @half-percent;
+    right: 0;
+    transform: translateY(-@half-percent);
+
+    font-size: 16px;
+
+    button {
+      .clearButtonStyle();
+      
+      width: 120px;
+      height: 40px;
+      margin: 0 14px;
+
+      line-height: 40px;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 3px;
+      border-color: #000;
+    }
+  }
+  .page-list {
+    .clearAStyle();
+
+    height: 50px;
+
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+
+    a {
+      margin: 0 30px;
+    }
+  }
+  .logo {
+    position: absolute;
+    top: @half-percent;
+    left: 0;
+    transform: translateY(-@half-percent);
+    margin: 0 20px;
+  }
+}
