@@ -1,0 +1,89 @@
+@import url(./base.less);
+@import url(./global.less);
+
+@product-item-height: 300px;
+
+.main-content {
+  max-width: @max-width;
+  margin: 0 auto;
+  padding: 0 0 0 250px;
+
+  .main-header {
+    margin: 150px 0;
+
+    .title {
+      max-width: 60%;
+
+      color: @color-green;
+      font-size: 40px;
+    }
+    .description {
+      display: inline-block;
+      max-width: 45%;
+      min-width: 300px;
+      margin-top: 26px;
+
+      color: #64728c;
+      font-size: 18px;
+    }
+    .banner {
+      display: inline-block;
+      position: relative;
+      width: 10px;
+      height: 10px;
+
+      .banner-image {
+        position: absolute;
+        bottom: -130px;
+        left: 100px;
+        z-index: -1;
+      }
+    }
+    .free-btn {
+      .creatFullButton(#fff, @color-green);
+
+      display: block;
+      margin-top: 76px;
+
+      border-radius: 5px;
+      box-shadow: 2px 1px 4px #aeaeae;
+    }
+  }
+}
+
+.server-stage {
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+
+    span {
+      margin-left: 5px;
+    }
+  }
+  ul {
+    display: inline-block;
+    margin-right: 80px;
+    padding: 0;
+
+    font-size: 18px;
+    color: #5f6e80;
+    vertical-align: top;
+  }
+
+  .server-title {
+    font-size: 22px;
+    margin: 0 0 15px 0;
+
+    color: @color-purple;
+
+    p {
+      margin: 14px 0 10px 0;
+    }
+  }
+}
+
+.reserve-form {
+  padding-right: 100px;
+  margin-left: -100px;
+}

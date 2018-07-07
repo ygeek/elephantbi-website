@@ -54,7 +54,11 @@ body {
   font-weight: 300;
 }
 
-.baseButton {
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+.baseButton() {
   .clearButtonStyle();
 
   width: 120px;
@@ -67,13 +71,13 @@ body {
 }
 
 .creatButton(@color) {
-  .baseButton;
+  .baseButton();
 
   border-color: @color;
   color: @color;
 }
 .creatFullButton(@color, @fullColor) {
-  .baseButton;
+  .baseButton();
 
   border-color: @fullColor;
   background-color: @fullColor;
@@ -141,5 +145,115 @@ body {
     left: 0;
     transform: translateY(-@half-percent);
     margin: 0 20px;
+  }
+}
+
+.footer-content {
+  height: 250px;
+  padding: 80px 0;
+
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-nav {
+    width: @max-width;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .footer-nav-sq, .footer-nav-list, .footer-nav-icon {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .footer-nav-list ul {
+    display: inline-block;
+    margin: 0 60px;
+
+    font-size: 15px;
+    color: #5f6e80;
+    vertical-align: top;
+  }
+  .footer-nav-list li {
+    margin-bottom: 20px;
+  }
+  .footer-nav-list span {
+    padding-left: 10px;
+  }
+  .footer-list-title {
+    font-size: 18px;
+  }
+
+  .footer-nav-sq-description {
+    display: block;
+
+    color: #909caa;
+    font-size: 14px;
+  }
+}
+
+.reserve-form {
+  height: 600px;
+  text-align: center;
+
+  .reserve-form-title {
+    margin: 109px 0 20px 0;
+
+    color: @color-title;
+    font-size: 30px;
+    font-weight: normal;
+  }
+  .reserve-form-subtitle {
+    margin-bottom: 63px;
+
+    color: #6d6d8a;
+    font-size: 18px;
+  }
+
+  .form-item {
+    display: inline-block;
+    width: 360px;
+    margin: 0 30px 75px 40px;
+    padding: 0;
+
+    text-align: left;
+    border-bottom: 1px solid #606d8a;
+  }
+  .form-textarea {
+    width: 780px;
+    min-height: 150px;
+    resize: none;
+  }
+  .form-radio {
+    display: inline-block;
+    width: 780px;
+    margin: 0 0 22px 0;
+
+    text-align: left;
+    border: none;
+  }
+  .form-input {
+    width: 300px;
+
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: #606d8a;
+      opacity: 1; /* Firefox */
+    }
+  }
+
+  .form-submit-btn {
+    .creatFullButton(#fff, @color-green);
+
+    border-radius: 100px;
   }
 }

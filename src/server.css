@@ -225,22 +225,17 @@ h6 {
   color: #fff;
   border-radius: 100px;
 }
-.card-image-1 {
-  background: url("./assets/card1.png") no-repeat 0 0/500px 350px;
-}
 .main-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 100px;
+  padding: 0 0 0 250px;
 }
 .main-content .main-header {
   margin: 150px 0;
 }
 .main-content .main-header .title {
-  font-size: 62px;
-}
-.main-content .main-header .sub-title {
-  margin-top: 10px;
+  max-width: 60%;
+  color: #1db977;
   font-size: 40px;
 }
 .main-content .main-header .description {
@@ -248,7 +243,8 @@ h6 {
   max-width: 45%;
   min-width: 300px;
   margin-top: 26px;
-  font-size: 15px;
+  color: #64728c;
+  font-size: 18px;
 }
 .main-content .main-header .banner {
   display: inline-block;
@@ -257,11 +253,9 @@ h6 {
   height: 10px;
 }
 .main-content .main-header .banner .banner-image {
-  width: 1133px;
-  height: 1070px;
   position: absolute;
-  bottom: -560px;
-  left: 0px;
+  bottom: -130px;
+  left: 100px;
   z-index: -1;
 }
 .main-content .main-header .free-btn {
@@ -278,149 +272,39 @@ h6 {
   border-width: 1px;
   border-style: solid;
   border-radius: 3px;
-  border-color: #40d08f;
-  background-color: #40d08f;
+  border-color: #1db977;
+  background-color: #1db977;
   color: #fff;
   display: block;
   margin-top: 76px;
   border-radius: 5px;
   box-shadow: 2px 1px 4px #aeaeae;
 }
-.main-content .show-box {
-  width: 1000px;
-  height: 400px;
-  padding-top: 200px;
-}
-.main-content .show-box .box-title {
-  display: inline-block;
-  color: #1db977;
-}
-.main-content .show-box .box-title h3 {
-  font-size: 32px;
-  margin: 0;
-}
-.main-content .show-box .box-title p {
-  font-size: 20px;
-  margin: 0;
-}
-.main-content .show-box .box-item {
-  display: inline-block;
-  max-width: 496px;
-  width: 50%;
-  transform: translateY(-50%);
-  box-sizing: border-box;
-  vertical-align: top;
-}
-.main-content .show-box .right {
-  transform: translate(150px, -50%);
-}
-.main-content .show-box .box-list {
-  color: #777d97;
+.server-stage li {
   list-style: none;
   padding: 0;
+  margin: 0 0 10px 0;
 }
-.main-content .show-box .box-list li {
-  margin: 5px 0;
+.server-stage li span {
+  margin-left: 5px;
 }
-.main-content .show-box .box-list li:before {
-  content: "\25cf";
-  margin-right: 6px;
-  color: #1db977;
-  font-size: 15px;
-}
-.rotate-card {
-  height: 700px;
-}
-.rotate-card .rotate-card-title {
-  margin: 95px 0;
-  font-size: 30px;
-  color: #4a4a4a;
-  text-align: center;
-}
-.rotate-card .card-stage {
-  width: 1005px;
-  margin: 0 auto;
-  position: relative;
-  background-color: #fff;
-  box-shadow: 2px 7px 10px 4px #dfdfdf;
-}
-.rotate-card .show-card {
-  display: none;
-  width: 100%;
-  position: relative;
-  box-sizing: content-box;
-}
-.rotate-card .show {
-  display: block;
-}
-.rotate-card .card-title {
+.server-stage ul {
   display: inline-block;
-  width: 500px;
-  height: 350px;
-  color: #fff;
-  font-size: 32px;
-  line-height: 350px;
-  vertical-align: top;
-  box-sizing: border-box;
-  text-align: center;
-}
-.rotate-card .card-description {
-  display: inline-block;
-  width: 500px;
-  height: 350px;
-  vertical-align: top;
-  box-sizing: border-box;
-}
-.rotate-card .card-p {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 0 100px 0 20px;
-  color: #909caa;
+  margin-right: 80px;
+  padding: 0;
   font-size: 18px;
+  color: #5f6e80;
+  vertical-align: top;
 }
-.rotate-card .card-btn {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  width: 120px;
-  height: 40px;
-  line-height: 40px;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 3px;
-  border-color: #1db977;
-  color: #1db977;
-  position: absolute;
-  bottom: -10px;
-  left: 20px;
-  transform: translateY(100%);
+.server-stage .server-title {
+  font-size: 22px;
+  margin: 0 0 15px 0;
+  color: #32325d;
 }
-.rotate-card .btn-up,
-.rotate-card .btn-down {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  position: absolute;
-  top: 50%;
-  width: 53px;
-  height: 53px;
+.server-stage .server-title p {
+  margin: 14px 0 10px 0;
 }
-.rotate-card .btn-up {
-  left: 0;
-  transform: translate(-50%, -50%);
-  background: url("./assets/btn-up.png") no-repeat 0 0/53px 53px;
-}
-.rotate-card .btn-down {
-  right: 0;
-  transform: translate(50%, -50%);
-  background: url("./assets/btn-down.png") no-repeat 0 0/53px 53px;
+.reserve-form {
+  padding-right: 100px;
+  margin-left: -100px;
 }
