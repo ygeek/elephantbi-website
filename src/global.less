@@ -104,6 +104,53 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
   }
 
+  .login-btn-content {
+    position: relative;
+  }
+
+  .login-modal {
+    display: none;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    z-index: 999;
+    padding: 10px;
+
+    transform: translate(-50%, 100%);
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 2px 1px 4px #dedede;
+
+    .login-block {
+      display: table;
+    }
+    .login-cell {
+      display: table-cell;
+      height: 25px;
+      padding: 6px 11px;
+
+      border: 1px solid #d9d9d9;
+      line-height: 1.5;
+
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+    .login-fixed {
+      background-color: #eaeefe;
+    }
+    .login-btn {
+      .creatFullButton(#fff, @color-green);
+
+      display: block;
+      margin: 20px auto 0 auto;
+    }
+  }
+
+  .modal-show {
+    display: block;
+  }
+
   .login {
     position: absolute;
     top: @half-percent;
@@ -256,4 +303,79 @@ h1, h2, h3, h4, h5, h6 {
 
     border-radius: 100px;
   }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 9999;
+  width: 500px;
+  padding: 60px 60px 60px 50px;
+
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 2px 1px 6px #ddd;
+  transform: translate(-50%, -50%);
+
+  .form-item {
+    display: block;
+    height: 50px;
+    margin: 0 0 40px 0;
+    padding: 0 0 6px 0;
+
+    line-height: 50px;
+    text-align: left;
+    border-bottom: 1px solid #606d8a;
+  }
+  .form-input {
+    width: 450px;
+
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: #606d8a;
+      opacity: 1; /* Firefox */
+    }
+  }
+  .title, .sub-title {
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+  }
+
+  .title {
+    font-size: 24px;
+    color: #539ef2;
+    margin-bottom: 14px;
+  }
+  .sub-title {
+    font-size: 16px;
+    color: #9b9b9b;
+    margin-bottom: 14px;
+  }
+  .modal-submint {
+    .creatFullButton(#fff, @color-green);
+
+    display: block;
+    margin:  0 auto;
+  }
+  .modal-close {
+    .clearAStyle();
+
+    position: absolute;
+    right: 20px;
+    top: 15px;
+  }
+}
+
+.modal-show {
+  display: block;
 }

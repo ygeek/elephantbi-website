@@ -1,0 +1,125 @@
+@import url(./base.less);
+@import url(./global.less);
+
+.main-content {
+  max-width: @max-width;
+  margin: 0 auto;
+  padding: 0;
+
+  .main-header {
+    margin: 150px 0 0 0;
+
+    .title {
+      margin: 0;
+      padding: 0;
+
+      text-align: center;
+      color: @color-purple;
+      font-size: 40px;
+    }
+    .description {
+      display: inline-block;
+      margin-top: 56px;
+      margin-bottom: 276px;
+      padding: 0 150px;
+
+      text-align: center;
+      color: #64728c;
+      font-size: 20px;
+    }
+    .company-stage {
+      margin: 0 0 100px 0;
+      padding: 0 150px;
+
+      text-align: center;
+      font-size: 18px;
+      line-height: 35px;
+      color: #909caa;
+    }
+  }
+}
+
+.join-us {
+  padding-top: 60px;
+
+  .title {
+    padding: 0;
+    margin: 0 0 10px 0;
+
+    color: #34345f;
+    font-size: 32px;
+    text-align: center;
+  }
+  .description {
+    padding: 0;
+    margin: 0 0 50px 0;
+
+    color: #606d8a;
+    font-size: 20px;
+    text-align: center;
+  }
+  .list {
+    margin: 0 auto;
+    width: 800px;
+    padding: 0 46px;
+
+    background-color: #fff;
+    box-sizing: border-box;
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .list-item {
+    list-style: none;
+  }
+  .list-title {
+    .clearAStyle();
+
+    display: inline-block;
+    width: 100%;
+    padding: 20px 0;
+
+    border-bottom: 1px solid #e9ebfd;
+    line-height: 20px;
+    font-size: 20px;
+    color: #34345f;
+
+    box-sizing: border-box;
+  }
+  .position-description {
+    height: 0;
+
+    overflow: hidden;
+    border-bottom: 1px solid #e9ebfd;
+    box-sizing: border-box;
+
+    transition: all 0.3s;
+
+    div, li {
+      font-size: 15px;
+      color: #6d6d8a;
+      margin: 30px 0;
+      text-align: left;
+    }
+  }
+  .icon-right {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+
+    background: ~'url("./assets/btn-line-right.png") no-repeat 0 0/10px 20px';
+  }
+
+  .list-select {
+    .position-description {
+      height: auto;
+    }
+
+    .icon-right {
+      background: ~'url("./assets/btn-line-down.png") no-repeat 0 10px/20px 10px';
+    }
+  }
+}

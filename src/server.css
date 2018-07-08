@@ -69,6 +69,60 @@ h6 {
   padding: 0;
   margin: 0;
 }
+.nav-content .login-btn-content {
+  position: relative;
+}
+.nav-content .login-modal {
+  display: none;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  z-index: 999;
+  padding: 10px;
+  transform: translate(-50%, 100%);
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 2px 1px 4px #dedede;
+}
+.nav-content .login-modal .login-block {
+  display: table;
+}
+.nav-content .login-modal .login-cell {
+  display: table-cell;
+  height: 25px;
+  padding: 6px 11px;
+  border: 1px solid #d9d9d9;
+  line-height: 1.5;
+}
+.nav-content .login-modal .login-cell::placeholder {
+  font-size: 14px;
+}
+.nav-content .login-modal .login-fixed {
+  background-color: #eaeefe;
+}
+.nav-content .login-modal .login-btn {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  border-color: #1db977;
+  background-color: #1db977;
+  color: #fff;
+  display: block;
+  margin: 20px auto 0 auto;
+}
+.nav-content .modal-show {
+  display: block;
+}
 .nav-content .login {
   position: absolute;
   top: 50%;
@@ -94,6 +148,7 @@ h6 {
   border-color: #000;
 }
 .nav-content .page-list {
+  text-decoration: none;
   height: 50px;
   line-height: 50px;
   font-size: 20px;
@@ -224,6 +279,94 @@ h6 {
   background-color: #1db977;
   color: #fff;
   border-radius: 100px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 9999;
+  width: 500px;
+  padding: 60px 60px 60px 50px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 2px 1px 6px #ddd;
+  transform: translate(-50%, -50%);
+}
+.modal .form-item {
+  display: block;
+  height: 50px;
+  margin: 0 0 40px 0;
+  padding: 0 0 6px 0;
+  line-height: 50px;
+  text-align: left;
+  border-bottom: 1px solid #606d8a;
+}
+.modal .form-input {
+  width: 450px;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+}
+.modal .form-input:focus {
+  outline: none;
+}
+.modal .form-input::placeholder {
+  color: #606d8a;
+  opacity: 1;
+  /* Firefox */
+}
+.modal .title,
+.modal .sub-title {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.modal .title {
+  font-size: 24px;
+  color: #539ef2;
+  margin-bottom: 14px;
+}
+.modal .sub-title {
+  font-size: 16px;
+  color: #9b9b9b;
+  margin-bottom: 14px;
+}
+.modal .modal-submint {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  border-color: #1db977;
+  background-color: #1db977;
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+}
+.modal .modal-close {
+  text-decoration: none;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+.modal .modal-close a:hover,
+.modal .modal-close a:visited,
+.modal .modal-close a:link,
+.modal .modal-close a:active {
+  text-decoration: none;
+  color: #000;
+}
+.modal-show {
+  display: block;
 }
 .main-content {
   max-width: 1200px;
