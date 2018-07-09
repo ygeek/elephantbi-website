@@ -45,8 +45,6 @@ body {
   padding: 0;
   overflow-x: hidden;
 
-  background-color: #eee;
-
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -85,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.nav-content {
+.nav-content-creat(@font-color, @full-btn-color, @full-font-color: #fff) {
   margin: 0 auto;
   max-width: @max-width;
 
@@ -162,19 +160,18 @@ h1, h2, h3, h4, h5, h6 {
     button {
       .clearButtonStyle();
       
-      width: 120px;
-      height: 40px;
       margin: 0 14px;
+    }
 
-      line-height: 40px;
-      border-width: 1px;
-      border-style: solid;
-      border-radius: 3px;
-      border-color: #000;
+    #nav-login {
+      .creatButton(@font-color);
+    }
+    #nav-application {
+      .creatFullButton(@full-font-color, @full-btn-color);
     }
   }
   .page-list {
-    .clearAStyle();
+    .clearAStyle(@font-color);
 
     height: 50px;
 
@@ -198,6 +195,8 @@ h1, h2, h3, h4, h5, h6 {
 .footer-content {
   height: 250px;
   padding: 80px 0;
+
+  background-color: #f8f9fd;
 
   li {
     list-style: none;
@@ -245,6 +244,8 @@ h1, h2, h3, h4, h5, h6 {
 .reserve-form {
   height: 600px;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 
   .reserve-form-title {
     margin: 109px 0 20px 0;
@@ -272,6 +273,8 @@ h1, h2, h3, h4, h5, h6 {
   .form-textarea {
     width: 780px;
     min-height: 150px;
+    margin-bottom: 68px;
+
     resize: none;
   }
   .form-radio {
