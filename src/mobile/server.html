@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ElephantBI</title>
+  <script>
+    !function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}([function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=window;t["default"]=i.flex=function(e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&&parseInt(l[1].split(".").join(""),10)>=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&&d[1]>534||c||(s=1);var u=1/s,m=r.querySelector('meta[name="viewport"]');m||(m=r.createElement("meta"),m.setAttribute("name","viewport"),r.head.appendChild(m)),m.setAttribute("content","width=device-width,user-scalable=no,initial-scale="+u+",maximum-scale="+u+",minimum-scale="+u),r.documentElement.style.fontSize=a/2*s*n+"px"},e.exports=t["default"]}]);
+    flex(200, 1);
+  </script>
+  <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+  <script>
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+      }, false);
+    }
+    if(!window.Promise) {
+      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+    }
+  </script>
+  <link rel="stylesheet" href="./server.css">
+</head>
+<body>
+  <div id="root" >
+    <header>
+      <nav class="nav-content" >
+        <ul class="nav-list" >
+          <li class="nav-section logo" >
+            <image src="./assets/nav-logo-black.png" width=206 height=41 />
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main-content" >
+      <div class="main-header-bg" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <header class="main-header" >
+        <h1 class="title" >服务支持</h1>
+        <span class="description" >大象BI拥有专业的商务团队和技术支持团队，将为您提供专业的服务</span>
+        <button class="free-btn" >免费试用</button>
+      </header>
+      <div class="banner" >
+        <image class="banner-image" src="./assets/main-header-banner-server.png" width=415 height=380 >
+      </div>
+      <section class="server-stage" >
+        <ul>
+          <li class="server-title" >
+            <image src="./assets/server-title-icon1.png" width=44 height=44 />
+            <p>
+              商务咨询
+            </p>
+          </li>
+          <li>
+            <image src="./assets/footer-phone.png" />
+            <span>0411-39551681</span>
+          </li>
+          <li>
+            <image src="./assets/footer-email.png" />
+            <span>bd@elephantbi.com</span>
+          </li>
+        </ul>
+        <ul>
+          <li class="server-title" >
+            <image src="./assets/server-title-icon2.png" width=44 height=44 />
+            <p>
+              技术支持
+            </p>
+          </li>
+          <li>
+            <image src="./assets/footer-time.png" />
+            <span>09:00~19:00</span>
+          </li>
+          <li>
+            <image src="./assets/footer-qq.png" />
+            <span>??????????</span>
+          </li>
+          <li>
+            <image src="./assets/footer-phone.png" />
+            <span>0411-39551681</span>
+          </li>
+          <li>
+            <image src="./assets/footer-email.png" />
+            <span>support@elephantbi.com</span>
+          </li>
+        </ul>
+        <ul>
+          <li class="server-title" >
+            <image src="./assets/server-title-icon3.png" width=44 height=44 />
+            <p>
+              投诉
+            </p>
+          </li>
+          <li>
+            <image src="./assets/footer-phone.png" />
+            <span>总裁办电话 15910603382</span>
+          </li>
+        </ul>
+      </section>
+      <div class="line" ></div>
+      <section class="reserve-form" >
+        <h3 class="reserve-form-title" >反馈与建议</h3>
+        <p class="reserve-form-subtitle" >填写下面的表格，我们将会尽快给您回复</p>
+        <form action="POST">
+          <span class="form-item" >
+            <image src="./assets/input-name.png" />
+            <input class="form-input" type="text" name="name" placeholder="姓名" />
+          </span>
+          <span class="form-item" >
+            <image src="./assets/input-email.png" />
+            <input class="form-input" type="text" name="email" placeholder="邮箱" />
+          </span>
+          <span class="form-item" >
+            <image src="./assets/input-phone.png" />
+            <input class="form-input" type="text" name="phone" placeholder="联系电话" />
+          </span>
+          <span class="form-item" >
+            <image src="./assets/input-companyname.png" />
+            <input class="form-input" type="text" name="company_name" placeholder="公司名称" />
+          </span>
+          <span class="form-radio" >
+            <input type="radio" name="a" id="a" />
+            <label for="a">问题反馈</label>
+            <input type="radio" name="a" id="b" />
+            <label for="b">功能意见</label>
+          </span>
+          <textarea class="form-textarea" name="comment" id="comment" cols="46" rows="5" placeholder="请填写您想反馈的问题或建议" ></textarea>
+        </form>
+        <button class="form-submit-btn" >提交</button>
+      </section>
+    </main>
+    <footer class="footer-content" >
+      <ul class="footer-nav" >
+        <li class="footer-nav-icon" >
+          <image src="./assets/footer-icon.png" width=100 />
+        </li>
+        <li class="footer-nav-list" >
+          <ul>
+            <li class="footer-list-title" >首页</li>
+            <li>产品服务</li>
+            <li>服务介绍</li>
+            <li>关于我们</li>
+          </ul>
+          <ul>
+            <li class="footer-list-title" >商务咨询</li>
+            <li>
+              <image src="./assets/footer-phone.png" />
+              <span>0411-39551681</span>
+            </li>
+            <li>
+              <image src="./assets/footer-email.png" />
+              <span>bd@elephantbi.com</span>
+            </li>
+          </ul>
+          <ul>
+            <li class="footer-list-title" >技术支持</li>
+            <li>
+              <image src="./assets/footer-time.png" />
+              <span>09:00~19:00</span>
+            </li>
+            <li>
+              <image src="./assets/footer-qq.png" />
+              <span>??????????</span>
+            </li>
+            <li>
+              <image src="./assets/footer-phone.png" />
+              <span>0411-39551681</span>
+            </li>
+            <li>
+              <image src="./assets/footer-email.png" />
+              <span>support@elephantbi.com</span>
+            </li>
+          </ul>
+        </li>
+        <li class="footer-nav-sq" >
+          <image src="./assets/footer-sq.png" width=100 />
+          <span class="footer-nav-sq-description" >关注 ElephantBI</span>
+        </li>
+      </ul>
+    </footer>
+  </div>
+  <div class="modal" id="modal-application" >
+    <a href="javascript:void(0)" id="modal-id-close" class="modal-close" >
+      X
+    </a>
+    <h3 class="title" >
+      预约体验大象BI
+    </h3>
+    <p class="sub-title" >
+      大象BI团队将尽快和您联系
+    </p>
+    <form action="POST">
+      <span class="form-item" >
+        <image src="./assets/input-name.png" width=16 height=16 />
+        <input class="form-input" type="text" name="name" placeholder="姓名" />
+      </span>
+      <span class="form-item" >
+        <image src="./assets/input-email.png" width=16 height=16 />
+        <input class="form-input" type="text" name="email" placeholder="邮箱" />
+      </span>
+      <span class="form-item" >
+        <image src="./assets/input-phone.png" width=16 height=16 />
+        <input class="form-input" type="text" name="phone" placeholder="联系电话" />
+      </span>
+      <span class="form-item" >
+        <image src="./assets/input-companyname.png" width=16 height=16 />
+        <input class="form-input" type="text" name="company_name" placeholder="公司名称" />
+      </span>
+      <span class="form-item" >
+        <image src="./assets/input-department.png" width=16 height=16 />
+        <input class="form-input" type="text" name="department" placeholder="所属部门" />
+      </span>
+      <span class="form-item" >
+        <image src="./assets/input-position.png" width=16 height=16 />
+        <input class="form-input" type="text" name="position" placeholder="职位" />
+      </span>
+    </form>
+    <button class="modal-submint" >提交</button>
+  </div>
+  <script src="./js/main.js" ></script>
+</body>
+</html>
