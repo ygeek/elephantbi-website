@@ -47,7 +47,7 @@
       <header class="main-header" >
         <h1 class="title" >服务支持</h1>
         <span class="description" >大象BI拥有专业的商务团队和技术支持团队，将为您提供专业的服务</span>
-        <button class="free-btn" >免费试用</button>
+        <button class="free-btn" id="free-btn-id" >免费试用</button>
       </header>
       <div class="banner" >
         <image class="banner-image" src="./assets/main-header-banner-server.png" width=415 height=380 >
@@ -61,7 +61,7 @@
             </p>
           </li>
           <li>
-            <image src="./assets/footer-phone.png" />
+            <image src="./assets/footer-phone.png" width=17 height=17 />
             <span>0411-39551681</span>
           </li>
           <li>
@@ -81,11 +81,7 @@
             <span>09:00~19:00</span>
           </li>
           <li>
-            <image src="./assets/footer-qq.png" />
-            <span>??????????</span>
-          </li>
-          <li>
-            <image src="./assets/footer-phone.png" />
+            <image src="./assets/footer-phone.png" width=17 height=17 />
             <span>0411-39551681</span>
           </li>
           <li>
@@ -101,7 +97,7 @@
             </p>
           </li>
           <li>
-            <image src="./assets/footer-phone.png" />
+            <image src="./assets/footer-phone.png" width=17 height=17 />
             <span>总裁办电话 15910603382</span>
           </li>
         </ul>
@@ -110,32 +106,32 @@
       <section class="reserve-form" >
         <h3 class="reserve-form-title" >反馈与建议</h3>
         <p class="reserve-form-subtitle" >填写下面的表格，我们将会尽快给您回复</p>
-        <form action="POST">
+        <form action="POST" name="formReserve" >
           <span class="form-item" >
-            <image src="./assets/input-name.png" />
+            <img src='<%= require("./assets/input-name.png") %>' />
             <input class="form-input" type="text" name="name" placeholder="姓名" />
           </span>
           <span class="form-item" >
-            <image src="./assets/input-email.png" />
+            <img src='<%= require("./assets/input-email.png") %>' />
             <input class="form-input" type="text" name="email" placeholder="邮箱" />
           </span>
           <span class="form-item" >
-            <image src="./assets/input-phone.png" />
-            <input class="form-input" type="text" name="phone" placeholder="联系电话" />
+            <img src='<%= require("./assets/input-phone.png") %>' />
+            <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
           </span>
           <span class="form-item" >
-            <image src="./assets/input-companyname.png" />
-            <input class="form-input" type="text" name="company_name" placeholder="公司名称" />
+            <img src='<%= require("./assets/input-companyname.png") %>' />
+            <input class="form-input" type="text" name="company" placeholder="公司名称" />
           </span>
           <span class="form-radio" >
-            <input type="radio" name="a" id="a" />
-            <label for="a">问题反馈</label>
-            <input type="radio" name="a" id="b" />
-            <label for="b">功能意见</label>
+            <input type="radio" name="type" id="1" />
+            <label for="1">问题反馈</label>
+            <input type="radio" name="type" id="2" />
+            <label for="2">功能意见</label>
           </span>
-          <textarea class="form-textarea" name="comment" id="comment" cols="46" rows="5" placeholder="请填写您想反馈的问题或建议" ></textarea>
+          <textarea class="form-textarea" name="content" id="content" cols="96" rows="5" placeholder="请填写您想反馈的问题或建议" ></textarea>
         </form>
-        <button class="form-submit-btn" >提交</button>
+        <button class="form-submit-btn" id="form-reserve-submit-btn-id" >提交</button>
       </section>
     </main>
     <footer class="footer-content" >
@@ -153,7 +149,7 @@
           <ul>
             <li class="footer-list-title" >商务咨询</li>
             <li>
-              <image src="./assets/footer-phone.png" />
+              <image src="./assets/footer-phone.png" width=17 height=17 />
               <span>0411-39551681</span>
             </li>
             <li>
@@ -168,11 +164,7 @@
               <span>09:00~19:00</span>
             </li>
             <li>
-              <image src="./assets/footer-qq.png" />
-              <span>??????????</span>
-            </li>
-            <li>
-              <image src="./assets/footer-phone.png" />
+              <image src="./assets/footer-phone.png" width=17 height=17 />
               <span>0411-39551681</span>
             </li>
             <li>
@@ -221,11 +213,10 @@
       </span>
       <span class="form-item" >
         <image src="./assets/input-position.png" width=16 height=16 />
-        <input class="form-input" type="text" name="position" placeholder="职位" />
+        <input class="form-input" type="text" name="title" placeholder="职位" />
       </span>
     </form>
     <button class="modal-submint" >提交</button>
   </div>
-  <script src="./js/main.js" ></script>
 </body>
 </html>

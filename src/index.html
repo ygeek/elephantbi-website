@@ -11,13 +11,13 @@
       <nav class="nav-content" >
         <ul class="nav-list" >
           <li class="nav-section logo" >
-            <image src="./assets/nav-logo.png" />
+            <img src='<%= require("./assets/nav-logo.png") %>' />
           </li>
           <li class="nav-section page-list" >
-            <a href="">首页</a>
-            <a href="">产品介绍</a>
-            <a href="">服务支持</a>
-            <a href="">关于我们</a>
+            <a href="./index.html">首页</a>
+            <a href="./product.html">产品介绍</a>
+            <a href="./server.html">服务支持</a>
+            <a href="./about.html">关于我们</a>
           </li>
           <li class="nav-section login" >
             <span class="login-btn-content" >
@@ -63,13 +63,13 @@
         <h2 class="sub-title" >数据驱动管理，人人都是数据专家</h2>
         <span class="description" >通过数据整合，可以提高跨系统数据的统一性、准确性和时效性，更容易获得全面的观点深入洞察数据与精准决策，用数据驱动行为，让数据融入工作的每个环节</span>
         <div class="banner" >
-          <image class="banner-image" src="./assets/main-header-banner.svg" >
+          <img class="banner-image" src='<%= require("./assets/main-header-banner.svg") %>' >
         </div>
-        <button class="free-btn" >免费试用</button>
+        <button class="free-btn" id="free-btn-id" >免费试用</button>
       </header>
       <section class="show-box" >
         <div class="box-item left" >
-          <image class="box-title" src="./assets/box-left-icon.png" width=66 height=66 />
+          <img class="box-title" src='<%= require("./assets/box-left-icon.png") %>' width=66 height=66 />
           <div class="box-title" >
             <h3>集成全部数据</h3>
             <p>Integrating All Data</p>
@@ -84,15 +84,15 @@
           </ul>
         </div>
         <div class="box-item" >
-          <image width=489 height=458 src="./assets/index-box-1.png" />
+          <img width=489 height=458 src="./assets/index-box-1.png" />
         </div>
       </section>
       <section class="show-box" >
         <div class="box-item left" >
-          <image width=550 height=207 src="./assets/index-box-2.png" />
+          <img width=550 height=207 src="./assets/index-box-2.png" />
         </div>
         <div class="box-item right" >
-          <image class="box-title" src="./assets/box-right-icon.png" width=66 height=66 />
+          <img class="box-title" src='<%= require("./assets/box-right-icon.png") %>' width=66 height=66 />
           <div class="box-title" >
             <h3>可视化拖拽分析</h3>
             <p>Visualized drag and drop data analysis</p>
@@ -107,7 +107,7 @@
       </section>
       <section class="show-box" >
         <div class="box-item left" >
-          <image class="box-title" src="./assets/box-left-icon.png" width=66 height=66 />
+          <img class="box-title" src='<%= require("./assets/box-left-icon.png") %>' width=66 height=66 />
           <div class="box-title" >
             <h3>团队协作</h3>
             <p>Integrating All Data</p>
@@ -119,15 +119,15 @@
           </ul>
         </div>
         <div class="box-item" height=269 >
-          <image width=530 height=269 src="./assets/index-box-3.png" />
+          <img width=530 height=269 src="./assets/index-box-3.png" />
         </div>
       </section>
       <section class="show-box" >
         <div class="box-item left" >
-          <image width=486 height=297 src="./assets/index-box-4.png" />
+          <img width=486 height=297 src="./assets/index-box-4.png" />
         </div>
         <div class="box-item right" >
-          <image class="box-title" src="./assets/box-right-icon.png" width=66 height=66 />
+          <img class="box-title" src='<%= require("./assets/box-right-icon.png") %>' width=66 height=66 />
           <div class="box-title" >
             <h3>精细化权限管理</h3>
             <p>Integrating All Data</p>
@@ -140,7 +140,7 @@
       </section>
       <section class="show-box" >
         <div class="box-item left" >
-          <image class="box-title" src="./assets/box-left-icon.png" width=66 height=66 />
+          <img class="box-title" src='<%= require("./assets/box-left-icon.png") %>' width=66 height=66 />
           <div class="box-title" >
             <h3>移动BI</h3>
             <p>Integrating All Data</p>
@@ -153,15 +153,15 @@
           </ul>
         </div>
         <div class="box-item" height=300 >
-          <image width=583 height=300 src="./assets/index-box-5.png" />
+          <img width=583 height=300 src="./assets/index-box-5.png" />
         </div>
       </section>
       <section class="show-box" >
         <div class="box-item left" >
-          <image width=598 height=364 src="./assets/index-box-6.png" />
+          <img width=598 height=364 src="./assets/index-box-6.png" />
         </div>
         <div class="box-item right" >
-          <image class="box-title" src="./assets/box-right-icon.png" width=66 height=66 />
+          <img class="box-title" src='<%= require("./assets/box-right-icon.png") %>' width=66 height=66 />
           <div class="box-title" >
             <h3>数据大屏</h3>
             <p>Integrating All Data</p>
@@ -202,80 +202,84 @@
       <section class="reserve-form" >
         <h3 class="reserve-form-title" >预约体验大象BI</h3>
         <p class="reserve-form-subtitle" >大象BI团队会尽快跟您联系</p>
-        <form action="POST">
+        <form action="POST" name="form1" >
           <span class="form-item" >
-            <image src="./assets/input-name.png" />
+            <img src='<%= require("./assets/input-name.png") %>' />
             <input class="form-input" type="text" name="name" placeholder="姓名" />
           </span>
           <span class="form-item" >
-            <image src="./assets/input-email.png" />
+            <img src='<%= require("./assets/input-email.png") %>' />
             <input class="form-input" type="text" name="email" placeholder="邮箱" />
           </span>
           <span class="form-item" >
-            <image src="./assets/input-phone.png" />
-            <input class="form-input" type="text" name="phone" placeholder="联系电话" />
+            <img src='<%= require("./assets/input-phone.png") %>' />
+            <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
           </span>
           <span class="form-item" >
-            <image src="./assets/input-companyname.png" />
-            <input class="form-input" type="text" name="company_name" placeholder="公司名称" />
+            <img src='<%= require("./assets/input-companyname.png") %>' />
+            <input class="form-input" type="text" name="company" placeholder="公司名称" />
           </span>
           <span class="form-item" >
-            <image src="./assets/input-department.png" />
+            <img src='<%= require("./assets/input-department.png") %>' />
             <input class="form-input" type="text" name="department" placeholder="所属部门" />
           </span>
           <span class="form-item" >
-            <image src="./assets/input-position.png" />
-            <input class="form-input" type="text" name="position" placeholder="职位" />
+            <img src='<%= require("./assets/input-position.png") %>' />
+            <input class="form-input" type="text" name="title" placeholder="职位" />
           </span>
         </form>
-        <button class="form-submit-btn" >提交</button>
+        <button class="form-submit-btn" id="form-submit-btn-id" >提交</button>
       </section>
     </main>
     <footer class="footer-content" >
       <ul class="footer-nav" >
         <li class="footer-nav-icon" >
-          <image src="./assets/footer-icon.png" width=100 />
+          <img src='<%= require("./assets/footer-icon.png") %>' width=100 />
         </li>
         <li class="footer-nav-list" >
           <ul>
-            <li class="footer-list-title" >首页</li>
-            <li>产品服务</li>
-            <li>服务介绍</li>
-            <li>关于我们</li>
+            <li class="footer-list-title" >
+              <a href="./index.html">首页</a>
+            </li>
+            <li>
+              <a href="./product.html">产品介绍</a>
+            </li>
+            <li>
+              <a href="./server.html">服务支持</a>
+            </li>
+            <li>
+              <a href="./about.html">关于我们</a>
+            </li>
           </ul>
           <ul>
             <li class="footer-list-title" >商务咨询</li>
             <li>
-              <image src="./assets/footer-phone.png" />
+              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
               <span>0411-39551681</span>
             </li>
             <li>
-              <image src="./assets/footer-email.png" />
+              <img src='<%= require("./assets/footer-email.png") %>' />
               <span>bd@elephantbi.com</span>
             </li>
           </ul>
           <ul>
             <li class="footer-list-title" >技术支持</li>
             <li>
-              <image src="./assets/footer-time.png" />
+              <img src='<%= require("./assets/footer-time.png") %>' />
               <span>09:00~19:00</span>
             </li>
             <li>
-              <image src="./assets/footer-qq.png" />
-              <span>??????????</span>
-            </li>
-            <li>
-              <image src="./assets/footer-phone.png" />
+              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
               <span>0411-39551681</span>
             </li>
             <li>
-              <image src="./assets/footer-email.png" />
+              <img src='<%= require("./assets/footer-email.png") %>' />
               <span>support@elephantbi.com</span>
             </li>
           </ul>
         </li>
         <li class="footer-nav-sq" >
-          <image src="./assets/footer-sq.png" width=100 />
+          <img src='<%= require("./assets/footer-sq.png") %>' width=100 />
           <span class="footer-nav-sq-description" >关注 ElephantBI</span>
         </li>
       </ul>
@@ -291,34 +295,33 @@
     <p class="sub-title" >
       大象BI团队将尽快和您联系
     </p>
-    <form action="POST">
+    <form action="POST" name="formModal" >
       <span class="form-item" >
-        <image src="./assets/input-name.png" width=16 height=16 />
+        <img src='<%= require("./assets/input-name.png") %>' width=16 height=16 />
         <input class="form-input" type="text" name="name" placeholder="姓名" />
       </span>
       <span class="form-item" >
-        <image src="./assets/input-email.png" width=16 height=16 />
+        <img src='<%= require("./assets/input-email.png") %>' width=16 height=16 />
         <input class="form-input" type="text" name="email" placeholder="邮箱" />
       </span>
       <span class="form-item" >
-        <image src="./assets/input-phone.png" width=16 height=16 />
-        <input class="form-input" type="text" name="phone" placeholder="联系电话" />
+        <img src='<%= require("./assets/input-phone.png") %>' width=16 height=16 />
+        <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
       </span>
       <span class="form-item" >
-        <image src="./assets/input-companyname.png" width=16 height=16 />
-        <input class="form-input" type="text" name="company_name" placeholder="公司名称" />
+        <img src='<%= require("./assets/input-companyname.png") %>' width=16 height=16 />
+        <input class="form-input" type="text" name="company" placeholder="公司名称" />
       </span>
       <span class="form-item" >
-        <image src="./assets/input-department.png" width=16 height=16 />
+        <img src='<%= require("./assets/input-department.png") %>' width=16 height=16 />
         <input class="form-input" type="text" name="department" placeholder="所属部门" />
       </span>
       <span class="form-item" >
-        <image src="./assets/input-position.png" width=16 height=16 />
-        <input class="form-input" type="text" name="position" placeholder="职位" />
+        <img src='<%= require("./assets/input-position.png") %>' width=16 height=16 />
+        <input class="form-input" type="text" name="title" placeholder="职位" />
       </span>
     </form>
-    <button class="modal-submint" >提交</button>
+    <button class="modal-submint" id="form-modal-submit-btn-id" >提交</button>
   </div>
-  <script src="./js/main.js" ></script>
 </body>
 </html>

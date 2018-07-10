@@ -1,39 +1,27 @@
-FROM ubuntu:xenial
+FROM node:8.11.3-alpine
 
-# Install NodeJS
-RUN apt-get update && apt-get -y install git build-essential curl
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
-RUN apt-get install -y nodejs
+# install nginx
+RUN apk --update add nginx
 
-# Increse node.js memory limit
-RUN mv /usr/bin/node /usr/bin/node_origin
-ADD ./node_without_memory_limit.sh /usr/bin/node
-
-# Install Nginx
-RUN apt-get update
-RUN apt-get -y install nginx && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# Install Yarn
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update && \
-    apt-get install yarn
-
-# Build dist
-ADD . /root/webapp
+# Yarn Install
+COPY package.json /root/webapp/
+COPY yarn.lock /root/webapp/
 WORKDIR /root/webapp
-RUN yarn install
-RUN NODE_ENV=production yarn run build
+RUN yarn config set registry 'https://registry.npm.taobao.org' && yarn install
 
-# Copy dist
+# Copy file
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-RUN rm -f /etc/nginx/sites-enabled/* && cp -r dist/* /usr/share/nginx/html
-COPY public/WW_verify_ko8aIKtaEWNkftlc.txt /usr/share/nginx/html
+COPY container_start.sh /start.sh
+COPY . /root/webapp/
+
+# Build Dist
+RUN NODE_ENV=production yarn run build && \
+    mkdir -p /run/nginx && \
+    rm -f /etc/nginx/sites-enabled/* && \
+    mkdir -p /usr/share/nginx/html && \
+    cp -r dist/* /usr/share/nginx/html
 
 EXPOSE 80
 
 # Start Script
-ADD container_start.sh /start.sh
-CMD /bin/bash /start.sh
+CMD /bin/sh /start.sh

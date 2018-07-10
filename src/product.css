@@ -82,6 +82,16 @@ h6 {
 .footer-content .footer-nav-list li {
   margin-bottom: 20px;
 }
+.footer-content .footer-nav-list li a {
+  text-decoration: none;
+}
+.footer-content .footer-nav-list li a a:hover,
+.footer-content .footer-nav-list li a a:visited,
+.footer-content .footer-nav-list li a a:link,
+.footer-content .footer-nav-list li a a:active {
+  text-decoration: none;
+  color: #5f6e80;
+}
 .footer-content .footer-nav-list span {
   padding-left: 10px;
 }
@@ -472,6 +482,7 @@ h6 {
 .main-content .product-stage .product-item {
   height: 300px;
   padding-top: 150px;
+  text-align: center;
   box-sizing: border-box;
 }
 .main-content .product-stage .product-part {

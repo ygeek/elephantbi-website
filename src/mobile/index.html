@@ -42,7 +42,7 @@
       <header class="main-header" >
         <h2 class="sub-title" >数据驱动管理，人人都是数据专家</h2>
         <span class="description" >通过数据整合，可以提高跨系统数据的统一性、准确性和时效性，更容易获得全面的观点深入洞察数据与精准决策，用数据驱动行为，让数据融入工作的每个环节</span>
-        <button class="free-btn" >免费试用</button>
+        <button class="free-btn" id="free-btn-id" >免费试用</button>
       </header>
       <section class="show-box" >
         <div class="box-item left" >
@@ -177,33 +177,33 @@
       <section class="reserve-form" >
         <h3 class="reserve-form-title" >预约体验大象BI</h3>
         <p class="reserve-form-subtitle" >大象BI团队会尽快跟您联系</p>
-        <form action="POST">
+        <form action="POST" name="form1" >
           <span class="form-item" >
-            <image src="./assets/input-name.png" />
+            <img src='<%= require("./assets/input-name.png") %>' />
             <input class="form-input" type="text" name="name" placeholder="姓名" />
           </span>
           <span class="form-item" >
-            <image src="./assets/input-email.png" />
+            <img src='<%= require("./assets/input-email.png") %>' />
             <input class="form-input" type="text" name="email" placeholder="邮箱" />
           </span>
           <span class="form-item" >
-            <image src="./assets/input-phone.png" />
-            <input class="form-input" type="text" name="phone" placeholder="联系电话" />
+            <img src='<%= require("./assets/input-phone.png") %>' />
+            <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
           </span>
           <span class="form-item" >
-            <image src="./assets/input-companyname.png" />
-            <input class="form-input" type="text" name="company_name" placeholder="公司名称" />
+            <img src='<%= require("./assets/input-companyname.png") %>' />
+            <input class="form-input" type="text" name="company" placeholder="公司名称" />
           </span>
           <span class="form-item" >
-            <image src="./assets/input-department.png" />
+            <img src='<%= require("./assets/input-department.png") %>' />
             <input class="form-input" type="text" name="department" placeholder="所属部门" />
           </span>
           <span class="form-item" >
-            <image src="./assets/input-position.png" />
-            <input class="form-input" type="text" name="position" placeholder="职位" />
+            <img src='<%= require("./assets/input-position.png") %>' />
+            <input class="form-input" type="text" name="title" placeholder="职位" />
           </span>
         </form>
-        <button class="form-submit-btn" >提交</button>
+        <button class="form-submit-btn" id="form-submit-btn-id" >提交</button>
       </section>
     </main>
     <footer class="footer-content" >
@@ -221,7 +221,7 @@
           <ul>
             <li class="footer-list-title" >商务咨询</li>
             <li>
-              <image src="./assets/footer-phone.png" />
+              <image src="./assets/footer-phone.png" width=17 height=17 />
               <span>0411-39551681</span>
             </li>
             <li>
@@ -240,7 +240,7 @@
               <span>??????????</span>
             </li>
             <li>
-              <image src="./assets/footer-phone.png" />
+              <image src="./assets/footer-phone.png" width=17 height=17 />
               <span>0411-39551681</span>
             </li>
             <li>
@@ -289,7 +289,7 @@
       </span>
       <span class="form-item" >
         <image src="./assets/input-position.png" width=16 height=16 />
-        <input class="form-input" type="text" name="position" placeholder="职位" />
+        <input class="form-input" type="text" name="title" placeholder="职位" />
       </span>
     </form>
     <button class="modal-submint" >提交</button>

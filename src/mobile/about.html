@@ -26,7 +26,7 @@
       <nav class="nav-content" >
         <ul class="nav-list" >
           <li class="nav-section logo" >
-            <image src="./assets/nav-logo-black.png" width=206 height=41 />
+            <img src='<%= require("./assets/nav-logo-black.png") %>' width=206 height=41 />
           </li>
         </ul>
       </nav>
@@ -249,19 +249,27 @@
     <footer class="footer-content" >
       <ul class="footer-nav" >
         <li class="footer-nav-icon" >
-          <image src="./assets/footer-icon.png" width=100 />
+          <img src='<%= require("./assets/footer-icon.png") %>' width=100 />
         </li>
         <li class="footer-nav-list" >
           <ul>
-            <li class="footer-list-title" >首页</li>
-            <li>产品服务</li>
-            <li>服务介绍</li>
-            <li>关于我们</li>
+            <li class="footer-list-title" >
+              <a href="./index.html">首页</a>
+            </li>
+            <li>
+              <a href="./product.html">产品介绍</a>
+            </li>
+            <li>
+              <a href="./server.html">服务支持</a>
+            </li>
+            <li>
+              <a href="./about.html">关于我们</a>
+            </li>
           </ul>
           <ul>
             <li class="footer-list-title" >商务咨询</li>
             <li>
-              <image src="./assets/footer-phone.png" />
+              <image src="./assets/footer-phone.png" width=17 height=17 />
               <span>0411-39551681</span>
             </li>
             <li>
@@ -276,11 +284,7 @@
               <span>09:00~19:00</span>
             </li>
             <li>
-              <image src="./assets/footer-qq.png" />
-              <span>??????????</span>
-            </li>
-            <li>
-              <image src="./assets/footer-phone.png" />
+              <image src="./assets/footer-phone.png" width=17 height=17 />
               <span>0411-39551681</span>
             </li>
             <li>
@@ -306,7 +310,7 @@
     <p class="sub-title" >
       大象BI团队将尽快和您联系
     </p>
-    <form action="POST">
+    <form action="POST" name="form1" >
       <span class="form-item" >
         <image src="./assets/input-name.png" width=16 height=16 />
         <input class="form-input" type="text" name="name" placeholder="姓名" />
@@ -321,7 +325,7 @@
       </span>
       <span class="form-item" >
         <image src="./assets/input-companyname.png" width=16 height=16 />
-        <input class="form-input" type="text" name="company_name" placeholder="公司名称" />
+        <input class="form-input" type="text" name="company" placeholder="公司名称" />
       </span>
       <span class="form-item" >
         <image src="./assets/input-department.png" width=16 height=16 />
@@ -329,12 +333,10 @@
       </span>
       <span class="form-item" >
         <image src="./assets/input-position.png" width=16 height=16 />
-        <input class="form-input" type="text" name="position" placeholder="职位" />
+        <input class="form-input" type="text" name="title" placeholder="职位" />
       </span>
     </form>
     <button class="modal-submint" >提交</button>
   </div>
-  <script src="./js/about.js" ></script>
-  <script src="./js/main.js" ></script>
 </body>
 </html>
