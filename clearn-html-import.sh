@@ -1,0 +1,1 @@
+sed -i 's/<script type="text\/javascript" src=\"\/[^m][^>]*><\/script>//g' ./dist/*.html

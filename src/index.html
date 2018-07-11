@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>ElephantBI</title>
-  <link rel="stylesheet" href="./index.css">
 </head>
 <body>
   <div id="root" >
@@ -84,12 +83,12 @@
           </ul>
         </div>
         <div class="box-item" >
-          <img width=489 height=458 src="./assets/index-box-1.png" />
+          <img width=489 height=458 src='<%= require("./assets/index-box-1.png") %>' />
         </div>
       </section>
       <section class="show-box" >
         <div class="box-item left" >
-          <img width=550 height=207 src="./assets/index-box-2.png" />
+          <img width=550 height=207 src='<%= require("./assets/index-box-2.png") %>' />
         </div>
         <div class="box-item right" >
           <img class="box-title" src='<%= require("./assets/box-right-icon.png") %>' width=66 height=66 />
@@ -119,12 +118,12 @@
           </ul>
         </div>
         <div class="box-item" height=269 >
-          <img width=530 height=269 src="./assets/index-box-3.png" />
+          <img width=530 height=269 src='<%= require("./assets/index-box-3.png") %>' />
         </div>
       </section>
       <section class="show-box" >
         <div class="box-item left" >
-          <img width=486 height=297 src="./assets/index-box-4.png" />
+          <img width=486 height=297 src='<%= require("./assets/index-box-4.png") %>' />
         </div>
         <div class="box-item right" >
           <img class="box-title" src='<%= require("./assets/box-right-icon.png") %>' width=66 height=66 />
@@ -153,12 +152,12 @@
           </ul>
         </div>
         <div class="box-item" height=300 >
-          <img width=583 height=300 src="./assets/index-box-5.png" />
+          <img width=583 height=300 src='<%= require("./assets/index-box-5.png") %>' />
         </div>
       </section>
       <section class="show-box" >
         <div class="box-item left" >
-          <img width=598 height=364 src="./assets/index-box-6.png" />
+          <img width=598 height=364 src='<%= require("./assets/index-box-6.png") %>' />
         </div>
         <div class="box-item right" >
           <img class="box-title" src='<%= require("./assets/box-right-icon.png") %>' width=66 height=66 />
@@ -194,8 +193,8 @@
               </div>
             </div>
           </div>
-          <button class="btn-up" />
-          <button class="btn-down" />
+          <button class="btn-up" id="up-btn" />
+          <button class="btn-down" id="down-btn" />
         </div>
       </section>
 

@@ -112,6 +112,39 @@ const submitFormReserve = () => {
   request('/website/feedback', params);
 };
 
+const nextCard = () => {
+  const cards = document.getElementsByClassName('show-card');
+  const cardsLength = cards.length;
+  let currentIndex = 0;
+  for (let cardsIndex = 0; cardsIndex < cardsLength; cardsIndex++) {
+    const item = cards[cardsIndex];
+    const className = item.className;
+    if (className === 'show-card show') {
+      currentIndex = cardsIndex;
+      item.className = 'show-card';
+    }
+  };
+  const nextIndex = (currentIndex + 1) % cardsLength;
+  cards[nextIndex].className = 'show-card show';
+
+};
+
+const upCard = () => {
+  const cards = document.getElementsByClassName('show-card');
+  const cardsLength = cards.length;
+  let currentIndex = 0;
+  for (let cardsIndex = 0; cardsIndex < cardsLength; cardsIndex++) {
+    const item = cards[cardsIndex];
+    const className = item.className;
+    if (className === 'show-card show') {
+      currentIndex = cardsIndex;
+      item.className = 'show-card';
+    }
+  };
+  const upIndex = (cardsLength + currentIndex - 1) % cardsLength;
+  cards[upIndex].className = 'show-card show';
+};
+
 window.onload = function () {
   const navApplication = document.getElementById('nav-application');
   const freeBtn = document.getElementById('free-btn-id');
@@ -121,6 +154,15 @@ window.onload = function () {
   const loginModal = document.getElementById('login-modal');
   const navLogin = document.getElementById('nav-login');
 
+  const upBtn = document.getElementById('up-btn');
+  const downBtn = document.getElementById('down-btn');
+
+  if (upBtn) {
+    upBtn.addEventListener('click', upCard, true);
+  }
+  if (downBtn) {
+    downBtn.addEventListener('click', nextCard, true);
+  }
 
   if (loginModal) {
     loginModal.addEventListener('click', function(e) {
@@ -164,4 +206,12 @@ window.onload = function () {
       joinListOnClick(target);
     };
   }
+
+  const cards = document.getElementsByClassName('card-btn');
+  const cardsLength = cards.length;
+  let currentIndex = 0;
+  for (let cardsIndex = 0; cardsIndex < cardsLength; cardsIndex++) {
+    const item = cards[cardsIndex];
+    item.onclick= toggleApplicationModalVisible;
+  };
 }

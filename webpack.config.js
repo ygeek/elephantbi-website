@@ -5,6 +5,21 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
+const postcssImport = require("postcss-import");
+const autoprefixer = require('autoprefixer');
+
+const postcssOpts = {
+  ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+  plugins: (webpack) => [
+    postcssImport({
+      addDependencyTo: webpack
+    }),
+    autoprefixer({
+      browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
+    }),
+  ],
+};
+
 module.exports = [
   {
     entry: {
@@ -22,14 +37,17 @@ module.exports = [
     module: {
       rules: [
         {
-          test: /\.less$/,
-          use: ExtractTextPlugin.extract(
-            {
-              fallback: "style-loader",
-              use: [
-                "css-loader",
-                "less-loader"
-              ]
+          test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader',
+          options: {
+            presets: ['es2015']
+          }
+        },
+        {
+          test: /\.less$/i, use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              'css-loader', { loader: 'postcss-loader', options: postcssOpts }, 'less-loader'
+            ]
           })
         },
         {
