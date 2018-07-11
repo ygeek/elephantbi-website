@@ -145,6 +145,12 @@ const upCard = () => {
   cards[upIndex].className = 'show-card show';
 };
 
+const opentNewWindow = () => {
+  const hostsName = document.getElementById('input-hosts');
+  window.open('https://' + hostsName.value + '.elephantbi.com', '_blank');
+  closeleLoginModal();
+};
+
 window.onload = function () {
   const navApplication = document.getElementById('nav-application');
   const freeBtn = document.getElementById('free-btn-id');
@@ -154,8 +160,14 @@ window.onload = function () {
   const loginModal = document.getElementById('login-modal');
   const navLogin = document.getElementById('nav-login');
 
+  const loginProduct = document.getElementById('login-product');
+
   const upBtn = document.getElementById('up-btn');
   const downBtn = document.getElementById('down-btn');
+
+  if (loginProduct) {
+    loginProduct.addEventListener('click', opentNewWindow, true);
+  }
 
   if (upBtn) {
     upBtn.addEventListener('click', upCard, true);
