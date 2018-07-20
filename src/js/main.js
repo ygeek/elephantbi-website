@@ -49,7 +49,7 @@ const closeleLoginModal = () => {
 
 const request = (url, params) => {
   return fetch(
-    `https://api.elephantbi.com${url}`,
+    `${window.backhost}${url}`,
     {
       method: 'POST',
       headers: {
@@ -150,7 +150,8 @@ const upCard = () => {
 
 const opentNewWindow = () => {
   const hostsName = document.getElementById('input-hosts');
-  window.open('https://' + hostsName.value + '.elephantbi.com', '_blank');
+  const hostMatch = window.host.match(/(https*:\/\/)([\s\S]*)/) || [];
+  window.open(hostMatch[1] + hostsName.value + '.' + hostMatch[2], '_blank');
   closeleLoginModal();
 };
 
