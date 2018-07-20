@@ -1,6 +1,3 @@
-window.host = 'https://elephantbi.com';
-window.backhost = 'https://api.elephantbi.com';
-
 var joinListOnClick = function(index) {
   var joinLists = document.getElementsByClassName('list-item');
   var joinListsLength = joinLists.length;
@@ -159,6 +156,13 @@ const jumpHomePage = () => {
   window.location.href = window.host;
 };
 
+const toggleNavModalVisible = (type) => {
+  const modal = document.getElementById("nav-modal-id");
+  if (modal) {
+    modal.className = type === 'show' ? 'nav-modal modal-show' : "nav-modal";
+  }
+};
+
 window.onload = function () {
   const navApplication = document.getElementById('nav-application');
   const freeBtn = document.getElementById('free-btn-id');
@@ -168,6 +172,21 @@ window.onload = function () {
   const loginModal = document.getElementById('login-modal');
   const navLogin = document.getElementById('nav-login');
   const logo = document.getElementById("logo");
+
+  //mobile nav menu
+  const mNavMenu = document.getElementById("nav-menu-id");
+  const mNavClose = document.getElementById("nav-modal-close-id");
+  if (mNavMenu) {
+    const show = (e) => {
+      e.stopPropagation();
+      toggleNavModalVisible('show')
+    };
+    mNavMenu.addEventListener('click', show, true);
+  }
+  if (mNavClose) {
+    const hide = () => toggleNavModalVisible('hide');
+    mNavClose.addEventListener('click', hide, true);
+  }
 
   const loginProduct = document.getElementById('login-product');
 
@@ -212,9 +231,11 @@ window.onload = function () {
     logo.addEventListener('click', jumpHomePage, true);
   }
 
+  // root listen
   document.getElementById('root').addEventListener('click', function() {
     closeApplicationModal();
     closeleLoginModal();
+    toggleNavModalVisible('hide');
   }, false);
 
   const modalIdClose = document.getElementById('modal-id-close');

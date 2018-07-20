@@ -18,6 +18,10 @@
       document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
     }
   </script>
+  <script>
+    window.host = 'https://elephantbi.com';
+    window.backhost = 'https://api.elephantbi.com';
+  </script>
 </head>
 <body>
   <div id="root">
@@ -26,6 +30,11 @@
         <ul class="nav-list" >
           <li class="nav-section logo" >
             <image src='<%= require("./assets/nav-logo-black.png") %>' width=206 height=41 id="logo" />
+          </li>
+          <li class="nav-section menu" >
+            <div class="nav-mobile" >
+              <img src='<%= require("./assets/nav-menu.png") %>' alt="" id="nav-menu-id" >
+            </div>
           </li>
         </ul>
       </nav>
@@ -406,6 +415,28 @@
       </span>
     </form>
     <button class="modal-submint" id="form-modal-submit-btn-id" >提交</button>
+  </div>
+  <div class="nav-modal" id="nav-modal-id" >
+    <img src='<%= require("./assets/nav-modal-close.png") %>' width="12" height="12" class="nav-close" id="nav-modal-close-id" >
+    <img src='<%= require("./assets/nav-modal-icon.png") %>' class="nav-icon" alt="" width="105" height="21" >
+    <ul class="nav-content" >
+      <li class="nav-item" >
+        <img src='<%= require("./assets/nav-icon1.png") %>' alt="">
+        <a href="./index.html" class="nav-1" >首页</a>
+      </li>
+      <li class="nav-item" >
+        <img src='<%= require("./assets/nav-icon2.png") %>' alt="">
+        <a href="./product.html" class="nav-2" >产品介绍</a>
+      </li>
+      <li class="nav-item" >
+        <img src='<%= require("./assets/nav-icon3.png") %>' alt="">
+        <a href="./server.html" class="nav-3" >服务支持</a>
+      </li>
+      <li class="nav-item" >
+        <img src='<%= require("./assets/nav-icon4.png") %>' alt="">
+        <a href="./about.html" class="nav-4" >关于我们</a>
+      </li>
+    </ul>
   </div>
 </body>
 </html>
