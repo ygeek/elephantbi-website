@@ -1,3 +1,6 @@
+window.host = 'https://elephantbi.com';
+window.backhost = 'https://api.elephantbi.com';
+
 var joinListOnClick = function(index) {
   var joinLists = document.getElementsByClassName('list-item');
   var joinListsLength = joinLists.length;
@@ -151,6 +154,10 @@ const opentNewWindow = () => {
   closeleLoginModal();
 };
 
+const jumpHomePage = () => {
+  window.location.href = window.host;
+};
+
 window.onload = function () {
   const navApplication = document.getElementById('nav-application');
   const freeBtn = document.getElementById('free-btn-id');
@@ -159,6 +166,7 @@ window.onload = function () {
   const formReserveSubmitBtn = document.getElementById('form-reserve-submit-btn-id');
   const loginModal = document.getElementById('login-modal');
   const navLogin = document.getElementById('nav-login');
+  const logo = document.getElementById("logo");
 
   const loginProduct = document.getElementById('login-product');
 
@@ -198,6 +206,9 @@ window.onload = function () {
   }
   if (formSubmitBtn) {
     formSubmitBtn.addEventListener('click', submitForm, true);
+  }
+  if (logo) {
+    logo.addEventListener('click', jumpHomePage, true);
   }
 
   document.getElementById('root').addEventListener('click', function() {
