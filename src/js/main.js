@@ -23,26 +23,40 @@ const toggleLoginModalVisible = (e) => {
   }
 };
 
+// cover 
+const showCover = () => {
+  const cover = document.getElementById('cover');
+  if (cover) {
+    cover.className = 'cover-show';  
+  }
+};
+
+const hideCover = () => {
+  const cover = document.getElementById('cover');
+  if (cover) {
+    cover.className = '';  
+  }
+};
+
+
 const toggleApplicationModalVisible = (e) => {
   e.stopPropagation();
   const applicationModal = document.getElementById('modal-application');
   const className = applicationModal.className;
-  const cover = document.getElementById('cover');
   if (className === 'modal') {
-    cover.className = 'cover-show';  
+    showCover();
     applicationModal.className = 'modal modal-show';
   } else {
     document.removeEventListener('root').addEventListener('click', closeApplicationModal, false);
-    cover.className = '';
+    hideCover();
     applicationModal.className = 'modal';
   }
 };
 
 const closeApplicationModal = () => {
   const applicationModal = document.getElementById('modal-application');
-  const cover = document.getElementById('cover');
   if (applicationModal) {
-    cover.className = '';
+    hideCover();
     applicationModal.className = 'modal';
   }
 };
@@ -63,9 +77,18 @@ const request = (url, params) => {
       },
       body: JSON.stringify(params)
     }
-  ).then(function(response) {
-      return response.json();
-    });
+  )
+    .then(function(response) {
+      if (response.status >= 200 && response.status < 300) {
+        return response.json();
+      }
+
+      const error = new Error(response.statusText);
+      error.response = response;
+      throw error;
+    })
+    .then(data => ({ data }))
+    .catch(err => ({ err }));
 };
 
 const onChangeClearErr = (item) => {
@@ -152,6 +175,15 @@ const validate = (value = '', item, regs = {}) => {
   return true;
 };
 
+const clearForm = () => {
+  form1.name.value = '';
+  form1.email.value = '';
+  form1.mobile.value = '';
+  form1.company.value = '';
+  form1.department.value = '';
+  form1.title.value = '';
+};
+
 const submitForm = () => {
   const name = form1.name.value;
   const email = form1.email.value;
@@ -202,9 +234,24 @@ const submitForm = () => {
     source: SOURCE,
   };
   request('/website/trail', params)
-    .then(() => {
-      closeApplicationModal();
+    .then(({ data }) => {
+      if (data) {
+        closeApplicationModal();
+        clearForm();
+        onSucceed();
+      } else {
+        onErr();
+      }
     });
+};
+
+const clearFormModal = () => {
+  formModal.name.value = "";
+  formModal.email.value = "";
+  formModal.mobile.value = "";
+  formModal.company.value = "";
+  formModal.department.value = "";
+  formModal.title.value = "";
 };
 
 const submitModalForm = () => {
@@ -256,10 +303,27 @@ const submitModalForm = () => {
   }
 
   request('/website/trail', params)
-    .then(() => {
-      closeApplicationModal();
+    .then(({ data }) => {
+      if (data) {
+        onSucceed();
+        closeApplicationModal();
+        clearFormModal();
+      } else {
+        onErr();
+      }
     });
 };
+
+const clearFormReserve = () => {
+  formReserve.name.value = "";
+  formReserve.email.value = "";
+  formReserve.mobile.value = "";
+  formReserve.company.value = "";
+  formReserve.type[0].checked = true;
+  formReserve.type[1].checked = false;
+  formReserve.content.value = "";
+};
+
 
 const submitFormReserve = () => {
   const type1 = formReserve.type[0].checked;
@@ -320,7 +384,15 @@ const submitFormReserve = () => {
   }
 
 
-  request('/website/feedback', params);
+  request('/website/feedback', params)
+    .then(({ data }) => {
+      if (data) {
+        onSucceed();
+        clearFormReserve();
+      } else {
+        onErr();
+      }
+    });
 };
 
 const nextCard = () => {
@@ -381,6 +453,36 @@ const loginCellOnKeyDown = (e) => {
   }
   return true;
 };
+
+// tootip 
+const onSucceed = () => {
+  const tootipSucceed = document.getElementById('tootip-succeed');
+  if (tootipSucceed) {
+    showCover();
+    tootipSucceed.className = 'tootip-modal tootip-modal-show';
+  }
+};
+const onErr = () => {
+  const tootipErr = document.getElementById('tootip-err');
+  if (tootipErr) {
+    showCover();
+    tootipErr.className = 'tootip-modal tootip-modal-show';
+  }
+};
+
+const hideTootip = () => {
+  const tootipSucceed = document.getElementById('tootip-succeed');
+  const tootipErr = document.getElementById('tootip-err');
+  if (tootipErr && tootipErr.className !== 'tootip-modal') {
+    hideCover();
+    tootipErr.className = 'tootip-modal';
+  }
+  if (tootipSucceed && tootipSucceed.className !== 'tootip-modal') {
+    hideCover();
+    tootipSucceed.className = 'tootip-modal';
+  }
+};
+
 
 window.onload = function () {
   const navApplication = document.getElementById('nav-application');
@@ -453,12 +555,35 @@ window.onload = function () {
   // root listen
   document.getElementById('root').addEventListener('click', function() {
     closeApplicationModal();
+    clearFormModal();
     closeleLoginModal();
     toggleNavModalVisible('hide');
+    hideTootip();
   }, false);
 
+  // cover listen
+  document.getElementById('cover').addEventListener('click', function() {
+    closeApplicationModal();
+    clearFormModal();
+    closeleLoginModal();
+    toggleNavModalVisible('hide');
+    hideTootip();
+  }, false);
+
+  // tootip listent
+  document.getElementById('tootip-succeed').addEventListener('click', function() {
+    hideTootip();
+  }, true);
+  document.getElementById('tootip-err').addEventListener('click', function() {
+    hideTootip();
+  }, true);
+
+
   const modalIdClose = document.getElementById('modal-id-close');
-  modalIdClose.onclick = closeApplicationModal;
+  modalIdClose.onclick = () => {
+    closeApplicationModal();
+    clearFormModal();
+  };
 
   var joinLists = document.getElementsByClassName('list-item');
   var joinListsLength = joinLists.length;

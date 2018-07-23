@@ -448,3 +448,89 @@ h1, h2, h3, h4, h5, h6 {
 .cover-show {
   display: block !important;
 }
+
+.tootip-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 280px;
+  height: 335px;
+  z-index: 9999;
+  box-shadow: 1px 1px 8px #3d3d3d;
+
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  .tootip-icon {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .tootip-title, .tootip-description {
+    text-align: center;
+  }
+
+  .tootip-title {
+    margin-top: 20px;
+
+    font-size: 24px;
+    color: #4a4a4a;
+  }
+
+  .tootip-description {
+    font-size: 12px;
+    color: #606d8a;
+  }
+
+  .tooptip-succeed {
+    height: 200px;
+    background-color: #5396f7;
+
+    &:after {
+      content: '  ';
+      display: block;
+      width: 1000px;
+      height: 1000px;
+      position: absolute;
+      left: 50%;
+      top: -127%;
+      z-index: -1;
+      
+      transform: translate(-50%, -50%);
+      background-color: #5396f7;
+      border-radius: 500px;
+    }
+  }
+  .tooptip-err {
+    height: 200px;
+    background-color: #617086;
+
+    &:after {
+      content: '  ';
+      display: block;
+      width: 1000px;
+      height: 1000px;
+      position: absolute;
+      left: 50%;
+      top: -127%;
+      z-index: -1;
+      
+      transform: translate(-50%, -50%);
+      background-color: #617086;
+      border-radius: 500px;
+    }
+  }
+}
+
+.tootip-modal-show {
+  display: block;
+}
