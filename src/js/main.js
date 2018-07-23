@@ -366,6 +366,14 @@ const toggleNavModalVisible = (type) => {
   }
 };
 
+const loginCellOnKeyDown = (e) => {
+  if (e.keyCode === 13) {
+    opentNewWindow();
+    return false;
+  }
+  return true;
+};
+
 window.onload = function () {
   const navApplication = document.getElementById('nav-application');
   const freeBtn = document.getElementById('free-btn-id');
@@ -465,4 +473,9 @@ window.onload = function () {
 
   // items onchange
   addItemListen();
+
+  const loginCell = document.body.querySelector('.login-cell');
+  if (loginCell) {
+    loginCell.addEventListener('keydown', loginCellOnKeyDown, true);
+  }
 }
