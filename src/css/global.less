@@ -322,18 +322,20 @@ h1, h2, h3, h4, h5, h6 {
   left: 50%;
   top: 50%;
   z-index: 9999;
-  width: 500px;
-  padding: 60px 60px 60px 50px;
+  width: 900px;
+  padding: 80px 60px 80px 60px;
 
+  text-align: center;
   background-color: #fff;
   border-radius: 6px;
   box-shadow: 2px 1px 6px #ddd;
   transform: translate(-50%, -50%);
 
   .form-item {
-    display: block;
+    display: inline-block;
+    width: 400px;
     height: 50px;
-    margin: 0 0 40px 0;
+    margin: 0 20px 40px 20px;
     padding: 0 0 6px 0;
 
     line-height: 50px;
@@ -341,7 +343,7 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: 1px solid #606d8a;
   }
   .form-input {
-    width: 450px;
+    width: 350px;
 
     font-size: 16px;
     background-color: transparent;
@@ -351,7 +353,7 @@ h1, h2, h3, h4, h5, h6 {
       outline: none;
     }
     &::placeholder {
-      color: #a3a3a3;
+      color: #adadad;
       opacity: 1; /* Firefox */
     }
   }
@@ -363,20 +365,20 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .title {
-    font-size: 24px;
-    color: #539ef2;
-    margin-bottom: 14px;
+    font-size: 30px;
+    color: #4a4a4a;
+    margin-bottom: 30px;
   }
   .sub-title {
-    font-size: 16px;
-    color: #9b9b9b;
-    margin-bottom: 14px;
+    font-size: 18px;
+    color: #606d8a;
+    margin-bottom: 50px;
   }
   .modal-submint {
     .creatFullButton(#fff, @color-green);
 
     display: block;
-    margin:  0 auto;
+    margin:  71px auto 0 auto;
   }
   .modal-close {
     .clearAStyle();
