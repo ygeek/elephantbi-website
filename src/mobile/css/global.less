@@ -282,9 +282,12 @@ h1, h2, h3, h4, h5, h6 {
   .form-item {
     display: inline-block;
     width: 360px;
+    height: 30px;
+    line-height: 30px;
     margin: 0 30px 75px 40px;
     padding: 0;
 
+    vertical-align: top;
     text-align: left;
     border-bottom: 1px solid #606d8a;
   }
@@ -471,4 +474,42 @@ h1, h2, h3, h4, h5, h6 {
 
 .modal-show {
   display: block;
+}
+
+.err{
+  border-bottom: 1px solid #f1584d !important;
+
+  &:after {
+    content: attr(data-err) !important;
+    display: block;
+    padding-left: 25px;
+    font-size: 12px;
+    color: #f1584d;
+  }
+}
+
+.form-wrap {
+  display: inline-block;
+  height: 150px;
+
+  &:after {
+    content: ' ';
+    display: block;
+    height: 18px;
+    padding-left: 25px;
+    transform: translateY(-60px);
+  }
+}
+
+.errTextarea{
+  &:after {
+    content: attr(data-err) !important;
+    display: block;
+    padding-left: 25px;
+    transform: translateY(-60px);
+
+    text-align: left;
+    font-size: 12px;
+    color: #f1584d;
+  }
 }

@@ -1,3 +1,7 @@
+// reg
+const mobileReg = /^[\d|+|-]*$/;
+const emailReg = /@(163|foxmail|qq|gmail)\./;
+
 var joinListOnClick = function(index) {
   var joinLists = document.getElementsByClassName('list-item');
   var joinListsLength = joinLists.length;
@@ -59,14 +63,137 @@ const request = (url, params) => {
     });
 };
 
+const onChangeClearErr = (item) => {
+  if (item && item.className !== "form-item") {
+    item.className = "form-item";
+  }
+};
+
+const addItemListen = () => {
+  const mapItems = (items) => {
+    for (let i = 0; i < items.length; i++) {
+      const itemBlock = items[i];
+      const itemInput = itemBlock.querySelector('input');
+      if (itemInput) {
+        const onChange = () => {
+          onChangeClearErr(itemBlock);
+        };
+        itemInput.addEventListener('input', onChange, true);
+      }
+    }
+  };
+
+  try {
+    if (form1) {
+      const form1s = form1.querySelectorAll('.form-item') || [];
+      mapItems(form1s);
+    }
+  } catch(e) {
+  }
+  try {
+    if (formModal) {
+      const formModals = formModal.querySelectorAll('.form-item');
+      mapItems(formModals);
+    }
+  } catch(e) {
+  }
+  try {
+    if (formReserve) {
+      const formReserves = formReserve.querySelectorAll('.form-item') || [];
+      mapItems(formReserves);
+      const itemBlock = formReserve.querySelector('.form-wrap');
+      const itemTextarea = itemBlock.querySelector('textarea');
+      const onChange = () => {
+        itemBlock.className = 'form-wrap';
+      };
+      itemTextarea.addEventListener('input', onChange, true);
+    }
+  } catch(e) {
+  }
+};
+
+const validateTextarea = (value = '', item) => {
+  if (value.length === 0) {
+    item.setAttribute('data-err', item.getAttribute('data-attr'));
+    item.className = "form-wrap errTextarea";
+    return false;
+  }
+
+  item.className = "form-wrap";
+  return true
+};
+
+const validate = (value = '', item, regs = {}) => {
+  const { reg, negateReg } = regs;
+  if (value.length === 0) {
+    item.setAttribute('data-err', item.getAttribute('data-attr'));
+    item.className = "form-item err";
+    return false;
+  }
+
+  if (reg && !reg.test(value)) {
+    item.setAttribute('data-err', item.getAttribute('data-input'));
+    item.className = "form-item err";
+    return false;
+  }
+
+  if (negateReg && negateReg.test(value)) {
+    item.setAttribute('data-err', item.getAttribute('data-input'));
+    item.className = "form-item err";
+    return false; 
+  }
+
+  item.className = "form-item";
+  return true;
+};
+
 const submitForm = () => {
+  const name = form1.name.value;
+  const email = form1.email.value;
+  const mobile = form1.mobile.value;
+  const company = form1.company.value;
+  const department = form1.department.value;
+  const title = form1.title.value;
+
+  const allItem = form1.querySelectorAll('.form-item');
+
+  const validateAll = () => {
+    let isErr = false;
+
+    if (!validate(name, allItem[0])) {
+      isErr = true;
+    }
+    if (!validate(email, allItem[1], { negateReg: emailReg })) {
+      isErr = true;
+    }
+    if (!validate(mobile, allItem[2], { reg: mobileReg })) {
+      isErr = true;
+    }
+    if (!validate(company, allItem[3])) {
+      isErr = true;
+    }
+    if (!validate(department, allItem[4])) {
+      isErr = true;
+    }
+    if (!validate(title, allItem[5])) {
+      isErr = true;
+    }
+    return isErr;
+  };
+
+  if (
+    validateAll()
+  ) {
+    return false;
+  }
+
   const params = {
-    name: form1.name.value,
-    email: form1.email.value,
-    mobile: form1.mobile.value,
-    company: form1.company.value,
-    department: form1.department.value,
-    title: form1.title.value
+    name,
+    email,
+    mobile,
+    company,
+    department,
+    title,
   };
   request('/website/trail', params)
     .then(() => {
@@ -75,14 +202,52 @@ const submitForm = () => {
 };
 
 const submitModalForm = () => {
+  const  name = formModal.name.value;
+  const  email = formModal.email.value;
+  const  mobile = formModal.mobile.value;
+  const  company = formModal.company.value;
+  const  department = formModal.department.value;
+  const  title = formModal.title.value;
   const params = {
-    name: formModal.name.value,
-    email: formModal.email.value,
-    mobile: formModal.mobile.value,
-    company: formModal.company.value,
-    department: formModal.department.value,
-    title: formModal.title.value
+    name,
+    email,
+    mobile,
+    company,
+    department,
+    title
   };
+
+  const allItem = formModal.querySelectorAll('.form-item');
+
+  const validateAll = () => {
+    let isErr = false;
+    if (!validate(name, allItem[0])) {
+      isErr = true;
+    }
+    if (!validate(email, allItem[1], { negateReg: emailReg })) {
+      isErr = true;
+    }
+    if (!validate(mobile, allItem[2], { reg: mobileReg })) {
+      isErr = true;
+    }
+    if (!validate(company, allItem[3])) {
+      isErr = true;
+    }
+    if (!validate(department, allItem[4])) {
+      isErr = true;
+    }
+    if (!validate(title, allItem[5])) {
+      isErr = true;
+    }
+    return isErr;
+  };
+
+  if (
+    validateAll()
+  ) {
+    return false;
+  }
+
   request('/website/trail', params)
     .then(() => {
       closeApplicationModal();
@@ -92,7 +257,7 @@ const submitModalForm = () => {
 const submitFormReserve = () => {
   const type1 = formReserve.type[0].checked;
   const type2 = formReserve.type[1].checked;
-  const type = () => {
+  const typeValue = () => {
     if (type1) {
       return 0;
     }
@@ -101,14 +266,52 @@ const submitFormReserve = () => {
     }
     return undefined;
   };
+
+  const name = formReserve.name.value;
+  const email = formReserve.email.value;
+  const mobile = formReserve.mobile.value;
+  const company = formReserve.company.value;
+  const type = typeValue();
+  const content = formReserve.content.value;
   const params = {
-    name: formReserve.name.value,
-    email: formReserve.email.value,
-    mobile: formReserve.mobile.value,
-    company: formReserve.company.value,
-    type: type(),
-    content: formReserve.content.value
+    name,
+    email,
+    mobile,
+    company,
+    type,
+    content,
   };
+
+  const allItem = formReserve.querySelectorAll('.form-item');
+  const textareaItem = formReserve.querySelector('.form-wrap');
+
+  const validateAll = () => {
+    let isErr = false;
+    if (!validate(name, allItem[0])) {
+      isErr = true;
+    }
+    if (!validate(email, allItem[1], { negateReg: emailReg })) {
+      isErr = true;
+    }
+    if (!validate(mobile, allItem[2], { negateReg: mobileReg })) {
+      isErr = true;
+    }
+    if (!validate(company, allItem[3])) {
+      isErr = true;
+    }
+    if (!validateTextarea(content, textareaItem)) {
+      isErr = true;
+    }
+    return isErr;
+  };
+
+  if (
+    validateAll()
+  ) {
+    return false;
+  }
+
+
   request('/website/feedback', params);
 };
 
@@ -259,4 +462,7 @@ window.onload = function () {
     const item = cards[cardsIndex];
     item.onclick= toggleApplicationModalVisible;
   };
+
+  // items onchange
+  addItemListen();
 }
