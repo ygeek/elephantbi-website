@@ -27,17 +27,22 @@ const toggleApplicationModalVisible = (e) => {
   e.stopPropagation();
   const applicationModal = document.getElementById('modal-application');
   const className = applicationModal.className;
+  const cover = document.getElementById('cover');
   if (className === 'modal') {
+    cover.className = 'cover-show';  
     applicationModal.className = 'modal modal-show';
   } else {
     document.removeEventListener('root').addEventListener('click', closeApplicationModal, false);
+    cover.className = '';
     applicationModal.className = 'modal';
   }
 };
 
 const closeApplicationModal = () => {
   const applicationModal = document.getElementById('modal-application');
+  const cover = document.getElementById('cover');
   if (applicationModal) {
+    cover.className = '';
     applicationModal.className = 'modal';
   }
 };
