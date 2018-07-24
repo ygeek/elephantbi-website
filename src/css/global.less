@@ -373,19 +373,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modal {
-  display: none;
   position: fixed;
   left: 50%;
   top: 50%;
-  z-index: 9999;
-  width: 900px;
-  padding: 80px 60px 80px 60px;
+  z-index: -9999;
+  opacity: 0;
+  width: 1000px;
+  height: 720px;
+  transform: translate(-50%, -50%);
+  padding: 80px 40px 80px 40px;
 
+
+  transition: all 0.1s ease-out;
   text-align: center;
   background-color: #fff;
   border-radius: 6px;
+  box-sizing: border-box;
   box-shadow: 2px 1px 6px #ddd;
-  transform: translate(-50%, -50%);
 
   .form-item {
     display: inline-block;
@@ -446,7 +450,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modal-show {
-  display: block;
+  opacity: 1;
+  width: 1000px;
+  height: 720px;
+  z-index: 9999;
 }
 
 .err{
