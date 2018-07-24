@@ -19,25 +19,24 @@
 
       text-align: center;
       color: @color-purple;
-      font-size: 40px;
+      font-size: 60px;
     }
     .description {
       display: inline-block;
       margin-top: 56px;
-      margin-bottom: 276px;
-      padding: 0 150px;
+      margin-bottom: 200px;
+      padding: 0 100px;
 
       text-align: center;
       color: #64728c;
-      font-size: 20px;
+      font-size: 24px;
     }
     .company-stage {
       margin: 0 0 100px 0;
       padding: 0 150px;
 
       text-align: center;
-      font-size: 18px;
-      line-height: 35px;
+      font-size: 12px;
       color: #909caa;
     }
   }
@@ -52,7 +51,7 @@
     margin: 0 0 10px 0;
 
     color: #34345f;
-    font-size: 32px;
+    font-size: 60px;
     text-align: center;
   }
   .description {
@@ -60,12 +59,12 @@
     margin: 0 0 50px 0;
 
     color: #606d8a;
-    font-size: 20px;
+    font-size: 28px;
     text-align: center;
   }
   .list {
     margin: 0 auto;
-    width: 500px;
+    width: 640px;
     padding: 0 46px;
 
     background-color: #fff;
@@ -89,23 +88,22 @@
     padding: 20px 0;
 
     border-bottom: 1px solid #e9ebfd;
-    line-height: 20px;
-    font-size: 20px;
+    line-height: 28px;
+    font-size: 28px;
     color: #34345f;
 
     box-sizing: border-box;
   }
   .position-description {
-    height: 0;
+    max-height: 0;
 
     overflow: hidden;
-    border-bottom: 1px solid #e9ebfd;
     box-sizing: border-box;
 
-    transition: all 0.3s;
+    transition: max-height 0.35s;
 
     div, li {
-      font-size: 15px;
+      font-size: 20px;
       color: #6d6d8a;
       margin: 30px 0;
       text-align: left;
@@ -122,7 +120,8 @@
 
   .list-select {
     .position-description {
-      height: auto;
+      max-height: 9000px;
+      border-bottom: 1px solid #e9ebfd;
     }
 
     .icon-right {
@@ -133,7 +132,7 @@
 
 @span-height: 50px;
 .main-header-bg {
-  height: 700px;
+  height: 600px;
   width: 100%;
   overflow: hidden;
   position: absolute;
@@ -160,28 +159,28 @@
   };
 
   span:nth-child(1) {
-    top: @span-height * -8;
+    top: @span-height * -7;
     left: 14%;
     width: 10%;
     
     border: 1px solid #f3f4f7;
   };
   span:nth-child(2) {
-    top: @span-height * -7;
+    top: @span-height * -5;
     left: 22%;
     width: 6%;
     
     background-color: #bff0fe;
   };
   span:nth-child(3) {
-    top: @span-height * -3;
+    top: @span-height * -1;
     left: 14%;
     width: 10%;
     
     background-color: #80baf9;
   };
   span:nth-child(4) {
-    top: @span-height * -2;
+    top: @span-height * 0;
     left: 0;
     width: 30%;
     
@@ -189,42 +188,42 @@
   };
 
   span:nth-child(5) {
-    top: @span-height * -1;
+    top: @span-height * 1;
     left: 16%;
     width: 12%;
     
     background-color: #bff0fe;
   };
   span:nth-child(6) {
-    top: @span-height * -1;
+    top: @span-height * 1;
     left: 28%;
     width: 10%;
     
     background-color: #6373e0;
   };
   span:nth-child(7) {
-    top: @span-height * -1;
+    top: @span-height * 1;
     right: 10%;
     width: 12%;
     
     background-color: #6373e0;
   };
   span:nth-child(8) {
-    top: @span-height * 0;
+    top: @span-height * 2;
     right: 0;
     width: 30%;
     
     background-color: #bff0fe;
   };
   span:nth-child(9) {
-    top: @span-height * 1;
+    top: @span-height * 3;
     right: 24%;
     width: 10%;
     
     background-color: #80baf9;
   };
   span:nth-child(10) {
-    top: @span-height * 1;
+    top: @span-height * 3;
     right: 14%;
     width: 10%;
     
