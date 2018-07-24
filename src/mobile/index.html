@@ -70,7 +70,7 @@
           </ul>
         </div>
         <div class="box-item" >
-          <image width=489 height=458 src='<%= require("./assets/index-box-1.png") %>' />
+          <image src='<%= require("./assets/index-box-1.png") %>' />
         </div>
       </section>
       <section class="show-box" >
@@ -88,7 +88,7 @@
           </ul>
         </div>
         <div class="box-item left" >
-          <image width=550 height=207 src='<%= require("./assets/index-box-2.png") %>' />
+          <image src='<%= require("./assets/index-box-2.png") %>' />
         </div>
       </section>
       <section class="show-box" >
@@ -105,7 +105,7 @@
           </ul>
         </div>
         <div class="box-item" height=269 >
-          <image width=530 height=269 src='<%= require("./assets/index-box-3.png") %>' />
+          <image src='<%= require("./assets/index-box-3.png") %>' />
         </div>
       </section>
       <section class="show-box" >
@@ -121,7 +121,7 @@
           </ul>
         </div>
         <div class="box-item left" >
-          <image width=486 height=297 src='<%= require("./assets/index-box-4.png") %>' />
+          <image src='<%= require("./assets/index-box-4.png") %>' />
         </div>
       </section>
       <section class="show-box" >
@@ -139,7 +139,7 @@
           </ul>
         </div>
         <div class="box-item" height=300 >
-          <image width=583 height=300 src='<%= require("./assets/index-box-5.png") %>' />
+          <image src='<%= require("./assets/index-box-5.png") %>' />
         </div>
       </section>
       <section class="show-box" >
@@ -155,7 +155,7 @@
           </ul>
         </div>
         <div class="box-item left" >
-          <image width=598 height=364 src='<%= require("./assets/index-box-6.png") %>' />
+          <image src='<%= require("./assets/index-box-6.png") %>' />
         </div>
       </section>
       
@@ -186,55 +186,43 @@
       <section class="reserve-form" >
         <h3 class="reserve-form-title" >预约体验大象BI</h3>
         <p class="reserve-form-subtitle" >大象BI团队会尽快跟您联系</p>
-        <form action="POST" name="form1" >
-          <span class="form-item" data-attr="请输入姓名" >
-            <img src='<%= require("./assets/input-name.png") %>' />
-            <input class="form-input" type="text" name="name" placeholder="姓名" />
-          </span>
-          <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱" >
-            <img src='<%= require("./assets/input-email.png") %>' />
-            <input class="form-input" type="text" name="email" placeholder="邮箱" />
-          </span>
-          <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)" >
-            <img src='<%= require("./assets/input-phone.png") %>' />
-            <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
-          </span>
-          <span class="form-item" data-attr="请输入公司姓名" >
-            <img src='<%= require("./assets/input-companyname.png") %>' />
-            <input class="form-input" type="text" name="company" placeholder="公司名称" />
-          </span>
-          <span class="form-item" data-attr="请输入所属部门" >
-            <img src='<%= require("./assets/input-department.png") %>' />
-            <input class="form-input" type="text" name="department" placeholder="所属部门" />
-          </span>
-          <span class="form-item" data-attr="请输入职位" >
-            <img src='<%= require("./assets/input-position.png") %>' />
-            <input class="form-input" type="text" name="title" placeholder="职位" />
-          </span>
-        </form>
-        <button class="form-submit-btn" id="form-submit-btn-id" >提交</button>
+        <div class="form-input-wrap" >
+          <form action="POST" name="form1" >
+            <span class="form-item" data-attr="请输入姓名" >
+              <div class="form-item-title" >姓名</div>
+              <input class="form-input" type="text" name="name" placeholder="姓名" />
+            </span>
+            <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱" >
+              <div class="form-item-title" >邮箱</div>
+              <input class="form-input" type="text" name="email" placeholder="邮箱" />
+            </span>
+            <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)" >
+              <div class="form-item-title" >联系电话</div>
+              <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
+            </span>
+            <span class="form-item" data-attr="请输入公司姓名" >
+              <div class="form-item-title" >公司名称</div>
+              <input class="form-input" type="text" name="company" placeholder="公司名称" />
+            </span>
+            <span class="form-item" data-attr="请输入所属部门" >
+              <div class="form-item-title" >所属部门</div>
+              <input class="form-input" type="text" name="department" placeholder="所属部门" />
+            </span>
+            <span class="form-item" data-attr="请输入职位" >
+              <div class="form-item-title" >职位</div>
+              <input class="form-input" type="text" name="title" placeholder="职位" />
+            </span>
+          </form>
+          <button class="form-submit-btn" id="form-submit-btn-id" >提交</button>
+        </div>
       </section>
     </main>
     <footer class="footer-content" >
       <ul class="footer-nav" >
         <li class="footer-nav-icon" >
-          <image src='<%= require("./assets/footer-icon.png") %>' width=100 />
+          <image src='<%= require("./assets/footer-icon.png") %>' />
         </li>
         <li class="footer-nav-list" >
-          <ul>
-            <li class="footer-list-title" >
-              <a href="./index.html">首页</a>
-            </li>
-            <li>
-              <a href="./product.html">产品介绍</a>
-            </li>
-            <li>
-              <a href="./server.html">服务支持</a>
-            </li>
-            <li>
-              <a href="./about.html">关于我们</a>
-            </li>
-          </ul>
           <ul>
             <li class="footer-list-title" >商务咨询</li>
             <li>
@@ -282,27 +270,21 @@
     </p>
     <form action="POST" name="formModal" >
       <span class="form-item" data-attr="请输入姓名" >
-        <img src='<%= require("./assets/input-name.png") %>' width=16 height=16 />
         <input class="form-input" type="text" name="name" placeholder="姓名" />
       </span>
       <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱" >
-        <img src='<%= require("./assets/input-email.png") %>' width=16 height=16 />
         <input class="form-input" type="text" name="email" placeholder="邮箱" />
       </span>
       <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)" >
-        <img src='<%= require("./assets/input-phone.png") %>' width=16 height=16 />
         <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
       </span>
       <span class="form-item" data-attr="请输入公司姓名" >
-        <img src='<%= require("./assets/input-companyname.png") %>' width=16 height=16 />
         <input class="form-input" type="text" name="company" placeholder="公司名称" />
       </span>
       <span class="form-item" data-attr="请输入所属部门" >
-        <img src='<%= require("./assets/input-department.png") %>' width=16 height=16 />
         <input class="form-input" type="text" name="department" placeholder="所属部门" />
       </span>
       <span class="form-item" data-attr="请输入职位" >
-        <img src='<%= require("./assets/input-position.png") %>' width=16 height=16 />
         <input class="form-input" type="text" name="title" placeholder="职位" />
       </span>
     </form>
