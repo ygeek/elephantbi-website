@@ -100,12 +100,12 @@
     box-sizing: border-box;
   }
   .position-description {
-    height: 0;
+    max-height: 0;
 
     overflow: hidden;
     box-sizing: border-box;
 
-    transition: all 0.3s;
+    transition: max-height 0.35s;
 
     div, li {
       font-size: 15px;
@@ -125,7 +125,7 @@
 
   .list-select {
     .position-description {
-      height: auto;
+      max-height: 1000px;
       border-bottom: 1px solid #e9ebfd;
     }
 
