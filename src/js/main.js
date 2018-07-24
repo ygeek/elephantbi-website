@@ -365,7 +365,7 @@ const submitFormReserve = () => {
     if (!validate(email, allItem[1], { negateReg: emailReg })) {
       isErr = true;
     }
-    if (!validate(mobile, allItem[2], { negateReg: mobileReg })) {
+    if (!validate(mobile, allItem[2], { reg: mobileReg })) {
       isErr = true;
     }
     if (!validate(company, allItem[3])) {
