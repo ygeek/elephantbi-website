@@ -17,13 +17,13 @@
 
   .main-header {
     width: 500px;
-    padding: 50px 0 100px 0;
+    padding: 50px 0 70px 0;
     margin: 0 auto;
     .title {
       max-width: 60%;
 
       color: #32325d;
-      font-size: 40px;
+      font-size: 60px;
     }
     .description {
       display: inline-block;
@@ -32,7 +32,7 @@
       margin-top: 26px;
 
       color: #64728c;
-      font-size: 18px;
+      font-size: 24px;
     }
     .free-btn {
       .creatFullButton(#fff, @color-green);
@@ -58,7 +58,6 @@
 .server-stage {
   max-width: @max-width;
   margin: 0 auto;
-  padding-left: 250px;
 
   li {
     list-style: none;
@@ -70,29 +69,35 @@
     }
   }
   ul {
-    display: inline-block;
-    margin-right: 80px;
+    display: block;
+    width: 500px;
+    margin: 0 auto;
     padding: 0;
 
-    font-size: 18px;
+    font-size: 28px;
     color: #5f6e80;
     vertical-align: top;
   }
 
   .server-title {
-    font-size: 22px;
+    font-size: 32px;
     margin: 0 0 15px 0;
 
     color: @color-purple;
 
+    img {
+      display: block;
+      margin: 0 auto;
+    }
     p {
       margin: 14px 0 10px 0;
+
+      text-align: center;
     }
   }
 }
 
 .reserve-form {
-  width: 500px;
   margin: 50px auto;
 
   background-color: #fff;

@@ -304,15 +304,56 @@ h1, h2, h3, h4, h5, h6 {
     min-height: 150px;
     margin-top: 20px;
     margin-bottom: 68px;
+
+    border-radius: 8px;
     border: 1px solid #ececec;
 
     resize: none;
+    &::placeholder {
+      color: #a3a3a3;
+      padding: 10px;
+      opacity: 1; /* Firefox */
+    }
   }
   .form-radio {
     display: inline-block;
 
     text-align: left;
     border: none;
+
+    .radio {
+      display: inline-block;
+      position: relative;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border:solid 1px #479eed;
+
+      cursor: pointer;
+      &:after {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #fff;
+      }
+    }
+
+    input[type="radio"] {
+      width: 15px;
+      height: 15px;
+      display: none;
+    }
+    input[type="radio"]:checked + div{
+      border:solid 1px #479eed;
+    }
+    input[type="radio"]:checked + div:after{
+      background-color: #479eed;
+    }
   }
   .form-input {
     width: 400px;

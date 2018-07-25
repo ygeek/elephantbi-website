@@ -115,34 +115,42 @@
       <section class="reserve-form" >
         <h3 class="reserve-form-title" >反馈与建议</h3>
         <p class="reserve-form-subtitle" >填写下面的表格，我们将会尽快给您回复</p>
-        <form action="POST" name="formReserve" >
-          <span class="form-item" data-attr="请输入姓名" >
-            <img src='<%= require("./assets/input-name.png") %>' />
-            <input class="form-input" type="text" name="name" placeholder="姓名" />
-          </span>
-          <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱" >
-            <img src='<%= require("./assets/input-email.png") %>' />
-            <input class="form-input" type="text" name="email" placeholder="邮箱" />
-          </span>
-          <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)" >
-            <img src='<%= require("./assets/input-phone.png") %>' />
-            <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
-          </span>
-          <span class="form-item" data-attr="请输入公司姓名" >
-            <img src='<%= require("./assets/input-companyname.png") %>' />
-            <input class="form-input" type="text" name="company" placeholder="公司名称" />
-          </span>
-          <span class="form-radio" >
-            <input type="radio" name="type" id="1" checked />
-            <label for="1">问题反馈</label>
-            <input type="radio" name="type" id="2" />
-            <label for="2">功能建议</label>
+        <div class="form-input-wrap" >
+          <form action="POST" name="formReserve" >
+            <span class="form-item" data-attr="请输入姓名" >
+              <div class="form-item-title" >姓名</div>
+              <input class="form-input" type="text" name="name" placeholder="姓名" />
+            </span>
+            <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱" >
+              <div class="form-item-title" >邮箱</div>
+              <input class="form-input" type="text" name="email" placeholder="邮箱" />
+            </span>
+            <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)" >
+              <div class="form-item-title" >联系电话</div>
+              <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
+            </span>
+            <span class="form-item" data-attr="请输入公司姓名" >
+              <div class="form-item-title" >公司名称</div>
+              <input class="form-input" type="text" name="company" placeholder="公司名称" />
+            </span>
+            <span class="form-radio" >
+            <label for="1">
+              <input type="radio" name="type" id="1" checked value="1" />
+              <div class="radio" ></div>
+              问题反馈
+            </label>
+            <label for="2">
+              <input type="radio" name="type" id="2" value="2" />
+              <div class="radio" ></div>
+              功能建议
+            </label>
           </span>
           <span class="form-wrap" data-attr="请填写问题或建议" >
-            <textarea class="form-textarea" name="content" id="content" cols="45" rows="5" placeholder="请填写您想反馈的问题或建议" ></textarea>
+            <textarea class="form-textarea" name="content" id="content" cols="50" rows="5" placeholder="请填写您想反馈的问题或建议" ></textarea>
           </span>
-        </form>
-        <button class="form-submit-btn" id="form-reserve-submit-btn-id" >提交</button>
+          </form>
+          <button class="form-submit-btn" id="form-reserve-submit-btn-id" >提交</button>
+        </div>
       </section>
     </main>
     <footer class="footer-content" >
