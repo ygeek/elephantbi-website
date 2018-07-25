@@ -297,14 +297,24 @@ h1, h2, h3, h4, h5, h6 {
   .form-textarea {
     width: 780px;
     min-height: 150px;
+    padding: 10px;
     margin-bottom: 68px;
 
-    border-radius: 8px;
+    border-radius: 10px;
     resize: none;
+    font-size: 18px;
+    color: #6d6d8a;
 
+    border-color: #ccd3da;
+    outline: none;
+
+    &:focus {
+      outline: none;
+    }
     &::placeholder {
       color: #a3a3a3;
-      padding: 5px;
+      border-radius: 10px;
+      font-size: 18px;
       opacity: 1; /* Firefox */
     }
   }
@@ -315,6 +325,7 @@ h1, h2, h3, h4, h5, h6 {
 
     text-align: left;
     border: none;
+    color: #606d8a;
 
     .radio {
       display: inline-block;
