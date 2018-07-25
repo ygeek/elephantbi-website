@@ -173,14 +173,20 @@
   }
 
   .show-card {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    opacity: 0;
     width: 100%;
-    position: relative;
+    z-index: 10px;
 
     box-sizing: content-box;
+
+    transition: all 0.25s;
   }
   .show {
-    display: block;
+    opacity: 1;
+    left: 0 !important;
   }
 
 
@@ -213,6 +219,7 @@
     top: 25%;
     width: @btn-size;
     height: @btn-size;    
+    z-index: 99;
   }
   .btn-up {
     left: 0;
@@ -275,4 +282,11 @@
     bottom: 0;
     background: #1fa2ff;
   }
+}
+
+.cards {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
 }

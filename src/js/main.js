@@ -399,33 +399,50 @@ const nextCard = () => {
   const cards = document.getElementsByClassName('show-card');
   const cardsLength = cards.length;
   let currentIndex = 0;
+  let currentItem = null;
   for (let cardsIndex = 0; cardsIndex < cardsLength; cardsIndex++) {
     const item = cards[cardsIndex];
     const className = item.className;
     if (className === 'show-card show') {
       currentIndex = cardsIndex;
-      item.className = 'show-card';
+      currentItem = item;
+    } else {
+      item.style.left = '-100%';
     }
   };
-  const nextIndex = (currentIndex + 1) % cardsLength;
-  cards[nextIndex].className = 'show-card show';
-
+  if (currentItem) {
+    const nextIndex = (currentIndex + 1) % cardsLength;
+    const upIndex = (cardsLength + currentIndex - 1) % cardsLength;
+    cards[nextIndex].style.left = '100%';
+    cards[upIndex].style.left = '-100%';
+    currentItem.className = 'show-card';
+    cards[nextIndex].className = 'show-card show';
+  }
 };
 
 const upCard = () => {
   const cards = document.getElementsByClassName('show-card');
   const cardsLength = cards.length;
   let currentIndex = 0;
+  let currentItem = null;
   for (let cardsIndex = 0; cardsIndex < cardsLength; cardsIndex++) {
     const item = cards[cardsIndex];
     const className = item.className;
     if (className === 'show-card show') {
       currentIndex = cardsIndex;
-      item.className = 'show-card';
+      currentItem = item;
+    } else {
+      item.style.left = '100%';
     }
   };
-  const upIndex = (cardsLength + currentIndex - 1) % cardsLength;
-  cards[upIndex].className = 'show-card show';
+  if (currentItem) {
+    const nextIndex = (currentIndex + 1) % cardsLength;
+    const upIndex = (cardsLength + currentIndex - 1) % cardsLength;
+    cards[nextIndex].style.left = '100%';
+    cards[upIndex].style.left = '-100%';
+    currentItem.className = 'show-card';
+    cards[upIndex].className = 'show-card show';
+  }
 };
 
 const opentNewWindow = () => {
@@ -518,6 +535,7 @@ window.onload = function () {
     loginProduct.addEventListener('click', opentNewWindow, true);
   }
 
+  // cards up down
   if (upBtn) {
     upBtn.addEventListener('click', upCard, true);
   }
