@@ -408,17 +408,22 @@ const nextCard = () => {
     if (className === 'show-card show') {
       currentIndex = cardsIndex;
       currentItem = item;
-    } else {
-      item.style.left = '-100%';
     }
   };
   if (currentItem) {
     const nextIndex = (currentIndex + 1) % cardsLength;
+    const nextNextIndex = (nextIndex + 1) % cardsLength;
     const upIndex = (cardsLength + currentIndex - 1) % cardsLength;
-    cards[nextIndex].style.left = '100%';
-    cards[upIndex].style.left = '-100%';
     currentItem.className = 'show-card';
     cards[nextIndex].className = 'show-card show';
+
+    console.log('currentIndex <===========================>', currentIndex);
+    console.log('nextIndex <===========================>', nextIndex);
+    console.log('upIndex <===========================>', upIndex);
+
+    cards[nextIndex].style.left = '0%';
+    cards[nextNextIndex].style.left = '100%';
+    currentItem.style.left = '-100%';
   }
 };
 
@@ -433,17 +438,22 @@ const upCard = () => {
     if (className === 'show-card show') {
       currentIndex = cardsIndex;
       currentItem = item;
-    } else {
-      item.style.left = '100%';
     }
   };
   if (currentItem) {
     const nextIndex = (currentIndex + 1) % cardsLength;
     const upIndex = (cardsLength + currentIndex - 1) % cardsLength;
-    cards[nextIndex].style.left = '100%';
-    cards[upIndex].style.left = '-100%';
+    const upUpIndex = (cardsLength + upIndex - 1) % cardsLength;
     currentItem.className = 'show-card';
     cards[upIndex].className = 'show-card show';
+
+    console.log('currentIndex <===========================>', currentIndex);
+    console.log('nextIndex <===========================>', nextIndex);
+    console.log('upIndex <===========================>', upIndex);
+
+    cards[upIndex].style.left = '0%';
+    currentItem.style.left = '100%';
+    cards[upUpIndex].style.left = '-100%';
   }
 };
 
