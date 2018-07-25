@@ -417,10 +417,6 @@ const nextCard = () => {
     currentItem.className = 'show-card';
     cards[nextIndex].className = 'show-card show';
 
-    console.log('currentIndex <===========================>', currentIndex);
-    console.log('nextIndex <===========================>', nextIndex);
-    console.log('upIndex <===========================>', upIndex);
-
     cards[nextIndex].style.left = '0%';
     cards[nextNextIndex].style.left = '100%';
     currentItem.style.left = '-100%';
@@ -446,10 +442,6 @@ const upCard = () => {
     const upUpIndex = (cardsLength + upIndex - 1) % cardsLength;
     currentItem.className = 'show-card';
     cards[upIndex].className = 'show-card show';
-
-    console.log('currentIndex <===========================>', currentIndex);
-    console.log('nextIndex <===========================>', nextIndex);
-    console.log('upIndex <===========================>', upIndex);
 
     cards[upIndex].style.left = '0%';
     currentItem.style.left = '100%';
