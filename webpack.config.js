@@ -8,6 +8,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const postcssImport = require("postcss-import");
 const autoprefixer = require('autoprefixer');
 
+const CompressionPlugin = require('compression-webpack-plugin');
+
 const postcssOpts = {
   ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
   plugins: (webpack) => [
@@ -89,7 +91,14 @@ module.exports = [
         filename: 'about.html',
         template: './src/about.html'
       }),
-      new UglifyJsPlugin()
+      new UglifyJsPlugin(),
+      new CompressionPlugin({
+        asset: "[path].gz[query]",
+        algorithm: "gzip",
+        test: /\.js$|\.css$|\.html$/,
+        threshold: 10240,
+        minRatio: 0.8
+      })
     ]
   }
 ];
