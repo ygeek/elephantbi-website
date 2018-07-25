@@ -17,6 +17,8 @@ const toggleLoginModalVisible = (e) => {
   const loginModal = document.getElementById('login-modal');
   const className = loginModal.className;
   if (className === 'login-modal') {
+    const hostsName = document.getElementById('input-hosts');
+    hostsName.focus();
     loginModal.className = 'login-modal modal-show';
   } else {
     loginModal.className = 'login-modal';

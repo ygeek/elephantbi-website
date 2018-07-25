@@ -20,7 +20,7 @@
     max-width: @max-width;
     margin: 0 auto;
     height: 600px;
-    padding: 50px 100px 0 100px;
+    padding: 0 100px 0 100px;
     box-sizing: border-box;
 
     .main-header-box {
@@ -39,13 +39,6 @@
       color: #64728c;
       font-size: 28px;
     }
-    .banner {
-      .banner-image {
-        width: 344px;
-        height: 194px;
-        margin: 0 auto;
-      }
-    }
     .free-btn {
       .creatFullButton(#fff, @color-purple);
 
@@ -56,6 +49,12 @@
       box-shadow: 2px 1px 4px #aeaeae;
     }
 
+  }
+  .banner {
+    .banner-image {
+      display: block;
+      margin: 0 auto 40px auto;
+    }
   }
 
   .product-stage {
@@ -100,7 +99,7 @@
   height: 750px;
   width: 100%;
   position: absolute;
-  top: 200px;
+  top: 100px;
   z-index: -999;
   transform: skewY(-12deg);
   transform-origin: 0;
