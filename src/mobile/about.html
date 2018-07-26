@@ -263,7 +263,17 @@
     <footer class="footer-content" >
       <ul class="footer-nav" >
         <li class="footer-nav-icon" >
-          <img src='<%= require("./assets/footer-icon.svg") %>' />
+          <image
+            src='<%= require("./assets/footer-icon.png") %>'
+            srcset='
+              <%= require("./assets/footer-icon.png") %> 107w,
+              <%= require("./assets/footer-icon@2x.png") %> 214w,
+              <%= require("./assets/footer-icon@3x.png") %> 321w'
+            sizes="
+              (max-width:400px) 107px,
+              (max-width:800px) 214px,
+              (max-width:1300px) 321px"
+          />
         </li>
         <li class="footer-nav-list" >
           <ul>
@@ -294,7 +304,17 @@
           </ul>
         </li>
         <li class="footer-nav-sq" >
-          <image src='<%= require("./assets/footer-sq.svg") %>' width=100 />
+          <image
+            src='<%= require("./assets/footer-sq.png") %>'
+            srcset='
+              <%= require("./assets/footer-sq.png") %> 100w,
+              <%= require("./assets/footer-sq@2x.png") %> 200w,
+              <%= require("./assets/footer-sq@3x.png") %> 300w'
+            sizes="
+              (max-width:400px) 100px,
+              (max-width:800px) 200px,
+              (max-width:1300px) 300px"
+          />
           <span class="footer-nav-sq-description" >关注 ElephantBI</span>
         </li>
       </ul>
