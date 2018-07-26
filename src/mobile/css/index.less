@@ -207,12 +207,17 @@
   .card-description {
     width: @card-width;
     height: 360px;
+    position: relative;
 
     box-sizing: border-box;
   }
   .card-p {
     padding: 40px 40px 0 40px;
+    position: absolute;
+    left: 0;
+    top: 50%;
 
+    transform: translateY(-50%);
     color: #909caa;
     font-size: 28px;
   }
