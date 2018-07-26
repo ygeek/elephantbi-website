@@ -55,7 +55,18 @@
       </header>
       <section class="show-box" >
         <div class="box-item left" >
-          <image class="box-title" src='<%= require("./assets/box-left-icon1.png") %>' width=66 height=66 />
+          <image
+            class="box-title box-title-img"
+            src='<%= require("./assets/box-left-icon1.png") %>'
+            srcset='
+              <%= require("./assets/box-left-icon1.png") %> 50w,
+              <%= require("./assets/box-left-icon1@2x.png") %> 100w,
+              <%= require("./assets/box-left-icon1@3x.png") %> 150w'
+            sizes="
+              (max-width:400px) 50px,
+              (max-width:800px) 100px,
+              (max-width:1300px) 150px"
+          />
           <div class="box-title" >
             <h3>集成全部数据</h3>
             <p>Integrating All Data</p>
@@ -70,12 +81,33 @@
           </ul>
         </div>
         <div class="box-item" >
-          <image src='<%= require("./assets/index-box-1.png") %>' />
+          <image
+            src='<%= require("./assets/index-box-1.png") %>'
+            srcset='
+              <%= require("./assets/index-box-1.png") %> 260w,
+              <%= require("./assets/index-box-1@2x.png") %> 520w,
+              <%= require("./assets/index-box-1@3x.png") %> 780w'
+            sizes="
+              (max-width:400px) 260px,
+              (max-width:800px) 520px,
+              (max-width:1300px) 780px"
+          />
         </div>
       </section>
       <section class="show-box" >
         <div class="box-item right" >
-          <image class="box-title" src='<%= require("./assets/box-right-icon1.png") %>' width=66 height=66 />
+          <image
+            class="box-title box-title-img"
+            src='<%= require("./assets/box-right-icon1.png") %>'
+            srcset='
+              <%= require("./assets/box-right-icon1.png") %> 50w,
+              <%= require("./assets/box-right-icon1@2x.png") %> 100w,
+              <%= require("./assets/box-right-icon1@3x.png") %> 150w'
+            sizes="
+              (max-width:400px) 50px,
+              (max-width:800px) 100px,
+              (max-width:1300px) 150px"
+          />
           <div class="box-title" >
             <h3>可视化拖拽分析</h3>
             <p>Visualized drag and drop data analysis</p>
@@ -88,12 +120,33 @@
           </ul>
         </div>
         <div class="box-item left" >
-          <image src='<%= require("./assets/index-box-2.png") %>' />
+          <image
+            src='<%= require("./assets/index-box-2.png") %>'
+            srcset='
+              <%= require("./assets/index-box-2.png") %> 307w,
+              <%= require("./assets/index-box-2@2x.png") %> 614w,
+              <%= require("./assets/index-box-2@3x.png") %> 921w'
+            sizes="
+              (max-width:400px) 307px,
+              (max-width:800px) 614px,
+              (max-width:1300px) 921px"
+          />
         </div>
       </section>
       <section class="show-box" >
         <div class="box-item left" >
-          <image class="box-title" src='<%= require("./assets/box-left-icon2.png") %>' width=66 height=66 />
+          <image
+            class="box-title box-title-img"
+            src='<%= require("./assets/box-left-icon2.png") %>'
+            srcset='
+              <%= require("./assets/box-left-icon2.png") %> 50w,
+              <%= require("./assets/box-left-icon2@2x.png") %> 100w,
+              <%= require("./assets/box-left-icon2@3x.png") %> 150w'
+            sizes="
+              (max-width:400px) 50px,
+              (max-width:800px) 100px,
+              (max-width:1300px) 150px"
+          />
           <div class="box-title" >
             <h3>团队协作</h3>
             <p>Integrating All Data</p>
@@ -105,12 +158,33 @@
           </ul>
         </div>
         <div class="box-item" height=269 >
-          <image src='<%= require("./assets/index-box-3.png") %>' />
+          <image
+            src='<%= require("./assets/index-box-3.png") %>'
+            srcset='
+              <%= require("./assets/index-box-3.png") %> 273w,
+              <%= require("./assets/index-box-3@2x.png") %> 546w,
+              <%= require("./assets/index-box-3@3x.png") %> 819w'
+            sizes="
+              (max-width:400px) 273px,
+              (max-width:800px) 546px,
+              (max-width:1300px) 819px"
+          />
         </div>
       </section>
       <section class="show-box" >
         <div class="box-item right" >
-          <image class="box-title" src='<%= require("./assets/box-right-icon2.png") %>' width=66 height=66 />
+          <image
+            class="box-title box-title-img"
+            src='<%= require("./assets/box-right-icon2.png") %>'
+            srcset='
+              <%= require("./assets/box-right-icon2.png") %> 50w,
+              <%= require("./assets/box-right-icon2@2x.png") %> 100w,
+              <%= require("./assets/box-right-icon2@3x.png") %> 150w'
+            sizes="
+              (max-width:400px) 50px,
+              (max-width:800px) 100px,
+              (max-width:1300px) 150px"
+          />
           <div class="box-title" >
             <h3>精细化权限管理</h3>
             <p>Integrating All Data</p>
@@ -121,12 +195,33 @@
           </ul>
         </div>
         <div class="box-item left" >
-          <image src='<%= require("./assets/index-box-4.png") %>' />
+          <image
+            src='<%= require("./assets/index-box-4.png") %>'
+            srcset='
+              <%= require("./assets/index-box-4.png") %> 307w,
+              <%= require("./assets/index-box-4@2x.png") %> 614w,
+              <%= require("./assets/index-box-4@3x.png") %> 921w'
+            sizes="
+              (max-width:400px) 307px,
+              (max-width:800px) 614px,
+              (max-width:1300px) 921px"
+          />
         </div>
       </section>
       <section class="show-box" >
         <div class="box-item left" >
-          <image class="box-title" src='<%= require("./assets/box-left-icon3.png") %>' width=66 height=66 />
+          <image
+            class="box-title box-title-img"
+            src='<%= require("./assets/box-left-icon3.png") %>'
+            srcset='
+              <%= require("./assets/box-left-icon3.png") %> 50w,
+              <%= require("./assets/box-left-icon3@2x.png") %> 100w,
+              <%= require("./assets/box-left-icon3@3x.png") %> 150w'
+            sizes="
+              (max-width:400px) 50px,
+              (max-width:800px) 100px,
+              (max-width:1300px) 150px"
+          />
           <div class="box-title" >
             <h3>移动BI</h3>
             <p>Integrating All Data</p>
@@ -139,12 +234,33 @@
           </ul>
         </div>
         <div class="box-item" height=300 >
-          <image src='<%= require("./assets/index-box-5.png") %>' />
+          <image
+            src='<%= require("./assets/index-box-5.png") %>'
+            srcset='
+              <%= require("./assets/index-box-5.png") %> 307w,
+              <%= require("./assets/index-box-5@2x.png") %> 614w,
+              <%= require("./assets/index-box-5@3x.png") %> 921w'
+            sizes="
+              (max-width:400px) 307px,
+              (max-width:800px) 614px,
+              (max-width:1300px) 921px"
+          />
         </div>
       </section>
       <section class="show-box" >
         <div class="box-item right" >
-          <image class="box-title" src='<%= require("./assets/box-right-icon3.png") %>' width=66 height=66 />
+          <image
+            class="box-title box-title-img"
+            src='<%= require("./assets/box-right-icon3.png") %>'
+            srcset='
+              <%= require("./assets/box-right-icon3.png") %> 50w,
+              <%= require("./assets/box-right-icon3@2x.png") %> 100w,
+              <%= require("./assets/box-right-icon3@3x.png") %> 150w'
+            sizes="
+              (max-width:400px) 50px,
+              (max-width:800px) 100px,
+              (max-width:1300px) 150px"
+          />
           <div class="box-title" >
             <h3>数据大屏</h3>
             <p>Integrating All Data</p>
@@ -155,7 +271,17 @@
           </ul>
         </div>
         <div class="box-item left" >
-          <image src='<%= require("./assets/index-box-6.png") %>' />
+          <image
+            src='<%= require("./assets/index-box-6.png") %>'
+            srcset='
+              <%= require("./assets/index-box-6.png") %> 307w,
+              <%= require("./assets/index-box-6@2x.png") %> 614w,
+              <%= require("./assets/index-box-6@3x.png") %> 921w'
+            sizes="
+              (max-width:400px) 307px,
+              (max-width:800px) 614px,
+              (max-width:1300px) 921px"
+          />
         </div>
       </section>
       
