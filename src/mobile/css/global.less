@@ -192,6 +192,11 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     transform: translateY(-@half-percent);
     margin: 0 20px;
+
+    img {
+      width: 280px;
+      height: 56px;
+    }
   }
   .menu {
    position: absolute;
@@ -220,13 +225,20 @@ h1, h2, h3, h4, h5, h6 {
 
   .footer-nav-icon {
     img {
+      width: 201px;
+      height: 42px;
+      margin-bottom: 70px;
       display: block;
       margin: 0 auto;
     }
   }
 
   .footer-nav-sq {
-    width: 175px;
+    img {
+      width: 200px;
+      height: 200px;
+    }
+    margin-bottom: 16px;
   }
 
   .footer-nav-sq, .footer-nav-list, .footer-nav-icon {
@@ -241,13 +253,13 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 20px;
 
     text-align: left;
-    font-size: 20px;
-    color: #5f6e80;
+    font-size: 28px;
+    color: #9b9b9b;
     vertical-align: top;
   }
   .footer-nav-list li {
     margin-bottom: 20px;
-    font-size: 40px;
+    font-size: 20px;
 
     a {
       .clearAStyle(#6b7c93);
@@ -265,8 +277,8 @@ h1, h2, h3, h4, h5, h6 {
   .footer-nav-sq-description {
     display: block;
 
-    color: #909caa;
-    font-size: 14px;
+    color: #c1c1c1;
+    font-size: 28px;
   }
 }
 
@@ -287,6 +299,8 @@ h1, h2, h3, h4, h5, h6 {
 
   .reserve-form-title {
     margin: 109px 0 20px 0;
+    position: relative;
+    z-index: 10;
 
     color: @color-title;
     font-size: 40px;
@@ -294,6 +308,8 @@ h1, h2, h3, h4, h5, h6 {
   }
   .reserve-form-subtitle {
     margin-bottom: 18px;
+    position: relative;
+    z-index: 10;
 
     color: #606d8a;
     font-size: 12px;
@@ -476,6 +492,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-mobile {
   display: inline-block;
+  img {
+    width: 58px;
+    height: 46px;
+  }
 }
 
 .nav-modal {
@@ -696,11 +716,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .record {
+  display: inline-block;
+  width: 100%;
   margin-top: 60px;
 
-  color: #5f6e80;
+  color: #c1c1c1;
   text-align: center;
-  font-size: 10px;
+  font-size: 20px;
 }
 
 .form-input-wrap {
