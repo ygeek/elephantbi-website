@@ -247,7 +247,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   .footer-nav-list li {
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 40px;
 
     a {
       .clearAStyle(#6b7c93);
@@ -273,7 +273,17 @@ h1, h2, h3, h4, h5, h6 {
 .reserve-form {
   text-align: center;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 60px 0;
+  position: relative;
+
+  .reserve-form-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 0;
+  }
 
   .reserve-form-title {
     margin: 109px 0 20px 0;
@@ -389,7 +399,7 @@ h1, h2, h3, h4, h5, h6 {
   .form-submit-btn {
     .creatFullButton(#fff, #3b99fb);
 
-    border-radius: 30px;
+    border-radius: 15Px;
   }
 }
 
@@ -697,6 +707,9 @@ h1, h2, h3, h4, h5, h6 {
   width: 600px;
   margin: 0 auto;
   padding: 20px 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
 
   box-sizing: border-box;
   background-color: #fff;
