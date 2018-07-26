@@ -197,7 +197,7 @@ h1, h2, h3, h4, h5, h6 {
       margin: 0 30px;
     }
 
-    &:nth-child(3) {
+    li:nth-child(4) {
       margin-right: 100px;
     }
   }
@@ -306,7 +306,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10px;
     margin-bottom: 68px;
 
-    border-radius: 10px;
+    border-radius: 6px;
     resize: none;
     font-size: 18px;
     color: #6d6d8a;
@@ -340,6 +340,8 @@ h1, h2, h3, h4, h5, h6 {
       height: 12px;
       border-radius: 50%;
       border:solid 1px #479eed;
+      margin: 0 5px;
+
 
       cursor: pointer;
       &:after {
@@ -501,6 +503,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .errTextarea{
+  textarea {
+    border-color: #f1584d !important;
+  }
+
   &:after {
     content: attr(data-err) !important;
     display: block;
