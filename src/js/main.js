@@ -492,6 +492,10 @@ const onErr = () => {
   if (tootipErr) {
     showCover();
     tootipErr.className = 'tootip-modal tootip-modal-show';
+    setTimeout(function() {
+      hideTootip()
+      hideCover()
+    }, 3000)
   }
 };
 
