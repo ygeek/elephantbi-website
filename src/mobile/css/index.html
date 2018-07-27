@@ -9,11 +9,13 @@
     window.onload = function() {
       var pathname = window.location.pathname;
       if (pathname === '/login') {
-        var search = window.location.seacrh.match(/?redirect_url=(\w+)/) || [];
-        window.location.href = seacrh[1];
+        var search = window.location.seacrh.match(/(&)*redirect_url=(\S+)(&)*/) || [];
+        window.location.href = seacrh[2];
       }
       if (pathname === '/redirect') {
-        var redirectSearch = window.location.seacrh.match(/?redirect_url=(\w+)/) || [];
+        var redirectSearch = window.location.seacrh.match(/(&)*auto_code=(\S+)(&)*/) || [];
+
+        window.location.href = '';
       }
     };
   </script>
