@@ -64,7 +64,8 @@
     font-size: 20px;
     text-align: center;
     .email {
-      text-decoration: underline;
+      // text-decoration: underline;
+      border-bottom: 1px solid #606d8a;
     }
   }
   .list {
@@ -74,7 +75,7 @@
 
     background-color: #fff;
     box-sizing: border-box;
-    box-shadow: 1px 2px 13px 4px #efefef;
+    box-shadow: 1px 2px 13px 4px rgba(0, 0, 0, 15%);
     border: 1px solid #eee;
 
     ul {
@@ -125,8 +126,13 @@
 
   .list-select {
     .position-description {
+      padding-left: 40px;
       max-height: 1000px;
       border-bottom: 1px solid #e9ebfd;
+
+      ol {
+        margin-left: -20px;
+      }
     }
 
     .icon-right {
