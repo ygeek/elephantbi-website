@@ -481,6 +481,10 @@ const onSucceed = () => {
   if (tootipSucceed) {
     showCover();
     tootipSucceed.className = 'tootip-modal tootip-modal-show';
+    setTimeout(function() {
+      hideTootip()
+      hideCover()
+    }, 3000)
   }
 };
 const onErr = () => {
