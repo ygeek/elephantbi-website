@@ -254,6 +254,10 @@ const clearFormModal = () => {
   formModal.company.value = "";
   formModal.department.value = "";
   formModal.title.value = "";
+  const formItems = formModal.getElementsByClassName('form-item')
+  for(let i = 0; i < formItems.length; i++) {
+    formItems[i].className = formItems[i].className.replace(/err/, '')
+  }
 };
 
 const submitModalForm = () => {
