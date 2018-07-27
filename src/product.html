@@ -16,16 +16,17 @@
         <ul class="nav-list" >
           <li class="nav-section logo" >
             <img src='<%= require("./assets/nav-logo-black.png") %>' width=180 id="logo" />
+            <image src='<%= require("./assets/isv.png") %>' class="isv"/>
           </li>
           <li class="nav-section page-list" >
             <a href="./index.html">首页</a>
-            <a class="selected" href="./product.html">产品介绍</a>
+            <a class="selected" href="./product.html">企业微信</a>
             <a href="./server.html">服务支持</a>
             <a href="./about.html">关于我们</a>
           </li>
           <li class="nav-section login" >
             <span class="login-btn-content" >
-              <button id="nav-login" >登录</button>
+              <button id="wx-login" >企业微信登录</button>
               <div class="login-modal" id="login-modal" >
                 <span class="login-block" >
                   <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名" >
@@ -335,7 +336,7 @@
               <a href="./index.html">首页</a>
             </li>
             <li>
-              <a href="./product.html">产品介绍</a>
+              <a href="./product.html">企业微信</a>
             </li>
             <li>
               <a href="./server.html">服务支持</a>
