@@ -15,17 +15,18 @@
       <nav class="nav-content" >
         <ul class="nav-list" >
           <li class="nav-section logo" >
-            <img src='<%= require("./assets/nav-logo-black.png") %>' width=180 id="logo" />
+            <img src='<%= require("./assets/nav-logo-black.svg") %>' width=180 id="logo" />
+            <image src='<%= require("./assets/isv.svg") %>' class="isv"/>
           </li>
           <li class="nav-section page-list" >
             <a href="./index.html">首页</a>
-            <a class="selected" href="./product.html">产品介绍</a>
+            <a class="selected" href="./product.html">企业微信</a>
             <a href="./server.html">服务支持</a>
             <a href="./about.html">关于我们</a>
           </li>
           <li class="nav-section login" >
             <span class="login-btn-content" >
-              <button id="nav-login" >登录</button>
+              <button id="wx-login" >企业微信登录</button>
               <div class="login-modal" id="login-modal" >
                 <span class="login-block" >
                   <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名" >
@@ -59,7 +60,23 @@
           <div class="banner" >
             <img class="banner-image" src='<%= require("./assets/main-header-banner-product.png") %>' >
           </div>
-          <button class="free-btn" id="free-btn-id" >免费试用</button>
+          <div></div>
+          <div style="display: inline-block;margin-right: 20px;color: #32325d;font-size: 14px;margin-top: 48px;" >
+            <a href="" class="wx-btn" id="wx-btn-logup" >
+              <img src='<%= require("./assets/wx-install.svg") %>' width="204" alt="">
+            </a>
+            <div>
+              立即安装ElephantBi到企业微信
+            </div>
+          </div>
+          <div style="display: inline-block;color: #32325d;font-size: 14px;margin-top: 48px;" >
+            <a href="" class="wx-btn" id="wx-btn-login" >
+              <img src='<%= require("./assets/wx-lonup.svg") %>' width="204" alt="">
+            </a>
+            <div>
+              立即注册企业微信和ElephantBI
+            </div>
+          </div>
         </div>
       </header>
       <section class="product-stage" >
@@ -293,8 +310,8 @@
 
       </section>
       <section class="reserve-form" >
-        <h3 class="reserve-form-title" >预约体验大象BI</h3>
-        <p class="reserve-form-subtitle" >大象BI团队会尽快跟您联系</p>
+        <h3 class="reserve-form-title" >预约体验ElephantBI</h3>
+        <p class="reserve-form-subtitle" >ElephantBI团队会尽快跟您联系</p>
         <form action="POST" name="form1" >
           <span class="form-item" data-attr="请输入姓名" >
             <img src='<%= require("./assets/input-name.png") %>' />
@@ -335,7 +352,7 @@
               <a href="./index.html">首页</a>
             </li>
             <li>
-              <a href="./product.html">产品介绍</a>
+              <a href="./product.html">企业微信</a>
             </li>
             <li>
               <a href="./server.html">服务支持</a>
@@ -381,37 +398,37 @@
   </div>
   <div class="modal" id="modal-application" >
     <a href="javascript:void(0)" id="modal-id-close" class="modal-close" >
-      X
+      ×
     </a>
     <h3 class="title" >
-      预约体验大象BI
+      预约体验ElephantBI
     </h3>
     <p class="sub-title" >
-      大象BI团队将尽快和您联系
+      ElephantBI团队将尽快和您联系
     </p>
     <form action="POST" name="formModal" >
       <span class="form-item" data-attr="请输入姓名" >
-        <img src='<%= require("./assets/input-name.png") %>' width=16 height=16 />
+        <img src='<%= require("./assets/input-name.png") %>' />
         <input class="form-input" type="text" name="name" placeholder="姓名" />
       </span>
       <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱" >
-        <img src='<%= require("./assets/input-email.png") %>' width=16 height=16 />
+        <img src='<%= require("./assets/input-email.png") %>' />
         <input class="form-input" type="text" name="email" placeholder="邮箱" />
       </span>
       <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)" >
-        <img src='<%= require("./assets/input-phone.png") %>' width=16 height=16 />
+        <img src='<%= require("./assets/input-phone.png") %>' />
         <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
       </span>
       <span class="form-item" data-attr="请输入公司姓名" >
-        <img src='<%= require("./assets/input-companyname.png") %>' width=16 height=16 />
+        <img src='<%= require("./assets/input-companyname.png") %>' />
         <input class="form-input" type="text" name="company" placeholder="公司名称" />
       </span>
       <span class="form-item" data-attr="请输入所属部门" >
-        <img src='<%= require("./assets/input-department.png") %>' width=16 height=16 />
+        <img src='<%= require("./assets/input-department.png") %>' />
         <input class="form-input" type="text" name="department" placeholder="所属部门" />
       </span>
       <span class="form-item" data-attr="请输入职位" >
-        <img src='<%= require("./assets/input-position.png") %>' width=16 height=16 />
+        <img src='<%= require("./assets/input-position.png") %>' />
         <input class="form-input" type="text" name="title" placeholder="职位" />
       </span>
     </form>

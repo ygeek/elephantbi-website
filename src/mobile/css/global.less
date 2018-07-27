@@ -62,9 +62,11 @@ h1, h2, h3, h4, h5, h6 {
 .baseButton() {
   .clearButtonStyle();
 
-  width: 240px;
+  width: 296px;
   height: 80px;
-  
+
+  font-size: 28px;
+  font-weight: 400px;
   line-height: 40px;
   border-width: 1px;
   border-style: solid;
@@ -192,6 +194,11 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     transform: translateY(-@half-percent);
     margin: 0 20px;
+
+    img {
+      width: 280px;
+      height: 56px;
+    }
   }
   .menu {
    position: absolute;
@@ -220,13 +227,14 @@ h1, h2, h3, h4, h5, h6 {
 
   .footer-nav-icon {
     img {
+      margin-bottom: 70px;
       display: block;
       margin: 0 auto;
     }
   }
 
   .footer-nav-sq {
-    width: 175px;
+    margin-bottom: 16px;
   }
 
   .footer-nav-sq, .footer-nav-list, .footer-nav-icon {
@@ -241,13 +249,14 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 20px;
 
     text-align: left;
-    font-size: 15px;
-    color: #5f6e80;
+    font-size: 28px;
+    color: #9b9b9b;
     vertical-align: top;
   }
   .footer-nav-list li {
     margin-bottom: 20px;
     font-size: 20px;
+
     a {
       .clearAStyle(#6b7c93);
       color: #6b7c93;
@@ -264,18 +273,30 @@ h1, h2, h3, h4, h5, h6 {
   .footer-nav-sq-description {
     display: block;
 
-    color: #909caa;
-    font-size: 14px;
+    color: #c1c1c1;
+    font-size: 28px;
   }
 }
 
 .reserve-form {
   text-align: center;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 60px 0;
+  position: relative;
+
+  .reserve-form-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 0;
+  }
 
   .reserve-form-title {
     margin: 109px 0 20px 0;
+    position: relative;
+    z-index: 10;
 
     color: @color-title;
     font-size: 40px;
@@ -283,6 +304,8 @@ h1, h2, h3, h4, h5, h6 {
   }
   .reserve-form-subtitle {
     margin-bottom: 18px;
+    position: relative;
+    z-index: 10;
 
     color: #606d8a;
     font-size: 12px;
@@ -373,6 +396,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 28px;
     background-color: transparent;
     border: none;
+    padding: 0;
 
     &:focus {
       outline: none;
@@ -387,7 +411,7 @@ h1, h2, h3, h4, h5, h6 {
   .form-submit-btn {
     .creatFullButton(#fff, #3b99fb);
 
-    border-radius: 30px;
+    border-radius: 15Px;
   }
 }
 
@@ -464,6 +488,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-mobile {
   display: inline-block;
+  img {
+    width: 58px;
+    height: 46px;
+  }
 }
 
 .nav-modal {
@@ -684,17 +712,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .record {
+  display: inline-block;
+  width: 100%;
   margin-top: 60px;
 
-  color: #5f6e80;
+  color: #c1c1c1;
   text-align: center;
-  font-size: 10px;
+  font-size: 20px;
 }
 
 .form-input-wrap {
   width: 600px;
   margin: 0 auto;
   padding: 20px 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
 
   box-sizing: border-box;
   background-color: #fff;

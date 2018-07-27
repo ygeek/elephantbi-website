@@ -47,6 +47,11 @@
   .nav-content-creat(#fff, #fff, #4a83ff);
 }
 
+#input-hosts:focus {
+  border: #63B8FF solid 1px;
+  outline: none;
+}
+
 .main-content {
   position: relative;
 
@@ -55,6 +60,8 @@
     margin: 140px auto 50px auto;
     padding: 0 100px;
     height: 500px;
+
+    box-sizing: border-box;
 
     color: #fff;
 
@@ -106,6 +113,7 @@
       height: 50px;
 
       border-radius: 5px;
+      box-shadow: 2px 1px 4px #287fbc;
     }
 
   }
@@ -115,7 +123,7 @@
     position: relative;
     height: @box-height;
     margin: 0 auto;
-    padding: @box-height / 2 0px 0 0px;
+    padding: @box-height / 2 0px 0 100px;
 
     box-sizing: border-box;
 
@@ -135,10 +143,10 @@
 
     .box-item {
       display: inline-block;
-      max-width: 496px;
+      max-width: 396px;
       width: @half-percent;
       transform: translateY(-50%);
-      margin-right: 100px;
+      margin-right: 150px;
 
       box-sizing: border-box;
       vertical-align: top;
@@ -184,7 +192,7 @@
     position: relative;
 
     background-color: #fff;
-    box-shadow: 2px 7px 10px 4px #dfdfdf;
+    box-shadow: 2px 7px 10px 4px rgba(0, 0, 0, 0.15);
   }
 
   .show-card {
@@ -236,7 +244,7 @@
     .creatButton(@color-green);
 
     position: absolute;
-    bottom: -10px;
+    bottom: -25px;
     left: 20px;
     transform: translateY(100%);
   }
@@ -246,8 +254,11 @@
     position: absolute;
     top: 50%;
     width: @btn-size;
-    height: @btn-size;    
+    height: @btn-size;
     z-index: 99;
+
+    border-radius: @btn-size / 2;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.35);
   }
   .btn-up {
     left: 0;
@@ -444,4 +455,10 @@
 
 .box-title-img {
   vertical-align: bottom;
+}
+
+#wx-login {
+  &:hover {
+    font-weight: bold;
+  }
 }

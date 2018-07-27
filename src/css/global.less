@@ -179,9 +179,15 @@ h1, h2, h3, h4, h5, h6 {
 
     #nav-login {
       .creatButton(@font-color);
+      &:hover {
+        font-weight: bold;
+      }
     }
     #nav-application {
       .creatFullButton(@full-font-color, @full-btn-color);
+      &:hover {
+        font-weight: bold;
+      }
     }
   }
   .page-list {
@@ -195,9 +201,13 @@ h1, h2, h3, h4, h5, h6 {
 
     a {
       margin: 0 30px;
+
+      &:hover {
+        font-weight: bold;
+      }
     }
 
-    &:nth-child(3) {
+    li:nth-child(4) {
       margin-right: 100px;
     }
   }
@@ -252,6 +262,10 @@ h1, h2, h3, h4, h5, h6 {
       }
     }
   }
+  .footer-nav-list li img {
+    margin-bottom: -3px
+  }
+
   .footer-nav-list span {
     padding-left: 10px;
   }
@@ -306,7 +320,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10px;
     margin-bottom: 68px;
 
-    border-radius: 10px;
+    border-radius: 6px;
     resize: none;
     font-size: 18px;
     color: #6d6d8a;
@@ -333,6 +347,10 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     color: #606d8a;
 
+    label:nth-child(2) {
+      margin-left: 10px;
+    }
+
     .radio {
       display: inline-block;
       position: relative;
@@ -340,6 +358,8 @@ h1, h2, h3, h4, h5, h6 {
       height: 12px;
       border-radius: 50%;
       border:solid 1px #479eed;
+      margin: 0 5px;
+
 
       cursor: pointer;
       &:after {
@@ -407,16 +427,16 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #fff;
   border-radius: 6px;
   box-sizing: border-box;
-  box-shadow: 2px 1px 6px #ddd;
+  box-shadow: 2px 1px 6px #6d6d6d;
 
   .form-item {
     display: inline-block;
     width: 400px;
-    height: 50px;
-    margin: 0 20px 40px 20px;
-    padding: 0 0 6px 0;
+    height: 30px;
+    margin: 0 20px 80px 20px;
+    padding: 0;
 
-    line-height: 50px;
+    line-height: 30px;
     text-align: left;
     border-bottom: 1px solid #ccd3da;
   }
@@ -460,7 +480,7 @@ h1, h2, h3, h4, h5, h6 {
     margin:  71px auto 0 auto;
   }
   .modal-close {
-    .clearAStyle();
+    .clearAStyle(#4a4a4a);
 
     position: absolute;
     right: 20px;
@@ -501,6 +521,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .errTextarea{
+  textarea {
+    border-color: #f1584d !important;
+  }
+
   &:after {
     content: attr(data-err) !important;
     display: block;

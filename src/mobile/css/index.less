@@ -51,7 +51,7 @@
 
   .main-header {
     margin: 120px auto 50px auto;
-    padding: 0 100px;
+    padding: 0 48px;
     height: 700px;
 
     color: #fff;
@@ -98,13 +98,14 @@
       margin-top: 76px;
 
       border-radius: 5px;
+      box-shadow: 2px 1px 4px #287fbc;
     }
 
   }
 
   .show-box {
     margin: 0 auto;
-    padding: 0 100px 0 100px;
+    padding: 0 48px 0 48px;
 
     box-sizing: border-box;
 
@@ -118,18 +119,20 @@
       p {
         font-size: 28px;
         margin: 0;
+        padding-bottom: 0;
+        line-height: 1;
       }
     }
 
     .box-item {
       display: block;
-      margin: 40px 0;
+      margin: 40px 0 0 0;
 
       box-sizing: border-box;
 
       img {
         display: block;
-        margin: 0 auto;
+        margin: 0 auto 220px auto;
       }
     }
 
@@ -140,22 +143,34 @@
       padding: 0;
       li {
         margin: 5px 0;
-        font-size: 12px;
+        font-size: 27px;
       }
       li:before {
         content: "\25cf";
         margin-right: 6px;
 
         color: @color-green;
-        font-size: 10px;
+        font-size: 20px;
       }
     }
   }
 }
 
 .rotate-card {
+  position: relative;
+  padding-bottom: 80px;
+
+  .rotate-card-bg {
+    position: absolute;
+    left: 0;
+    bottom: -100px;
+    z-index: -1;
+    width: 100%;
+  }
+
   .rotate-card-title {
     margin: 85px 0;
+    padding-bottom: 85px;
 
     font-size: 40px;
     color: @color-title;
@@ -169,7 +184,7 @@
     position: relative;
 
     background-color: #fff;
-    box-shadow: 2px 7px 10px 4px #dfdfdf;
+    box-shadow: 2Px 7Px 10Px 4Px #dfdfdf;
   }
 
   .show-card {
@@ -203,12 +218,17 @@
   .card-description {
     width: @card-width;
     height: 360px;
+    position: relative;
 
     box-sizing: border-box;
   }
   .card-p {
     padding: 40px 40px 0 40px;
+    position: absolute;
+    left: 0;
+    top: 50%;
 
+    transform: translateY(-50%);
     color: #909caa;
     font-size: 28px;
   }
@@ -289,4 +309,15 @@
   height: 100%;
   overflow-x: hidden;
   position: relative;
+}
+
+.box-title-img {
+  vertical-align: bottom;
+  margin: 0 !important;
+}
+
+.reserve-form {
+  .form-submit-btn {
+    .creatFullButton(#fff, #3b99fb);
+  }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="597px" viewBox="0 0 375 597" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>预约体验底</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="71.0695553%" y1="73.2257127%" x2="0%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#86BAFC" offset="0%"></stop>
+            <stop stop-color="#6772E5" offset="100%"></stop>
+        </linearGradient>
+        <path d="M0,0 L375,0 C375,110.189469 374.836836,233.602415 374.510509,370.238838 C269.599471,392.777135 144.762635,426.364189 0,471 L0,0 Z" id="path-2"></path>
+    </defs>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="预约体验底">
+            <g id="banner底" transform="translate(187.500000, 361.500000) scale(1, -1) translate(-187.500000, -361.500000) translate(0.000000, 126.000000)">
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <use id="Mask" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+            </g>
+        </g>
+    </g>
+</svg>
