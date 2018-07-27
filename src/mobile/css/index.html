@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>登录中...</title>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      var pathname = window.location.pathname;
+      if (pathname === '/login') {
+        var search = window.location.seacrh.match(/?redirect_url=(\w+)/) || [];
+        window.location.href = seacrh[1];
+      }
+      if (pathname === '/redirect') {
+        var redirectSearch = window.location.seacrh.match(/?redirect_url=(\w+)/) || [];
+      }
+    };
+  </script>
+</body>
+</html>
