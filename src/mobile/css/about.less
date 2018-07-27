@@ -24,8 +24,7 @@
     .description {
       display: inline-block;
       margin-top: 56px;
-      margin-bottom: 200px;
-      padding: 0 100px;
+      padding: 0 48px;
 
       text-align: center;
       color: #64728c;
@@ -33,8 +32,10 @@
     }
     .company-stage {
       display: inline-block;
-      margin: 0 0 100px 0;
-      padding: 0 150px;
+      margin: 0;
+      padding: 0 48px;
+
+      vertical-align: bottom;
 
       text-align: center;
       font-size: 24px;
@@ -137,11 +138,11 @@
 
 @span-height: 50px;
 .main-header-bg {
-  height: 650px;
+  height: 100%;
   width: 100%;
   overflow: hidden;
   position: absolute;
-  top: 300px;
+  bottom: 0px;
 
   .bg-block {
     display: block;
@@ -164,28 +165,28 @@
   };
 
   span:nth-child(1) {
-    top: @span-height * -7;
+    top: @span-height * -8;
     left: 14%;
     width: 10%;
     
     border: 1px solid #f3f4f7;
   };
   span:nth-child(2) {
-    top: @span-height * -5;
+    top: @span-height * -6;
     left: 22%;
     width: 6%;
     
     background-color: #bff0fe;
   };
   span:nth-child(3) {
-    top: @span-height * -1;
+    top: @span-height * -2;
     left: 14%;
     width: 10%;
     
     background-color: #80baf9;
   };
   span:nth-child(4) {
-    top: @span-height * 0;
+    top: @span-height * -1;
     left: 0;
     width: 30%;
     
@@ -193,42 +194,42 @@
   };
 
   span:nth-child(5) {
-    top: @span-height * 1;
+    top: @span-height * 0;
     left: 16%;
     width: 12%;
     
     background-color: #bff0fe;
   };
   span:nth-child(6) {
-    top: @span-height * 1;
+    top: @span-height * 0;
     left: 28%;
     width: 10%;
     
     background-color: #6373e0;
   };
   span:nth-child(7) {
-    top: @span-height * 1;
+    top: @span-height * 0;
     right: 10%;
     width: 12%;
     
     background-color: #6373e0;
   };
   span:nth-child(8) {
-    top: @span-height * 2;
+    top: @span-height * 1;
     right: 0;
     width: 30%;
     
     background-color: #bff0fe;
   };
   span:nth-child(9) {
-    top: @span-height * 3;
+    top: @span-height * 2;
     right: 24%;
     width: 10%;
     
     background-color: #80baf9;
   };
   span:nth-child(10) {
-    top: @span-height * 3;
+    top: @span-height * 2;
     right: 14%;
     width: 10%;
     
@@ -293,4 +294,15 @@
     
     border: 1px solid #f3f4f7;
   };
+}
+
+.stage-wrap {
+  position: relative;
+  margin-top: -200px;
+  padding-bottom: 60px;
+  padding-top: 600px;
+
+  @media screen and (min-width: 1000px) {
+    padding-bottom: 40px;
+  }
 }
