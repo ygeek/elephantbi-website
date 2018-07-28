@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="314px" height="50px" viewBox="0 0 314 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>6</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="效果图，标注" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="6">
+            <g id="Group-19" transform="translate(66.000000, 1.000000)" fill="#1DB977">
+                <g id="Group-46">
+                    <text id="Visualized-drag-and" font-family="PingFangSC-Light, PingFang SC" font-size="14" font-weight="300">
+                        <tspan x="0.436" y="43">Visualized drag and drop data analysis</tspan>
+                    </text>
+                    <text id="数据大屏" font-family="PingFangSC-Medium, PingFang SC" font-size="20" font-weight="400">
+                        <tspan x="0" y="21">数据大屏</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Group-60">
+                <g id="icon-copy" fill="#BCF3B9">
+                    <circle id="Oval-3" cx="25" cy="25" r="25"></circle>
+                </g>
+                <g id="Group-53" transform="translate(9.848485, 13.636364)" fill-rule="nonzero">
+                    <path d="M0.688705234,22.4142532 C0.68870522,22.6981927 0.813633962,22.9705028 1.03600856,23.1712784 C1.25838316,23.3720539 1.55998785,23.4848485 1.87447303,23.4848485 L28.4285573,23.4848485 C28.7430425,23.4848485 29.0446471,23.3720539 29.2670217,23.1712784 C29.4893963,22.9705028 29.6143251,22.6981927 29.6143251,22.4142532 L29.6143251,3.45365419 L0.688705234,3.45365419 L0.688705234,22.4142532 Z" id="Shape" fill="#1BBD7A"></path>
+                    <path d="M29.6143251,0 L0.688705237,0 C0.308343838,0 0,0.463876095 0,1.03609626 C0,1.60831642 0.308343838,2.07219251 0.688705237,2.07219251 L29.6143251,2.07219251 C29.9946865,2.07219251 30.3030303,1.60831642 30.3030303,1.03609626 C30.3030303,0.463876095 29.9946865,0 29.6143251,0 Z" id="Shape" fill="#70D49C"></path>
+                </g>
+                <g id="Group-62" transform="translate(12.878788, 18.181818)" stroke="#BCF3B9" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.757575758">
+                    <polyline id="Line" points="0 0.757575758 2.22044605e-16 2.77844053 2.22044605e-16 3.79416726"></polyline>
+                    <path d="M0,0.757575758 L3.23946854,0.757575758" id="Line-Copy"></path>
+                </g>
+                <g id="Group-59" transform="translate(35.227273, 33.333333) scale(-1, -1) translate(-35.227273, -33.333333) translate(33.333333, 31.060606)" stroke="#BCF3B9" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.757575758">
+                    <polyline id="Line-Copy-2" points="0 0.757575758 2.22044605e-16 2.77844053 2.22044605e-16 3.79416726"></polyline>
+                    <path d="M0,0.757575758 L3.23946854,0.757575758" id="Line-Copy-3"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
