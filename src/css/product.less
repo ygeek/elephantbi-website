@@ -5,7 +5,11 @@
   .nav-content-creat(#6b7c93, #6871e7);
 }
 
-@product-item-height: 300px;
+@product-item-height: 450px;
+
+.product-banner-under-btn {
+  color: #6b7c93;
+}
 
 .main-content {
   h1, p {
@@ -18,15 +22,15 @@
     width: @max-width;
     margin: 0 auto;
     height: 600px;
-    padding: 50px 100px 0 100px;
+    padding: 100px 100px 0 100px;
     box-sizing: border-box;
 
     .main-header-box {
-      max-width: 45%;
       height: 500px;
     }
     .title {
       display: block;
+      max-width: 45%;
 
       color: @color-purple;
       font-size: 40px;
@@ -35,6 +39,7 @@
       display: inline-block;
       min-width: 300px;
       margin-top: 26px;
+      max-width: 45%;
 
       color: #64728c;
       font-size: 18px;
@@ -47,8 +52,8 @@
 
       .banner-image {
         position: absolute;
-        bottom: -130px;
-        left: 450px;
+        bottom: -150px;
+        left: 90px;
         z-index: -1;
       }
     }
@@ -92,10 +97,21 @@
         box-shadow: none;
       }
     }
+    .product-part:nth-child(2) {
+      .product-title {
+        padding-left: 100px;
+      }
+      .product-description {
+        width: 400px;
+        padding-left: 100px;
+      }
+      img {
+        margin-left: 100px;
+      }
+    }
     .product-title {
       padding: 0;
       margin: 0 0 20px 0;
-
       font-size: 30px;
       color: #373761;
     }
@@ -114,7 +130,7 @@
 @span-height: 50px;
 .main-header-bg {
   display: block;
-  height: 750px;
+  height: 800px;
   width: 100%;
   min-width: 1200px;
   position: absolute;
@@ -132,7 +148,7 @@
   span:nth-child(1) {
     bottom: @span-height * 0;
     left: 0;
-    width: 100%;
+    width: 25%;
     
     background-color: #80baf9;
   };
@@ -200,4 +216,28 @@
     
     border: 1px solid #f3f4f7;
   };
+  span:nth-child(11) {
+    bottom: @span-height * 0;
+    right: 0;
+    width: 50%;
+    
+    background-color: #80baf9;
+  };
+}
+
+.isv {
+  width: 150px;
+}
+
+#wx-login {
+  .creatButton(#6b7c93);
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.wx-btn {
+  .clearAStyle();
+  margin-right: 26px;
+  background-color: transparent;
 }

@@ -7,8 +7,15 @@
   .nav-content-creat(#6b7c93, #1db977);
 }
 
+.server-title-icon {
+  width: 100px;
+  height: 80px;
+}
+
 .banner-image {
-  width: 500px;
+  width: 720px;
+  display: block;
+  margin: 0 auto;
 }
 
 .main-content {
@@ -20,9 +27,8 @@
   }
 
   .main-header {
-    width: 500px;
-    padding: 50px 0 70px 0;
-    margin: 0 auto;
+    width: 100%;
+    padding: 50px 48px 70px 48px;
     .title {
       max-width: 60%;
 
@@ -31,7 +37,7 @@
     }
     .description {
       display: inline-block;
-      max-width: 45%;
+      max-width: 80%;
       min-width: 300px;
       margin-top: 26px;
 
@@ -50,8 +56,6 @@
   }
 }
 .banner {
-  width: 400px;
-  margin: 0 auto;
 }
 
 .line {
@@ -102,7 +106,7 @@
 }
 
 .reserve-form {
-  margin: 50px auto;
+  margin: 50px auto 0 auto;
 
   background-color: #fff;
   border: 1px solid #f0f0f0;
@@ -110,6 +114,15 @@
   .reserve-form-title, h3, p {
     margin: 0;
     padding: 0;
+  }
+  .reserve-form-title {
+    margin-bottom: 20px;
+  }
+  .reserve-form-subtitle {
+    margin-bottom: 18px;
+  }
+  label:nth-child(2) {
+    margin-left: 10px
   }
 }
 
@@ -203,4 +216,23 @@
     
     border: 1px solid #f0f1f2;
   };
+}
+
+.reserve-form {
+  .form-submit-btn {
+    .creatFullButton(#fff, #3ecf8e);
+  }
+.form-radio {
+    color: #606d8a;
+
+    .radio {
+      border:solid 1px #3ecf8e;
+    }
+    input[type="radio"]:checked + div{
+      border:solid 1px #3ecf8e;
+    }
+    input[type="radio"]:checked + div:after{
+      background-color: #3ecf8e;
+    }
+  }
 }

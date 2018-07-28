@@ -7,6 +7,10 @@
     window.host = window.location.origin;
     window.backhost = 'https://api.elephantbi.com';
     var SOURCE = "官网";
+    
+    window.corpid = 'WX_CORP_ID';
+    window.imageEnv = 'IMAGE_ENV';
+    window.OAUTHURL = 'OAUTH_URL';
   </script>
 </head>
 <body>
@@ -15,11 +19,11 @@
       <nav class="nav-content" >
         <ul class="nav-list" >
           <li class="nav-section logo" >
-            <img src='<%= require("./assets/nav-logo.png") %>' id="logo" width=180 />
+            <img src='<%= require("./assets/nav-logo.svg") %>' id="logo" width=180 />
           </li>
           <li class="nav-section page-list" >
             <a class="selected" href="./index.html">首页</a>
-            <a href="./product.html">产品介绍</a>
+            <a href="./product.html">企业微信</a>
             <a href="./server.html">服务支持</a>
             <a href="./about.html">关于我们</a>
           </li>
@@ -95,7 +99,7 @@
         <div class="box-item left" >
           <img width=469 height=314 src='<%= require("./assets/index-box-2.png") %>' />
         </div>
-        <div class="box-item right" >
+        <div class="box-item right" style="max-width: 450px;margin-right: 0" >
           <img class="box-title box-title-img" src='<%= require("./assets/box-right-icon1.png") %>' width=66 height=66 />
           <div class="box-title" >
             <h3>可视化拖拽分析</h3>
@@ -185,7 +189,9 @@
               <div class="card-title card-image-1" >零售与电商</div>
               <div class="card-description" >
                 <div class="card-p" >
-                  利用数据分析实时掌握进销存动态，选择可靠的供应商，指定最合理的销售价格，提升电商网站转化率同时降低退货率
+                  <div>
+                    利用数据分析实时掌握进销存动态，选择可靠的供应商，指定最合理的销售价格，提升电商网站转化率同时降低退货率
+                  </div>
                   <button class="card-btn" >免费试用</button>
                 </div>
               </div>
@@ -194,7 +200,9 @@
               <div class="card-title card-image-2" >金融服务</div>
               <div class="card-description" >
                 <div class="card-p" >
-                  实时监控数据保证覆盖众多复杂金融指标，依靠数据为客户提供精准保险服务，对关键财务指标预警并实时接受通知
+                  <div>
+                    实时监控数据保证覆盖众多复杂金融指标，依靠数据为客户提供精准保险服务，对关键财务指标预警并实时接受通知
+                  </div>
                   <button class="card-btn" >免费试用</button>
                 </div>
               </div>
@@ -203,7 +211,9 @@
               <div class="card-title card-image-3" >教育</div>
               <div class="card-description" >
                 <div class="card-p" >
-                  从重复琐碎工作中解放大脑，指导根据创新的教学方法，跟踪学生动态，提出具有针对性的提升方案
+                  <div>
+                    从重复琐碎工作中解放大脑，指导根据创新的教学方法，跟踪学生动态，提出具有针对性的提升方案
+                  </div>
                   <button class="card-btn" >免费试用</button>
                 </div>
               </div>
@@ -212,7 +222,9 @@
               <div class="card-title card-image-4" >健康医疗</div>
               <div class="card-description" >
                 <div class="card-p" >
-                  实现繁杂数据整合，提高就医效率，提供数据驱动的解决方案，实时监控患者生理周期各项指标，轻松提高客户的满意度
+                  <div>
+                    实现繁杂数据整合，提高就医效率，提供数据驱动的解决方案，实时监控患者生理周期各项指标，轻松提高客户的满意度
+                  </div>
                   <button class="card-btn" >免费试用</button>
                 </div>
               </div>
@@ -221,7 +233,9 @@
               <div class="card-title card-image-5" >地产行业</div>
               <div class="card-description" >
                 <div class="card-p" >
-                  整合企业复杂数据源，及时分析瞬息万变的房产行情，及时调整营销策略，辅助指定开发方案，各类销售分析促进楼盘回款率
+                  <div>
+                    整合企业复杂数据源，及时分析瞬息万变的房产行情，及时调整营销策略，辅助指定开发方案，各类销售分析促进楼盘回款率
+                  </div>
                   <button class="card-btn" >免费试用</button>
                 </div>
               </div>
@@ -230,7 +244,9 @@
               <div class="card-title card-image-6" >制造业</div>
               <div class="card-description" >
                 <div class="card-p" >
-                  整合多业务系统和大型ERP数据互通，合理分配资源降低生产成本，优化生产线管理提升产品质量
+                  <div>
+                    整合多业务系统和大型ERP数据互通，合理分配资源降低生产成本，优化生产线管理提升产品质量
+                  </div>
                   <button class="card-btn" >免费试用</button>
                 </div>
               </div>
@@ -239,7 +255,9 @@
               <div class="card-title card-image-7" >汽车行业</div>
               <div class="card-description" >
                 <div class="card-p" >
-                  多业务系统和大型ERP的数据整合，打破信息孤岛，高效的客户关系管理及供应商合作管理，把我市场价格变化行情调整销售策略
+                  <div>
+                    多业务系统和大型ERP的数据整合，打破信息孤岛，高效的客户关系管理及供应商合作管理，把我市场价格变化行情调整销售策略
+                  </div>
                   <button class="card-btn" >免费试用</button>
                 </div>
               </div>
@@ -248,7 +266,9 @@
               <div class="card-title card-image-8" >酒店与交通</div>
               <div class="card-description" >
                 <div class="card-p" >
-                  轻松了解追踪客户行为，领先竞争对手对购买趋势的预测，提高物流高效率，保证客户满意度
+                  <div>
+                    轻松了解追踪客户行为，领先竞争对手对购买趋势的预测，提高物流高效率，保证客户满意度
+                  </div>
                   <button class="card-btn" >免费试用</button>
                 </div>
               </div>
@@ -257,7 +277,9 @@
               <div class="card-title card-image-9" >高新技术</div>
               <div class="card-description" >
                 <div class="card-p" >
-                  试试跟踪访客数、流量走势、竞争对手策略趋势等关键业务指标，掌握最新科技动向，辅助决策和调整产品方向
+                  <div>
+                    试试跟踪访客数、流量走势、竞争对手策略趋势等关键业务指标，掌握最新科技动向，辅助决策和调整产品方向
+                  </div>
                   <button class="card-btn" >免费试用</button>
                 </div>
               </div>
@@ -266,7 +288,9 @@
               <div class="card-title card-image-10" >电信行业</div>
               <div class="card-description" >
                 <div class="card-p" >
-                  融合业务、计费、财务、网管、监控等多系统数据，大数据分析辅助决策，用户数据分析防止欺诈等行为，减少客户流失
+                  <div>
+                    融合业务、计费、财务、网管、监控等多系统数据，大数据分析辅助决策，用户数据分析防止欺诈等行为，减少客户流失
+                  </div>
                   <button class="card-btn" >免费试用</button>
                 </div>
               </div>
@@ -275,7 +299,9 @@
               <div class="card-title card-image-11" >媒体娱乐</div>
               <div class="card-description" >
                 <div class="card-p" >
-                  时刻保持最新状态，对即将发生的事件进行趋势预测，让数据变得可靠实用，数据指导精准营销活动
+                  <div>
+                    时刻保持最新状态，对即将发生的事件进行趋势预测，让数据变得可靠实用，数据指导精准营销活动
+                  </div>
                   <button class="card-btn" >免费试用</button>
                 </div>
               </div>
@@ -284,7 +310,9 @@
               <div class="card-title card-image-12" >专业服务</div>
               <div class="card-description" >
                 <div class="card-p" >
-                  从重复繁琐的工作中抽身以提升效率，更好的了解客户差异化需求，快速积累成功经验所需的信息，提供更专业的服务
+                  <div>
+                    从重复繁琐的工作中抽身以提升效率，更好的了解客户差异化需求，快速积累成功经验所需的信息，提供更专业的服务
+                  </div>
                   <button class="card-btn" >免费试用</button>
                 </div>
               </div>
@@ -296,8 +324,8 @@
       </section>
 
       <section class="reserve-form" >
-        <h3 class="reserve-form-title" >预约体验大象BI</h3>
-        <p class="reserve-form-subtitle" >大象BI团队会尽快跟您联系</p>
+        <h3 class="reserve-form-title" >预约体验ElephantBI</h3>
+        <p class="reserve-form-subtitle" >ElephantBI团队会尽快跟您联系</p>
         <form action="POST" name="form1" >
           <span class="form-item" data-attr="请输入姓名" >
             <img src='<%= require("./assets/input-name.png") %>' />
@@ -334,11 +362,11 @@
         </li>
         <li class="footer-nav-list" >
           <ul>
-            <li class="footer-list-title" >
+            <li>
               <a href="./index.html">首页</a>
             </li>
             <li>
-              <a href="./product.html">产品介绍</a>
+              <a href="./product.html">企业微信</a>
             </li>
             <li>
               <a href="./server.html">服务支持</a>
@@ -384,37 +412,37 @@
   </div>
   <div class="modal" id="modal-application" >
     <a href="javascript:void(0)" id="modal-id-close" class="modal-close" >
-      X
+      ×
     </a>
     <h3 class="title" >
-      预约体验大象BI
+      预约体验ElephantBI
     </h3>
     <p class="sub-title" >
-      大象BI团队将尽快和您联系
+      ElephantBI团队将尽快和您联系
     </p>
     <form action="POST" name="formModal" >
       <span class="form-item" data-attr="请输入姓名" >
-        <img src='<%= require("./assets/input-name.png") %>' width=16 height=16 />
+        <img src='<%= require("./assets/input-name.png") %>' />
         <input class="form-input" type="text" name="name" placeholder="姓名" />
       </span>
       <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱" >
-        <img src='<%= require("./assets/input-email.png") %>' width=16 height=16 />
+        <img src='<%= require("./assets/input-email.png") %>' />
         <input class="form-input" type="text" name="email" placeholder="邮箱" />
       </span>
       <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)" >
-        <img src='<%= require("./assets/input-phone.png") %>' width=16 height=16 />
+        <img src='<%= require("./assets/input-phone.png") %>' />
         <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
       </span>
       <span class="form-item" data-attr="请输入公司姓名" >
-        <img src='<%= require("./assets/input-companyname.png") %>' width=16 height=16 />
+        <img src='<%= require("./assets/input-companyname.png") %>' />
         <input class="form-input" type="text" name="company" placeholder="公司名称" />
       </span>
       <span class="form-item" data-attr="请输入所属部门" >
-        <img src='<%= require("./assets/input-department.png") %>' width=16 height=16 />
+        <img src='<%= require("./assets/input-department.png") %>' />
         <input class="form-input" type="text" name="department" placeholder="所属部门" />
       </span>
       <span class="form-item" data-attr="请输入职位" >
-        <img src='<%= require("./assets/input-position.png") %>' width=16 height=16 />
+        <img src='<%= require("./assets/input-position.png") %>' />
         <input class="form-input" type="text" name="title" placeholder="职位" />
       </span>
     </form>

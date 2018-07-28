@@ -22,6 +22,10 @@
     window.host = window.location.origin;
     window.backhost = 'https://api.elephantbi.com';
     var SOURCE = "官网（手机端）";
+
+    window.corpid = 'WX_CORP_ID';
+    window.imageEnv = 'IMAGE_ENV';
+    window.OAUTHURL = 'OAUTH_URL';
   </script>
 </head>
 <body>
@@ -30,11 +34,12 @@
       <nav class="nav-content" >
         <ul class="nav-list" >
           <li class="nav-section logo" >
-            <image src='<%= require("./assets/nav-logo-black.png") %>' width=206 height=41 id="logo" />
+            <image src='<%= require("./assets/nav-logo-black.svg") %>' width=206 height=41 id="logo" />
+            <image src='<%= require("./assets/isv.svg") %>' class="isv" width=80 />
           </li>
           <li class="nav-section menu" >
             <div class="nav-mobile" >
-              <img src='<%= require("./assets/nav-menu.png") %>' alt="" id="nav-menu-id" >
+              <img src='<%= require("./assets/nav-menu.svg") %>' alt="" id="nav-menu-id" >
             </div>
           </li>
         </ul>
@@ -52,16 +57,37 @@
         <span></span>
         <span></span>
         <span></span>
+        <span></span>
       </div>
       <header class="main-header" >
         <div class="main-header-box" >
           <span class="title" >高效数据分析，聚焦团队协作与决策</span>
           <span class="description" >快速多维度的数据整合，灵活、高效的数据分析，多群组的分析结果共享，让团队中人人都是数据分析师，将数据决策覆盖到每一个工作场景</span>
-          <button class="free-btn" id="free-btn-id" >免费试用</button>
+          <div class="wx-install-btn" >
+            <a href="javascript:void(0);" class="wx-btn" id="wx-btn-logup" >
+              <img src='<%= require("./assets/wx-install.svg") %>' >
+            </a>
+          </div>
+          <div class="wx-logup-btn" >
+            <a href="javascript:void(0);" class="wx-btn" id="wx-btn-login" >
+              <img src='<%= require("./assets/wx-lonup.svg") %>' >
+            </a>
+          </div>
         </div>
       </header>
       <div class="banner" >
-        <image class="banner-image" src='<%= require("./assets/main-header-banner-product.png") %>' >
+        <image
+          class="banner-image"
+          src='<%= require("./assets/main-header-banner-product.png") %>'
+          srcset='
+              <%= require("./assets/main-header-banner-product.png") %> 330w,
+              <%= require("./assets/main-header-banner-product@2x.png") %> 660w,
+              <%= require("./assets/main-header-banner-product@3x.png") %> 990w'
+            sizes="
+              (max-width:400px) 330px,
+              (max-width:800px) 660px,
+              (max-width:1300px) 990px"
+        >
       </div>
       <section class="product-stage" >
         <div class="product-item" >
@@ -70,7 +96,7 @@
             <p class="product-description" >支持包括HRM、CRM、ERP、OA、进销存等业务系统，业务数据一目了然</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct1.png") %>' />
+            <image src='<%= require("./assets/pruduct1.svg") %>' />
           </div>
         </div>
         <div class="product-item" >
@@ -79,7 +105,7 @@
             <p class="product-description" >Excel/csv文件也可轻松上传分析</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct2.png") %>' />
+            <image src='<%= require("./assets/pruduct2.svg") %>' />
           </div>
         </div>
 
@@ -89,7 +115,7 @@
             <p class="product-description" >企业SaaS应用一键连接，云端应用数据集成毫无障碍</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct3.png") %>' />
+            <image src='<%= require("./assets/pruduct3.svg") %>' />
           </div>
         </div>
         <div class="product-item" >
@@ -98,7 +124,7 @@
             <p class="product-description" >支持连接常用关系型数据库，如MySQL、PostgreSQL、Oracle Database等，有效集成企业数据</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct4.png") %>' />
+            <image src='<%= require("./assets/pruduct4.svg") %>' />
           </div>
         </div>
 
@@ -108,7 +134,7 @@
             <p class="product-description" >支持API数据接入，灵活扩展数据集成</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct5.png") %>' />
+            <image src='<%= require("./assets/pruduct5.svg") %>' />
           </div>
         </div>
         <div class="product-item" >
@@ -117,7 +143,7 @@
             <p class="product-description" >强大的并行计算集群，百亿数据，实时查询，轻松处理企业大数据</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct6.png") %>' />
+            <image src='<%= require("./assets/pruduct6.svg") %>' />
           </div>
         </div>
 
@@ -127,7 +153,7 @@
             <p class="product-description" >实时自动更新数据，方便您对数据的实时掌控，并依此零时差推进业务</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct7.png") %>' />
+            <image src='<%= require("./assets/pruduct7.svg") %>' />
           </div>
         </div>
         <div class="product-item" >
@@ -136,7 +162,7 @@
             <p class="product-description" >拖拽即可完成多表联合、追加合并数据，重复繁琐的ETL工作也可以如此轻松搞定</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct8.png") %>' />
+            <image src='<%= require("./assets/pruduct8.svg") %>' />
           </div>
         </div>
 
@@ -146,7 +172,7 @@
             <p class="product-description" >简单拖拽，数据图表瞬间生成</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct9.png") %>' />
+            <image src='<%= require("./assets/pruduct9.svg") %>' />
           </div>
         </div>
         <div class="product-item" >
@@ -155,7 +181,7 @@
             <p class="product-description" >图表类型丰富，几十种随意挑选</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct10.png") %>' />
+            <image src='<%= require("./assets/pruduct10.svg") %>' />
           </div>
         </div>
 
@@ -165,7 +191,7 @@
             <p class="product-description" >图表联动，数据不再静止，让数据说话。自由布局，图文混排，数据动向清晰明了</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct11.png") %>' />
+            <image src='<%= require("./assets/pruduct11.svg") %>' />
           </div>
         </div>
         <div class="product-item" >
@@ -174,7 +200,7 @@
             <p class="product-description" >广泛支持数据多层钻取、横向钻取、筛选分析对比拆分等操作，深度挖掘数据背后的线索</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct12.png") %>' />
+            <image src='<%= require("./assets/pruduct12.svg") %>' />
           </div>
         </div>
 
@@ -184,7 +210,7 @@
             <p class="product-description" >多种类、多终端的交互式图表和仪表盘，帮助决策者从容讲述数据背后的线索</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct13.png") %>' />
+            <image src='<%= require("./assets/pruduct13.svg") %>' />
           </div>
         </div>
         <div class="product-item" >
@@ -193,7 +219,7 @@
             <p class="product-description" >深度集成即时沟通工具，帮助全员围绕商业数据分享协作，让数据驱动沟通融入日常工作的方方面面</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct14.png") %>' />
+            <image src='<%= require("./assets/pruduct14.svg") %>' />
           </div>
         </div>
 
@@ -203,7 +229,7 @@
             <p class="product-description" >灵活严谨的用户和角色体系，快速准确的赋予数据权限，兼具效率与安全</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct15.png") %>' />
+            <image src='<%= require("./assets/pruduct15.svg") %>' />
           </div>
         </div>
         <div class="product-item" >
@@ -212,7 +238,7 @@
             <p class="product-description" >提供行列粒度的数据权限控制，确保每一行每一列数据的访问都尽在掌控</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct16.png") %>' />
+            <image src='<%= require("./assets/pruduct16.svg") %>' />
           </div>
         </div>
 
@@ -222,7 +248,7 @@
             <p class="product-description" >完善的移动交互体验，流畅进行图表缩放、数据钻取联动等操作，任何时候都能够便捷的查看和分析数据</p>
           </div>
           <div class="product-part" >
-            <image class="spaice-img" src='<%= require("./assets/pruduct17.png") %>' />
+            <image class="spaice-img" src='<%= require("./assets/pruduct17.svg") %>' />
           </div>
         </div>
         <div class="product-item" >
@@ -231,7 +257,7 @@
             <p class="product-description" >移动设备功能同样强大，全面支持数据分析、图表分享沟通等功能，助力高效移动办公</p>
           </div>
           <div class="product-part" >
-            <image class="spaice-img" src='<%= require("./assets/pruduct18.png") %>' />
+            <image class="spaice-img" src='<%= require("./assets/pruduct18.svg") %>' />
           </div>
         </div>
 
@@ -241,7 +267,7 @@
             <p class="product-description" >多种认证机制、设备绑定、加密传输，全面保障移动设备安全访问数据</p>
           </div>
           <div class="product-part" >
-            <image class="spaice-img" src='<%= require("./assets/pruduct19.png") %>' />
+            <image class="spaice-img" src='<%= require("./assets/pruduct19.svg") %>' />
           </div>
         </div>
         <div class="product-item" >
@@ -250,7 +276,7 @@
             <p class="product-description" >主动推送关键数据，及时了解关键数据的变化，无论身处何处，都能时刻保持与数据的连接</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct20.png") %>' />
+            <image src='<%= require("./assets/pruduct20.svg") %>' />
           </div>
         </div>
 
@@ -260,7 +286,7 @@
             <p class="product-description" >全面支持数据多屏展示，数据大屏、PC显示器、投影仪等，有价值的图表无所不在</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct21.png") %>' />
+            <image src='<%= require("./assets/pruduct21.svg") %>' />
           </div>
         </div>
         <div class="product-item" >
@@ -269,7 +295,7 @@
             <p class="product-description" >实时展示最新数据动态，及时了解关键数据变化。以数据了解企业脉搏，及时预警，时刻激励</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct22.png") %>' />
+            <image src='<%= require("./assets/pruduct22.svg") %>' />
           </div>
         </div>
 
@@ -279,7 +305,7 @@
             <p class="product-description" >完善的数据咨询和技术支持服务体系，7X24小时快速响应，为您提供坚实可靠的数据服务</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct23.png") %>' />
+            <image src='<%= require("./assets/pruduct23.svg") %>' />
           </div>
         </div>
         <div class="product-item" >
@@ -288,14 +314,14 @@
             <p class="product-description" >聚合企业核心业务数据可视化指标，实时查看全局关键数据，快速洞察业务全局状态</p>
           </div>
           <div class="product-part" >
-            <image src='<%= require("./assets/pruduct24.png") %>' />
+            <image src='<%= require("./assets/pruduct24.svg") %>' />
           </div>
         </div>
 
       </section>
       <section class="reserve-form" >
-        <h3 class="reserve-form-title" >预约体验大象BI</h3>
-        <p class="reserve-form-subtitle" >大象BI团队会尽快跟您联系</p>
+        <h3 class="reserve-form-title" >预约体验ElephantBI</h3>
+        <p class="reserve-form-subtitle" >ElephantBI团队会尽快跟您联系</p>
         <div class="form-input-wrap" >
           <form action="POST" name="form1" >
             <span class="form-item" data-attr="请输入姓名" >
@@ -325,12 +351,23 @@
           </form>
           <button class="form-submit-btn" id="form-submit-btn-id" >提交</button>
         </div>
+        <img class="reserve-form-bg" src='<%= require("./assets/form-bg-pruduct.svg") %>' alt="">
       </section>
     </main>
     <footer class="footer-content" >
       <ul class="footer-nav" >
         <li class="footer-nav-icon" >
-          <image src='<%= require("./assets/footer-icon.png") %>' />
+          <image
+            src='<%= require("./assets/footer-icon.png") %>'
+            srcset='
+              <%= require("./assets/footer-icon.png") %> 107w,
+              <%= require("./assets/footer-icon@2x.png") %> 214w,
+              <%= require("./assets/footer-icon@3x.png") %> 321w'
+            sizes="
+              (max-width:400px) 107px,
+              (max-width:800px) 214px,
+              (max-width:1300px) 321px"
+          />
         </li>
         <li class="footer-nav-list" >
           <ul>
@@ -361,7 +398,17 @@
           </ul>
         </li>
         <li class="footer-nav-sq" >
-          <image src='<%= require("./assets/footer-sq.png") %>' width=100 />
+          <image
+            src='<%= require("./assets/footer-sq.png") %>'
+            srcset='
+              <%= require("./assets/footer-sq.png") %> 100w,
+              <%= require("./assets/footer-sq@2x.png") %> 200w,
+              <%= require("./assets/footer-sq@3x.png") %> 300w'
+            sizes="
+              (max-width:400px) 100px,
+              (max-width:800px) 200px,
+              (max-width:1300px) 300px"
+          />
           <span class="footer-nav-sq-description" >关注 ElephantBI</span>
         </li>
       </ul>
@@ -373,10 +420,10 @@
       X
     </a>
     <h3 class="title" >
-      预约体验大象BI
+      预约体验ElephantBI
     </h3>
     <p class="sub-title" >
-      大象BI团队将尽快和您联系
+      ElephantBI团队将尽快和您联系
     </p>
     <form action="POST" name="formModal" >
       <span class="form-item" data-attr="请输入姓名" >
@@ -416,7 +463,7 @@
       </li>
       <li class="nav-item" >
         <img src='<%= require("./assets/nav-icon2.png") %>' alt="">
-        <a href="./product.html" class="nav-2" >产品介绍</a>
+        <a href="./product.html" class="nav-2" >企业微信</a>
       </li>
       <li class="nav-item" >
         <img src='<%= require("./assets/nav-icon3.png") %>' alt="">
