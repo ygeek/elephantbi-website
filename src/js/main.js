@@ -467,7 +467,8 @@ const upCard = () => {
 
 const opentNewWindow = () => {
   const hostsName = document.getElementById('input-hosts');
-  const hostMatch = window.host.match(/(https*:\/\/)([\s\S]*)/) || [];
+  const hostMatch = window.host.match(/(https*:\/\/)[\s\S]*\.([\s\S]*\.[\s\S]*)$/) || [];
+
   request('/website/domain', { domain: hostsName.value })
     .then((res) => {
       const data = res.data || {};
@@ -587,7 +588,7 @@ const gennerateFixedUrlRedirect = (rUrl) => {
 // 单点登录
 const REDIRECT_URL_SSO = encodeURIComponent(`${FIXED_URL}/server_redirect?env=${window.imageEnv}`);
 const gennerateWxSSO = (redirectUri) => {
-  return `https://open.work.weixin.qq.com/wwopen/sso/3rd_qrConnect?appid=${window.corpid}&redirect_uri=${redirectUri}&usertype=member`;
+  return `https://open.work.weixin.qq.com/wwopen/sso/3rd_qrConnect?appid=${window.corpid}&redirect_uri=${redirectUri}&usertype=admin`;
 };
 
 const WX_SSO_RURL = encodeURIComponent(gennerateWxSSO(REDIRECT_URL_SSO));
