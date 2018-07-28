@@ -74,7 +74,15 @@
       <div class="banner" >
         <image
           class="banner-image"
-          src='<%= require("./assets/main-header-banner-product.svg") %>'
+          src='<%= require("./assets/main-header-banner-product.png") %>'
+          srcset='
+              <%= require("./assets/main-header-banner-product.png") %> 330w,
+              <%= require("./assets/main-header-banner-product@2x.png") %> 660w,
+              <%= require("./assets/main-header-banner-product@3x.png") %> 990w'
+            sizes="
+              (max-width:400px) 330px,
+              (max-width:800px) 660px,
+              (max-width:1300px) 990px"
         >
       </div>
       <section class="product-stage" >
