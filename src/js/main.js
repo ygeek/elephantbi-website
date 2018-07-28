@@ -468,7 +468,7 @@ const upCard = () => {
 const opentNewWindow = () => {
   const hostsName = document.getElementById('input-hosts');
   const hostMatch = window.host.match(/(https*:\/\/)([\s\S]*)/) || [];
-  fetch('/website/domain', { domain: hostsName.value }).then((res) => {
+  request('/website/domain', { domain: hostsName.value }).then((res) => {
     return res.json()
   }).then((data) => {
     if (data.exists === 1) {
