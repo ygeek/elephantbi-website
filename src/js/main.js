@@ -468,13 +468,7 @@ const upCard = () => {
 const opentNewWindow = () => {
   const hostsName = document.getElementById('input-hosts');
   const hostMatch = window.host.match(/(https*:\/\/)([\s\S]*)/) || [];
-  fetch('https://api.flexceed.com/website/domain', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8'
-    },
-    body: JSON.stringify({ domain: hostsName.value })
-  }).then((res) => {
+  fetch('/website/domain', { domain: hostsName.value }).then((res) => {
     return res.json()
   }).then((data) => {
     if (data.exists === 1) {
