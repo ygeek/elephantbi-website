@@ -212,6 +212,7 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
   .logo {
+    z-index: 999;
     position: absolute;
     top: @half-percent;
     left: 0;
@@ -262,6 +263,10 @@ h1, h2, h3, h4, h5, h6 {
       }
     }
   }
+  .footer-nav-list li img {
+    margin-bottom: -3px
+  }
+
   .footer-nav-list span {
     padding-left: 10px;
   }
@@ -309,6 +314,10 @@ h1, h2, h3, h4, h5, h6 {
     vertical-align: top;
     text-align: left;
     border-bottom: 1px solid #ccd3da;
+
+    img {
+      margin-bottom: -3px;
+    }
   }
   .form-textarea {
     width: 780px;
@@ -431,10 +440,14 @@ h1, h2, h3, h4, h5, h6 {
     height: 30px;
     margin: 0 20px 80px 20px;
     padding: 0;
-
+    vertical-align: top;
     line-height: 30px;
     text-align: left;
     border-bottom: 1px solid #ccd3da;
+
+    img {
+      margin-bottom: -3px;
+    }
   }
   .form-input {
     width: 350px;

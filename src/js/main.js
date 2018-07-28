@@ -254,6 +254,10 @@ const clearFormModal = () => {
   formModal.company.value = "";
   formModal.department.value = "";
   formModal.title.value = "";
+  const formItems = formModal.getElementsByClassName('form-item')
+  for(let i = 0; i < formItems.length; i++) {
+    if (formItems[i].className.indexOf('err') > -1) formItems[i].className = formItems[i].className.replace(/err/, '')
+  }
 };
 
 const submitModalForm = () => {
@@ -481,6 +485,10 @@ const onSucceed = () => {
   if (tootipSucceed) {
     showCover();
     tootipSucceed.className = 'tootip-modal tootip-modal-show';
+    setTimeout(function() {
+      hideTootip()
+      hideCover()
+    }, 3000)
   }
 };
 const onErr = () => {
@@ -488,6 +496,10 @@ const onErr = () => {
   if (tootipErr) {
     showCover();
     tootipErr.className = 'tootip-modal tootip-modal-show';
+    setTimeout(function() {
+      hideTootip()
+      hideCover()
+    }, 3000)
   }
 };
 
