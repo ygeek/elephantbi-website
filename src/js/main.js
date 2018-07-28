@@ -577,6 +577,26 @@ const wxregisterlink = () => {
     });
 };
 
+// 微信扫码登录 服务
+// fixed url
+const FIXED_URL = window.OAUTHURL;
+const gennerateFixedUrlRedirect = (rUrl) => {
+  return `${FIXED_URL}/login?redirect_url=${rUrl}`;
+};
+
+// 单点登录
+const REDIRECT_URL_SSO = encodeURIComponent(`${FIXED_URL}/server_redirect?env=${window.imageEnv}`);
+const gennerateWxSSO = (redirectUri) => {
+  return `https://open.work.weixin.qq.com/wwopen/sso/3rd_qrConnect?appid=${window.corpid}&redirect_uri=${redirectUri}&usertype=member`;
+};
+
+const WX_SSO_RURL = encodeURIComponent(gennerateWxSSO(REDIRECT_URL_SSO));
+const WX_SSO = gennerateFixedUrlRedirect(WX_SSO_RURL);
+
+const openWxServer = () => {
+  window.open(WX_SSO, '_blank');
+};
+
 window.onload = function () {
   //wx login
   const wxbtnlogup = document.getElementById('wx-btn-logup');
@@ -586,6 +606,10 @@ window.onload = function () {
   const wxbtnlogin = document.getElementById('wx-btn-login');
   if (wxbtnlogin) {
     wxbtnlogin.addEventListener('click', wxregisterlink, true);
+  }
+  const wxbtnserverlogin = document.getElementById('wx-login');
+  if (wxbtnserverlogin) {
+    wxbtnserverlogin.addEventListener('click', openWxServer, true);
   }
 
   const navApplication = document.getElementById('nav-application');
