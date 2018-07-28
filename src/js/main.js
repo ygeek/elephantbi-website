@@ -477,7 +477,7 @@ const opentNewWindow = () => {
       closeleLoginModal();
     } else {
       const parent = hostsName.parentNode
-      parent.className === parent.setAttribute('class', parent.className + ' ' + 'err')
+      parent.setAttribute('class', parent.className + ' ' + 'err')
     }
   })
 
