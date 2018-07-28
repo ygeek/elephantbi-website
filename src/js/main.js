@@ -545,8 +545,55 @@ const hideTootip = () => {
   }
 };
 
+const requestWx = (url, params) => {
+  return fetch(
+    `https://api.elephantbi.com${url}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+    }
+  )
+    .then(function(response) {
+      if (response.status >= 200 && response.status < 300) {
+        return response.json();
+      }
+
+      const error = new Error(response.statusText);
+      error.response = response;
+      throw error;
+    })
+    .then(data => ({ data }))
+    .catch(err => ({ err }));
+};
+
+const authlink = () => {
+  requestWx('/wx/auth/link')
+    .then((res) => {
+      const link = res.data.auth_link;
+      window.open(link, '_blank');
+    });
+};
+const wxregisterlink = () => {
+  requestWx('/wx/register/link')
+    .then((res) => {
+      const link = res.data.register_link;
+      window.open(link, '_blank');
+    });
+};
 
 window.onload = function () {
+  //wx login
+  const wxbtnlogup = document.getElementById('wx-btn-logup');
+  if (wxbtnlogup) {
+    wxbtnlogup.addEventListener('click', authlink, true);
+  }
+  const wxbtnlogin = document.getElementById('wx-btn-login');
+  if (wxbtnlogin) {
+    wxbtnlogin.addEventListener('click', wxregisterlink, true);
+  }
+
   const navApplication = document.getElementById('nav-application');
   const freeBtn = document.getElementById('free-btn-id');
   const formSubmitBtn = document.getElementById('form-submit-btn-id');
