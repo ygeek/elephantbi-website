@@ -21,6 +21,12 @@ const toggleLoginModalVisible = (e) => {
     hostsName.focus();
     loginModal.className = 'login-modal modal-show';
   } else {
+    const hostsName = document.getElementById('input-hosts');
+    hostsName.value = null;
+    const parent = hostsName.parentNode;
+    if (parent.className.indexOf('err') > -1) {
+      parent.className = parent.className.replace(/err/, '')
+    }
     loginModal.className = 'login-modal';
   }
 };
@@ -65,6 +71,12 @@ const closeApplicationModal = () => {
 const closeleLoginModal = () => {
   const applicationModal = document.getElementById('login-modal');
   if (applicationModal) {
+    const hostsName = document.getElementById('input-hosts');
+    hostsName.value = null;
+    const parent = hostsName.parentNode;
+    if (parent.className.indexOf('err') > -1) {
+      parent.className = parent.className.replace(/err/, '')
+    }
     applicationModal.className = 'login-modal';
   }
 };
@@ -456,8 +468,25 @@ const upCard = () => {
 const opentNewWindow = () => {
   const hostsName = document.getElementById('input-hosts');
   const hostMatch = window.host.match(/(https*:\/\/)([\s\S]*)/) || [];
-  window.open(hostMatch[1] + hostsName.value + '.' + hostMatch[2], '_blank');
-  closeleLoginModal();
+  fetch('https://api.flexceed.com/website/domain', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8'
+    },
+    body: JSON.stringify({ domain: hostsName.value })
+  }).then((res) => {
+    return res.json()
+  }).then((data) => {
+    if (data.exists === 1) {
+      window.open(hostMatch[1] + hostsName.value + '.' + hostMatch[2], '_blank');
+      hostsName.value === null
+      closeleLoginModal();
+    } else {
+      const parent = hostsName.parentNode
+      parent.className === parent.setAttribute('class', parent.className + ' ' + 'err')
+    }
+  })
+
 };
 
 const jumpHomePage = () => {
