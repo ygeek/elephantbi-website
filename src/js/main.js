@@ -468,18 +468,18 @@ const upCard = () => {
 const opentNewWindow = () => {
   const hostsName = document.getElementById('input-hosts');
   const hostMatch = window.host.match(/(https*:\/\/)([\s\S]*)/) || [];
-  request('/website/domain', { domain: hostsName.value }).then((res) => {
-    return res.json()
-  }).then((data) => {
-    if (data.exists === 1) {
-      window.open(hostMatch[1] + hostsName.value + '.' + hostMatch[2], '_blank');
-      hostsName.value === null
-      closeleLoginModal();
-    } else {
-      const parent = hostsName.parentNode
-      parent.setAttribute('class', parent.className + ' ' + 'err')
-    }
-  })
+  request('/website/domain', { domain: hostsName.value })
+    .then((res) => {
+      const data = res.data || {};
+      if (data.exists === 1) {
+        window.open(hostMatch[1] + hostsName.value + '.' + hostMatch[2], '_blank');
+        hostsName.value === null
+        closeleLoginModal();
+      } else {
+        const parent = hostsName.parentNode
+        parent.setAttribute('class', parent.className + ' ' + 'err')
+      }
+    });
 
 };
 
