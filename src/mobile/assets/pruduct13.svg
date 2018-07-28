@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="316px" height="181px" viewBox="0 0 316 181" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard 7 Copy 13@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M27.4761204,34.9298246 L289.580736,34.9298246 C291.038768,34.9298246 292.220736,36.1117928 292.220736,37.5698246 L292.220736,181 L24.8361204,181 L24.8361204,37.5698246 C24.8361204,36.1117928 26.0180887,34.9298246 27.4761204,34.9298246 Z" id="path-1"></path>
+        <rect id="path-2" x="146.90301" y="75.6812865" width="130.521739" height="78.3274854" rx="2.64"></rect>
+        <rect id="path-3" x="43.8595318" y="110.081871" width="71.8662207" height="59.8040936" rx="2.64"></rect>
+        <rect id="path-4" x="39.1036789" y="43.9269006" width="97.2307692" height="59.8040936" rx="2.64"></rect>
+    </defs>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-7-Copy-13">
+            <g id="Group-3-Copy">
+                <g id="Group-2">
+                    <rect id="Rectangle-24" fill="#8DBFFD" x="0" y="0" width="316" height="180.47076" rx="1.584"></rect>
+                    <path d="M1.584,0 L314.416,0 C315.290819,-1.60701651e-16 316,0.709180956 316,1.584 L316,21.1695906 L0,21.1695906 L0,1.584 C-1.07134434e-16,0.709180956 0.709180956,-2.83387559e-16 1.584,-4.4408921e-16 Z" id="Rectangle-24" fill="#B4D3FE"></path>
+                    <rect id="Rectangle-25" fill="#DCEAFF" x="42.8026756" y="7.40935673" width="231.979933" height="10.0555556" rx="1.584"></rect>
+                    <g id="Group" transform="translate(116.782609, 11.114035)" fill="#B5D5FF">
+                        <path d="M10.0476828,3.1754386 C9.45982801,3.1754386 8.98327759,2.58306681 8.98327759,1.85233918 L8.98327759,1.32309942 C8.98327759,0.592371786 9.45982801,0 10.0476828,0 L82.4272336,0 C83.0150884,0 83.4916388,0.592371786 83.4916388,1.32309942 L83.4916388,1.85233918 C83.4916388,2.58306681 83.0150884,3.1754386 82.4272336,3.1754386 L10.0476828,3.1754386 Z" id="Rectangle-26" transform="translate(46.237458, 1.587719) scale(1, -1) translate(-46.237458, -1.587719) "></path>
+                        <path d="M0.0452938366,3.1754386 C0.0202787414,3.1754386 -3.06346563e-18,2.58306681 0,1.85233918 L0,1.32309942 C3.06346563e-18,0.592371786 0.0202787414,0 0.0452938366,0 L3.12527473,0 C3.15028982,0 3.17056856,0.592371786 3.17056856,1.32309942 L3.17056856,1.85233918 C3.17056856,2.58306681 3.15028982,3.1754386 3.12527473,3.1754386 L0.0452938366,3.1754386 Z" id="Rectangle-26-Copy" transform="translate(1.585284, 1.587719) scale(1, -1) translate(-1.585284, -1.587719) "></path>
+                    </g>
+                    <g id="Rectangle">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <path stroke="#B4D3FE" stroke-width="2.112" d="M25.8921204,179.944 L291.164736,179.944 L291.164736,37.5698246 C291.164736,36.6950055 290.455555,35.9858246 289.580736,35.9858246 L27.4761204,35.9858246 C26.6013014,35.9858246 25.8921204,36.6950055 25.8921204,37.5698246 L25.8921204,179.944 Z"></path>
+                    </g>
+                    <rect id="Rectangle-27" fill="#9FA8E3" x="283.765886" y="9.52631579" width="6.86956522" height="6.88011696" rx="1.584"></rect>
+                    <rect id="Rectangle-27-Copy" fill="#9FA8E3" x="299.090301" y="9.52631579" width="6.86956522" height="6.88011696" rx="1.584"></rect>
+                </g>
+                <polyline id="Path-12-Copy" stroke="#8DBFFD" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round" points="118.915519 162.863184 118.915519 173.765075 106.742475 173.765075"></polyline>
+                <path d="M29.9488901,11.1516519 L27.5150103,13.5892703 L29.9488901,13.5892703 L29.9488901,11.1516519 Z" id="Rectangle-8-Copy-2" stroke="#9FA8E3" stroke-width="1.056" transform="translate(28.359289, 11.996416) rotate(-45.000000) translate(-28.359289, -11.996416) "></path>
+                <path d="M16.3894767,11.331645 L13.9555969,13.7692634 L16.3894767,13.7692634 L16.3894767,11.331645 Z" id="Rectangle-8-Copy-3" stroke="#9FA8E3" stroke-width="1.056" transform="translate(14.799875, 12.176409) scale(-1, 1) rotate(-45.000000) translate(-14.799875, -12.176409) "></path>
+                <g id="Rectangle-Copy">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    <rect stroke="#B4D3FE" stroke-width="2.112" x="147.95901" y="76.7372865" width="128.409739" height="76.2154854" rx="2.64"></rect>
+                </g>
+                <g id="Rectangle-Copy-2">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    <rect stroke="#B4D3FE" stroke-width="2.112" x="44.9155318" y="111.137871" width="69.7542207" height="57.6920936" rx="2.64"></rect>
+                </g>
+                <g id="Rectangle-Copy-3">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-4"></use>
+                    <rect stroke="#B4D3FE" stroke-width="2.112" x="40.1596789" y="44.9829006" width="95.1187692" height="57.6920936" rx="2.64"></rect>
+                </g>
+                <g id="折线图图" transform="translate(53.899666, 53.982456)" stroke-width="1.584">
+                    <polyline id="Path-8" stroke="#9FA8E3" points="0.528428094 18.7095789 22.9274891 35.5658232 40.6083254 11.9206446 60.0595636 4.59357778 67.939133 11.9206446"></polyline>
+                    <ellipse id="Oval-2-Copy-4" stroke="#9FA8E3" fill="#FFFFFF" cx="22.458194" cy="34.6652047" rx="2.37792642" ry="2.38157895"></ellipse>
+                    <ellipse id="Oval-2-Copy-5" stroke="#9FA8E3" fill="#FFFFFF" cx="40.9531773" cy="11.9078947" rx="2.37792642" ry="2.38157895"></ellipse>
+                    <ellipse id="Oval-2-Copy-6" stroke="#9FA8E3" fill="#FFFFFF" cx="60.5050167" cy="4.49853801" rx="2.37792642" ry="2.38157895"></ellipse>
+                    <polyline id="Path-6" stroke="#8DBFFD" points="0 40.1480556 22.5387057 18.2624999 40.6993027 29.2052777 59.9200912 18.2624999 67.410705 0.0480657209"></polyline>
+                    <ellipse id="Oval-2-Copy" stroke="#8DBFFD" fill="#FFFFFF" cx="39.8963211" cy="28.3143275" rx="2.37792642" ry="2.38157895"></ellipse>
+                    <ellipse id="Oval-2-Copy-3" stroke="#8DBFFD" fill="#FFFFFF" cx="59.9765886" cy="18.2587719" rx="2.37792642" ry="2.38157895"></ellipse>
+                    <ellipse id="Oval-2-Copy-2" stroke="#8DBFFD" fill="#FFFFFF" cx="21.9297659" cy="19.3172515" rx="2.37792642" ry="2.38157895"></ellipse>
+                </g>
+                <ellipse id="Oval-6-Copy-2" fill="#DCEAFF" cx="188.648829" cy="67.2134503" rx="3.69899666" ry="3.70467836"></ellipse>
+                <g id="Group-Copy-6" transform="translate(192.347826, 48.160819)" fill="#B4D3FE">
+                    <rect id="Rectangle-4" x="8.98327759" y="12.7017544" width="2.11371237" height="6.35087719"></rect>
+                    <rect id="Rectangle-4-Copy" x="8.98327759" y="0" width="2.11371237" height="6.35087719"></rect>
+                    <polygon id="Rectangle-4-Copy-2" points="20.0802676 8.46783626 20.0802676 10.5847953 13.7391304 10.5847953 13.7391304 8.46783626"></polygon>
+                    <polygon id="Rectangle-4-Copy-3" points="6.34113712 8.46783626 6.34113712 10.5847953 -7.10542736e-15 10.5847953 -7.10542736e-15 8.46783626"></polygon>
+                </g>
+                <ellipse id="Oval-6-Copy-3" fill="#B4D3FE" cx="132.899666" cy="136.80848" rx="3.43478261" ry="3.44005848"></ellipse>
+                <g id="百分比柱状图图" transform="translate(211.974916, 114.883041) scale(-1, 1) translate(-211.974916, -114.883041) translate(173.474916, 88.383041)" stroke="#FFFFFF" stroke-width="1.056">
+                    <rect id="Rectangle-6" fill="#DCEAFF" x="69.7346962" y="0" width="6.8873774" height="52.9239766" rx="3.4436887"></rect>
+                    <rect id="Rectangle-6-Copy" fill="#DCEAFF" x="55.9599414" y="0" width="6.8873774" height="52.9239766" rx="3.4436887"></rect>
+                    <rect id="Rectangle-6" fill="#DCEAFF" x="0" y="0" width="6.8873774" height="52.9239766" rx="3.4436887"></rect>
+                    <rect id="Rectangle-6-Copy" fill="#DCEAFF" x="27.9799707" y="0" width="6.8873774" height="52.9239766" rx="3.4436887"></rect>
+                    <rect id="Rectangle-6-Copy-4" fill="#DCEAFF" x="13.7747548" y="0" width="6.8873774" height="52.9239766" rx="3.4436887"></rect>
+                    <rect id="Rectangle-6-Copy-5" fill="#DCEAFF" x="41.7547255" y="0" width="6.8873774" height="52.9239766" rx="3.4436887"></rect>
+                    <rect id="Rectangle-6-Copy-2" fill="#8DBFFD" x="55.9599414" y="24.5257453" width="6.8873774" height="28.3982314" rx="3.4436887"></rect>
+                    <rect id="Rectangle-6-Copy-3" fill="#8DBFFD" x="69.7346962" y="31.8404412" width="6.8873774" height="21.0835354" rx="3.4436887"></rect>
+                    <rect id="Rectangle-6-Copy-5" fill="#8DBFFD" x="41.7547255" y="16.7807731" width="6.8873774" height="36.1432035" rx="3.4436887"></rect>
+                    <rect id="Rectangle-6-Copy-2" fill="#8DBFFD" x="27.9799707" y="9.89635335" width="6.8873774" height="43.0276233" rx="3.4436887"></rect>
+                    <rect id="Rectangle-6-Copy-6" fill="#8DBFFD" x="13.7747548" y="16.7807731" width="6.8873774" height="36.1432035" rx="3.4436887"></rect>
+                    <rect id="Rectangle-6-Copy-3" fill="#8DBFFD" x="0" y="24.5257453" width="6.8873774" height="28.3982314" rx="3.4436887"></rect>
+                </g>
+                <g id="交叉表图" transform="translate(55.484950, 123.842105)">
+                    <rect id="Rectangle-5" stroke="#979797" stroke-width="0.528" x="0.264" y="0.264" width="48.0873846" height="31.7556257"></rect>
+                    <rect id="Rectangle-5" fill="#8DBFFD" x="0" y="0" width="48.6153846" height="5.82163743"></rect>
+                    <rect id="Rectangle-5-Copy" fill="#FFFFFF" x="0" y="5.29239766" width="48.6153846" height="4.76315789"></rect>
+                    <rect id="Rectangle-5-Copy-3" fill="#FFFFFF" x="0" y="14.2894737" width="48.6153846" height="4.76315789"></rect>
+                    <rect id="Rectangle-5-Copy-4" fill="#DCEAFF" x="0" y="19.0526316" width="48.6153846" height="4.76315789"></rect>
+                    <rect id="Rectangle-5-Copy-5" fill="#FFFFFF" x="0" y="23.8157895" width="48.6153846" height="4.76315789"></rect>
+                    <rect id="Rectangle-5-Copy-6" fill="#DCEAFF" x="0" y="28.0497076" width="48.6153846" height="4.76315789"></rect>
+                    <rect id="Rectangle-5-Copy-2" fill="#DCEAFF" x="0" y="10.0555556" width="48.6153846" height="4.76315789"></rect>
+                    <rect id="Rectangle-5" fill="#DCEAFF" transform="translate(12.710702, 16.406433) scale(-1, 1) translate(-12.710702, -16.406433) " x="12.2107023" y="0" width="1" height="32.8128655"></rect>
+                    <rect id="Rectangle-5-Copy-7" fill="#DCEAFF" transform="translate(24.336120, 16.406433) scale(-1, 1) translate(-24.336120, -16.406433) " x="23.8361204" y="0" width="1" height="32.8128655"></rect>
+                    <rect id="Rectangle-5-Copy-8" fill="#DCEAFF" transform="translate(35.961538, 16.406433) scale(-1, 1) translate(-35.961538, -16.406433) " x="35.4615385" y="0" width="1" height="32.8128655"></rect>
+                </g>
+                <polyline id="Path-12-Copy" stroke="#8DBFFD" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round" points="140.58107 96.3216374 140.58107 107.223529 128.408027 107.223529"></polyline>
+                <polyline id="Path-12-Copy-2" stroke="#B4D3FE" stroke-width="1.584" stroke-linecap="round" stroke-linejoin="round" points="281.671371 147.128655 281.671371 158.030546 269.498328 158.030546"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

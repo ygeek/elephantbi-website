@@ -21,6 +21,12 @@ const toggleLoginModalVisible = (e) => {
     hostsName.focus();
     loginModal.className = 'login-modal modal-show';
   } else {
+    const hostsName = document.getElementById('input-hosts');
+    hostsName.value = null;
+    const parent = hostsName.parentNode;
+    if (parent.className.indexOf('err') > -1) {
+      parent.className = parent.className.replace(/err/, '')
+    }
     loginModal.className = 'login-modal';
   }
 };
@@ -65,6 +71,12 @@ const closeApplicationModal = () => {
 const closeleLoginModal = () => {
   const applicationModal = document.getElementById('login-modal');
   if (applicationModal) {
+    const hostsName = document.getElementById('input-hosts');
+    hostsName.value = null;
+    const parent = hostsName.parentNode;
+    if (parent.className.indexOf('err') > -1) {
+      parent.className = parent.className.replace(/err/, '')
+    }
     applicationModal.className = 'login-modal';
   }
 };
@@ -254,6 +266,10 @@ const clearFormModal = () => {
   formModal.company.value = "";
   formModal.department.value = "";
   formModal.title.value = "";
+  const formItems = formModal.getElementsByClassName('form-item')
+  for(let i = 0; i < formItems.length; i++) {
+    if (formItems[i].className.indexOf('err') > -1) formItems[i].className = formItems[i].className.replace(/err/, '')
+  }
 };
 
 const submitModalForm = () => {
@@ -452,8 +468,19 @@ const upCard = () => {
 const opentNewWindow = () => {
   const hostsName = document.getElementById('input-hosts');
   const hostMatch = window.host.match(/(https*:\/\/)([\s\S]*)/) || [];
-  window.open(hostMatch[1] + hostsName.value + '.' + hostMatch[2], '_blank');
-  closeleLoginModal();
+  request('/website/domain', { domain: hostsName.value })
+    .then((res) => {
+      const data = res.data || {};
+      if (data.exists === 1) {
+        window.open(hostMatch[1] + hostsName.value + '.' + hostMatch[2], '_blank');
+        hostsName.value === null
+        closeleLoginModal();
+      } else {
+        const parent = hostsName.parentNode
+        parent.setAttribute('class', parent.className + ' ' + 'err')
+      }
+    });
+
 };
 
 const jumpHomePage = () => {
@@ -481,6 +508,10 @@ const onSucceed = () => {
   if (tootipSucceed) {
     showCover();
     tootipSucceed.className = 'tootip-modal tootip-modal-show';
+    setTimeout(function() {
+      hideTootip()
+      hideCover()
+    }, 3000)
   }
 };
 const onErr = () => {
@@ -488,6 +519,10 @@ const onErr = () => {
   if (tootipErr) {
     showCover();
     tootipErr.className = 'tootip-modal tootip-modal-show';
+    setTimeout(function() {
+      hideTootip()
+      hideCover()
+    }, 3000)
   }
 };
 
@@ -504,8 +539,79 @@ const hideTootip = () => {
   }
 };
 
+const requestWx = (url, params) => {
+  return fetch(
+    `https://api.elephantbi.com${url}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+    }
+  )
+    .then(function(response) {
+      if (response.status >= 200 && response.status < 300) {
+        return response.json();
+      }
+
+      const error = new Error(response.statusText);
+      error.response = response;
+      throw error;
+    })
+    .then(data => ({ data }))
+    .catch(err => ({ err }));
+};
+
+const authlink = () => {
+  requestWx('/wx/auth/link')
+    .then((res) => {
+      const link = res.data.auth_link;
+      window.open(link, '_blank');
+    });
+};
+const wxregisterlink = () => {
+  requestWx('/wx/register/link')
+    .then((res) => {
+      const link = res.data.register_link;
+      window.open(link, '_blank');
+    });
+};
+
+// 微信扫码登录 服务
+// fixed url
+const FIXED_URL = window.OAUTHURL;
+const gennerateFixedUrlRedirect = (rUrl) => {
+  return `${FIXED_URL}/login?redirect_url=${rUrl}`;
+};
+
+// 单点登录
+const REDIRECT_URL_SSO = encodeURIComponent(`${FIXED_URL}/server_redirect?env=${window.imageEnv}`);
+const gennerateWxSSO = (redirectUri) => {
+  return `https://open.work.weixin.qq.com/wwopen/sso/3rd_qrConnect?appid=${window.corpid}&redirect_uri=${redirectUri}&usertype=member`;
+};
+
+const WX_SSO_RURL = encodeURIComponent(gennerateWxSSO(REDIRECT_URL_SSO));
+const WX_SSO = gennerateFixedUrlRedirect(WX_SSO_RURL);
+
+const openWxServer = () => {
+  window.open(WX_SSO, '_blank');
+};
 
 window.onload = function () {
+  //wx login
+  const wxbtnlogup = document.getElementById('wx-btn-logup');
+  if (wxbtnlogup) {
+    wxbtnlogup.addEventListener('click', authlink, true);
+  }
+  const wxbtnlogin = document.getElementById('wx-btn-login');
+  if (wxbtnlogin) {
+    wxbtnlogin.addEventListener('click', wxregisterlink, true);
+  }
+  const wxbtnserverlogin = document.getElementById('wx-login');
+  if (wxbtnserverlogin) {
+    wxbtnserverlogin.addEventListener('click', openWxServer, true);
+  }
+
   const navApplication = document.getElementById('nav-application');
   const freeBtn = document.getElementById('free-btn-id');
   const formSubmitBtn = document.getElementById('form-submit-btn-id');

@@ -47,6 +47,11 @@
   .nav-content-creat(#fff, #fff, #4a83ff);
 }
 
+#input-hosts:focus {
+  border: #63B8FF solid 1px;
+  outline: none;
+}
+
 .main-content {
   position: relative;
 
@@ -55,6 +60,8 @@
     margin: 140px auto 50px auto;
     padding: 0 100px;
     height: 500px;
+
+    box-sizing: border-box;
 
     color: #fff;
 
@@ -73,7 +80,7 @@
     }
     .description {
       display: inline-block;
-      max-width: 45%;
+      max-width: 58%;
       min-width: 300px;
       margin-top: 26px;
 
@@ -93,7 +100,7 @@
         height: 1070px;
         position: absolute;
         bottom: -800px;
-        left: 0px;
+        left: -70px;
         z-index: -1;
       }
     }
@@ -106,6 +113,7 @@
       height: 50px;
 
       border-radius: 5px;
+      box-shadow: 2px 1px 4px #287fbc;
     }
 
   }
@@ -115,7 +123,7 @@
     position: relative;
     height: @box-height;
     margin: 0 auto;
-    padding: @box-height / 2 0px 0 0px;
+    padding: @box-height / 2 0px 0 100px;
 
     box-sizing: border-box;
 
@@ -124,7 +132,7 @@
       color: @color-green;
       h3 {
         font-size: 32px;
-        margin: 0;
+        margin-bottom: 10px;
       }
       p {
         font-size: 20px;
@@ -135,10 +143,10 @@
 
     .box-item {
       display: inline-block;
-      max-width: 496px;
+      max-width: 396px;
       width: @half-percent;
       transform: translateY(-50%);
-      margin-right: 100px;
+      margin-right: 150px;
 
       box-sizing: border-box;
       vertical-align: top;
@@ -146,12 +154,17 @@
 
     .right {
       transform: translate(150px, -50%);
+
+      @media screen and (max-width: 1300px) {
+        transform: translate(50px, -50%);
+      }
     }
 
     .box-list {
       color: @color-base;
       list-style: none;
       padding: 0;
+      margin-top: 25px;
       li {
         margin: 5px 0;
       }
@@ -184,7 +197,7 @@
     position: relative;
 
     background-color: #fff;
-    box-shadow: 2px 7px 10px 4px #dfdfdf;
+    box-shadow: 2px 7px 10px 4px rgba(0, 0, 0, 0.15);
   }
 
   .show-card {
@@ -227,18 +240,15 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 0 100px 0 20px;
+    padding: 0 60px 0 20px;
 
     color: #909caa;
     font-size: 18px;
   }
   .card-btn {
     .creatButton(@color-green);
+    margin-top: 30px;
 
-    position: absolute;
-    bottom: -10px;
-    left: 20px;
-    transform: translateY(100%);
   }
 
   .btn-up, .btn-down {
@@ -246,8 +256,11 @@
     position: absolute;
     top: 50%;
     width: @btn-size;
-    height: @btn-size;    
+    height: @btn-size;
     z-index: 99;
+
+    border-radius: @btn-size / 2;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.35);
   }
   .btn-up {
     left: 0;
@@ -333,7 +346,7 @@
       z-index: -998;
 
       // transform-origin: 0;
-      transform: skewY(-12deg);
+      transform: skewY(-9deg);
       background-color: #f8f9fd;
     }
   }
@@ -443,5 +456,12 @@
 }
 
 .box-title-img {
-  vertical-align: bottom;
+  vertical-align: center;
+  margin-right: 10px;
+}
+
+#wx-login {
+  &:hover {
+    font-weight: bold;
+  }
 }

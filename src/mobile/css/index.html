@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>登录中...</title>
+</head>
+<body>
+  <script>
+    window.host = 'BK_URL';
+    function getRes(callback) {
+      var url = window.host + '/';
+      var xhr = new XMLHttpRequest()
+      xhr.open('GET', url, false)
+      xhr.setRequestHeader('Content-Type', 'applicant/json')
+      // xhr.setRequestHeader('token', token)
+      xhr.send(null)
+      if (xhr.status === 200) {
+          var res = JSON.parse(xhr.responseText)
+          callback(res);
+          return res
+      }
+    }
+    function GetQueryString(query_name) {
+      var reg = new RegExp("(^|&)"+ query_name +"=([^&]*)(&|$)");
+      var r = window.location.search.substr(1).match(reg);
+      if(r!=null) {
+          return decodeURI(r[2]); return null;
+      }
+    }
+    window.onload = function() {
+      var pathname = window.location.pathname;
+      if (pathname === '/login') {
+        var search = GetQueryString('redirect_url');
+        window.location.href = search;
+      }
+      if (pathname === '/redirect') {
+        var redirectSearch = GetQueryString('auto_code');
+        getRes(function() {
+          window.location.href = '';
+        });
+      }
+    };
+  </script>
+</body>
+</html>
