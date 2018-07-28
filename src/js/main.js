@@ -2,6 +2,28 @@
 const mobileReg = /^[\d|+|-]*$/;
 const emailReg = /@(163|foxmail|qq|gmail)\./;
 
+const openNewWindow = (url) => {
+  if (isPC()) {
+    const newWin = window.open('loading page');
+    newWin.location.href = url;
+  } else {
+    window.location.href = url;
+  }
+};
+
+const isPC = () => {
+  const userAgentInfo = navigator.userAgent;
+  const Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
+  let flag = true;
+  for (let v = 0; v < Agents.length; v += 1) {
+    if (userAgentInfo.indexOf(Agents[v]) > 0) {
+      flag = false;
+      break;
+    }
+  }
+  return flag;
+};
+
 var joinListOnClick = function(index) {
   var joinLists = document.getElementsByClassName('list-item');
   var joinListsLength = joinLists.length;
@@ -467,13 +489,13 @@ const upCard = () => {
 
 const opentNewWindow = () => {
   const hostsName = document.getElementById('input-hosts');
-  const hostMatch = window.host.match(/(https*:\/\/)[\s\S]*\.([\s\S]*\.[\s\S]*)$/) || [];
+  const hostMatch = window.host.match(/(https*:\/\/)[\w]*\.([\w]*\.[\w]*)$/) || window.host.match(/^(https*:\/\/)([\w]*\.[\w]*)$/) || [];
 
   request('/website/domain', { domain: hostsName.value })
     .then((res) => {
       const data = res.data || {};
       if (data.exists === 1) {
-        window.open(hostMatch[1] + hostsName.value + '.' + hostMatch[2], '_blank');
+        openNewWindow(hostMatch[1] + hostsName.value + '.' + hostMatch[2]);
         hostsName.value === null
         closeleLoginModal();
       } else {
@@ -567,14 +589,14 @@ const authlink = () => {
   requestWx('/wx/auth/link')
     .then((res) => {
       const link = res.data.auth_link;
-      window.open(link, '_blank');
+      openNewWindow(link);
     });
 };
 const wxregisterlink = () => {
   requestWx('/wx/register/link')
     .then((res) => {
       const link = res.data.register_link;
-      window.open(link, '_blank');
+      openNewWindow(link);
     });
 };
 
@@ -595,7 +617,7 @@ const WX_SSO_RURL = encodeURIComponent(gennerateWxSSO(REDIRECT_URL_SSO));
 const WX_SSO = gennerateFixedUrlRedirect(WX_SSO_RURL);
 
 const openWxServer = () => {
-  window.open(WX_SSO, '_blank');
+  openNewWindow(WX_SSO);
 };
 
 window.onload = function () {
