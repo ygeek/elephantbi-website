@@ -263,6 +263,10 @@ h1, h2, h3, h4, h5, h6 {
     width: @max-width;
     margin: 0 auto;
     padding: 0;
+
+    @media screen and (min-width: 1300px) {
+      width: 1300px;
+    }
   }
 
   .footer-nav-sq, .footer-nav-list, .footer-nav-icon {
@@ -273,6 +277,10 @@ h1, h2, h3, h4, h5, h6 {
   .footer-nav-list ul {
     display: inline-block;
     margin: 0 45px;
+
+    @media screen and (max-width: 1300px) {
+      margin: 0 25px;
+    }
 
     font-size: 15px;
     color: #5f6e80;
