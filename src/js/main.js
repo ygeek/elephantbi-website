@@ -256,7 +256,7 @@ const clearFormModal = () => {
   formModal.title.value = "";
   const formItems = formModal.getElementsByClassName('form-item')
   for(let i = 0; i < formItems.length; i++) {
-    formItems[i].className = formItems[i].className.replace(/err/, '')
+    if (formItems[i].className.indexOf('err') > -1) formItems[i].className = formItems[i].className.replace(/err/, '')
   }
 };
 
