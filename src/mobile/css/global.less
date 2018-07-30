@@ -413,6 +413,19 @@ h1, h2, h3, h4, h5, h6 {
 
     border-radius: 15Px;
   }
+
+  .err{
+    border-bottom: 1px solid #f1584d !important;
+  
+    &:after {
+      content: attr(data-err) !important;
+      display: block;
+      margin-top: 20px;
+      
+      font-size: 24px;
+      color: #f1584d;
+    }
+  }
 }
 
 .modal {
@@ -483,6 +496,19 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     right: 20px;
     top: 15px;
+  }
+
+  .err{
+    border-bottom: 1px solid #f1584d !important;
+  
+    &:after {
+      content: attr(data-err) !important;
+      display: block !important;
+      padding-left: 0px !important;
+      
+      font-size: 16px !important;
+      color: #f1584d;
+    }
   }
 }
 
@@ -565,20 +591,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .modal-show {
   display: block;
-}
-
-.err{
-  border-bottom: 1px solid #f1584d !important;
-
-  &:after {
-    content: attr(data-err) !important;
-    display: block;
-    margin-top: 20px;
-    padding-left: 25px;
-    
-    font-size: 24px;
-    color: #f1584d;
-  }
 }
 
 .form-wrap {
