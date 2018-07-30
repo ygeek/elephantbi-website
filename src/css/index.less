@@ -80,7 +80,7 @@
     }
     .description {
       display: inline-block;
-      max-width: 45%;
+      max-width: 58%;
       min-width: 300px;
       margin-top: 26px;
 
@@ -100,7 +100,7 @@
         height: 1070px;
         position: absolute;
         bottom: -800px;
-        left: 0px;
+        left: -70px;
         z-index: -1;
       }
     }
@@ -152,8 +152,18 @@
       vertical-align: top;
     }
 
+    .left {
+      max-width: 560px !important;
+      margin-right: -20px !important;
+      width: 100% !important;
+    }
+
     .right {
       transform: translate(150px, -50%);
+
+      @media screen and (max-width: 1300px) {
+        transform: translate(50px, -50%);
+      }
     }
 
     .box-list {
@@ -169,7 +179,7 @@
         margin-right: 6px;
 
         color: @color-green;
-        font-size: 10px;
+        font-size: 8px;
       }
     }
   }
@@ -236,18 +246,15 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 0 60px 0 60px;
+    padding: 0 60px 0 20px;
 
     color: #909caa;
     font-size: 18px;
   }
   .card-btn {
     .creatButton(@color-green);
+    margin-top: 30px;
 
-    position: absolute;
-    bottom: -25px;
-    left: 60px;
-    transform: translateY(100%);
   }
 
   .btn-up, .btn-down {

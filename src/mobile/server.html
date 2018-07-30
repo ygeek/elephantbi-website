@@ -22,6 +22,10 @@
     window.host = window.location.origin;
     window.backhost = 'https://api.elephantbi.com';
     var SOURCE = "官网（手机端）";
+
+    window.corpid = 'WX_CORP_ID';
+    window.imageEnv = 'IMAGE_ENV';
+    window.OAUTHURL = 'OAUTH_URL';
   </script>
 </head>
 <body>
@@ -70,11 +74,31 @@
             </p>
           </li>
           <li>
-            <image src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
+            <image
+              src='<%= require("./assets/footer-phone.png") %>'
+              srcset='
+                <%= require("./assets/footer-phone.png") %> 18w,
+                <%= require("./assets/footer-phone@2x.png") %> 26w,
+                <%= require("./assets/footer-phone@3x.png") %> 30w'
+              sizes="
+                (max-width:400px) 18px,
+                (max-width:800px) 26px,
+                (max-width:1500px) 30px"
+            />
             <span>0411-39026089</span>
           </li>
           <li>
-            <image src='<%= require("./assets/footer-email.png") %>' />
+            <image
+              src='<%= require("./assets/footer-email.png") %>'
+              srcset='
+                <%= require("./assets/footer-email.png") %> 19w,
+                <%= require("./assets/footer-email@2x.png") %> 26w,
+                <%= require("./assets/footer-email@3x.png") %> 30w'
+              sizes="
+                (max-width:400px) 19px,
+                (max-width:800px) 26px,
+                (max-width:1500px) 30px"
+            />
             <span>bd@elephantbi.com</span>
           </li>
         </ul>
@@ -86,15 +110,45 @@
             </p>
           </li>
           <li>
-            <image src='<%= require("./assets/footer-time.png") %>' />
+            <image
+              src='<%= require("./assets/footer-time.png") %>'
+              srcset='
+                <%= require("./assets/footer-time.png") %> 18w,
+                <%= require("./assets/footer-time@2x.png") %> 26w,
+                <%= require("./assets/footer-time@3x.png") %> 30w'
+              sizes="
+                (max-width:400px) 18px,
+                (max-width:800px) 26px,
+                (max-width:1500px) 30px"
+            />
             <span>09:00~19:00</span>
           </li>
           <li>
-            <image src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
+            <image
+              src='<%= require("./assets/footer-phone.png") %>'
+              srcset='
+                <%= require("./assets/footer-phone.png") %> 18w,
+                <%= require("./assets/footer-phone@2x.png") %> 26w,
+                <%= require("./assets/footer-phone@3x.png") %> 30w'
+              sizes="
+                (max-width:400px) 18px,
+                (max-width:800px) 26px,
+                (max-width:1500px) 30px"
+            />
             <span>18004083463</span>
           </li>
           <li>
-            <image src='<%= require("./assets/footer-email.png") %>' />
+            <image
+              src='<%= require("./assets/footer-email.png") %>'
+              srcset='
+                <%= require("./assets/footer-email.png") %> 19w,
+                <%= require("./assets/footer-email@2x.png") %> 26w,
+                <%= require("./assets/footer-email@3x.png") %> 30w'
+              sizes="
+                (max-width:400px) 19px,
+                (max-width:800px) 26px,
+                (max-width:1500px) 30px"
+            />
             <span>support@elephantbi.com</span>
           </li>
         </ul>
@@ -106,7 +160,17 @@
             </p>
           </li>
           <li>
-            <image src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
+            <image
+              src='<%= require("./assets/footer-phone.png") %>'
+              srcset='
+                <%= require("./assets/footer-phone.png") %> 18w,
+                <%= require("./assets/footer-phone@2x.png") %> 26w,
+                <%= require("./assets/footer-phone@3x.png") %> 30w'
+              sizes="
+                (max-width:400px) 18px,
+                (max-width:800px) 26px,
+                (max-width:1500px) 30px"
+            />
             <span>总裁办电话 15910603382</span>
           </li>
         </ul>

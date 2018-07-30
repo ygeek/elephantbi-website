@@ -2,6 +2,23 @@
 const mobileReg = /^[\d|+|-]*$/;
 const emailReg = /@(163|foxmail|qq|gmail)\./;
 
+const openNewWindow = (url) => {
+  window.location.href = url;
+};
+
+const isPC = () => {
+  const userAgentInfo = navigator.userAgent;
+  const Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
+  let flag = true;
+  for (let v = 0; v < Agents.length; v += 1) {
+    if (userAgentInfo.indexOf(Agents[v]) > 0) {
+      flag = false;
+      break;
+    }
+  }
+  return flag;
+};
+
 var joinListOnClick = function(index) {
   var joinLists = document.getElementsByClassName('list-item');
   var joinListsLength = joinLists.length;
@@ -467,19 +484,20 @@ const upCard = () => {
 
 const opentNewWindow = () => {
   const hostsName = document.getElementById('input-hosts');
-  const hostMatch = window.host.match(/(https*:\/\/)([\s\S]*)/) || [];
-  request('/website/domain', { domain: hostsName.value }).then((res) => {
-    return res.json()
-  }).then((data) => {
-    if (data.exists === 1) {
-      window.open(hostMatch[1] + hostsName.value + '.' + hostMatch[2], '_blank');
-      hostsName.value === null
-      closeleLoginModal();
-    } else {
-      const parent = hostsName.parentNode
-      parent.setAttribute('class', parent.className + ' ' + 'err')
-    }
-  })
+  const hostMatch = window.host.match(/(https*:\/\/)[\w]*\.([\w]*\.[\w]*)$/) || window.host.match(/^(https*:\/\/)([\w]*\.[\w]*)$/) || [];
+
+  request('/website/domain', { domain: hostsName.value })
+    .then((res) => {
+      const data = res.data || {};
+      if (data.exists === 1) {
+        openNewWindow(hostMatch[1] + hostsName.value + '.' + hostMatch[2]);
+        hostsName.value === null
+        closeleLoginModal();
+      } else {
+        const parent = hostsName.parentNode
+        parent.setAttribute('class', parent.className + ' ' + 'err')
+      }
+    });
 
 };
 
@@ -566,15 +584,35 @@ const authlink = () => {
   requestWx('/wx/auth/link')
     .then((res) => {
       const link = res.data.auth_link;
-      window.open(link, '_blank');
+      openNewWindow(link);
     });
 };
 const wxregisterlink = () => {
   requestWx('/wx/register/link')
     .then((res) => {
       const link = res.data.register_link;
-      window.open(link, '_blank');
+      openNewWindow(link);
     });
+};
+
+// 微信扫码登录 服务
+// fixed url
+const FIXED_URL = window.OAUTHURL;
+const gennerateFixedUrlRedirect = (rUrl) => {
+  return `${FIXED_URL}/login?redirect_url=${rUrl}`;
+};
+
+// 单点登录
+const REDIRECT_URL_SSO = encodeURIComponent(`${FIXED_URL}/server_redirect?env=${window.imageEnv}`);
+const gennerateWxSSO = (redirectUri) => {
+  return `https://open.work.weixin.qq.com/wwopen/sso/3rd_qrConnect?appid=${window.corpid}&redirect_uri=${redirectUri}&usertype=admin`;
+};
+
+const WX_SSO_RURL = encodeURIComponent(gennerateWxSSO(REDIRECT_URL_SSO));
+const WX_SSO = gennerateFixedUrlRedirect(WX_SSO_RURL);
+
+const openWxServer = () => {
+  openNewWindow(WX_SSO);
 };
 
 window.onload = function () {
@@ -586,6 +624,10 @@ window.onload = function () {
   const wxbtnlogin = document.getElementById('wx-btn-login');
   if (wxbtnlogin) {
     wxbtnlogin.addEventListener('click', wxregisterlink, true);
+  }
+  const wxbtnserverlogin = document.getElementById('wx-login');
+  if (wxbtnserverlogin) {
+    wxbtnserverlogin.addEventListener('click', openWxServer, true);
   }
 
   const navApplication = document.getElementById('nav-application');

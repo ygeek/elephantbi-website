@@ -7,6 +7,10 @@
     window.host = window.location.origin;
     window.backhost = 'https://api.elephantbi.com';
     var SOURCE = "官网";
+
+    window.corpid = 'WX_CORP_ID';
+    window.imageEnv = 'IMAGE_ENV';
+    window.OAUTHURL = 'OAUTH_URL';
   </script>
 </head>
 <body>
@@ -67,7 +71,7 @@
               <img src='<%= require("./assets/wx-install.svg") %>' width="204" alt="">
             </a>
             <div class="product-banner-under-btn">
-              立即安装ElephantBi到企业微信
+              立即安装ElephantBI到企业微信
             </div>
           </div>
           <div style="display: inline-block;color: #32325d;font-size: 14px;margin-top: 48px;" >
@@ -349,7 +353,7 @@
         </li>
         <li class="footer-nav-list" >
           <ul>
-            <li class="footer-list-title" >
+            <li>
               <a href="./index.html">首页</a>
             </li>
             <li>
@@ -458,6 +462,5 @@
       <div class="tootip-description" >请电话联系：0411-39026089</div>
     </div>
   </div>
-  <img class="banner-image" src='<%= require("./assets/main-header-banner-product.svg") %>' >
 </body>
 </html>
