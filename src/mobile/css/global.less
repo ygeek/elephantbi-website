@@ -508,15 +508,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .err{
-    border-bottom: 1px solid #f1584d !important;
-  
-    &:after {
-      content: attr(data-err) !important;
-      display: block !important;
-      padding-left: 0px !important;
-      
-      font-size: 16px !important;
-      color: #f1584d;
+
+    .form-input {
+      &::placeholder {
+        color: #f1584d
+      }
     }
   }
 }
