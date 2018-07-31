@@ -55,6 +55,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
+textarea::placeholder {
+  font-family: "PingFang SC","Microsoft YaHei","微软雅黑","MicrosoftJhengHei","华文细黑",STHeiti,MingLiu,sans-serif;
+}
+
 #root {
   min-width: 1200px;
   overflow: hidden;
@@ -67,7 +71,6 @@ h1, h2, h3, h4, h5, h6 {
   height: 40px;
   
   font-size: 16px;
-  line-height: 40px;
   border-width: 1px;
   border-style: solid;
   border-radius: 3px;
@@ -168,7 +171,7 @@ h1, h2, h3, h4, h5, h6 {
       }
     }
     .login-cell:nth-child(2) {
-      margin-left: -4px
+      margin-left: -6px
     }
     .login-fixed {
       background-color: #eaeefe;
@@ -689,4 +692,7 @@ h1, h2, h3, h4, h5, h6 {
 .record {
   color: #5f6e80;
   text-align: center;
+  vertical-align: bottom;
+  font-size: 14px;
+  margin-top: 100px;
 }

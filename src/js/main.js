@@ -3,12 +3,7 @@ const mobileReg = /^[\d|+|-]*$/;
 const emailReg = /@(163|foxmail|qq|gmail)\./;
 
 const openNewWindow = (url) => {
-  if (isPC()) {
-    const newWin = window.open('loading page');
-    newWin.location.href = url;
-  } else {
-    window.location.href = url;
-  }
+  window.location.href = url;
 };
 
 const isPC = () => {

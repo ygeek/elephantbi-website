@@ -123,7 +123,7 @@
     position: relative;
     height: @box-height;
     margin: 0 auto;
-    padding: @box-height / 2 0px 0 100px;
+    padding: @box-height / 2 0px 0 0px;
 
     box-sizing: border-box;
 
@@ -132,7 +132,8 @@
       color: @color-green;
       h3 {
         font-size: 32px;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+        margin-top: 0;
       }
       p {
         font-size: 20px;
@@ -150,6 +151,12 @@
 
       box-sizing: border-box;
       vertical-align: top;
+    }
+
+    .left {
+      max-width: 560px !important;
+      margin-right: -20px !important;
+      width: 100% !important;
     }
 
     .right {
@@ -173,7 +180,7 @@
         margin-right: 6px;
 
         color: @color-green;
-        font-size: 10px;
+        font-size: 8px;
       }
     }
   }
@@ -458,6 +465,7 @@
 .box-title-img {
   vertical-align: center;
   margin-right: 10px;
+  margin-bottom: -3px;
 }
 
 #wx-login {

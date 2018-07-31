@@ -19,7 +19,8 @@ RUN NODE_ENV=production yarn run build && \
     mkdir -p /run/nginx && \
     rm -f /etc/nginx/sites-enabled/* && \
     mkdir -p /usr/share/nginx/html && \
-    cp -r dist/* /usr/share/nginx/html
+    cp -r dist/* /usr/share/nginx/html && \
+    cp -r verify/* /usr/share/nginx/html
 
 EXPOSE 80
 
