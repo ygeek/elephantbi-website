@@ -176,11 +176,15 @@
         margin: 5px 0;
       }
       li:before {
-        content: "\25cf";
-        margin-right: 6px;
-
-        color: @color-green;
-        font-size: 8px;
+        content:'';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background:@color-green;
+        display: inline-block;
+        margin-right: 8px;
+        vertical-align: middle;
+        margin-top: -3px
       }
     }
   }
