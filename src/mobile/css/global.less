@@ -446,6 +446,18 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 2px 1px 6px #ddd;
   transform: translate(-50%, -50%);
 
+  .err{
+    border-bottom: 1px solid #f1584d !important;
+
+    &:after {
+      margin-top: 4px;
+      content: attr(data-err) !important;
+      display: block;
+      font-size: 14px !important;
+      color: #f1584d;
+    }
+  }
+
   .form-item {
     display: block;
     height: 50px;
@@ -744,4 +756,16 @@ h1, h2, h3, h4, h5, h6 {
 .form-item-title {
   font-size: 28px;
   color: #606d8a;
+}
+
+.err{
+  border-bottom: 1px solid #f1584d !important;
+
+  &:after {
+    margin-top: 4px;
+    content: attr(data-err) !important;
+    display: block;
+    font-size: 20px;
+    color: #f1584d;
+  }
 }
