@@ -146,11 +146,15 @@
         font-size: 27px;
       }
       li:before {
-        content: "\25cf";
-        margin-right: 6px;
-
-        color: @color-green;
-        font-size: 20px;
+        content:'';
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background:@color-green;
+        display: inline-block;
+        margin-right: 16px;
+        vertical-align: middle;
+        margin-top: -10px
       }
     }
   }
@@ -179,7 +183,7 @@
 
   .card-stage {
     width: 600px;
-    height: 770px;
+    height: 650px;
     margin: 0 auto;
     position: relative;
 
@@ -217,7 +221,7 @@
   }
   .card-description {
     width: @card-width;
-    height: 360px;
+    height: 240px;
     position: relative;
 
     box-sizing: border-box;
