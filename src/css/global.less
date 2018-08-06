@@ -138,13 +138,14 @@ textarea::placeholder {
     border-radius: 6px;
     box-shadow: 2px 1px 4px #dedede;
 
-    .login-block {
-      display: block;
-      width: 346px;
-      position: relative;
+    .login-block-wrapper {
+      display: inline-block;
+      vertical-align: top;
     }
-    .login-block.err {
+
+    .login-block-wrapper.err {
       border: none !important;
+
       input {
         border: 1px solid #f1584d;
       }
@@ -158,8 +159,18 @@ textarea::placeholder {
         width: 210px
       }
     }
+
+    .login-block {
+      display: table;
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 100%;
+      line-height: 1.5;
+      position: relative;
+    }
+
     .login-cell {
-      display: inline-block;
+      display: table-cell;
       height: 25px;
       padding: 6px 11px;
 
@@ -169,9 +180,6 @@ textarea::placeholder {
       &::placeholder {
         font-size: 14px;
       }
-    }
-    .login-cell:nth-child(2) {
-      margin-left: -6px
     }
     .login-fixed {
       background-color: #eaeefe;

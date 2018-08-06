@@ -40,7 +40,7 @@ const toggleLoginModalVisible = (e) => {
   } else {
     const hostsName = document.getElementById('input-hosts');
     hostsName.value = null;
-    const parent = hostsName.parentNode;
+    const parent = hostsName.parentNode.parentNode;
     if (parent.className.indexOf('err') > -1) {
       parent.className = parent.className.replace(/err/, '')
     }
@@ -90,7 +90,7 @@ const closeleLoginModal = () => {
   if (applicationModal) {
     const hostsName = document.getElementById('input-hosts');
     hostsName.value = null;
-    const parent = hostsName.parentNode;
+    const parent = hostsName.parentNode.parentNode;
     if (parent.className.indexOf('err') > -1) {
       parent.className = parent.className.replace(/err/, '')
     }
@@ -494,7 +494,7 @@ const opentNewWindow = () => {
         hostsName.value === null
         closeleLoginModal();
       } else {
-        const parent = hostsName.parentNode
+        const parent = hostsName.parentNode.parentNode;
         parent.setAttribute('class', parent.className + ' ' + 'err')
       }
     });
