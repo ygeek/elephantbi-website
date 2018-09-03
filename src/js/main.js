@@ -276,19 +276,6 @@ const submitForm = () => {
     });
 };
 
-const clearFormModal = () => {
-  formModal.name.value = "";
-  formModal.email.value = "";
-  formModal.mobile.value = "";
-  formModal.company.value = "";
-  formModal.department.value = "";
-  formModal.title.value = "";
-  const formItems = formModal.getElementsByClassName('form-item')
-  for(let i = 0; i < formItems.length; i++) {
-    if (formItems[i].className.indexOf('err') > -1) formItems[i].className = formItems[i].className.replace(/err/, '')
-  }
-};
-
 const submitModalForm = () => {
   const  name = formModal.name.value;
   const  email = formModal.email.value;
@@ -1207,7 +1194,6 @@ window.onload = function () {
   // root listen
   document.getElementById('root').addEventListener('click', function() {
     closeApplicationModal();
-    clearFormModal();
     closeleLoginModal();
     toggleNavModalVisible('hide');
     hideTootip();
