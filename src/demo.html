@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="UTF-8">
@@ -17,11 +17,11 @@
 
 <body>
   <div id="root">
-    <header class="nav-header" id="nav-header">
+    <header id="nav-header">
       <nav class="nav-content">
         <ul class="nav-list">
           <li class="nav-section logo">
-            <img src='<%= require("./assets/nav-logo-black.svg") %>' width=160 height=32 id="logo" />
+            <img src='<%= require("./assets/nav-logo.svg") %>' id="logo" width=160 height=32 />
           </li>
           <li class="nav-section page-list">
             <a href="./product.html">产品介绍</a>
@@ -72,9 +72,11 @@
             <span class="login-btn-content">
               <button id="nav-login">登录</button>
               <div class="login-modal" id="login-modal">
-                <span class="login-block">
-                  <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
-                  <span class="login-cell login-fixed">elephantbi.com</span>
+                <span class="login-block-wrapper">
+                  <span class="login-block">
+                    <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
+                    <span class="login-cell login-fixed">elephantbi.com</span>
+                  </span>
                 </span>
                 <button class="login-btn" id="login-product">登录</button>
               </div>
@@ -85,125 +87,110 @@
       </nav>
     </header>
     <main class="main-content">
-      <div class="main-header-bg" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="main-wrapper">
+        <div class="main-title">数据驱动，精准决策</div>
+        <div class="main-description">填写右侧信息，我们将会尽快与您联系安排演示；您也可以直接致电0411-39026089联系我们</div>
+        <div class="main-line"></div>
+        <img src='<%= require("./assets/demobanner.png") %>' class="demo-banner" width=390 height=245 />
+        <div class="form-section">
+          <div class="demo-title">我要预约免费演示</div>
+          <div class="demo-description">为更好的制定针对性的数据方案，请让我们了解您更多，行业顾问将在24小时内与您取得联系</div>
+          <form name="demoForm">
+            <div class="demo-item">
+              <span class="label">姓名</span>
+              <div class="demo-form-item" data-err="请输入希望使用的名称">
+                <input id="name" name="demoName" placeholder="请输入希望使用的名称" />
+              </div>
+            </div>
+            <div class="demo-item">
+              <span class="label">工作邮箱</span>
+              <div class="demo-form-item" data-err="请输入电子邮箱">
+                <input id="email" name="demoEmail" placeholder="请输入电子邮箱" />
+              </div>
+            </div>
+            <div class="demo-item">
+              <span class="label">电话</span>
+              <div class="demo-form-item" data-err="请输入手机号">
+                <input id="mobile" name="demoMobile" placeholder="请输入手机号" />
+              </div>
+            </div>
+            <div class="demo-item">
+              <span class="label">公司名称</span>
+              <div class="demo-form-item" data-err="请输入您所在的公司名称">
+                <input id="company" name="demoCompany" placeholder="请输入您所在的公司名称" />
+              </div>
+            </div>
+            <div class="demo-item">
+              <span class="label">所属行业</span>
+              <div class="demo-form-item" data-err="请选择您所属行业">
+                <select id="industry" name="demoIndustry" placeholder="请选择您所属行业">
+                  <option value="互联网及IT行业">互联网及IT行业</option>
+                  <option value="零售行业">零售行业</option>
+                  <option value="企业服务行业">企业服务行业</option>
+                  <option value="文娱行业">文娱行业</option>
+                  <option value="教育行业">教育行业</option>
+                  <option value="金融行业">金融行业</option>
+                  <option value="制造行业">制造行业</option>
+                  <option value="电商行业">电商行业</option>
+                  <option value="餐饮行业">餐饮行业</option>
+                  <option value="物流行业">物流行业</option>
+                  <option value="旅游行业">旅游行业</option>
+                  <option value="保险行业">保险行业</option>
+                  <option value="农产品行业">农产品行业</option>
+                  <option value="电气化工行业">电气化工行业</option>
+                  <option value="科技研发行业">科技研发行业</option>
+                  <option value="生活服务行业">生活服务行业</option>
+                  <option value="其他行业">其他行业</option>
+                </select>
+              </div>
+            </div>
+            <div class="demo-item">
+              <span class="label">行业规模</span>
+              <div class="demo-form-item" data-err="请选择您所在的行业规模">
+                <select id="scale" name="demoScale" placeholder="请选择您所在的行业规模">
+                  <option value="1-15人">1-15人</option>
+                  <option value="16-50人">16-50人</option>
+                  <option value="51-200人">51-200人</option>
+                  <option value="201-500人">201-500人</option>
+                  <option value="501-2000人">501-2000人</option>
+                  <option value="2001-5000人">2001-5000人</option>
+                  <option value="5001及以上">5001及以上</option>
+                </select>
+              </div>
+            </div>
+            <div class="demo-item">
+              <span class="label">所属部门</span>
+              <div class="demo-form-item">
+                <select id="department" name="demoDepart" placeholder="请输入您的所属部门">
+                  <option value="人事部">人事部</option>
+                  <option value="财务部">财务部</option>
+                  <option value="行政部">行政部</option>
+                  <option value="销售部">销售部</option>
+                  <option value="技术部">技术部</option>
+                  <option value="市场部">市场部</option>
+                  <option value="运营部">运营部</option>
+                  <option value="产品部">产品部</option>
+                  <option value="其他部门">其他部门</option>
+                </select>
+              </div>
+            </div>
+            <div class="demo-item">
+              <span class="label">现任职位</span>
+              <div class="demo-form-item">
+                <input id="position" name="demoPosi" placeholder="请输入您的现任职位" />
+              </div>
+            </div>
+            <div class="demo-item">
+              <div class="demo-form-item">
+                <textarea name="demoRemark" placeholder="请描述您希望在演示中了解的内容或问题"></textarea>
+              </div>
+            </div>
+          </form>
+          <button id="demo-submit">
+            立即预约
+          </button>
+        </div>
       </div>
-      <header class="main-header">
-        <h1 class="title">服务支持</h1>
-        <span class="description">ElephantBI拥有专业的商务团队和技术支持团队，将为您提供专业的服务</span>
-        <div class="banner">
-          <img class="banner-image" src='<%= require("./assets/main-header-banner-server.png") %>' width=415 height=380>
-        </div>
-        <div>
-          <button class="free-btn" id="free-btn-id">免费试用</button>
-          <button class="reserve-btn demo-btn" id="reserve-btn-id">预约演示</button>
-        </div>
-      </header>
-      <section class="server-stage">
-        <div class="server-banner-item">
-          <ul>
-            <li class="server-title">
-              <img src='<%= require("./assets/server-title-icon2.png") %>' width=53 height=44 />
-              <p>
-                商务咨询
-              </p>
-            </li>
-            <li class="server-item">
-              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
-              <span>0411-39026089</span>
-            </li>
-            <li class="server-item">
-              <img src='<%= require("./assets/footer-email.png") %>' />
-              <span>bd@elephantbi.com</span>
-            </li>
-          </ul>
-        </div>
-        <div class="server-banner-item">
-          <ul>
-            <li class="server-title">
-              <img src='<%= require("./assets/server-title-icon1.png") %>' width=43 height=44 />
-              <p>
-                技术支持
-              </p>
-            </li>
-            <li class="server-item">
-              <img src='<%= require("./assets/footer-time.png") %>' />
-              <span>09:00~19:00</span>
-            </li>
-            <li class="server-item">
-              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
-              <span>18004083463</span>
-            </li>
-            <li class="server-item">
-              <img src='<%= require("./assets/footer-email.png") %>' />
-              <span>support@elephantbi.com</span>
-            </li>
-          </ul>
-        </div>
-        <div class="server-banner-item">
-          <ul>
-            <li class="server-title">
-              <img src='<%= require("./assets/server-title-icon3.png") %>' width=44 height=44 />
-              <p>
-                投诉
-              </p>
-            </li>
-            <li class="server-item">
-              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
-              <span>总裁办电话 15910603382</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <div class="line"></div>
-      <section class="reserve-form">
-        <h3 class="reserve-form-title">我的反馈</h3>
-        <p class="reserve-form-subtitle">请将您的问题或建议填写在下方，并可留下联系方式，ElephantBI团队将及时向您反馈处理结果</p>
-        <form action="POST" name="formReserve">
-          <span class="form-radio">
-            <label for="1">
-              <input type="radio" name="type" id="1" checked />
-              <div class="radio"></div>
-              问题反馈
-            </label>
-            <label for="2">
-              <input type="radio" name="type" id="2" />
-              <div class="radio"></div>
-              功能建议
-            </label>
-          </span>
-          <span class="form-wrap" data-attr="请填写问题或建议">
-            <textarea class="form-textarea" name="content" id="content" cols="96" rows="5" placeholder="请填写您想反馈的问题或建议"></textarea>
-          </span>
-          <span class="form-item" data-attr="请输入姓名">
-            <img src='<%= require("./assets/input-name.png") %>' />
-            <input class="form-input" type="text" name="name" placeholder="姓名" />
-          </span>
-          <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱">
-            <img src='<%= require("./assets/input-email.png") %>' />
-            <input class="form-input" type="text" name="email" placeholder="邮箱" />
-          </span>
-          <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)">
-            <img src='<%= require("./assets/input-phone.png") %>' />
-            <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
-          </span>
-          <span class="form-item" data-attr="请输入公司姓名">
-            <img src='<%= require("./assets/input-companyname.png") %>' />
-            <input class="form-input" type="text" name="company" placeholder="公司名称" />
-          </span>
-        </form>
-        <button class="form-submit-btn" id="form-reserve-submit-btn-id">提交</button>
-      </section>
     </main>
     <footer class="footer-content">
       <ul class="footer-nav">

@@ -18,10 +18,10 @@ const postcssOpts = {
       addDependencyTo: webpack
     }),
     autoprefixer({
-      browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
+      browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4']
     }),
     pxtorem({ rootValue: 200, propWhiteList: [] })
-  ],
+  ]
 };
 
 module.exports = [
@@ -68,6 +68,10 @@ module.exports = [
           ]
         }
       ]
+    },
+    devServer: {
+      port: 8586,
+      contentBase: './dist'
     },
     plugins: [
       new CleanWebpackPlugin(['dist']),

@@ -262,7 +262,7 @@ const submitForm = () => {
     company,
     department,
     title,
-    source: SOURCE,
+    source: SOURCE
   };
   request('/website/trail', params)
     .then(({ data }) => {
@@ -303,7 +303,7 @@ const submitModalForm = () => {
     company,
     department,
     title,
-    source: SOURCE,
+    source: SOURCE
   };
 
   const allItem = formModal.querySelectorAll('.form-item');
@@ -386,7 +386,7 @@ const submitFormReserve = () => {
     company,
     type,
     content,
-    source: SOURCE,
+    source: SOURCE
   };
 
   const allItem = formReserve.querySelectorAll('.form-item');
@@ -564,7 +564,7 @@ const requestWx = (url, params) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
-      },
+      }
     }
   )
     .then(function(response) {
@@ -615,6 +615,503 @@ const openWxServer = () => {
   openNewWindow(WX_SSO);
 };
 
+const showIndustryModal = (e) => {
+  const industryModal = document.getElementById("nav-industry-modal")
+  e.stopPropagation();
+  if (industryModal) {
+    industryModal.style.display = 'block'
+  }
+}
+
+const closeIndustryModal = (e) => {
+  const industryModal = document.getElementById("nav-industry-modal")
+  if (industryModal) {
+    industryModal.style.display = 'none'
+  }
+}
+
+
+/*********************************/
+const switchToGroup = (e) => {
+  if (e.target.checked) {
+
+    const domainField = document.createElement('div')
+    domainField.setAttribute('id', 'domain-field')
+
+    const label = document.createElement('label');
+    label.setAttribute('class', 'fake-label')
+    label.innerText = '免验证邮箱域名'
+
+    const domainItemWrapper = document.createElement('span')
+    domainItemWrapper.setAttribute('class', 'domain-item-wrapper')
+
+    const domainWrapper = document.createElement('span')
+    domainWrapper.setAttribute('class', 'domain-field form-item')
+
+    const domainFixed = document.createElement('span')
+    domainFixed.setAttribute('class', 'domain-fixed')
+    domainFixed.innerText = '@'
+
+    const domainInput = document.createElement('input')
+    domainInput.setAttribute('id', 'input-domain')
+    domainInput.placeholder = '请输入团队域名'
+
+    const domainImage = document.createElement('img')
+    domainImage.src = require('../assets/checked.png')
+
+    domainWrapper.appendChild(domainFixed)
+    domainWrapper.appendChild(domainInput)
+    domainWrapper.appendChild(domainImage)
+    domainItemWrapper.appendChild(domainWrapper)
+
+    const domainDescription = document.createElement('div')
+    domainDescription.setAttribute('class', 'url-description')
+    domainDescription.style.width = '300px'
+    domainDescription.style.marginBottom = '35px'
+    domainDescription.innerText = '免验证邮箱域名登陆后，不需要管理员审核，团队创建巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉'
+
+    domainField.appendChild(label)
+    domainField.appendChild(domainItemWrapper)
+    domainField.appendChild(domainDescription)
+    const freeTitle = document.getElementById('free-title')
+    const registerForm = document.getElementById('register-form')
+    registerForm.insertBefore(domainField, freeTitle)
+
+    const switchLabel = document.getElementById('switch-label')
+    const required = document.createElement('span')
+    required.innerText = '*'
+    required.setAttribute('class', 'required')
+    switchLabel.innerText = "电子邮箱"
+    switchLabel.appendChild(required)
+    const registerEmail = document.getElementById('register-email')
+    registerEmail.value = null;
+    registerEmail.placeholder = '请输入登录团队使用的邮箱'
+  }
+}
+const switchToFree = (e) => {
+  if (e.target.checked) {
+    const registerForm = document.getElementById('register-form')
+    const domainField = document.getElementById('domain-field')
+    if (domainField) {
+      registerForm.removeChild(domainField)
+      const switchLabel = document.getElementById('switch-label')
+      const required = document.createElement('span')
+      required.innerText = '*'
+      required.setAttribute('class', 'required')
+      switchLabel.innerText = "手机号"
+      switchLabel.appendChild(required)
+      const registerEmail = document.getElementById('register-email')
+      registerEmail.value = null;
+      registerEmail.placeholder = '请输入登录团队使用的手机号'
+    }
+  }
+}
+
+const submitRegister = () => {
+  const registerUrl = registerForm.registerUrl.value
+  const registerGroupName = registerForm.registerGroupName.value
+  const registerTypeGroup = registerForm.registerType[0].checked
+  const registerTypeFree = registerForm.registerType[1].checked
+  const registerEmail = registerForm.registerEmail.value
+  const registerVerifiedCode = registerForm.registerVerifiedCode.value
+  const registerPasswordSet = registerForm.registerPasswordSet.value
+  const registerPasswordConfirm = registerForm.registerPasswordConfirm.value
+  const  registerDisplayName = registerForm.registerDisplayName.value
+  const inputDomains = document.getElementsByClassName('input-domain')
+  let errorNum = 0
+  if (!registerUrl) {
+    const formItem = registerForm.registerUrl.parentNode.parentNode
+    formItem.className = formItem.className + ' error'
+    errorNum += 1
+  }
+  if (!registerGroupName) {
+    const formItem = registerForm.registerGroupName.parentNode
+    formItem.className = formItem.className + ' error'
+    errorNum += 1
+  }
+  if (!registerEmail) {
+    const formItem = registerForm.registerEmail.parentNode
+    formItem.className = formItem.className + ' error'
+    errorNum += 1
+  }
+  if (!registerVerifiedCode) {
+    const formItem = registerForm.registerVerifiedCode.parentNode.parentNode
+    formItem.className = formItem.className + ' error'
+    errorNum += 1
+  }
+  if (!registerPasswordSet) {
+    const formItem = registerForm.registerPasswordSet.parentNode
+    formItem.className = formItem.className + ' error'
+    errorNum += 1
+  }
+  if (!registerPasswordConfirm) {
+    const formItem = registerForm.registerPasswordConfirm.parentNode
+    formItem.className = formItem.className + ' error'
+    errorNum += 1
+  }
+
+  if (errorNum > 0) {
+    return false
+  }
+  const email_domains = [];
+  for(let i = 0; i < inputDomains.length; i++) {
+    if (inputDomains[i].value) {
+      email_domains.push(inputDomains[i].value)
+    }
+  }
+  const params = {
+    domain: registerUrl,
+    name: registerGroupName,
+    team_type: registerTypeGroup ? 0 : 1,
+    email: registerTypeGroup ? registerEmail : null,
+    mobile: registerTypeGroup ? null : registerEmail,
+    code: registerVerifiedCode,
+    password: registerPasswordSet,
+    password_confirm: registerPasswordConfirm,
+    username: registerDisplayName,
+    email_domains
+  }
+
+  request('/team/create', params)
+  .then(({ data }) => {
+    if (data) {
+      
+    } else {
+
+    }
+  });
+}
+
+const sendVerification = () => { //发送存储验证码
+  const registerTypeGroup = registerForm.registerType[0].checked
+  const registerEmail = registerForm.registerEmail.value
+  const params = {
+    auth_type: registerTypeGroup ? 0 : 1,
+    send_to: registerEmail,
+    code_type: 2
+  }
+  request('/auth/code', params)
+  .then(({ data }) => {
+    if (data) {
+      if (data.code_hash) {
+        sessionStorage.setItem("verify", data.code_hash)
+      }
+    } else {
+    }
+  });
+}
+
+const currentError = (node) => { //校验当前是否为错误状态
+  if (node.className.indexOf('error') == -1) {
+    return false
+  }
+  return true
+}
+
+const verifyCodeValidate = (value) => { //验证码校验
+  const md5 = require('MD5')
+  const verifyCodeInput = document.getElementById('verifycode')
+  const errNode = verifyCodeInput.parentNode.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    errNode.setAttribute('data-err', '请输入验证码')
+    return false
+  } else {
+    const verifyCode = sessionStorage.getItem('verify')
+    if (md5(value) !== verifyCode) {
+      if (!currentError(errNode)) {
+        errNode.className = errNode.className + ' error'
+      }
+      errNode.setAttribute('data-err', '验证码输入错误')
+      return false
+    }
+    if (currentError(errNode)) {
+      errNode.className = errNode.className.replace(/error/, '')
+    }
+    return true
+  }
+}
+
+const utlInputValidate = (value) => { //团队域名校验
+  const registerUrlInput = document.getElementById('input-url')
+  const errNode = registerUrlInput.parentNode.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    return false
+  }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
+}
+
+const groupNameValidate = (value) => { //团队名称校验
+  const registerGroupName = document.getElementById('register-group-name')
+  const errNode = registerGroupName.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    return false
+  }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
+}
+
+const registerEmailMobileValidate = (value) => { //邮箱手机号校验
+  const registerEmail = document.getElementById('register-email')
+  const registerTypeGroup = registerForm.registerType[0].checked //checked-email unchecked-mobile
+  const errNode = registerEmail.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    errNode.setAttribute('data-err', registerTypeGroup ? '请输入电子邮箱' : '请输入手机号码')
+  } else {
+    if (registerTypeGroup) {
+      const reg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/
+      if (!reg.test(value)) { //邮箱验证不通过
+        if (!currentError(errNode)) {
+          errNode.className = errNode.className + ' error'
+        }
+        errNode.setAttribute('data-err', '邮箱格式不正确')
+        return false
+      }
+      if (currentError(errNode)) {
+        errNode.className = errNode.className.replace(/error/, '')
+      }
+      return true
+    }
+    if (!registerTypeGroup) {
+      const reg = /^[1][3,4,5,7,8][0-9]{9}$/
+      if (!reg.test(value)) {
+        if (!currentError(errNode)) {
+          errNode.className = errNode.className + ' error'
+        }
+        errNode.setAttribute('data-err', '手机格式不正确')
+        return false
+      }
+      if (currentError(errNode)) {
+        errNode.className = errNode.className.replace(/error/, '')
+      }
+      return true
+    }
+  }
+}
+
+const passwordSetValidate = (value) => {
+  const reg = /^(?![A-Z]+$)(?![a-z]+$)(?!\d+$)\S{8,}$/
+  const passwordSet = document.getElementById('password-set')
+  const passwordConfirm = document.getElementById('password-confirm')
+  const errNode = passwordSet.parentNode
+  const confirmErrNode = passwordConfirm.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    errNode.setAttribute('data-err', '请输入密码')
+  } else {
+    if (!reg.test(value)) {
+      if (!currentError(errNode)) {
+        errNode.className = errNode.className + ' error'
+      }
+      errNode.setAttribute('data-err', '密码格式不正确')
+      return false
+    }
+    if (passwordConfirm.value && value !== passwordConfirm.value) {
+      if (currentError(errNode)) {
+        errNode.className = errNode.className.replace(/error/, '')
+      }
+      if (!currentError(confirmErrNode)) {
+        confirmErrNode.className = errNode.className + ' error'
+      }
+      confirmErrNode.setAttribute('data-err', '两次密码输入不一致')
+      return false
+    }
+    if (currentError(errNode)) {
+      errNode.className = errNode.className.replace(/error/, '')
+    }
+    return true
+  }
+}
+
+const passwordConfirmValidate = (value) => {
+  const passwordSet = document.getElementById('password-set')
+  const passwordConfirm = document.getElementById('password-confirm')
+  const errNode = passwordConfirm.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    errNode.setAttribute('data-err', '请确认密码')
+  } else {
+    if (passwordSet.value !== value) {
+      if (!currentError(errNode)) {
+        errNode.className = errNode.className + ' error'
+      }
+      errNode.setAttribute('data-err', '两次密码输入不一致')
+      return false
+    }
+    if (currentError(errNode)) {
+      errNode.className = errNode.className.replace(/error/, '')
+    }
+    return true
+  }
+}
+
+
+const focusPriceList = (node, i) => {
+  const colorLists = {
+    '1': '#6b7c93',
+    '2': '#76c1ef',
+    '3': '#0abebe',
+    '4': '#f5a623'
+  }
+  const priceLists = document.getElementsByClassName('price-list')
+  for(let i = 1; i < priceLists.length; i++) {
+    priceLists[i].style.border = 'none'
+  }
+  node.style.border = "2px solid " + colorLists[i]
+}
+
+const submitDemo = () => {
+  const name = demoForm.demoName.value // required
+  const email = demoForm.demoEmail.value // required
+  const mobile = demoForm.demoMobile.value // required
+  const company = demoForm.demoCompany.value // required
+  const industry = demoForm.demoIndustry.value // required
+  const scale = demoForm.demoScale.value // required
+  const department = demoForm.demoDepart.value
+  const position = demoForm.demoPosi.value
+  const remark = demoForm.demoRemark.value
+  let errNum = 0;
+  if (!name) {
+    if (!currentError(demoForm.demoName.parentNode)) {
+      demoForm.demoName.parentNode.className = demoForm.demoName.parentNode.className + ' error'
+    }
+    errNum += 1
+  }
+  if (!email) {
+    if (!currentError(demoForm.demoEmail.parentNode)) {
+      demoForm.demoEmail.parentNode.className = demoForm.demoEmail.parentNode.className + ' error'
+    }
+    errNum += 1
+  }
+  if (!mobile) {
+    if (!currentError(demoForm.demoMobile.parentNode)) {
+      demoForm.demoMobile.parentNode.className = demoForm.demoMobile.parentNode.className + ' error'
+    }
+    errNum += 1
+  }
+  if (!company) {
+    if (!currentError(demoForm.demoCompany.parentNode)) {
+      demoForm.demoCompany.parentNode.className = demoForm.demoCompany.parentNode.className + ' error'
+    }
+    errNum += 1
+  }
+  if (!industry) {
+    if (!currentError(demoForm.demoIndustry.parentNode)) {
+      demoForm.demoIndustry.parentNode.className = demoForm.demoIndustry.parentNode.className + ' error'
+    }
+    errNum += 1
+  }
+  if (!scale) {
+    if (!currentError(demoForm.demoScale.parentNode)) {
+      demoForm.demoScale.parentNode.className = demoForm.demoScale.parentNode.className + ' error'
+    }
+    errNum += 1
+  }
+  if (errNum > 0) {
+    return false
+  }
+  const params = {
+    name, email, mobile,
+    company, industry, scale,
+    department, position, remark,
+    source: '官网'
+  }
+  request('/website/trail', params).then((data) => {
+    if (data) {
+      
+    } else {
+
+    }
+  })
+}
+
+const changeDomainItems = (e) => {
+  const currentOperator = e.target
+  const currentWrapper = currentOperator.parentNode
+  const constainer = currentWrapper.parentNode
+  const currentInput = currentWrapper.getElementsByTagName('input')[0]
+  if (currentOperator.className.indexOf('input-domain-check') > -1) {
+    if (!currentInput.value) {
+      return false
+    }
+    currentOperator.className = currentOperator.className.replace('input-domain-check', 'input-domain-delete')
+    currentOperator.src = require('../assets/delete.png')
+    const newWrapper = document.createElement('span');
+    newWrapper.setAttribute('class', 'domain-field form-item')
+    const newFix = document.createElement('span')
+    newFix.setAttribute('class', ' domain-fixed')
+    newFix.innerText = '@'
+    const newInput = document.createElement('input');
+    newInput.setAttribute('id', 'input-domain');
+    newInput.setAttribute('class', 'input-domain')
+    newInput.setAttribute('placeholder', '请输入免验证域名')
+    const newOperator = document.createElement('img')
+    newOperator.src = require('../assets/checked.png')
+    newOperator.setAttribute('class', 'input-domain-check input-domain-operator')
+    newOperator.addEventListener('click', changeDomainItems)
+    newWrapper.appendChild(newFix)
+    newWrapper.appendChild(newInput)
+    newWrapper.appendChild(newOperator)
+    constainer.appendChild(newWrapper)
+  }
+  else {
+    constainer.removeChild(currentWrapper)
+  }
+}
+
+const toRegister = () => {
+  window.location.href = window.location.origin + '/register.html'
+}
+
+const toDemo = () => {
+  window.location.href = window.location.origin + '/demo.html'
+}
+
+const changeHeader = () => {
+  const htmlDom = document.documentElement
+  const navHeader = document.getElementById('nav-header')
+  const logo = document.getElementById('logo')
+  if (htmlDom.scrollTop > 0) {
+    const navContent = document.getElementsByClassName('nav-content')[0]
+    if (navContent) {
+      navContent.className = 'nav-scroll-white'
+      navHeader.className = navHeader.className + ' nav-header'
+      logo.src = require("../assets/nav-logo-black.svg")
+    }
+  } else {
+    const navContent = document.getElementsByClassName('nav-scroll-white')[0]
+    if (navContent) {
+      navContent.className = 'nav-content'
+      navHeader.className = navHeader.className.replace(' nav-header', '')
+      if (navHeader.className.indexOf('nav-header') == -1) {
+        logo.src = require("../assets/nav-logo.svg")
+      }
+    }
+  }
+}
+
+/*********************************/
+
 window.onload = function () {
   //wx login
   const wxbtnlogup = document.getElementById('wx-btn-logup');
@@ -629,15 +1126,30 @@ window.onload = function () {
   if (wxbtnserverlogin) {
     wxbtnserverlogin.addEventListener('click', openWxServer, true);
   }
-
-  const navApplication = document.getElementById('nav-application');
-  const freeBtn = document.getElementById('free-btn-id');
+  window.onscroll = changeHeader
+  const freeBtns = document.getElementsByClassName('free-btn')
+  if (freeBtns) {
+    for(let i = 0; i < freeBtns.length; i ++) {
+      freeBtns[i].onclick = toRegister
+    }
+  }
+  const demoBtns = document.getElementsByClassName('demo-btn');
+  if (demoBtns) {
+    for(let i = 0; i < demoBtns.length; i ++) {
+      demoBtns[i].onclick = toDemo
+    }
+  }
   const formSubmitBtn = document.getElementById('form-submit-btn-id');
-  const formModalSubmitBtn = document.getElementById('form-modal-submit-btn-id');
   const formReserveSubmitBtn = document.getElementById('form-reserve-submit-btn-id');
   const loginModal = document.getElementById('login-modal');
   const navLogin = document.getElementById('nav-login');
   const logo = document.getElementById("logo");
+  const footerLogo = document.getElementById("footer-logo")
+  const industryLink = document.getElementById("nav-industry-link")
+
+  if (industryLink) {
+    industryLink.addEventListener('click', showIndustryModal, true)
+  }
 
   //mobile nav menu
   const mNavMenu = document.getElementById("nav-menu-id");
@@ -679,15 +1191,6 @@ window.onload = function () {
   if (navLogin) {
     navLogin.addEventListener('click', toggleLoginModalVisible, true);
   }
-  if (navApplication) {
-    navApplication.addEventListener('click', toggleApplicationModalVisible, true);
-  }
-  if (freeBtn) {
-    freeBtn.addEventListener('click', toggleApplicationModalVisible, true);
-  }
-  if (formModalSubmitBtn) {
-    formModalSubmitBtn.addEventListener('click', submitModalForm, true);
-  }
   if (formReserveSubmitBtn) {
     formReserveSubmitBtn.addEventListener('click', submitFormReserve, true);
   }
@@ -697,6 +1200,9 @@ window.onload = function () {
   if (logo) {
     logo.addEventListener('click', jumpHomePage, true);
   }
+  if (footerLogo) {
+    footerLogo.addEventListener('click', jumpHomePage, true);
+  }
 
   // root listen
   document.getElementById('root').addEventListener('click', function() {
@@ -705,6 +1211,7 @@ window.onload = function () {
     closeleLoginModal();
     toggleNavModalVisible('hide');
     hideTootip();
+    closeIndustryModal();
   }, false);
 
   // cover listen
@@ -752,9 +1259,69 @@ window.onload = function () {
 
   // items onchange
   addItemListen();
-
   const loginCell = document.body.querySelector('.login-cell');
   if (loginCell) {
     loginCell.addEventListener('keydown', loginCellOnKeyDown, true);
   }
+
+  /**********************************/
+  const priceLists = document.getElementsByClassName('price-list')
+
+  const registerGroupRadio = document.getElementById('comp-group')
+  const registerFreeRadio = document.getElementById('free-group')
+  const sendVerifyBtn = document.getElementById('send-verifycode')
+  const verifyCodeInput = document.getElementById('verifycode')
+  const registerUrlInput = document.getElementById('input-url')
+  const registerGroupName = document.getElementById('register-group-name')
+  const registerEmail = document.getElementById('register-email')
+  const passwordSet = document.getElementById('password-set')
+  const passwordConfirm = document.getElementById('password-confirm')
+  const demoSubmitBtn = document.getElementById('demo-submit');
+  const domainOperators = document.getElementsByClassName('input-domain-operator');
+  if (registerGroupRadio) {
+    registerGroupRadio.addEventListener('change', switchToGroup)
+  }
+  if (registerFreeRadio) {
+    registerFreeRadio.addEventListener('change', switchToFree)
+  }
+  const registerBtn = document.getElementById('register-button')
+  if (registerBtn) {
+    registerBtn.addEventListener('click', submitRegister, true);
+  }
+  if (sendVerifyBtn) {
+    sendVerifyBtn.addEventListener('click', sendVerification, true)
+  }
+  if (registerUrlInput) {
+    registerUrlInput.addEventListener('input', function(e){ utlInputValidate(e.target.value) })
+  }
+  if (verifyCodeInput) {
+    verifyCodeInput.addEventListener('input', function(e){ verifyCodeValidate(e.target.value) })
+  }
+  if (registerGroupName) {
+    registerGroupName.addEventListener('input', function(e){ groupNameValidate(e.target.value) })
+  }
+  if (registerEmail) {
+    registerEmail.addEventListener('input', function(e){ registerEmailMobileValidate(e.target.value) })
+  }
+  if (passwordSet) {
+    passwordSet.addEventListener('input', function(e) { passwordSetValidate(e.target.value) })
+  }
+  if (passwordConfirm) {
+    passwordConfirm.addEventListener('input', function(e){ passwordConfirmValidate(e.target.value) })
+  }
+
+  if (priceLists) {
+    for(let i = 1; i < priceLists.length; i ++) {
+      priceLists[i].addEventListener('click', function(){ focusPriceList(priceLists[i], i) }, true)
+    }
+  }
+
+  if (demoSubmitBtn) {
+    demoSubmitBtn.addEventListener('click', submitDemo, true)
+  }
+
+  if (domainOperators) {
+    domainOperators[0].addEventListener('click', changeDomainItems, true)
+  }
+  /**********************************/
 }
