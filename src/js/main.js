@@ -1113,84 +1113,57 @@ window.onload = function () {
   if (wxbtnserverlogin) {
     wxbtnserverlogin.addEventListener('click', openWxServer, true);
   }
-  window.onscroll = changeHeader
-  const freeBtns = document.getElementsByClassName('free-btn')
+  window.onscroll = changeHeader //
+  const freeBtns = document.getElementsByClassName('free-btn') //免费注册按钮
   if (freeBtns) {
     for (let i = 0; i < freeBtns.length; i++) {
       freeBtns[i].onclick = toRegister
     }
   }
-  const demoBtns = document.getElementsByClassName('demo-btn');
+  const demoBtns = document.getElementsByClassName('demo-btn'); //预约演示按钮
   if (demoBtns) {
     for (let i = 0; i < demoBtns.length; i++) {
       demoBtns[i].onclick = toDemo
     }
   }
-  const formSubmitBtn = document.getElementById('form-submit-btn-id');
-  const formReserveSubmitBtn = document.getElementById('form-reserve-submit-btn-id');
-  const loginModal = document.getElementById('login-modal');
-  const navLogin = document.getElementById('nav-login');
-  const logo = document.getElementById("logo");
-  const footerLogo = document.getElementById("footer-logo")
-  const industryLink = document.getElementById("nav-industry-link")
+  const formSubmitBtn = document.getElementById('form-submit-btn-id'); //移动端表单提交按钮
+  const loginModal = document.getElementById('login-modal'); //登陆弹窗
+  const navLogin = document.getElementById('nav-login'); //导航登陆按钮
+  const logo = document.getElementById("logo"); //导航logo
+  const footerLogo = document.getElementById("footer-logo") //页底logo
+  const industryLink = document.getElementById("nav-industry-link") //导航行业信息链接
 
   if (industryLink) {
     industryLink.addEventListener('click', showIndustryModal, true)
   }
 
-  /**********************************/
+  var joinLists = document.getElementsByClassName('list-item'); //关于我们页面招聘信息
+  if (joinLists) {
+    var joinListsLength = joinLists.length;
+    for (var joinListsIndex = 0; joinListsIndex < joinListsLength; joinListsIndex++) {
+      var item = joinLists[joinListsIndex];
+      var aelement = item.getElementsByTagName('a');
+      const target = joinListsIndex;
+      aelement[0].onclick = function () {
+        joinListOnClick(target);
+      };
+    }
+  }
+  // root listen
+  document.getElementById('root').addEventListener('click', function () { //监听根节点，点击空白触发事件
+    // closeApplicationModal();
+    closeleLoginModal();
+    // toggleNavModalVisible('hide');
+    hideTootip();
+    closeIndustryModal();
+  }, false);
 
-  const registerGroupRadio = document.getElementById('comp-group')
-  const registerFreeRadio = document.getElementById('free-group')
-  const sendVerifyBtn = document.getElementById('send-verifycode')
-  const verifyCodeInput = document.getElementById('verifycode')
-  const registerUrlInput = document.getElementById('input-url')
-  const registerGroupName = document.getElementById('register-group-name')
-  const registerEmail = document.getElementById('register-email')
-  const passwordSet = document.getElementById('password-set')
-  const passwordConfirm = document.getElementById('password-confirm')
-  const demoSubmitBtn = document.getElementById('demo-submit');
-  const domainOperators = document.getElementsByClassName('input-domain-operator');
-  if (registerGroupRadio) {
-    registerGroupRadio.addEventListener('change', switchToGroup)
+  // items onchange
+  addItemListen();
+  const loginCell = document.body.querySelector('.login-cell');
+  if (loginCell) {
+    loginCell.addEventListener('keydown', loginCellOnKeyDown, true);
   }
-  if (registerFreeRadio) {
-    registerFreeRadio.addEventListener('change', switchToFree)
-  }
-  const registerBtn = document.getElementById('register-button')
-  if (registerBtn) {
-    registerBtn.addEventListener('click', submitRegister, true);
-  }
-  if (sendVerifyBtn) {
-    sendVerifyBtn.addEventListener('click', sendVerification, true)
-  }
-  if (registerUrlInput) {
-    registerUrlInput.addEventListener('input', function (e) { utlInputValidate(e.target.value) })
-  }
-  if (verifyCodeInput) {
-    verifyCodeInput.addEventListener('input', function (e) { verifyCodeValidate(e.target.value) })
-  }
-  if (registerGroupName) {
-    registerGroupName.addEventListener('input', function (e) { groupNameValidate(e.target.value) })
-  }
-  if (registerEmail) {
-    registerEmail.addEventListener('input', function (e) { registerEmailMobileValidate(e.target.value) })
-  }
-  if (passwordSet) {
-    passwordSet.addEventListener('input', function (e) { passwordSetValidate(e.target.value) })
-  }
-  if (passwordConfirm) {
-    passwordConfirm.addEventListener('input', function (e) { passwordConfirmValidate(e.target.value) })
-  }
-
-  if (demoSubmitBtn) {
-    demoSubmitBtn.addEventListener('click', submitDemo, true)
-  }
-
-  if (domainOperators) {
-    domainOperators[0].addEventListener('click', changeDomainItems, true)
-  }
-  /**********************************/
 
   //mobile nav menu
   const mNavMenu = document.getElementById("nav-menu-id");
@@ -1209,9 +1182,6 @@ window.onload = function () {
 
   const loginProduct = document.getElementById('login-product');
 
-  const upBtn = document.getElementById('up-btn');
-  const downBtn = document.getElementById('down-btn');
-
   if (loginProduct) {
     loginProduct.addEventListener('click', opentNewWindow, true);
   }
@@ -1222,53 +1192,87 @@ window.onload = function () {
       priceLists[i].addEventListener('click', function () { focusPriceList(priceLists[i], i) }, true)
     }
   }
-
-  // cards up down
-  if (upBtn) {
-    upBtn.addEventListener('click', upCard, true);
-  }
-  if (downBtn) {
-    downBtn.addEventListener('click', nextCard, true);
-  }
-
-  if (loginModal) {
+  
+  if (loginModal) { //登陆弹窗
     loginModal.addEventListener('click', function (e) {
       e.stopPropagation();
     }, false);
   }
-  if (navLogin) {
+  if (navLogin) { //导航登陆按钮
     navLogin.addEventListener('click', toggleLoginModalVisible, true);
   }
-  if (formReserveSubmitBtn) {
-    formReserveSubmitBtn.addEventListener('click', submitFormReserve, true);
-  }
-  if (formSubmitBtn) {
+  if (formSubmitBtn) { //移动端表单提交按钮
     formSubmitBtn.addEventListener('click', submitForm, true);
   }
-  if (logo) {
+  if (logo) { //导航logo
     logo.addEventListener('click', jumpHomePage, true);
   }
-  if (footerLogo) {
+  if (footerLogo) { //页底logo
     footerLogo.addEventListener('click', jumpHomePage, true);
   }
 
-  // root listen
-  document.getElementById('root').addEventListener('click', function () {
-    closeApplicationModal();
-    closeleLoginModal();
-    toggleNavModalVisible('hide');
-    hideTootip();
-    closeIndustryModal();
-  }, false);
+    /**********************************/
+
+    const registerGroupRadio = document.getElementById('comp-group')
+    const registerFreeRadio = document.getElementById('free-group')
+    const sendVerifyBtn = document.getElementById('send-verifycode')
+    const verifyCodeInput = document.getElementById('verifycode')
+    const registerUrlInput = document.getElementById('input-url')
+    const registerGroupName = document.getElementById('register-group-name')
+    const registerEmail = document.getElementById('register-email')
+    const passwordSet = document.getElementById('password-set')
+    const passwordConfirm = document.getElementById('password-confirm')
+    const demoSubmitBtn = document.getElementById('demo-submit');
+    const domainOperators = document.getElementsByClassName('input-domain-operator');
+    if (registerGroupRadio) {
+      registerGroupRadio.addEventListener('change', switchToGroup)
+    }
+    if (registerFreeRadio) {
+      registerFreeRadio.addEventListener('change', switchToFree)
+    }
+    const registerBtn = document.getElementById('register-button')
+    if (registerBtn) {
+      registerBtn.addEventListener('click', submitRegister, true);
+    }
+    if (sendVerifyBtn) {
+      sendVerifyBtn.addEventListener('click', sendVerification, true)
+    }
+    if (registerUrlInput) {
+      registerUrlInput.addEventListener('input', function (e) { utlInputValidate(e.target.value) })
+    }
+    if (verifyCodeInput) {
+      verifyCodeInput.addEventListener('input', function (e) { verifyCodeValidate(e.target.value) })
+    }
+    if (registerGroupName) {
+      registerGroupName.addEventListener('input', function (e) { groupNameValidate(e.target.value) })
+    }
+    if (registerEmail) {
+      registerEmail.addEventListener('input', function (e) { registerEmailMobileValidate(e.target.value) })
+    }
+    if (passwordSet) {
+      passwordSet.addEventListener('input', function (e) { passwordSetValidate(e.target.value) })
+    }
+    if (passwordConfirm) {
+      passwordConfirm.addEventListener('input', function (e) { passwordConfirmValidate(e.target.value) })
+    }
+  
+    if (demoSubmitBtn) {
+      demoSubmitBtn.addEventListener('click', submitDemo, true)
+    }
+  
+    if (domainOperators.length > 0) {
+      domainOperators[0].addEventListener('click', changeDomainItems, true)
+    }
+    /**********************************/
 
   // cover listen
-  document.getElementById('cover').addEventListener('click', function () {
-    closeApplicationModal();
-    clearFormModal();
-    closeleLoginModal();
-    toggleNavModalVisible('hide');
-    hideTootip();
-  }, false);
+  // document.getElementById('cover').addEventListener('click', function () {
+  //   closeApplicationModal();
+  //   clearFormModal();
+  //   closeleLoginModal();
+  //   toggleNavModalVisible('hide');
+  //   hideTootip();
+  // }, false);
 
   // tootip listent
   document.getElementById('tootip-succeed').addEventListener('click', function () {
@@ -1277,39 +1281,6 @@ window.onload = function () {
   document.getElementById('tootip-err').addEventListener('click', function () {
     hideTootip();
   }, true);
-
-
-  const modalIdClose = document.getElementById('modal-id-close');
-  modalIdClose.onclick = () => {
-    closeApplicationModal();
-    clearFormModal();
-  };
-
-  var joinLists = document.getElementsByClassName('list-item');
-  var joinListsLength = joinLists.length;
-  for (var joinListsIndex = 0; joinListsIndex < joinListsLength; joinListsIndex++) {
-    var item = joinLists[joinListsIndex];
-    var aelement = item.getElementsByTagName('a');
-    const target = joinListsIndex;
-    aelement[0].onclick = function () {
-      joinListOnClick(target);
-    };
-  }
-
-  const cards = document.getElementsByClassName('card-btn');
-  const cardsLength = cards.length;
-  let currentIndex = 0;
-  for (let cardsIndex = 0; cardsIndex < cardsLength; cardsIndex++) {
-    const item = cards[cardsIndex];
-    item.onclick = toggleApplicationModalVisible;
-  };
-
-  // items onchange
-  addItemListen();
-  const loginCell = document.body.querySelector('.login-cell');
-  if (loginCell) {
-    loginCell.addEventListener('keydown', loginCellOnKeyDown, true);
-  }
 
 
 }
