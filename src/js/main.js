@@ -19,7 +19,7 @@ const isPC = () => {
   return flag;
 };
 
-var joinListOnClick = function(index) {
+var joinListOnClick = function (index) {
   var joinLists = document.getElementsByClassName('list-item');
   var joinListsLength = joinLists.length;
   for (var joinListsIndex = 0; joinListsIndex < joinListsLength; joinListsIndex++) {
@@ -52,14 +52,14 @@ const toggleLoginModalVisible = (e) => {
 const showCover = () => {
   const cover = document.getElementById('cover');
   if (cover) {
-    cover.className = 'cover-show';  
+    cover.className = 'cover-show';
   }
 };
 
 const hideCover = () => {
   const cover = document.getElementById('cover');
   if (cover) {
-    cover.className = '';  
+    cover.className = '';
   }
 };
 
@@ -109,7 +109,7 @@ const request = (url, params) => {
       body: JSON.stringify(params)
     }
   )
-    .then(function(response) {
+    .then(function (response) {
       if (response.status >= 200 && response.status < 300) {
         return response.json();
       }
@@ -147,14 +147,14 @@ const addItemListen = () => {
       const form1s = form1.querySelectorAll('.form-item') || [];
       mapItems(form1s);
     }
-  } catch(e) {
+  } catch (e) {
   }
   try {
     if (formModal) {
       const formModals = formModal.querySelectorAll('.form-item');
       mapItems(formModals);
     }
-  } catch(e) {
+  } catch (e) {
   }
   try {
     if (formReserve) {
@@ -167,7 +167,7 @@ const addItemListen = () => {
       };
       itemTextarea.addEventListener('input', onChange, true);
     }
-  } catch(e) {
+  } catch (e) {
   }
 };
 
@@ -199,7 +199,7 @@ const validate = (value = '', item, regs = {}) => {
   if (negateReg && negateReg.test(value)) {
     item.setAttribute('data-err', item.getAttribute('data-input'));
     item.className = "form-item err";
-    return false; 
+    return false;
   }
 
   item.className = "form-item";
@@ -277,12 +277,12 @@ const submitForm = () => {
 };
 
 const submitModalForm = () => {
-  const  name = formModal.name.value;
-  const  email = formModal.email.value;
-  const  mobile = formModal.mobile.value;
-  const  company = formModal.company.value;
-  const  department = formModal.department.value;
-  const  title = formModal.title.value;
+  const name = formModal.name.value;
+  const email = formModal.email.value;
+  const mobile = formModal.mobile.value;
+  const company = formModal.company.value;
+  const department = formModal.department.value;
+  const title = formModal.title.value;
   const params = {
     name,
     email,
@@ -513,7 +513,7 @@ const onSucceed = () => {
   if (tootipSucceed) {
     showCover();
     tootipSucceed.className = 'tootip-modal tootip-modal-show';
-    setTimeout(function() {
+    setTimeout(function () {
       hideTootip()
       hideCover()
     }, 3000)
@@ -524,7 +524,7 @@ const onErr = () => {
   if (tootipErr) {
     showCover();
     tootipErr.className = 'tootip-modal tootip-modal-show';
-    setTimeout(function() {
+    setTimeout(function () {
       hideTootip()
       hideCover()
     }, 3000)
@@ -554,7 +554,7 @@ const requestWx = (url, params) => {
       }
     }
   )
-    .then(function(response) {
+    .then(function (response) {
       if (response.status >= 200 && response.status < 300) {
         return response.json();
       }
@@ -703,7 +703,7 @@ const submitRegister = () => {
   const registerVerifiedCode = registerForm.registerVerifiedCode.value
   const registerPasswordSet = registerForm.registerPasswordSet.value
   const registerPasswordConfirm = registerForm.registerPasswordConfirm.value
-  const  registerDisplayName = registerForm.registerDisplayName.value
+  const registerDisplayName = registerForm.registerDisplayName.value
   const inputDomains = document.getElementsByClassName('input-domain')
   let errorNum = 0
   if (!registerUrl) {
@@ -741,7 +741,7 @@ const submitRegister = () => {
     return false
   }
   const email_domains = [];
-  for(let i = 0; i < inputDomains.length; i++) {
+  for (let i = 0; i < inputDomains.length; i++) {
     if (inputDomains[i].value) {
       email_domains.push(inputDomains[i].value)
     }
@@ -760,13 +760,13 @@ const submitRegister = () => {
   }
 
   request('/team/create', params)
-  .then(({ data }) => {
-    if (data) {
-      
-    } else {
+    .then(({ data }) => {
+      if (data) {
 
-    }
-  });
+      } else {
+
+      }
+    });
 }
 
 const sendVerification = () => { //发送存储验证码
@@ -778,14 +778,14 @@ const sendVerification = () => { //发送存储验证码
     code_type: 2
   }
   request('/auth/code', params)
-  .then(({ data }) => {
-    if (data) {
-      if (data.code_hash) {
-        sessionStorage.setItem("verify", data.code_hash)
+    .then(({ data }) => {
+      if (data) {
+        if (data.code_hash) {
+          sessionStorage.setItem("verify", data.code_hash)
+        }
+      } else {
       }
-    } else {
-    }
-  });
+    });
 }
 
 const currentError = (node) => { //校验当前是否为错误状态
@@ -961,7 +961,7 @@ const focusPriceList = (node, i) => {
     '4': '#f5a623'
   }
   const priceLists = document.getElementsByClassName('price-list')
-  for(let i = 1; i < priceLists.length; i++) {
+  for (let i = 1; i < priceLists.length; i++) {
     priceLists[i].style.border = 'none'
   }
   node.style.border = "2px solid " + colorLists[i]
@@ -1025,7 +1025,7 @@ const submitDemo = () => {
   }
   request('/website/trail', params).then((data) => {
     if (data) {
-      
+
     } else {
 
     }
@@ -1116,13 +1116,13 @@ window.onload = function () {
   window.onscroll = changeHeader
   const freeBtns = document.getElementsByClassName('free-btn')
   if (freeBtns) {
-    for(let i = 0; i < freeBtns.length; i ++) {
+    for (let i = 0; i < freeBtns.length; i++) {
       freeBtns[i].onclick = toRegister
     }
   }
   const demoBtns = document.getElementsByClassName('demo-btn');
   if (demoBtns) {
-    for(let i = 0; i < demoBtns.length; i ++) {
+    for (let i = 0; i < demoBtns.length; i++) {
       demoBtns[i].onclick = toDemo
     }
   }
@@ -1136,125 +1136,6 @@ window.onload = function () {
 
   if (industryLink) {
     industryLink.addEventListener('click', showIndustryModal, true)
-  }
-
-  //mobile nav menu
-  const mNavMenu = document.getElementById("nav-menu-id");
-  const mNavClose = document.getElementById("nav-modal-close-id");
-  if (mNavMenu) {
-    const show = (e) => {
-      e.stopPropagation();
-      toggleNavModalVisible('show')
-    };
-    mNavMenu.addEventListener('click', show, true);
-  }
-  if (mNavClose) {
-    const hide = () => toggleNavModalVisible('hide');
-    mNavClose.addEventListener('click', hide, true);
-  }
-
-  const loginProduct = document.getElementById('login-product');
-
-  const upBtn = document.getElementById('up-btn');
-  const downBtn = document.getElementById('down-btn');
-
-  if (loginProduct) {
-    loginProduct.addEventListener('click', opentNewWindow, true);
-  }
-
-  const priceLists = document.getElementsByClassName('price-list')
-  if (priceLists) {
-    for(let i = 1; i < priceLists.length; i ++) {
-      priceLists[i].addEventListener('click', function(){ focusPriceList(priceLists[i], i) }, true)
-    }
-  }
-
-  // cards up down
-  if (upBtn) {
-    upBtn.addEventListener('click', upCard, true);
-  }
-  if (downBtn) {
-    downBtn.addEventListener('click', nextCard, true);
-  }
-
-  if (loginModal) {
-    loginModal.addEventListener('click', function(e) {
-      e.stopPropagation();
-    }, false);
-  }
-  if (navLogin) {
-    navLogin.addEventListener('click', toggleLoginModalVisible, true);
-  }
-  if (formReserveSubmitBtn) {
-    formReserveSubmitBtn.addEventListener('click', submitFormReserve, true);
-  }
-  if (formSubmitBtn) {
-    formSubmitBtn.addEventListener('click', submitForm, true);
-  }
-  if (logo) {
-    logo.addEventListener('click', jumpHomePage, true);
-  }
-  if (footerLogo) {
-    footerLogo.addEventListener('click', jumpHomePage, true);
-  }
-
-  // root listen
-  document.getElementById('root').addEventListener('click', function() {
-    closeApplicationModal();
-    closeleLoginModal();
-    toggleNavModalVisible('hide');
-    hideTootip();
-    closeIndustryModal();
-  }, false);
-
-  // cover listen
-  document.getElementById('cover').addEventListener('click', function() {
-    closeApplicationModal();
-    clearFormModal();
-    closeleLoginModal();
-    toggleNavModalVisible('hide');
-    hideTootip();
-  }, false);
-
-  // tootip listent
-  document.getElementById('tootip-succeed').addEventListener('click', function() {
-    hideTootip();
-  }, true);
-  document.getElementById('tootip-err').addEventListener('click', function() {
-    hideTootip();
-  }, true);
-
-
-  const modalIdClose = document.getElementById('modal-id-close');
-  modalIdClose.onclick = () => {
-    closeApplicationModal();
-    clearFormModal();
-  };
-
-  var joinLists = document.getElementsByClassName('list-item');
-  var joinListsLength = joinLists.length;
-  for (var joinListsIndex = 0; joinListsIndex < joinListsLength; joinListsIndex++) {
-    var item = joinLists[joinListsIndex];
-    var aelement = item.getElementsByTagName('a');
-    const target = joinListsIndex;
-    aelement[0].onclick = function() {
-      joinListOnClick(target);
-    };
-  }
-
-  const cards = document.getElementsByClassName('card-btn');
-  const cardsLength = cards.length;
-  let currentIndex = 0;
-  for (let cardsIndex = 0; cardsIndex < cardsLength; cardsIndex++) {
-    const item = cards[cardsIndex];
-    item.onclick= toggleApplicationModalVisible;
-  };
-
-  // items onchange
-  addItemListen();
-  const loginCell = document.body.querySelector('.login-cell');
-  if (loginCell) {
-    loginCell.addEventListener('keydown', loginCellOnKeyDown, true);
   }
 
   /**********************************/
@@ -1284,22 +1165,22 @@ window.onload = function () {
     sendVerifyBtn.addEventListener('click', sendVerification, true)
   }
   if (registerUrlInput) {
-    registerUrlInput.addEventListener('input', function(e){ utlInputValidate(e.target.value) })
+    registerUrlInput.addEventListener('input', function (e) { utlInputValidate(e.target.value) })
   }
   if (verifyCodeInput) {
-    verifyCodeInput.addEventListener('input', function(e){ verifyCodeValidate(e.target.value) })
+    verifyCodeInput.addEventListener('input', function (e) { verifyCodeValidate(e.target.value) })
   }
   if (registerGroupName) {
-    registerGroupName.addEventListener('input', function(e){ groupNameValidate(e.target.value) })
+    registerGroupName.addEventListener('input', function (e) { groupNameValidate(e.target.value) })
   }
   if (registerEmail) {
-    registerEmail.addEventListener('input', function(e){ registerEmailMobileValidate(e.target.value) })
+    registerEmail.addEventListener('input', function (e) { registerEmailMobileValidate(e.target.value) })
   }
   if (passwordSet) {
-    passwordSet.addEventListener('input', function(e) { passwordSetValidate(e.target.value) })
+    passwordSet.addEventListener('input', function (e) { passwordSetValidate(e.target.value) })
   }
   if (passwordConfirm) {
-    passwordConfirm.addEventListener('input', function(e){ passwordConfirmValidate(e.target.value) })
+    passwordConfirm.addEventListener('input', function (e) { passwordConfirmValidate(e.target.value) })
   }
 
   if (demoSubmitBtn) {
@@ -1310,4 +1191,125 @@ window.onload = function () {
     domainOperators[0].addEventListener('click', changeDomainItems, true)
   }
   /**********************************/
+
+  //mobile nav menu
+  const mNavMenu = document.getElementById("nav-menu-id");
+  const mNavClose = document.getElementById("nav-modal-close-id");
+  if (mNavMenu) {
+    const show = (e) => {
+      e.stopPropagation();
+      toggleNavModalVisible('show')
+    };
+    mNavMenu.addEventListener('click', show, true);
+  }
+  if (mNavClose) {
+    const hide = () => toggleNavModalVisible('hide');
+    mNavClose.addEventListener('click', hide, true);
+  }
+
+  const loginProduct = document.getElementById('login-product');
+
+  const upBtn = document.getElementById('up-btn');
+  const downBtn = document.getElementById('down-btn');
+
+  if (loginProduct) {
+    loginProduct.addEventListener('click', opentNewWindow, true);
+  }
+
+  const priceLists = document.getElementsByClassName('price-list')
+  if (priceLists) {
+    for (let i = 1; i < priceLists.length; i++) {
+      priceLists[i].addEventListener('click', function () { focusPriceList(priceLists[i], i) }, true)
+    }
+  }
+
+  // cards up down
+  if (upBtn) {
+    upBtn.addEventListener('click', upCard, true);
+  }
+  if (downBtn) {
+    downBtn.addEventListener('click', nextCard, true);
+  }
+
+  if (loginModal) {
+    loginModal.addEventListener('click', function (e) {
+      e.stopPropagation();
+    }, false);
+  }
+  if (navLogin) {
+    navLogin.addEventListener('click', toggleLoginModalVisible, true);
+  }
+  if (formReserveSubmitBtn) {
+    formReserveSubmitBtn.addEventListener('click', submitFormReserve, true);
+  }
+  if (formSubmitBtn) {
+    formSubmitBtn.addEventListener('click', submitForm, true);
+  }
+  if (logo) {
+    logo.addEventListener('click', jumpHomePage, true);
+  }
+  if (footerLogo) {
+    footerLogo.addEventListener('click', jumpHomePage, true);
+  }
+
+  // root listen
+  document.getElementById('root').addEventListener('click', function () {
+    closeApplicationModal();
+    closeleLoginModal();
+    toggleNavModalVisible('hide');
+    hideTootip();
+    closeIndustryModal();
+  }, false);
+
+  // cover listen
+  document.getElementById('cover').addEventListener('click', function () {
+    closeApplicationModal();
+    clearFormModal();
+    closeleLoginModal();
+    toggleNavModalVisible('hide');
+    hideTootip();
+  }, false);
+
+  // tootip listent
+  document.getElementById('tootip-succeed').addEventListener('click', function () {
+    hideTootip();
+  }, true);
+  document.getElementById('tootip-err').addEventListener('click', function () {
+    hideTootip();
+  }, true);
+
+
+  const modalIdClose = document.getElementById('modal-id-close');
+  modalIdClose.onclick = () => {
+    closeApplicationModal();
+    clearFormModal();
+  };
+
+  var joinLists = document.getElementsByClassName('list-item');
+  var joinListsLength = joinLists.length;
+  for (var joinListsIndex = 0; joinListsIndex < joinListsLength; joinListsIndex++) {
+    var item = joinLists[joinListsIndex];
+    var aelement = item.getElementsByTagName('a');
+    const target = joinListsIndex;
+    aelement[0].onclick = function () {
+      joinListOnClick(target);
+    };
+  }
+
+  const cards = document.getElementsByClassName('card-btn');
+  const cardsLength = cards.length;
+  let currentIndex = 0;
+  for (let cardsIndex = 0; cardsIndex < cardsLength; cardsIndex++) {
+    const item = cards[cardsIndex];
+    item.onclick = toggleApplicationModalVisible;
+  };
+
+  // items onchange
+  addItemListen();
+  const loginCell = document.body.querySelector('.login-cell');
+  if (loginCell) {
+    loginCell.addEventListener('keydown', loginCellOnKeyDown, true);
+  }
+
+
 }
