@@ -1162,6 +1162,13 @@ window.onload = function () {
     loginProduct.addEventListener('click', opentNewWindow, true);
   }
 
+  const priceLists = document.getElementsByClassName('price-list')
+  if (priceLists) {
+    for(let i = 1; i < priceLists.length; i ++) {
+      priceLists[i].addEventListener('click', function(){ focusPriceList(priceLists[i], i) }, true)
+    }
+  }
+
   // cards up down
   if (upBtn) {
     upBtn.addEventListener('click', upCard, true);
@@ -1251,7 +1258,6 @@ window.onload = function () {
   }
 
   /**********************************/
-  const priceLists = document.getElementsByClassName('price-list')
 
   const registerGroupRadio = document.getElementById('comp-group')
   const registerFreeRadio = document.getElementById('free-group')
@@ -1294,12 +1300,6 @@ window.onload = function () {
   }
   if (passwordConfirm) {
     passwordConfirm.addEventListener('input', function(e){ passwordConfirmValidate(e.target.value) })
-  }
-
-  if (priceLists) {
-    for(let i = 1; i < priceLists.length; i ++) {
-      priceLists[i].addEventListener('click', function(){ focusPriceList(priceLists[i], i) }, true)
-    }
   }
 
   if (demoSubmitBtn) {
