@@ -63,21 +63,6 @@ const hideCover = () => {
   }
 };
 
-
-const toggleApplicationModalVisible = (e) => {
-  e.stopPropagation();
-  const applicationModal = document.getElementById('modal-application');
-  const className = applicationModal.className;
-  if (className === 'modal') {
-    showCover();
-    applicationModal.className = 'modal modal-show';
-  } else {
-    document.removeEventListener('root').addEventListener('click', closeApplicationModal, false);
-    hideCover();
-    applicationModal.className = 'modal';
-  }
-};
-
 const closeApplicationModal = () => {
   const applicationModal = document.getElementById('modal-application');
   if (applicationModal) {
@@ -276,66 +261,6 @@ const submitForm = () => {
     });
 };
 
-const submitModalForm = () => {
-  const name = formModal.name.value;
-  const email = formModal.email.value;
-  const mobile = formModal.mobile.value;
-  const company = formModal.company.value;
-  const department = formModal.department.value;
-  const title = formModal.title.value;
-  const params = {
-    name,
-    email,
-    mobile,
-    company,
-    department,
-    title,
-    source: SOURCE
-  };
-
-  const allItem = formModal.querySelectorAll('.form-item');
-
-  const validateAll = () => {
-    let isErr = false;
-    if (!validate(name, allItem[0])) {
-      isErr = true;
-    }
-    if (!validate(email, allItem[1], { negateReg: emailReg })) {
-      isErr = true;
-    }
-    if (!validate(mobile, allItem[2], { reg: mobileReg })) {
-      isErr = true;
-    }
-    if (!validate(company, allItem[3])) {
-      isErr = true;
-    }
-    if (!validate(department, allItem[4])) {
-      isErr = true;
-    }
-    if (!validate(title, allItem[5])) {
-      isErr = true;
-    }
-    return isErr;
-  };
-
-  if (
-    validateAll()
-  ) {
-    return false;
-  }
-
-  request('/website/trail', params)
-    .then(({ data }) => {
-      if (data) {
-        onSucceed();
-        closeApplicationModal();
-        clearFormModal();
-      } else {
-        onErr();
-      }
-    });
-};
-
 const clearFormReserve = () => {
   formReserve.name.value = "";
   formReserve.email.value = "";
@@ -415,58 +340,6 @@ const submitFormReserve = () => {
         onErr();
       }
     });
-};
-
-const nextCard = () => {
-  const cards = document.getElementsByClassName('show-card');
-  const cardsLength = cards.length;
-  let currentIndex = 0;
-  let currentItem = null;
-  for (let cardsIndex = 0; cardsIndex < cardsLength; cardsIndex++) {
-    const item = cards[cardsIndex];
-    const className = item.className;
-    if (className === 'show-card show') {
-      currentIndex = cardsIndex;
-      currentItem = item;
-    }
-  };
-  if (currentItem) {
-    const nextIndex = (currentIndex + 1) % cardsLength;
-    const nextNextIndex = (nextIndex + 1) % cardsLength;
-    const upIndex = (cardsLength + currentIndex - 1) % cardsLength;
-    currentItem.className = 'show-card';
-    cards[nextIndex].className = 'show-card show';
-
-    cards[nextIndex].style.left = '0%';
-    cards[nextNextIndex].style.left = '100%';
-    currentItem.style.left = '-100%';
-  }
-};
-
-const upCard = () => {
-  const cards = document.getElementsByClassName('show-card');
-  const cardsLength = cards.length;
-  let currentIndex = 0;
-  let currentItem = null;
-  for (let cardsIndex = 0; cardsIndex < cardsLength; cardsIndex++) {
-    const item = cards[cardsIndex];
-    const className = item.className;
-    if (className === 'show-card show') {
-      currentIndex = cardsIndex;
-      currentItem = item;
-    }
-  };
-  if (currentItem) {
-    const nextIndex = (currentIndex + 1) % cardsLength;
-    const upIndex = (cardsLength + currentIndex - 1) % cardsLength;
-    const upUpIndex = (cardsLength + upIndex - 1) % cardsLength;
-    currentItem.className = 'show-card';
-    cards[upIndex].className = 'show-card show';
-
-    cards[upIndex].style.left = '0%';
-    currentItem.style.left = '100%';
-    cards[upUpIndex].style.left = '-100%';
-  }
 };
 
 const opentNewWindow = () => {
@@ -1099,6 +972,113 @@ const changeHeader = () => {
 
 /*********************************/
 
+/**********mobile start***********/
+const industryScrollLeft = () => {
+  const casourelSection = document.getElementsByClassName('casourel-section')[0]
+  const scrollStep = casourelSection.offsetWidth;
+  const carouselList = document.getElementsByClassName('casourel-list')[0];
+  const carouseItemlength = carouselList.getElementsByTagName('li').length
+  const speed = 30
+  const target = carouselList.offsetLeft - scrollStep
+  let timer = setInterval(() => {
+    carouselList.style.left = carouselList.offsetLeft - speed + 'px'
+    if (target >= carouselList.offsetLeft) {
+      carouselList.style.left = target + 'px'
+      if (carouselList.offsetLeft <= -scrollStep * (carouseItemlength - 1)) {
+        carouselList.style.left = -scrollStep + 'px'
+      }
+      clearInterval(timer)
+    }
+  }, 10)
+}
+const industryScrollRight = () => {
+  const casourelSection = document.getElementsByClassName('casourel-section')[0]
+  const scrollStep = casourelSection.offsetWidth;
+  const carouselList = document.getElementsByClassName('casourel-list')[0];
+  const carouseItemlength = carouselList.getElementsByTagName('li').length
+  // carouselList.style.left = carouselList.offsetLeft + scrollStep + 'px'
+  const target = carouselList.offsetLeft + scrollStep
+  const speed = 30
+  let timer = setInterval(() => {
+    carouselList.style.left = carouselList.offsetLeft + speed + 'px'
+    if (target <= carouselList.offsetLeft) {
+      carouselList.style.left = target + 'px'
+      if (carouselList.offsetLeft >= 0) {
+        carouselList.style.left = -scrollStep * (carouseItemlength - 2) + 'px'
+      }
+      clearInterval(timer)
+    }
+  }, 10)
+}
+
+const submitFeedback = () => {
+  const name = feedbackForm.feedbackName.value;
+  const email = feedbackForm.feedbackEmail.value;
+  const mobile = feedbackForm.feedbackMobile.value;
+  const company = feedbackForm.feedbackCompany.value;
+  const remark = feedbackForm.feedbackRemark.value
+  let errNum = 0;
+  if (!name) {
+    const errNode = feedbackForm.feedbackName.parentNode;
+    errNode.className = errNode.className.indexOf('error') > -1 ? errNode.className : errNode.className + ' error'
+    errNum += 1
+  }
+  if (!email) {
+    const errNode = feedbackForm.feedbackEmail.parentNode;
+    errNode.className = errNode.className.indexOf('error') > -1 ? errNode.className : errNode.className + ' error'
+    errNum += 1
+  }
+  if (!mobile) {
+    const errNode = feedbackForm.feedbackMobile.parentNode;
+    errNode.className = errNode.className.indexOf('error') > -1 ? errNode.className : errNode.className + ' error'
+    errNum += 1
+  }
+  if (!company) {
+    const errNode = feedbackForm.feedbackCompany.parentNode;
+    errNode.className = errNode.className.indexOf('error') > -1 ? errNode.className : errNode.className + ' error'
+    errNum += 1
+  }
+  if (errNum > 0) {
+    return false
+  }
+  const params = {
+    name,
+    email,
+    mobile,
+    company,
+    remark
+  }
+  request('website/feedback', params).then((data) => {
+
+  })
+}
+
+const changeMobileHeader = () => {
+  const navHeader = document.getElementById('nav-header')
+  const logo = document.getElementById('logo')
+  const menu = document.getElementById('nav-menu-id')
+  if ((document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop) > 0) {
+    const navContent = document.getElementsByClassName('nav-content')[0]
+    if (navContent) {
+      navContent.className = 'nav-scroll-white'
+      navHeader.className = navHeader.className + ' nav-header'
+      logo.src = require("../assets/nav-logo-black.svg")
+      menu.src = require('../mobile/assets/nav-menu.svg')
+    }
+  } else {
+    const navContent = document.getElementsByClassName('nav-scroll-white')[0]
+    if (navContent) {
+      navContent.className = 'nav-content'
+      navHeader.className = navHeader.className.replace(' nav-header', '')
+      if (navHeader.className.indexOf('nav-header') == -1) {
+        logo.src = require("../assets/nav-logo.svg")
+        menu.src = require('../mobile/assets/nav-menu-white.png')
+      }
+    }
+  }
+}
+/**********mobile end*************/
+
 window.onload = function () {
   //wx login
   const wxbtnlogup = document.getElementById('wx-btn-logup');
@@ -1114,6 +1094,7 @@ window.onload = function () {
     wxbtnserverlogin.addEventListener('click', openWxServer, true);
   }
   window.onscroll = changeHeader //
+  document.body.addEventListener('scroll', changeMobileHeader)
   const freeBtns = document.getElementsByClassName('free-btn') //免费注册按钮
   if (freeBtns) {
     for (let i = 0; i < freeBtns.length; i++) {
@@ -1132,6 +1113,11 @@ window.onload = function () {
   const logo = document.getElementById("logo"); //导航logo
   const footerLogo = document.getElementById("footer-logo") //页底logo
   const industryLink = document.getElementById("nav-industry-link") //导航行业信息链接
+
+  const feedbackBtn = document.getElementById('feedback-submit');
+  if (feedbackBtn) {
+    feedbackBtn.addEventListener('click', submitFeedback, true)
+  }
 
   if (industryLink) {
     industryLink.addEventListener('click', showIndustryModal, true)
@@ -1192,7 +1178,7 @@ window.onload = function () {
       priceLists[i].addEventListener('click', function () { focusPriceList(priceLists[i], i) }, true)
     }
   }
-  
+
   if (loginModal) { //登陆弹窗
     loginModal.addEventListener('click', function (e) {
       e.stopPropagation();
@@ -1210,60 +1196,70 @@ window.onload = function () {
   if (footerLogo) { //页底logo
     footerLogo.addEventListener('click', jumpHomePage, true);
   }
+  /***********mobile***********/
+  const industryLeftBtn = document.getElementById('industry-left')
+  const industryRightBtn = document.getElementById('industry-right')
+  if (industryLeftBtn) {
+    industryLeftBtn.addEventListener('click', industryScrollRight, true)
+  }
+  if (industryRightBtn) {
+    industryRightBtn.addEventListener('click', industryScrollLeft, true)
+  }
+  /*********mobile end*********/
 
-    /**********************************/
+  /**********************************/
 
-    const registerGroupRadio = document.getElementById('comp-group')
-    const registerFreeRadio = document.getElementById('free-group')
-    const sendVerifyBtn = document.getElementById('send-verifycode')
-    const verifyCodeInput = document.getElementById('verifycode')
-    const registerUrlInput = document.getElementById('input-url')
-    const registerGroupName = document.getElementById('register-group-name')
-    const registerEmail = document.getElementById('register-email')
-    const passwordSet = document.getElementById('password-set')
-    const passwordConfirm = document.getElementById('password-confirm')
-    const demoSubmitBtn = document.getElementById('demo-submit');
-    const domainOperators = document.getElementsByClassName('input-domain-operator');
-    if (registerGroupRadio) {
-      registerGroupRadio.addEventListener('change', switchToGroup)
-    }
-    if (registerFreeRadio) {
-      registerFreeRadio.addEventListener('change', switchToFree)
-    }
-    const registerBtn = document.getElementById('register-button')
-    if (registerBtn) {
-      registerBtn.addEventListener('click', submitRegister, true);
-    }
-    if (sendVerifyBtn) {
-      sendVerifyBtn.addEventListener('click', sendVerification, true)
-    }
-    if (registerUrlInput) {
-      registerUrlInput.addEventListener('input', function (e) { utlInputValidate(e.target.value) })
-    }
-    if (verifyCodeInput) {
-      verifyCodeInput.addEventListener('input', function (e) { verifyCodeValidate(e.target.value) })
-    }
-    if (registerGroupName) {
-      registerGroupName.addEventListener('input', function (e) { groupNameValidate(e.target.value) })
-    }
-    if (registerEmail) {
-      registerEmail.addEventListener('input', function (e) { registerEmailMobileValidate(e.target.value) })
-    }
-    if (passwordSet) {
-      passwordSet.addEventListener('input', function (e) { passwordSetValidate(e.target.value) })
-    }
-    if (passwordConfirm) {
-      passwordConfirm.addEventListener('input', function (e) { passwordConfirmValidate(e.target.value) })
-    }
-  
-    if (demoSubmitBtn) {
-      demoSubmitBtn.addEventListener('click', submitDemo, true)
-    }
-  
-    if (domainOperators.length > 0) {
-      domainOperators[0].addEventListener('click', changeDomainItems, true)
-    }
-    /**********************************/
+  const registerGroupRadio = document.getElementById('comp-group')
+  const registerFreeRadio = document.getElementById('free-group')
+  const sendVerifyBtn = document.getElementById('send-verifycode')
+  const verifyCodeInput = document.getElementById('verifycode')
+  const registerUrlInput = document.getElementById('input-url')
+  const registerGroupName = document.getElementById('register-group-name')
+  const registerEmail = document.getElementById('register-email')
+  const passwordSet = document.getElementById('password-set')
+  const passwordConfirm = document.getElementById('password-confirm')
+  const demoSubmitBtn = document.getElementById('demo-submit');
+  const domainOperators = document.getElementsByClassName('input-domain-operator');
+  if (registerGroupRadio) {
+    registerGroupRadio.addEventListener('change', switchToGroup)
+  }
+  if (registerFreeRadio) {
+    registerFreeRadio.addEventListener('change', switchToFree)
+  }
+  const registerBtn = document.getElementById('register-button')
+  if (registerBtn) {
+    registerBtn.addEventListener('click', submitRegister, true);
+  }
+  if (sendVerifyBtn) {
+    sendVerifyBtn.addEventListener('click', sendVerification, true)
+  }
+  if (registerUrlInput) {
+    registerUrlInput.addEventListener('input', function (e) { utlInputValidate(e.target.value) })
+  }
+  if (verifyCodeInput) {
+    verifyCodeInput.addEventListener('input', function (e) { verifyCodeValidate(e.target.value) })
+  }
+  if (registerGroupName) {
+    registerGroupName.addEventListener('input', function (e) { groupNameValidate(e.target.value) })
+  }
+  if (registerEmail) {
+    registerEmail.addEventListener('input', function (e) { registerEmailMobileValidate(e.target.value) })
+  }
+  if (passwordSet) {
+    passwordSet.addEventListener('input', function (e) { passwordSetValidate(e.target.value) })
+  }
+  if (passwordConfirm) {
+    passwordConfirm.addEventListener('input', function (e) { passwordConfirmValidate(e.target.value) })
+  }
+
+  if (demoSubmitBtn) {
+    demoSubmitBtn.addEventListener('click', submitDemo, true)
+  }
+
+  if (domainOperators.length > 0) {
+    domainOperators[0].addEventListener('click', changeDomainItems, true)
+  }
+  /**********************************/
 
   // cover listen
   // document.getElementById('cover').addEventListener('click', function () {

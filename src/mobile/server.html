@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>ElephantBI</title>
   <script>
-    !function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}([function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=window;t["default"]=i.flex=function(e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&&parseInt(l[1].split(".").join(""),10)>=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&&d[1]>534||c||(s=1);var u=1/s,m=r.querySelector('meta[name="viewport"]');m||(m=r.createElement("meta"),m.setAttribute("name","viewport"),r.head.appendChild(m)),m.setAttribute("content","width=device-width,user-scalable=no,initial-scale="+u+",maximum-scale="+u+",minimum-scale="+u),r.documentElement.style.fontSize=a/2*s*n+"px"},e.exports=t["default"]}]);
+    !function (e) { function t(a) { if (i[a]) return i[a].exports; var n = i[a] = { exports: {}, id: a, loaded: !1 }; return e[a].call(n.exports, n, n.exports, t), n.loaded = !0, n.exports } var i = {}; return t.m = e, t.c = i, t.p = "", t(0) }([function (e, t) { "use strict"; Object.defineProperty(t, "__esModule", { value: !0 }); var i = window; t["default"] = i.flex = function (e, t) { var a = e || 100, n = t || 1, r = i.document, o = navigator.userAgent, d = o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i), l = o.match(/U3\/((\d+|\.){5,})/i), c = l && parseInt(l[1].split(".").join(""), 10) >= 80, p = navigator.appVersion.match(/(iphone|ipad|ipod)/gi), s = i.devicePixelRatio || 1; p || d && d[1] > 534 || c || (s = 1); var u = 1 / s, m = r.querySelector('meta[name="viewport"]'); m || (m = r.createElement("meta"), m.setAttribute("name", "viewport"), r.head.appendChild(m)), m.setAttribute("content", "width=device-width,user-scalable=no,initial-scale=" + u + ",maximum-scale=" + u + ",minimum-scale=" + u), r.documentElement.style.fontSize = a / 2 * s * n + "px" }, e.exports = t["default"] }]);
     flex(200, 1);
   </script>
   <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
   <script>
     if ('addEventListener' in document) {
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         FastClick.attach(document.body);
       }, false);
     }
-    if(!window.Promise) {
-      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+    if (!window.Promise) {
+      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
     }
   </script>
   <script>
@@ -28,23 +29,24 @@
     window.OAUTHURL = 'OAUTH_URL';
   </script>
 </head>
+
 <body>
-  <div id="root" >
-    <header>
-      <nav class="nav-content" >
-        <ul class="nav-list" >
-          <li class="nav-section logo" >
+  <div id="root">
+    <header id="nav-header" class="nav-header">
+      <nav class="nav-content">
+        <ul class="nav-list">
+          <li class="nav-section logo">
             <image src='<%= require("./assets/nav-logo-black.svg") %>' width=206 height=41 id="logo" />
           </li>
-          <li class="nav-section menu" >
-            <div class="nav-mobile" >
-              <img src='<%= require("./assets/nav-menu.svg") %>' alt="" id="nav-menu-id" >
+          <li class="nav-section menu">
+            <div class="nav-mobile">
+              <img src='<%= require("./assets/nav-menu.svg") %>' alt="" id="nav-menu-id">
             </div>
           </li>
         </ul>
       </nav>
     </header>
-    <main class="main-content" >
+    <main class="main-content">
       <div class="main-header-bg" aria-hidden="true">
         <span></span>
         <span></span>
@@ -57,210 +59,175 @@
         <span></span>
         <span></span>
       </div>
-      <header class="main-header" >
-        <h1 class="title" >服务支持</h1>
-        <span class="description" >ElephantBI拥有专业的商务团队和技术支持团队，将为您提供专业的服务</span>
-        <button class="free-btn" id="free-btn-id" >免费试用</button>
+      <header class="main-header">
+        <h1 class="title">服务支持</h1>
+        <span class="description">ElephantBI拥有专业的商务团队和技术支持团队，将为您提供专业的服务</span>
+        <button class="free-btn demo-btn" id="free-btn-id">预约演示</button>
       </header>
-      <div class="banner" >
-        <image class="banner-image" src='<%= require("./assets/main-header-banner-server.svg") %>' >
+      <div class="banner">
+        <image class="banner-image" src='<%= require("./assets/main-header-banner-server.svg") %>'>
       </div>
-      <section class="server-stage" >
+      <section class="server-stage">
         <ul>
-          <li class="server-title" >
+          <li class="server-title">
             <image src='<%= require("./assets/server-title-icon2.svg") %>' class="server-title-icon" />
             <p>
               商务咨询
             </p>
           </li>
           <li>
-            <image
-              src='<%= require("./assets/footer-phone.png") %>'
-              srcset='
+            <image src='<%= require("./assets/footer-phone.png") %>' srcset='
                 <%= require("./assets/footer-phone.png") %> 18w,
                 <%= require("./assets/footer-phone@2x.png") %> 26w,
-                <%= require("./assets/footer-phone@3x.png") %> 30w'
-              sizes="
+                <%= require("./assets/footer-phone@3x.png") %> 30w' sizes="
                 (max-width:400px) 18px,
                 (max-width:800px) 26px,
-                (max-width:1500px) 30px"
-            />
+                (max-width:1500px) 30px" />
             <span>0411-39026089</span>
           </li>
           <li>
-            <image
-              src='<%= require("./assets/footer-email.png") %>'
-              srcset='
+            <image src='<%= require("./assets/footer-email.png") %>' srcset='
                 <%= require("./assets/footer-email.png") %> 19w,
                 <%= require("./assets/footer-email@2x.png") %> 26w,
-                <%= require("./assets/footer-email@3x.png") %> 30w'
-              sizes="
+                <%= require("./assets/footer-email@3x.png") %> 30w' sizes="
                 (max-width:400px) 19px,
                 (max-width:800px) 26px,
-                (max-width:1500px) 30px"
-            />
+                (max-width:1500px) 30px" />
             <span>bd@elephantbi.com</span>
           </li>
         </ul>
         <ul>
-          <li class="server-title" >
+          <li class="server-title">
             <image src='<%= require("./assets/server-title-icon1.svg") %>' class="server-title-icon" />
             <p>
               技术支持
             </p>
           </li>
           <li>
-            <image
-              src='<%= require("./assets/footer-time.png") %>'
-              srcset='
+            <image src='<%= require("./assets/footer-time.png") %>' srcset='
                 <%= require("./assets/footer-time.png") %> 18w,
                 <%= require("./assets/footer-time@2x.png") %> 26w,
-                <%= require("./assets/footer-time@3x.png") %> 30w'
-              sizes="
+                <%= require("./assets/footer-time@3x.png") %> 30w' sizes="
                 (max-width:400px) 18px,
                 (max-width:800px) 26px,
-                (max-width:1500px) 30px"
-            />
+                (max-width:1500px) 30px" />
             <span>09:00~19:00</span>
           </li>
           <li>
-            <image
-              src='<%= require("./assets/footer-phone.png") %>'
-              srcset='
+            <image src='<%= require("./assets/footer-phone.png") %>' srcset='
                 <%= require("./assets/footer-phone.png") %> 18w,
                 <%= require("./assets/footer-phone@2x.png") %> 26w,
-                <%= require("./assets/footer-phone@3x.png") %> 30w'
-              sizes="
+                <%= require("./assets/footer-phone@3x.png") %> 30w' sizes="
                 (max-width:400px) 18px,
                 (max-width:800px) 26px,
-                (max-width:1500px) 30px"
-            />
+                (max-width:1500px) 30px" />
             <span>18004083463</span>
           </li>
           <li>
-            <image
-              src='<%= require("./assets/footer-email.png") %>'
-              srcset='
+            <image src='<%= require("./assets/footer-email.png") %>' srcset='
                 <%= require("./assets/footer-email.png") %> 19w,
                 <%= require("./assets/footer-email@2x.png") %> 26w,
-                <%= require("./assets/footer-email@3x.png") %> 30w'
-              sizes="
+                <%= require("./assets/footer-email@3x.png") %> 30w' sizes="
                 (max-width:400px) 19px,
                 (max-width:800px) 26px,
-                (max-width:1500px) 30px"
-            />
+                (max-width:1500px) 30px" />
             <span>support@elephantbi.com</span>
           </li>
         </ul>
         <ul>
-          <li class="server-title" >
+          <li class="server-title">
             <image src='<%= require("./assets/server-title-icon3.svg") %>' class="server-title-icon" />
             <p>
               投诉
             </p>
           </li>
           <li>
-            <image
-              src='<%= require("./assets/footer-phone.png") %>'
-              srcset='
+            <image src='<%= require("./assets/footer-phone.png") %>' srcset='
                 <%= require("./assets/footer-phone.png") %> 18w,
                 <%= require("./assets/footer-phone@2x.png") %> 26w,
-                <%= require("./assets/footer-phone@3x.png") %> 30w'
-              sizes="
+                <%= require("./assets/footer-phone@3x.png") %> 30w' sizes="
                 (max-width:400px) 18px,
                 (max-width:800px) 26px,
-                (max-width:1500px) 30px"
-            />
+                (max-width:1500px) 30px" />
             <span>总裁办电话 15910603382</span>
           </li>
         </ul>
       </section>
-      <section class="reserve-form" >
-        <h3 class="reserve-form-title" >反馈与建议</h3>
-        <p class="reserve-form-subtitle" >填写下面的表格，我们将会尽快给您回复</p>
-        <div class="form-input-wrap" >
-          <form action="POST" name="formReserve" >
-            <span class="form-item" data-attr="" >
-              <div class="form-item-title" >姓名</div>
-              <input class="form-input" type="text" name="name" placeholder="请输入姓名" />
-            </span>
-            <span class="form-item" data-attr="" data-input="请输入企业邮箱" >
-              <div class="form-item-title" >邮箱</div>
-              <input class="form-input" type="text" name="email" placeholder="请输入邮箱" />
-            </span>
-            <span class="form-item" data-attr="" data-input="请输入数字(支持+、-)" >
-              <div class="form-item-title" >联系电话</div>
-              <input class="form-input" type="text" name="mobile" placeholder="请输入联系电话" />
-            </span>
-            <span class="form-item" data-attr="" >
-              <div class="form-item-title" >公司名称</div>
-              <input class="form-input" type="text" name="company" placeholder="请输入公司名称" />
-            </span>
-            <span class="form-radio" >
-            <label for="1">
-              <input type="radio" name="type" id="1" checked value="1" />
-              <div class="radio" ></div>
-              问题反馈
-            </label>
-            <label for="2">
-              <input type="radio" name="type" id="2" value="2" />
-              <div class="radio" ></div>
-              功能建议
-            </label>
-          </span>
-          <span class="form-wrap" data-attr="" >
-            <textarea class="form-textarea" name="content" id="content" rows="5" placeholder="请填写您想反馈的问题或建议" ></textarea>
-          </span>
+      <section class="reserve-section">
+        <div class="feedback-section">
+          <div class="feedback-title">我的反馈</div>
+          <div class="feedback-subtitle">请将您的问题或建议填写在下方，如方便可留下联系方式，ElephantBI团队将及时向您反馈处理结果</div>
+          <form name="feedbackForm">
+            <div class="feedback-item">
+              <span class="label">问题或建议</span>
+              <div class="feedback-form-item">
+                <textarea name="feedbackRemark" placeholder="请填写您想反馈的问题或建议"></textarea>
+              </div>
+            </div>
+            <div class="feedback-item">
+              <span class="label">姓名</span>
+              <div class="feedback-form-item" data-err="请输入希望使用的名称">
+                <input id="name" name="feedbackName" placeholder="请输入希望使用的名称" />
+              </div>
+            </div>
+            <div class="feedback-item">
+              <span class="label">邮箱</span>
+              <div class="feedback-form-item" data-err="请输入电子邮箱">
+                <input id="email" name="feedbackEmail" placeholder="请输入电子邮箱" />
+              </div>
+            </div>
+            <div class="feedback-item">
+              <span class="label">联系电话</span>
+              <div class="feedback-form-item" data-err="请输入手机号">
+                <input id="mobile" name="feedbackMobile" placeholder="请输入手机号" />
+              </div>
+            </div>
+            <div class="feedback-item">
+              <span class="label">公司名称</span>
+              <div class="feedback-form-item" data-err="请输入您所在的公司名称">
+                <input id="company" name="feedbackCompany" placeholder="请输入您所在的公司名称" />
+              </div>
+            </div>
           </form>
-          <button class="form-submit-btn" id="form-reserve-submit-btn-id" >提交</button>
+          <button id="feedback-submit">
+            立即预约
+          </button>
         </div>
-        <img class="reserve-form-bg" src='<%= require("./assets/form-bg-server.svg") %>' alt="">
       </section>
+
     </main>
-    <footer class="footer-content" >
-      <ul class="footer-nav" >
-        <li class="footer-nav-icon" >
-          <image
-            src='<%= require("./assets/footer-icon.png") %>'
-            srcset='
+    <footer class="footer-content">
+      <ul class="footer-nav">
+        <li class="footer-nav-icon">
+          <image src='<%= require("./assets/footer-icon.png") %>' srcset='
               <%= require("./assets/footer-icon.png") %> 107w,
               <%= require("./assets/footer-icon@2x.png") %> 214w,
-              <%= require("./assets/footer-icon@3x.png") %> 321w'
-            sizes="
+              <%= require("./assets/footer-icon@3x.png") %> 321w' sizes="
               (max-width:400px) 107px,
               (max-width:800px) 214px,
-              (max-width:1300px) 321px"
-          />
+              (max-width:1300px) 321px" />
         </li>
-        <li class="footer-nav-list" >
+        <li class="footer-nav-list">
           <ul>
-            <li class="footer-list-title" >商务咨询</li>
+            <li class="footer-list-title">商务咨询</li>
             <li>
-              <image
-                src='<%= require("./assets/footer-phone.png") %>'
-                srcset='
+              <image src='<%= require("./assets/footer-phone.png") %>' srcset='
                   <%= require("./assets/footer-phone.png") %> 6w,
                   <%= require("./assets/footer-phone@2x.png") %> 8w,
-                  <%= require("./assets/footer-phone@3x.png") %> 14w'
-                sizes="
+                  <%= require("./assets/footer-phone@3x.png") %> 14w' sizes="
                   (max-width:400px) 6px,
                   (max-width:800px) 8px,
-                  (max-width:1500px) 14px"
-              />
+                  (max-width:1500px) 14px" />
               <span>0411-39026089</span>
             </li>
             <li>
-              <image
-                src='<%= require("./assets/footer-email.png") %>'
-                srcset='
+              <image src='<%= require("./assets/footer-email.png") %>' srcset='
                   <%= require("./assets/footer-email.png") %> 6w,
                   <%= require("./assets/footer-email@2x.png") %> 8w,
-                  <%= require("./assets/footer-email@3x.png") %> 14w'
-                sizes="
+                  <%= require("./assets/footer-email@3x.png") %> 14w' sizes="
                   (max-width:400px) 6px,
                   (max-width:800px) 8px,
-                  (max-width:1500px) 14px"
-              />
+                  (max-width:1500px) 14px" />
               <span>bd@elephantbi.com</span>
             </li>
             <li>
@@ -269,151 +236,106 @@
             </li>
           </ul>
           <ul>
-            <li class="footer-list-title" >技术支持</li>
+            <li class="footer-list-title">技术支持</li>
             <li>
-              <image
-                src='<%= require("./assets/footer-time.png") %>'
-                srcset='
+              <image src='<%= require("./assets/footer-time.png") %>' srcset='
                   <%= require("./assets/footer-time.png") %> 6w,
                   <%= require("./assets/footer-time@2x.png") %> 8w,
-                  <%= require("./assets/footer-time@3x.png") %> 14w'
-                sizes="
+                  <%= require("./assets/footer-time@3x.png") %> 14w' sizes="
                   (max-width:400px) 6px,
                   (max-width:800px) 8px,
-                  (max-width:1500px) 14px"
-              />
+                  (max-width:1500px) 14px" />
               <span>09:00~19:00</span>
             </li>
             <li>
-              <image
-                src='<%= require("./assets/footer-phone.png") %>'
-                srcset='
+              <image src='<%= require("./assets/footer-phone.png") %>' srcset='
                   <%= require("./assets/footer-phone.png") %> 6w,
                   <%= require("./assets/footer-phone@2x.png") %> 8w,
-                  <%= require("./assets/footer-phone@3x.png") %> 14w'
-                sizes="
+                  <%= require("./assets/footer-phone@3x.png") %> 14w' sizes="
                   (max-width:400px) 6px,
                   (max-width:800px) 8px,
-                  (max-width:1500px) 14px"
-              />
+                  (max-width:1500px) 14px" />
               <span>18004083463</span>
             </li>
             <li>
-              <image
-                src='<%= require("./assets/footer-email.png") %>'
-                srcset='
+              <image src='<%= require("./assets/footer-email.png") %>' srcset='
                   <%= require("./assets/footer-email.png") %> 6w,
                   <%= require("./assets/footer-email@2x.png") %> 8w,
-                  <%= require("./assets/footer-email@3x.png") %> 14w'
-                sizes="
+                  <%= require("./assets/footer-email@3x.png") %> 14w' sizes="
                   (max-width:400px) 6px,
                   (max-width:800px) 8px,
-                  (max-width:1500px) 14px"
-              />
+                  (max-width:1500px) 14px" />
               <span>support@elephantbi.com</span>
             </li>
           </ul>
         </li>
-        <li class="footer-nav-sq" >
-          <image
-            src='<%= require("./assets/footer-sq.png") %>'
-            srcset='
+        <li class="footer-nav-sq">
+          <image src='<%= require("./assets/footer-sq.png") %>' srcset='
               <%= require("./assets/footer-sq.png") %> 100w,
               <%= require("./assets/footer-sq@2x.png") %> 200w,
-              <%= require("./assets/footer-sq@3x.png") %> 300w'
-            sizes="
+              <%= require("./assets/footer-sq@3x.png") %> 300w' sizes="
               (max-width:400px) 100px,
               (max-width:800px) 200px,
-              (max-width:1300px) 300px"
-          />
-          <span class="footer-nav-sq-description" >关注 ElephantBI</span>
+              (max-width:1300px) 300px" />
+          <span class="footer-nav-sq-description">关注 ElephantBI</span>
         </li>
       </ul>
-      <div class="record" >辽ICP备18008272号</div>
+      <div class="record">辽ICP备18008272号</div>
     </footer>
   </div>
-  <div class="modal" id="modal-application" >
-    <a href="javascript:void(0)" id="modal-id-close" class="modal-close" >
-      X
-    </a>
-    <h3 class="title" >
-      预约体验ElephantBI
-    </h3>
-    <p class="sub-title" >
-      ElephantBI团队将尽快和您联系
-    </p>
-    <form action="POST" name="formModal" >
-      <span class="form-item" data-attr="" >
-        <img src='<%= require("./assets/input-name.png") %>' width=16 height=16 />
-        <input class="form-input" type="text" name="name" placeholder="请输入姓名" />
-      </span>
-      <span class="form-item" data-attr="" data-input="请输入企业邮箱" >
-        <img src='<%= require("./assets/input-email.png") %>' width=16 height=16 />
-        <input class="form-input" type="text" name="email" placeholder="请输入邮箱" />
-      </span>
-      <span class="form-item" data-attr="" data-input="请输入数字(支持+、-)" >
-        <img src='<%= require("./assets/input-phone.png") %>' width=16 height=16 />
-        <input class="form-input" type="text" name="mobile" placeholder="请输入联系电话" />
-      </span>
-      <span class="form-item" data-attr="" >
-        <img src='<%= require("./assets/input-companyname.png") %>' width=16 height=16 />
-        <input class="form-input" type="text" name="company" placeholder="请输入公司名称" />
-      </span>
-      <span class="form-item" data-attr="" >
-        <img src='<%= require("./assets/input-department.png") %>' width=16 height=16 />
-        <input class="form-input" type="text" name="department" placeholder="请输入所属部门" />
-      </span>
-      <span class="form-item" data-attr="" >
-        <img src='<%= require("./assets/input-position.png") %>' width=16 height=16 />
-        <input class="form-input" type="text" name="title" placeholder="请输入职位" />
-      </span>
-    </form>
-    <button class="modal-submint" id="form-modal-submit-btn-id" >提交</button>
-  </div>
-  <div class="nav-modal" id="nav-modal-id" >
-    <img src='<%= require("./assets/nav-modal-close.png") %>' width="28" height="28" class="nav-close" id="nav-modal-close-id" >
-    <img src='<%= require("./assets/nav-modal-icon.png") %>' class="nav-icon" alt="" width="105" height="21" style="visibility:hidden" >
-    <ul class="nav-content" >
-      <li class="nav-item" >
+  <div class="nav-modal" id="nav-modal-id">
+    <img src='<%= require("./assets/nav-modal-close.png") %>' width="28" height="28" class="nav-close" id="nav-modal-close-id">
+    <img src='<%= require("./assets/nav-modal-icon.png") %>' class="nav-icon" alt="" width="105" height="21" style="visibility:hidden">
+    <ul class="nav-modal-content">
+      <li class="nav-item">
         <img src='<%= require("./assets/nav-icon1.png") %>' alt="">
-        <a href="./index.html" class="nav-1" >首页</a>
+        <a href="./index.html" class="nav-1">首页</a>
       </li>
-      <li class="nav-item" >
+      <li class="nav-item">
         <img src='<%= require("./assets/nav-icon2.png") %>' alt="">
-        <a href="./product.html" class="nav-2" >企业微信</a>
+        <a href="./product.html" class="nav-2">产品介绍</a>
       </li>
-      <li class="nav-item" >
+      <li class="nav-item">
+        <img src='<%= require("./assets/nav-icon5.png") %>' alt="">
+        <a href="./demo.html" class="nav-3">预约演示</a>
+      </li>
+      <li class="nav-item">
+        <img src='<%= require("./assets/nav-icon6.png") %>' alt="">
+        <a href="./price.html" class="nav-4">价格</a>
+      </li>
+      <li class="nav-item">
         <img src='<%= require("./assets/nav-icon3.png") %>' alt="">
-        <a href="./server.html" class="nav-3" >服务支持</a>
+        <a href="./server.html" class="nav-5">服务支持</a>
       </li>
-      <li class="nav-item" >
+      <li class="nav-item">
         <img src='<%= require("./assets/nav-icon4.png") %>' alt="">
-        <a href="./about.html" class="nav-4" >关于我们</a>
+        <a href="./about.html" class="nav-6">关于我们</a>
       </li>
     </ul>
   </div>
   <div id="cover"></div>
-  <div class="tootip-modal" id="tootip-succeed" >
-    <div class="tootip-icon" >
-      <div class="tooptip-succeed" >
+  <div class="tootip-modal" id="tootip-succeed">
+    <div class="tootip-icon">
+      <div class="tooptip-succeed">
         <img src='<%= require("./assets/tootip-succeed.png") %>' alt="">
       </div>
     </div>
-    <div class="tootip-content" >
-      <div class="tootip-title" >提交成功</div>
-      <div class="tootip-description" >ElephantBI团队会尽快跟您联系</div>
+    <div class="tootip-content">
+      <div class="tootip-title">提交成功</div>
+      <div class="tootip-description">ElephantBI团队会尽快跟您联系</div>
     </div>
   </div>
-  <div class="tootip-modal" id="tootip-err" >
-    <div class="tootip-icon" >
-      <div class="tooptip-err" >
+  <div class="tootip-modal" id="tootip-err">
+    <div class="tootip-icon">
+      <div class="tooptip-err">
         <img src='<%= require("./assets/tootip-err.png") %>' alt="">
       </div>
     </div>
-    <div class="tootip-content" >
-      <div class="tootip-title" >提交失败</div>
-      <div class="tootip-description" >请电话联系：0411-39026089</div>
+    <div class="tootip-content">
+      <div class="tootip-title">提交失败</div>
+      <div class="tootip-description">请电话联系：0411-39026089</div>
     </div>
   </div>
 </body>
+
 </html>
