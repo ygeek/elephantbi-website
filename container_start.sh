@@ -10,6 +10,12 @@ productFile=/usr/share/nginx/html/product.html
 sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $productFile
 aboutFile=/usr/share/nginx/html/about.html
 sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $aboutFile
+demoFile=/usr/share/nginx/html/demo.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $demoFile
+priceFile=/usr/share/nginx/html/price.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $priceFile
+registerFile=/usr/share/nginx/html/register.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $registerFile
 
 indexFile=/usr/share/nginx/html/index.html
 sed -i "s/WX_CORP_ID/${WX_CORP_ID}/g" $indexFile
