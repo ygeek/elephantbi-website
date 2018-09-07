@@ -105,7 +105,9 @@
             <img src="<%= require('./assets/group.png') %>" width=18 height=16 /> 团队信息
           </div>
           <div class="divider"></div>
-          <label for="register-url">设置登陆网址<span class="required">*</span></label>
+          <label for="register-url">设置登陆网址
+            <span class="required">*</span>
+          </label>
           <span class="register-form-item" data-err="请输入团队域名" style="margin-bottom: 4px;">
             <div class="register-block">
               <input id="input-url" type="text" name="registerUrl" placeholder="请输入团队域名">
@@ -113,11 +115,15 @@
             </div>
           </span>
           <div class="url-description" style="margin-bottom: 10px;">团队创建完成后，使用此登录地址直接跳转团队页面，支持英文字母及数字</div>
-          <label for="register-group-name">团队名称<span class="required">*</span></label>
+          <label for="register-group-name">团队名称
+            <span class="required">*</span>
+          </label>
           <span class="register-form-item" data-err="请输入团队名称">
             <input class="normal-input" id="register-group-name" name="registerGroupName" placeholder="请输入团队名称" type="text" />
           </span>
-          <label class="fake-label">团队类型<span class="required">*</span></label>
+          <label class="fake-label">团队类型
+            <span class="required">*</span>
+          </label>
           <span class="radio-field">
             <div>
               <input type="radio" id="comp-group" checked name="registerType" />
@@ -145,13 +151,19 @@
             <img src="<%= require('./assets/user.png') %>" width=16 height=16 /> 个人信息
           </div>
           <div class="divider"></div>
-          <label for="register-email" id="switch-label">电子邮箱<span class="required">*</span></label>
+          <label for="register-email" id="switch-label">电子邮箱
+            <span class="required">*</span>
+          </label>
           <span class="register-form-item" data-err="请输入电子邮箱">
             <input id="register-email" class="normal-input" name="registerEmail" placeholder="请输入登录团队使用的邮箱" />
           </span>
-          <label for="nc-container" id="nc-container-label">人机验证<span class="required">*</span></label>
-          <div id="nc-container" class="nc-container normal-input"></div>
-          <label for="verifycode">验证码<span class="required">*</span></label>
+          <label for="nc-container" id="nc-container-label">人机验证
+            <span class="required">*</span>
+          </label>
+          <div id="nc-container" class="nc-container normal-input register-form-item" data-err="请进行人机验证"></div>
+          <label for="verifycode">验证码
+            <span class="required">*</span>
+          </label>
           <span class="register-form-item" data-err="请输入验证码" style="margin-bottom: 16px;">
             <div class="register-block">
               <input id="verifycode" placeholder="请输入验证码" name="registerVerifiedCode" />
@@ -160,11 +172,15 @@
               </span>
             </div>
           </span>
-          <label for="password-set">设置密码<span class="required">*</span></label>
+          <label for="password-set">设置密码
+            <span class="required">*</span>
+          </label>
           <span class="register-form-item" data-err="请输入密码">
             <input id="password-set" class="normal-input" name="registerPasswordSet" placeholder="请输入希望使用的密码" />
           </span>
-          <label for="password-confirm">确认密码<span class="required">*</span></label>
+          <label for="password-confirm">确认密码
+            <span class="required">*</span>
+          </label>
           <span class="register-form-item" data-err="请输入确认密码">
             <input id="password-confirm" class="normal-input" name="registerPasswordConfirm" placeholder="请输入相同的密码" />
           </span>
@@ -202,45 +218,52 @@
     </div>
   </div>
   <script type="text/javascript">
-    var nc_token = ["CF_APP_1", (new Date()).getTime(), Math.random()].join(':');
-    var NC_Opt = 
+    var nc_token = ["FFFF0N00000000006B06", (new Date()).getTime(), Math.random()].join(':');
+    var NC_Opt =
     {
-        renderTo: "nc-container",
-        appkey: "CF_APP_1",
-        scene: "register",
-        token: nc_token,
-        customWidth: 244,
-        trans:{"key1":"code0"},
-        elementID: ["usernameID"],
-        is_Opt: 0,
-        language: "cn",
-        isEnabled: true,
-        timeout: 3000,
-        times:5,
-        apimap: {
-            // 'analyze': '//a.com/nocaptcha/analyze.jsonp',
-            // 'get_captcha': '//b.com/get_captcha/ver3',
-            // 'get_captcha': '//pin3.aliyun.com/get_captcha/ver3'
-            // 'get_img': '//c.com/get_img',
-            // 'checkcode': '//d.com/captcha/checkcode.jsonp',
-            // 'umid_Url': '//e.com/security/umscript/3.2.1/um.js',
-            // 'uab_Url': '//aeu.alicdn.com/js/uac/909.js',
-            // 'umid_serUrl': 'https://g.com/service/um.json'
-        },   
-        callback: function (data) { 
-            window.console && console.log(nc_token)
-            window.console && console.log(data.csessionid)
-            window.console && console.log(data.sig)
+      renderTo: "nc-container",
+      appkey: "FFFF0N00000000006B06",
+      scene: "register",
+      token: nc_token,
+      customWidth: 244,
+      trans: { "key1": "code0" },
+      elementID: ["usernameID"],
+      is_Opt: 0,
+      language: "cn",
+      isEnabled: true,
+      timeout: 3000,
+      times: 5,
+      apimap: {
+        // 'analyze': '//a.com/nocaptcha/analyze.jsonp',
+        // 'get_captcha': '//b.com/get_captcha/ver3',
+        // 'get_captcha': '//pin3.aliyun.com/get_captcha/ver3'
+        // 'get_img': '//c.com/get_img',
+        // 'checkcode': '//d.com/captcha/checkcode.jsonp',
+        // 'umid_Url': '//e.com/security/umscript/3.2.1/um.js',
+        // 'uab_Url': '//aeu.alicdn.com/js/uac/909.js',
+        // 'umid_serUrl': 'https://g.com/service/um.json'
+      },
+      callback: function (data) {
+        window.console && console.log(nc_token)
+        window.console && console.log(data.csessionid)
+        window.console && console.log(data.sig)
+        const params = {
+          scene: "register",
+          nc_token,
+          csessionid: data.csessionid,
+          sig: data.sig
         }
+        sessionStorage.setItem('aliVerification', JSON.stringify(params))
+      }
     }
     var nc = new noCaptcha(NC_Opt)
     nc.upLang('cn', {
-        _startTEXT: "请按住滑块，拖动到最右边",
-        _yesTEXT: "验证通过",
-        _error300: "哎呀，出错了，点击<a href=\"javascript:__nc.reset()\">刷新</a>再来一次",
-        _errorNetwork: "网络不给力，请<a href=\"javascript:__nc.reset()\">点击刷新</a>",
+      _startTEXT: "请按住滑块，拖动到最右边",
+      _yesTEXT: "验证通过",
+      _error300: "哎呀，出错了，点击<a href=\"javascript:__nc.reset()\">刷新</a>再来一次",
+      _errorNetwork: "网络不给力，请<a href=\"javascript:__nc.reset()\">点击刷新</a>",
     })
-    </script>
+  </script>
 </body>
 
 </html>

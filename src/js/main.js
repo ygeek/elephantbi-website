@@ -579,6 +579,13 @@ const submitRegister = () => {
   const registerDisplayName = registerForm.registerDisplayName.value
   const inputDomains = document.getElementsByClassName('input-domain')
   let errorNum = 0
+  const aliVerification = JSON.parse(sessionStorage.getItem('aliVerification'))
+  if (!aliVerification) {
+    const ncContainer = document.getElementById('nc-container')
+    ncContainer.className = ncContainer.className + ' error'
+    errorNum += 1
+    sessionStorage.removeItem('aliVerification')
+  }
   if (!registerUrl) {
     const formItem = registerForm.registerUrl.parentNode.parentNode
     formItem.className = formItem.className + ' error'
@@ -629,15 +636,20 @@ const submitRegister = () => {
     password: registerPasswordSet,
     password_confirm: registerPasswordConfirm,
     username: registerDisplayName,
-    email_domains
+    email_domains,
+    scene: aliVerification.scene,
+    token: aliVerification.nc_token,
+    sig: aliVerification.sig,
+    session_id: aliVerification.csessionid,
+    source: '官网'
   }
 
   request('/team/create', params)
     .then(({ data }) => {
       if (data) {
-
+        onSucceed()
       } else {
-
+        onErr()
       }
     });
 }
