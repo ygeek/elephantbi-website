@@ -1091,6 +1091,10 @@ const changeMobileHeader = () => {
 }
 /**********mobile end*************/
 
+const toDemoDetail = (id) => {
+  window.location.href = window.DEMOURL + '/demo/' + id
+}
+
 window.onload = function () {
   //wx login
   const wxbtnlogup = document.getElementById('wx-btn-logup');
@@ -1272,6 +1276,67 @@ window.onload = function () {
     domainOperators[0].addEventListener('click', changeDomainItems, true)
   }
   /**********************************/
+
+  const industry0 = document.getElementsByClassName('industry0')
+  const industry1 = document.getElementsByClassName('industry1')
+  const industry2 = document.getElementsByClassName('industry2')
+  const industry3 = document.getElementsByClassName('industry3')
+  const industry4 = document.getElementsByClassName('industry4')
+  const industry5 = document.getElementsByClassName('industry5')
+  const industry6 = document.getElementsByClassName('industry6')
+  const industry7 = document.getElementsByClassName('industry7')
+  const industry8 = document.getElementsByClassName('industry8')
+  const industry9 = document.getElementsByClassName('industry9')
+  if (industry0) {
+    for (let i = 0; i < industry0.length; i ++ ) {
+      industry0[i].addEventListener('click', function(){ toDemoDetail(0) })
+    }
+  }
+  if (industry1) {
+    for (let i = 0; i < industry1.length; i ++ ) {
+      industry1[i].addEventListener('click', function(){ toDemoDetail(1) })
+    }
+  }
+  if (industry2) {
+    for (let i = 0; i < industry2.length; i ++ ) {
+      industry2[i].addEventListener('click', function(){ toDemoDetail(2) })
+    }
+  }
+  if (industry3) {
+    for (let i = 0; i < industry3.length; i ++ ) {
+      industry3[i].addEventListener('click', function(){ toDemoDetail(3) })
+    }
+  }
+  if (industry4) {
+    for (let i = 0; i < industry4.length; i ++ ) {
+      industry4[i].addEventListener('click', function(){ toDemoDetail(4) })
+    }
+  }
+  if (industry5) {
+    for (let i = 0; i < industry5.length; i ++ ) {
+      industry5[i].addEventListener('click', function(){ toDemoDetail(5) })
+    }
+  }
+  if (industry6) {
+    for (let i = 0; i < industry6.length; i ++ ) {
+      industry6[i].addEventListener('click', function(){ toDemoDetail(6) })
+    }
+  }
+  if (industry7) {
+    for (let i = 0; i < industry7.length; i ++ ) {
+      industry7[i].addEventListener('click', function(){ toDemoDetail(7) })
+    }
+  }
+  if (industry8) {
+    for (let i = 0; i < industry8.length; i ++ ) {
+      industry8[i].addEventListener('click', function(){ toDemoDetail(8) })
+    }
+  }
+  if (industry9) {
+    for (let i = 0; i < industry9.length; i ++ ) {
+      industry9[i].addEventListener('click', function(){ toDemoDetail(9) })
+    }
+  }
 
   // cover listen
   // document.getElementById('cover').addEventListener('click', function () {
