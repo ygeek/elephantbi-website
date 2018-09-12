@@ -1276,6 +1276,10 @@ window.onload = function () {
     domainOperators[0].addEventListener('click', changeDomainItems, true)
   }
   /**********************************/
+  const reserveSubmitBtn = document.getElementById('form-reserve-submit-btn-id')
+  if (reserveSubmitBtn) {
+    reserveSubmitBtn.addEventListener('click', submitFormReserve)
+  }
 
   const priceListButton = document.getElementsByClassName('price-list-button')
   if (priceListButton) {
