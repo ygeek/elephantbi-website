@@ -1277,6 +1277,13 @@ window.onload = function () {
   }
   /**********************************/
 
+  const priceListButton = document.getElementsByClassName('price-list-button')
+  if (priceListButton) {
+    for(let i = 0; i < priceListButton.length; i ++ ) {
+      priceListButton[i].addEventListener('click', toRegister)
+    }
+  }
+
   const industry0 = document.getElementsByClassName('industry0')
   const industry1 = document.getElementsByClassName('industry1')
   const industry2 = document.getElementsByClassName('industry2')
