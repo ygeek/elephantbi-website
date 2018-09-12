@@ -239,16 +239,23 @@ main.main-content {
       box-sizing: border-box;
       padding: 6px 11px;
 
-      border: 1px solid #d9d9d9;
+      border: 1px solid #eaeefe;
 
       &::placeholder {
         font-size: 14px;
       }
     }
+    .login-cell:first-child {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
     .login-fixed {
       background-color: #eaeefe;
       font-size: 14px;
       color: #474747;
+      border: none;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
     .login-btn {
       .creatFullButton(#fff, @color-green);
