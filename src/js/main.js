@@ -1110,7 +1110,10 @@ window.onload = function () {
     wxbtnserverlogin.addEventListener('click', openWxServer, true);
   }
   window.onscroll = changeHeader //
-  document.body.addEventListener('scroll', changeMobileHeader)
+  document.body.addEventListener('scroll', function(e) {
+    toggleNavModalVisible('hide');
+    changeMobileHeader(e)
+  })
   const freeBtns = document.getElementsByClassName('free-btn') //免费注册按钮
   if (freeBtns) {
     for (let i = 0; i < freeBtns.length; i++) {
@@ -1155,7 +1158,7 @@ window.onload = function () {
   document.getElementById('root').addEventListener('click', function () { //监听根节点，点击空白触发事件
     // closeApplicationModal();
     closeleLoginModal();
-    // toggleNavModalVisible('hide');
+    toggleNavModalVisible('hide');
     hideTootip();
     closeIndustryModal();
   }, false);
