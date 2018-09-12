@@ -861,7 +861,7 @@ const submitDemo = () => {
   const scale = demoForm.demoScale.value // required
   const department = demoForm.demoDepart.value
   const position = demoForm.demoPosi.value
-  const remark = demoForm.demoRemark.value
+  const remarks = demoForm.demoRemark.value
   let errNum = 0;
   if (!name) {
     if (!currentError(demoForm.demoName.parentNode)) {
@@ -905,7 +905,7 @@ const submitDemo = () => {
   const params = {
     name, email, mobile,
     company, industry, scale,
-    department, position, remark,
+    department, position, remarks,
     source: '官网'
   }
   request('/website/trail', params).then((data) => {
