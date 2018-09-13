@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="46px" viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 34</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="22" cy="22" r="22"></circle>
+    </defs>
+    <g id="1首页导航" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-427.000000, -153.000000)">
+        <g id="Group-14" transform="translate(100.000000, 154.000000)">
+            <g id="Group-6">
+                <g id="Group-34" transform="translate(328.000000, 0.000000)">
+                    <circle id="Oval" stroke="#87BBFD" stroke-width="1.584" fill="#87BBFD" cx="22" cy="22" r="22"></circle>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#87BBFD" xlink:href="#path-1"></use>
+                    <path d="M-4.71428571,9.44114286 L-4.71428571,26.2198504 C-4.71428571,27.0946695 -4.00510476,27.8038504 -3.13028571,27.8038504 L26.3610335,27.8038504 C27.2358525,27.8038504 27.9450335,27.0946695 27.9450335,26.2198504 L27.9450335,9.44114286 C27.9450335,8.56632381 27.2358525,7.85714286 26.3610335,7.85714286 L-3.13028571,7.85714286 C-4.00510476,7.85714286 -4.71428571,8.56632381 -4.71428571,9.44114286 Z" id="Path-7-Copy" fill="#555ABF" mask="url(#mask-2)"></path>
+                    <circle id="Oval-15-Copy" fill="#87BBFD" mask="url(#mask-2)" cx="9.42857143" cy="17.2857143" r="6.28571429"></circle>
+                    <path d="M12.5714286,17.2982857 L12.5714286,34.0769933 C12.5714286,34.9518123 13.2806095,35.6609933 14.1554286,35.6609933 L43.6467478,35.6609933 C44.5215668,35.6609933 45.2307478,34.9518123 45.2307478,34.0769933 L45.2307478,17.2982857 C45.2307478,16.4234667 44.5215668,15.7142857 43.6467478,15.7142857 L14.1554286,15.7142857 C13.2806095,15.7142857 12.5714286,16.4234667 12.5714286,17.2982857 Z" id="Path-7" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                    <circle id="Oval-15" fill="#87BBFD" mask="url(#mask-2)" cx="33" cy="25.1428571" r="6.28571429"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
