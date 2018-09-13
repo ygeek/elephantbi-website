@@ -852,71 +852,6 @@ const focusPriceList = (node, i) => {
   node.style.border = "2px solid " + colorLists[i]
 }
 
-const submitDemo = () => {
-  const name = demoForm.demoName.value // required
-  const email = demoForm.demoEmail.value // required
-  const mobile = demoForm.demoMobile.value // required
-  const company = demoForm.demoCompany.value // required
-  const industry = demoForm.demoIndustry.value // required
-  const scale = demoForm.demoScale.value // required
-  const department = demoForm.demoDepart.value
-  const position = demoForm.demoPosi.value
-  const remarks = demoForm.demoRemark.value
-  let errNum = 0;
-  if (!name) {
-    if (!currentError(demoForm.demoName.parentNode)) {
-      demoForm.demoName.parentNode.className = demoForm.demoName.parentNode.className + ' error'
-    }
-    errNum += 1
-  }
-  if (!email) {
-    if (!currentError(demoForm.demoEmail.parentNode)) {
-      demoForm.demoEmail.parentNode.className = demoForm.demoEmail.parentNode.className + ' error'
-    }
-    errNum += 1
-  }
-  if (!mobile) {
-    if (!currentError(demoForm.demoMobile.parentNode)) {
-      demoForm.demoMobile.parentNode.className = demoForm.demoMobile.parentNode.className + ' error'
-    }
-    errNum += 1
-  }
-  if (!company) {
-    if (!currentError(demoForm.demoCompany.parentNode)) {
-      demoForm.demoCompany.parentNode.className = demoForm.demoCompany.parentNode.className + ' error'
-    }
-    errNum += 1
-  }
-  if (!industry) {
-    if (!currentError(demoForm.demoIndustry.parentNode)) {
-      demoForm.demoIndustry.parentNode.className = demoForm.demoIndustry.parentNode.className + ' error'
-    }
-    errNum += 1
-  }
-  if (!scale) {
-    if (!currentError(demoForm.demoScale.parentNode)) {
-      demoForm.demoScale.parentNode.className = demoForm.demoScale.parentNode.className + ' error'
-    }
-    errNum += 1
-  }
-  if (errNum > 0) {
-    return false
-  }
-  const params = {
-    name, email, mobile,
-    company, industry, scale,
-    department, position, remarks,
-    source: '官网'
-  }
-  request('/website/trail', params).then((data) => {
-    if (data) {
-
-    } else {
-
-    }
-  })
-}
-
 const changeDomainItems = (e) => {
   const currentOperator = e.target
   const currentWrapper = currentOperator.parentNode
@@ -1090,6 +1025,123 @@ const changeMobileHeader = () => {
   }
 }
 /**********mobile end*************/
+
+/*************demo*************/
+const validateDemoName = (value) => {
+  const self = document.getElementById('demo-name')
+  const errNode = self.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    return false
+  }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
+}
+
+const validateDemoEmail = (value) => {
+  const self = document.getElementById('demo-email')
+  const errNode = self.parentNode
+  const reg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    errNode.setAttribute('data-err', '请输入电子邮箱')
+    return false
+  }
+  if (value) {
+    if (!reg.test(value)) { //邮箱验证不通过
+      if (!currentError(errNode)) {
+        errNode.className = errNode.className + ' error'
+      }
+      errNode.setAttribute('data-err', '邮箱格式不正确')
+      return false
+    }
+    if (currentError(errNode)) {
+      errNode.className = errNode.className.replace(/error/, '')
+    }
+    return true
+  }
+}
+
+const validateDemoMobile = (value) => {
+  const self = document.getElementById('demo-mobile')
+  const errNode = self.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    errNode.setAttribute('data-err', '请输入手机号码')
+    return false
+  }
+  if (value) {
+    const reg = /^[1][3,4,5,7,8][0-9]{9}$/
+    if (!reg.test(value)) {
+      if (!currentError(errNode)) {
+        errNode.className = errNode.className + ' error'
+      }
+      errNode.setAttribute('data-err', '手机格式不正确')
+      return false
+    }
+    if (currentError(errNode)) {
+      errNode.className = errNode.className.replace(/error/, '')
+    }
+    return true
+  }
+}
+
+const validateDemoCompany = (value) => {
+  const self = document.getElementById('demo-company')
+  const errNode = self.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    return false
+  }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
+}
+
+const submitDemo = () => {
+  const name = demoForm.demoName.value // required
+  const email = demoForm.demoEmail.value // required
+  const mobile = demoForm.demoMobile.value // required
+  const company = demoForm.demoCompany.value // required
+  const industry = demoForm.demoIndustry.value // required
+  const scale = demoForm.demoScale.value // required
+  const department = demoForm.demoDepart.value
+  const position = demoForm.demoPosi.value
+  const remarks = demoForm.demoRemark.value
+  let errNum = 0;
+  if (!validateDemoName(name)) { errNum += 1 }
+  if (!validateDemoEmail(email)) { errNum += 1 }
+  if (!validateDemoMobile(mobile)) { errNum += 1 }
+  if (!validateDemoCompany(company)) { errNum += 1 }
+  if (errNum > 0) {
+    return false
+  }
+  const params = {
+    name, email, mobile,
+    company, industry, scale,
+    department, position, remarks,
+    source: '官网'
+  }
+  request('/website/trail', params).then((data) => {
+    if (data) {
+      onSucceed()
+    } else {  
+      onErr()
+    }
+  })
+}
+/*************demo*************/
 
 const toDemoDetail = (id) => {
   window.location.href = window.DEMOURL + '/demo/' + id
@@ -1279,6 +1331,24 @@ window.onload = function () {
     domainOperators[0].addEventListener('click', changeDomainItems, true)
   }
   /**********************************/
+  /***********demo***********/
+  const demoName = document.getElementById('demo-name')
+  const demoEmail = document.getElementById('demo-email')
+  const demoMobile = document.getElementById('demo-mobile')
+  const demoCompany = document.getElementById('demo-company')
+  if (demoName) {
+    demoName.addEventListener('input', function(e){ validateDemoName(e.target.value) })
+  }
+  if (demoEmail) {
+    demoEmail.addEventListener('input', function(e){ validateDemoEmail(e.target.value) })
+  }
+  if (demoMobile) {
+    demoMobile.addEventListener('input', function(e){ validateDemoMobile(e.target.value) })
+  }
+  if (demoCompany) {
+    demoCompany.addEventListener('input', function(e){ validateDemoCompany(e.target.value) })
+  }
+  /***********demo***********/
   const reserveSubmitBtn = document.getElementById('form-reserve-submit-btn-id')
   if (reserveSubmitBtn) {
     reserveSubmitBtn.addEventListener('click', submitFormReserve)
