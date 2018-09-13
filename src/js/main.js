@@ -1147,6 +1147,42 @@ const toDemoDetail = (id) => {
   window.location.href = window.DEMOURL + '/demo/' + id
 }
 
+const setSelectValue = (valueNode, currentNode, targetOptions) => {
+  valueNode.value = currentNode.getAttribute('value');
+  targetOptions.style.display = 'none';
+}
+
+const switchOptions = (e) => {
+  e.stopPropagation()
+  const valueNode = e.currentTarget
+  const options = valueNode.nextElementSibling
+  if (options.style.display === 'block') {
+    options.style.display = 'none'
+  } else {
+    const egOptions = document.getElementsByClassName('options')
+    if (egOptions) {
+      for(let i = 0; i < egOptions.length; i ++) {
+        egOptions[i].style.display = 'none'
+      }
+    }
+    options.style.display = 'block'
+  }
+  if (options.style.display === 'block') {
+    for (let i = 0; i < options.children.length; i ++) {
+      options.children[i].addEventListener('click', function(e){ setSelectValue(valueNode, e.currentTarget, options) })
+    }
+  }
+}
+
+const closeEgOptions = () => {
+  const egOptions = document.getElementsByClassName('options')
+  if (egOptions) {
+    for (let i = 0; i < egOptions.length; i ++) {
+      egOptions[i].style.display = 'none'
+    }
+  }
+}
+
 window.onload = function () {
   //wx login
   const wxbtnlogup = document.getElementById('wx-btn-logup');
@@ -1164,7 +1200,7 @@ window.onload = function () {
   window.onscroll = changeHeader //
   document.body.addEventListener('scroll', function(e) {
     toggleNavModalVisible('hide');
-    changeMobileHeader(e)
+    changeMobileHeader(e);
   })
   const freeBtns = document.getElementsByClassName('free-btn') //免费注册按钮
   if (freeBtns) {
@@ -1213,6 +1249,7 @@ window.onload = function () {
     toggleNavModalVisible('hide');
     hideTootip();
     closeIndustryModal();
+    closeEgOptions()
   }, false);
 
   // items onchange
@@ -1348,6 +1385,15 @@ window.onload = function () {
   if (demoCompany) {
     demoCompany.addEventListener('input', function(e){ validateDemoCompany(e.target.value) })
   }
+
+  /**********fix select option***********/
+  const egs = document.getElementsByClassName('eg')
+  if (egs) {
+    for(let i = 0; i < egs.length; i ++) {
+      egs[i].addEventListener('click', switchOptions)
+    }
+  }
+
   /***********demo***********/
   const reserveSubmitBtn = document.getElementById('form-reserve-submit-btn-id')
   if (reserveSubmitBtn) {

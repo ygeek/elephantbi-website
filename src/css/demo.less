@@ -87,7 +87,9 @@
       font-size: 12px;
       color: #6b7c93;
       padding-bottom: 20px;
-      overflow: hidden;
+      overflow: visible;
+      display: flex;
+      justify-content: space-between;
       .label {
         display: inline-block;
         padding-top: 5px;
@@ -97,6 +99,24 @@
         display: inline-block;
         float: right;
         position: relative;
+        .options {
+          position: absolute;
+          left: 0px;
+          top: 28px;
+          width: 244px;
+          max-height: 150px;
+          overflow-y: auto;
+          background-color: #fff;
+          z-index: 500;
+          border: 1px solid #ddddde;
+          display: none;
+          div {
+            height: 28px;
+            line-height: 28px;
+            padding-left: 5px;
+            cursor: pointer;
+          }
+        }
         input {
           width: 244px;
           height: 28px;
