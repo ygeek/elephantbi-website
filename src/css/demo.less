@@ -89,6 +89,7 @@
       .label {
         display: inline-block;
         padding-top: 5px;
+        color: #474747;
       }
       .demo-form-item {
         display: inline-block;
@@ -98,12 +99,29 @@
           width: 244px;
           height: 28px;
           box-sizing: border-box;
+          border: 1px solid #ddddde;
+          padding: 2px 5px;
+          font-size: 12px;
+          border-radius: 2px;
+          color: #474747;
+          &::placeholder {
+            font-size: 12px;
+            color: #ddddde;
+          }
         }
         select {
           width: 244px;
           height: 28px;
           box-sizing: border-box;
           background-color: #fff;
+          border: 1px solid #ddddde;
+          padding: 2px 5px;
+          font-size: 12px;
+          color: #474747;
+          border-radius: 2px;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
         }
       }
       .demo-form-item.error {
@@ -114,7 +132,7 @@
           left: 0px;
           bottom: -18px;
           display: block;
-          padding-left: 0px;
+          padding-left: 5px;
           font-size: 10px;
           color: #f1584d;
           width: 210px
@@ -126,12 +144,25 @@
       width: 316px;
       height: 87px;
       box-sizing: border-box;
+      border: 1px solid #ddddde;
+      padding: 2px 5px;
+      font-size: 12px;
+      border-radius: 2px;
+      color: #474747;
+      &::placeholder {
+        font-size: 12px;
+        color: #ddddde;
+      }
     }
 
     #demo-submit {
       .creatFullButton(#fff, #5396f7);
       display: block;
       margin: auto;
+      width: 120px;
+      height: 36px;
+      font-size: 14px;
+      border-radius: 2px;
     }
   }
 }
