@@ -109,8 +109,8 @@
 
   .show-box {
     margin: 0 auto;
-    padding: 0 60px 0 60px;
-
+    padding: 120px 60px 80px 60px;
+    position: relative;
     box-sizing: border-box;
 
     .box-title {
@@ -136,7 +136,7 @@
 
       img {
         display: block;
-        margin: 0 auto 220px auto;
+        margin: 0 auto 20px auto;
       }
     }
 
@@ -166,7 +166,7 @@
 
 .rotate-card {
   position: relative;
-  padding-bottom: 80px;
+  padding: 80px 0px;
   .rotate-bg {
     display: inline-block;
     position: absolute;
@@ -177,13 +177,13 @@
   .rotate-bg:nth-child(1) {
     background-color: #53f;
     left: 0;
-    top: 0;
+    top: 50;
     width: 20%;
   }
   .rotate-bg:nth-child(2) {
     background-color: #4d90fe;
     left: 0;
-    top: 80px;
+    top: 130px;
     width: 15%;
   }
   .rotate-bg:nth-child(3) {
@@ -355,9 +355,10 @@
   height: 1000px;
   width: 100%;
   position: absolute;
-  top: 1900px;
+  top: 0;
   z-index: -999;
-
+  left: 0;
+  right: 0;
   overflow: hidden;
   
   &:before {
@@ -379,9 +380,10 @@
   height: 950px;
   width: 100%;
   position: absolute;
-  top: 4100px;
+  top: 0;
   z-index: -999;
-
+  left: 0;
+  right: 0;
   overflow: hidden;
   
   &:before {
