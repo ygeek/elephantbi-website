@@ -48,6 +48,7 @@ main.main-content {
     }
     input {
       box-sizing: border-box;
+      border: 1px solid #ddddde;
       &::placeholder {
         color: #ddddde;
       }
@@ -193,6 +194,37 @@ main.main-content {
         font-size: 10px;
         color: #f1584d;
         width: 210px
+      }
+    }
+
+    #nc-container .nc_scale {
+      background-color: #fff !important;
+      border: 1px solid #ddddde;
+      height: 28px;
+      color: #474747;
+      .nc_bg {
+        background-color: #76c1ef;
+      }
+      .scale_text {
+        line-height: 28px;
+      }
+      span.nc-lang-cnt {
+        line-height: 28px;
+      }
+      span.btn_slide {
+        height: 28px;
+        border: none;
+        background-image: url('../assets/slide.png');
+        background-repeat: no-repeat;
+        background-size: 40px 28px;
+        opacity: 1;
+        font-size: 0px;
+      }
+      span.btn_ok {
+        height: 28px;
+        line-height: 28px;
+        box-sizing: border-box;
+        color: #76c1ef
       }
     }
   }
