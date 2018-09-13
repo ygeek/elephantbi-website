@@ -20,8 +20,9 @@
     color: #32325d;
     font-size: 42px;
     text-align: center;
+    font-weight: 400;
   }
-  .price-title:nth-child(2) {
+  .price-title-second {
     margin-bottom: 60px;
   }
   .price-list {
@@ -62,6 +63,7 @@
       .div1 {
         height: 130px;
         padding: 21px 0px;
+        font-weight: 400;
         div:nth-child(1) {
           font-size: 42px;
           margin-bottom: 10px;
@@ -117,18 +119,24 @@
       }
     }
     .price-list-intro-free {
-      color: #6b7c93;
+      color: #e6ebf1;
       .div1 {
-        color: #fff;
-        background-color: #6b7c93;
+        color: #6b7c93;
+        background-color: #e6ebf1;
       }
       .div3 {
-        .creatFullButton(#fff, #6b7c93);
+        .creatFullButton(#6b7c93, #e6ebf1);
         margin-top: 20px;
+      }
+      .div2 {
+        color: #6b7c93
+      }
+      .div4 {
+        color: #6b7c93
       }
     }
     .price-list-title {
-      padding-top: 54px;
+      padding-top: 28px;
       padding-bottom: 28px;
       font-size: 24px;
       color: #9b9b9b
@@ -142,6 +150,15 @@
   }
   .price-list:nth-child(2) li div.attr {
     color: #76c1ef
+  }
+
+  li.divider {
+    height: 0px;
+    width: 80%;
+    padding: 0px;
+    margin: auto;
+    border: 0.5px solid #ddddde;
+    margin-bottom: 26px;
   }
 }
 
