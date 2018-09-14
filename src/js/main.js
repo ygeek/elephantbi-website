@@ -886,7 +886,7 @@ const changeDomainItems = (e) => {
   }
 }
 
-const toRegister = () => {
+const toRegister = (e) => {
   window.location.href = window.location.origin + '/register.html'
 }
 
@@ -1283,7 +1283,7 @@ window.onload = function () {
   const priceLists = document.getElementsByClassName('price-list')
   if (priceLists) {
     for (let i = 1; i < priceLists.length; i++) {
-      priceLists[i].addEventListener('click', function () { focusPriceList(priceLists[i], i) }, true)
+      priceLists[i].addEventListener('mouseover', function () { focusPriceList(priceLists[i], i) }, true)
     }
   }
 
