@@ -71,7 +71,7 @@ module.exports = [
       ]
     },
     devServer: {
-      port: 8384,
+      port: 8687,
       contentBase: './dist'
     },
     plugins: [
