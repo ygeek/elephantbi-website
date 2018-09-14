@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="46px" viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 34</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="22" cy="22" r="22"></circle>
+    </defs>
+    <g id="1首页导航" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-99.000000, -229.000000)">
+        <g id="Group-14" transform="translate(100.000000, 154.000000)">
+            <g id="Group-6">
+                <g id="Group-34" transform="translate(0.000000, 76.000000)">
+                    <circle id="Oval" stroke="#68D5F8" stroke-width="1.584" fill="#68D5F8" cx="22" cy="22" r="22"></circle>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#68D5F8" xlink:href="#path-1"></use>
+                    <g mask="url(#mask-2)">
+                        <g transform="translate(-9.428571, -7.857143)">
+                            <polygon id="Path-2" fill="#FFFFFF" points="23.9673549 25.1428571 17.5864955 25.1428571 0 42.8337054 17.5864955 61.7706473 36.5602679 42.8337054 36.5602679 36.4589844 23.9673549 36.4589844"></polygon>
+                            <polygon id="Path-2-Copy" fill="#217AB7" transform="translate(41.851562, 18.313895) scale(-1, -1) translate(-41.851562, -18.313895) " points="47.5387835 0 41.1579241 0 23.5714286 17.6908482 41.1579241 36.6277902 60.1316964 17.6908482 60.1316964 11.3161272 47.5387835 11.3161272"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

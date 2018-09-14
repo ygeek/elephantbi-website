@@ -5,67 +5,70 @@
   .nav-content-creat(#6b7c93, #6772e5);
 }
 
+.nav-scroll-white {
+  .nav-content-creat(#6b7c93, #1db977);
+}
+
 .main-content {
   position: relative;
   padding: 0;
 
   .main-header {
-    margin: 150px 0 0 0;
     width: @max-width;
-    margin: 50px auto 0 auto;
+    margin: 100px auto 0 auto;
 
     .title {
       margin: 40px 0 0 0;
       padding: 0;
-
+      font-weight: 500;
       text-align: center;
-      color: @color-purple;
-      font-size: 40px;
+      color: #32325d;
+      font-size: 32px;
     }
     .description {
       display: inline-block;
-      margin-top: 56px;
-      margin-bottom: 276px;
-      padding: 0 150px;
+      margin-top: 40px;
+      margin-bottom: 300px;
+      padding: 0 225px;
 
       text-align: center;
-      color: #64728c;
-      font-size: 20px;
+      color: #676e8c;
+      font-size: 14px;
     }
     .company-stage {
       margin: 0 0 100px 0;
-      padding: 0 150px;
+      padding: 0 185px;
 
       text-align: center;
-      font-size: 18px;
-      line-height: 35px;
+      font-size: 14px;
       color: #909caa;
     }
   }
 }
 
 .join-us {
-  padding: 60px 0;
+  padding: 60px 0 80px 0px;
   position: relative;
 
   .title {
     padding: 0;
     margin: 0 0 10px 0;
-
+    font-weight: 500;
     color: #34345f;
-    font-size: 32px;
+    font-size: 24px;
     text-align: center;
   }
   .description {
     padding: 0;
-    margin: 0 0 50px 0;
+    margin: 0 0 40px 0;
 
     color: #606d8a;
-    font-size: 20px;
+    font-size: 14px;
     text-align: center;
     .email {
       // text-decoration: underline;
-      border-bottom: 1px solid #606d8a;
+      border-bottom: 1px solid #6373e0;
+      color: #6373e0
     }
   }
   .list {
@@ -95,7 +98,7 @@
 
     border-bottom: 1px solid #e9ebfd;
     line-height: 20px;
-    font-size: 20px;
+    font-size: 16px;
     color: #34345f;
 
     box-sizing: border-box;
@@ -107,21 +110,23 @@
     box-sizing: border-box;
 
     transition: max-height 0.35s;
-
     div, li {
-      font-size: 15px;
-      color: #6d6d8a;
-      margin: 30px 0;
+      font-size: 12px;
+      color: #606d8a;
+      margin-bottom: 10px;
       text-align: left;
+    }
+    ol {
+      margin-top: 20px;
     }
   }
   .icon-right {
     display: inline-block;
-    width: 10px;
-    height: 16px;
+    width: 6px;
+    height: 12px;
     margin-right: 20px;
 
-    background: ~'url("../assets/btn-line-right.png") no-repeat 0 0/10px 16px';
+    background: ~'url("../assets/btn-line-right.png") no-repeat 0 0/6px 12px';
   }
 
   .list-select {
@@ -136,9 +141,9 @@
     }
 
     .icon-right {
-      width: 16px;
-      height: 16px;
-      background: ~'url("../assets/btn-line-down.png") no-repeat 0 6px/16px 8px';
+      width: 12px;
+      height: 12px;
+      background: ~'url("../assets/btn-line-down.png") no-repeat 0 6px/12px 6px';
     }
   }
 }
@@ -149,7 +154,7 @@
   width: 100%;
   overflow: hidden;
   position: absolute;
-  top: -50px;
+  top: 78px;
   z-index: -999;
 
   .bg-block {

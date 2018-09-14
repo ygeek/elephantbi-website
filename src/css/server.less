@@ -7,6 +7,10 @@
   .nav-content-creat(#6b7c93, #1db977);
 }
 
+.nav-scroll-white {
+  .nav-content-creat(#6b7c93, #1db977);
+}
+
 .main-content {
   position: relative;
 
@@ -17,23 +21,23 @@
 
   .main-header {
     width: @max-width;
-    padding: 50px 0 200px 0;
+    padding: 172px 0 260px 0;
     padding-left: 100px;
     margin: 0 auto;
     .title {
       max-width: 60%;
-
+      font-weight: 500;
       color: #32325d;
-      font-size: 40px;
+      font-size: 32px;
     }
     .description {
       display: inline-block;
       max-width: 54%;
       min-width: 300px;
-      margin-top: 26px;
+      margin-top: 30px;
 
       color: #64728c;
-      font-size: 18px;
+      font-size: 14px;
     }
     .banner {
       display: inline-block;
@@ -46,16 +50,24 @@
         bottom: -230px;
         left: 100px;
         z-index: -1;
+        margin-top: 100px;
+        margin-left: 100px;
       }
     }
     .free-btn {
       .creatFullButton(#fff, @color-green);
-
-      display: block;
-      margin-top: 76px;
-
+      margin-top: 30px;
+      width: 120px;
+      height: 36px;
       border-radius: 5px;
       box-shadow: 2px 1px 4px #aeaeae;
+    }
+    .reserve-btn {
+      .creatFullButton(#fff, @color-green);
+      margin-left: 20px;
+      border-color: @color-green;
+      width: 120px;
+      height: 36px;
     }
   }
 }
@@ -90,39 +102,37 @@
     display: inline-block;
     margin-right: 110px;
     padding: 0;
-
+    margin-bottom: 50px;
     font-size: 18px;
     color: #5f6e80;
     vertical-align: top;
   }
 
   .server-title {
-    font-size: 22px;
+    font-size: 16px;
     margin: 0 0 15px 0;
 
     color: @color-purple;
 
     p {
-      margin: 14px 0 10px 0;
+      margin: 14px 0 20px 0;
     }
   }
 
   .server-item {
+    font-size: 14px;
+    color: #606d8a;
     img {
       margin-bottom: -2px;
     }
   }
 }
 
-.reserve-form {
-  height: 750px;
-}
-
 .main-header-bg {
   height: 600px;
   width: 100%;
   position: absolute;
-  top: -70px;
+  top: 78px;
   z-index: -999;
 
   transform: skewY(-12deg);

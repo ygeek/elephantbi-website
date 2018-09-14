@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="1079px" viewBox="0 0 1920 1079" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="98.063151%" y1="132.397594%" x2="2.52441406%" y2="-6.67298916%" id="linearGradient-1">
+            <stop stop-color="#97F8D3" offset="0%"></stop>
+            <stop stop-color="#90F6D5" offset="3.43353373%"></stop>
+            <stop stop-color="#15D7FB" offset="32.7045758%"></stop>
+            <stop stop-color="#3FA7FF" offset="63.9392389%"></stop>
+            <stop stop-color="#5361FF" offset="87.1088273%"></stop>
+            <stop stop-color="#5532FF" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-2" points="0 1.87176663e-15 1920 0 1920 1079 0 1079"></polygon>
+        <rect id="path-4" x="0" y="0" width="2870" height="1124"></rect>
+        <linearGradient x1="50%" y1="85.3167952%" x2="79.8665662%" y2="18.0355347%" id="linearGradient-6">
+            <stop stop-color="#4597FE" offset="0%"></stop>
+            <stop stop-color="#4A78FE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="7.2683673%" x2="69.7342741%" y2="84.1319717%" id="linearGradient-7">
+            <stop stop-color="#6291FD" offset="0%"></stop>
+            <stop stop-color="#47B2F0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="79.151272%" y1="82.1915621%" x2="12.4212675%" y2="12.6824439%" id="linearGradient-8">
+            <stop stop-color="#1AD3E4" offset="0%"></stop>
+            <stop stop-color="#6193FD" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="24.2076201%" y1="81.3914894%" x2="80.9902448%" y2="61.7574468%" id="linearGradient-9">
+            <stop stop-color="#4FF0EC" offset="0%"></stop>
+            <stop stop-color="#4EDFF2" offset="24.5033756%"></stop>
+            <stop stop-color="#4DC5FB" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="linearGradient-10">
+            <stop stop-color="#158FE5" offset="0%"></stop>
+            <stop stop-color="#3FBAE8" offset="59.2940267%"></stop>
+            <stop stop-color="#81E6E3" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-11" x="0" y="0" width="2942" height="1206" rx="4"></rect>
+    </defs>
+    <g id="4-2-预约演示" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-5">
+            <mask id="mask-3" fill="white">
+                <use xlink:href="#path-2"></use>
+            </mask>
+            <use id="Mask" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+            <g id="底" mask="url(#mask-3)">
+                <g transform="translate(-625.000000, -40.000000)">
+                    <mask id="mask-5" fill="white">
+                        <use xlink:href="#path-4"></use>
+                    </mask>
+                    <use id="Mask" stroke="none" fill="#4B68FE" fill-rule="evenodd" xlink:href="#path-4"></use>
+                    <polygon id="Path-5" stroke="none" fill="url(#linearGradient-6)" fill-rule="evenodd" mask="url(#mask-5)" points="1096 -27 2183.71005 875 2716 -27"></polygon>
+                    <polygon id="Path-4" stroke="none" fill="url(#linearGradient-7)" fill-rule="evenodd" mask="url(#mask-5)" points="1500.79177 33 2261 704.337909 1768.97174 1008 684 33"></polygon>
+                    <polygon id="Path-3" stroke="none" fill="url(#linearGradient-8)" fill-rule="evenodd" mask="url(#mask-5)" points="750.581794 19.5122162 1808 982.063907 1366.1632 1329 0 1329 0 -27"></polygon>
+                    <polygon id="Path-9" stroke="none" fill="url(#linearGradient-9)" fill-rule="evenodd" opacity="0.952219203" mask="url(#mask-5)" points="2876 344 1348 1243 2876 1243"></polygon>
+                    <polygon id="Path-4-Copy" stroke="none" fill="url(#linearGradient-10)" fill-rule="evenodd" mask="url(#mask-5)" points="508.791773 562 1269 1233.33791 776.971738 1537 -308 562"></polygon>
+                    <mask id="mask-12" fill="white">
+                        <use xlink:href="#path-11"></use>
+                    </mask>
+                    <use id="Mask" stroke="none" fill="#050278" fill-rule="evenodd" opacity="0.102015399" style="mix-blend-mode: multiply;" xlink:href="#path-11"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

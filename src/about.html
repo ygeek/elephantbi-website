@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>ElephantBI</title>
@@ -11,41 +12,83 @@
     window.corpid = 'WX_CORP_ID';
     window.imageEnv = 'IMAGE_ENV';
     window.OAUTHURL = 'OAUTH_URL';
+    window.DEMOURL = 'DEMO_URL'
   </script>
 </head>
+
 <body>
-  <div id="root" >
-    <header class="nav-header" >
-      <nav class="nav-content" >
-        <ul class="nav-list" >
-          <li class="nav-section logo" >
-            <img src='<%= require("./assets/nav-logo-black.svg") %>' width=180 id="logo" />
+  <div id="root">
+    <header class="nav-header" id="nav-header">
+      <nav class="nav-content">
+        <ul class="nav-list">
+          <li class="nav-section logo">
+            <img src='<%= require("./assets/nav-logo-black.svg") %>' width=160 height=32 id="logo" />
           </li>
-          <li class="nav-section page-list" >
-            <a href="./index.html">首页</a>
-            <a href="./product.html">企业微信</a>
+          <li class="nav-section page-list">
+            <a href="./product.html">产品介绍</a>
+            <a href="javascript:void(0)" id="nav-industry-link">行业DEMO</a>
+            <a href="./demo.html">预约演示</a>
+            <a href="./price.html">价格</a>
             <a href="./server.html">服务支持</a>
             <a class="selected" href="./about.html">关于我们</a>
+            <div class="nav-industry-modal" id="nav-industry-modal">
+              <div class="nav-industry-arrow"></div>
+              <ul>
+                <li>
+                  <a class="industry0">互联网行业</a>
+                </li>
+                <li>
+                  <a class="industry2">零售行业</a>
+                </li>
+                <li>
+                  <a class="industry4">企业服务行业</a>
+                </li>
+                <li>
+                  <a class="industry6">文娱行业</a>
+                </li>
+                <li>
+                  <a class="industry8">教育行业</a>
+                </li>
+              </ul>
+              <div class="divider"></div>
+              <ul>
+                <li>
+                  <a class="industry1">金融行业</a>
+                </li>
+                <li>
+                  <a class="industry3">制造行业</a>
+                </li>
+                <li>
+                  <a class="industry5">电商行业</a>
+                </li>
+                <li>
+                  <a class="industry7">餐饮行业</a>
+                </li>
+                <li>
+                  <a class="industry9">物流行业</a>
+                </li>
+              </ul>
+            </div>
           </li>
-          <li class="nav-section login" >
-            <span class="login-btn-content" >
-              <button id="nav-login" >登录</button>
-              <div class="login-modal" id="login-modal" >
-                <span class="login-block" >
-                  <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名" >
-                  <span class="login-cell login-fixed" >elephantbi.com</span>
+          <li class="nav-section login">
+            <span class="login-btn-content">
+              <button id="nav-login">登录</button>
+              <div class="login-modal" id="login-modal">
+                <span class="login-block">
+                  <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
+                  <span class="login-cell login-fixed">elephantbi.com</span>
                 </span>
-                <button class="login-btn" id="login-product" >登录</button>
+                <button class="login-btn" id="login-product">登录</button>
               </div>
             </span>
-            <button id="nav-application" >免费试用</button>
+            <button id="nav-application" class="free-btn">免费注册</button>
           </li>
         </ul>
       </nav>
     </header>
-    <main class="main-content" id="main" >
+    <main class="main-content" id="main">
       <div class="main-header-bg" aria-hidden="true">
-        <div class="bg-block" >
+        <div class="bg-block">
           <span></span>
           <span></span>
           <span></span>
@@ -59,16 +102,17 @@
           <span></span>
         </div>
       </div>
-      <header class="main-header" >
-        <h1 class="title" >关于我们</h1>
-        <span class="description" >ElephantBI是由悦视光合科技出品， 公司专注于企业级互联网产品及云端服务， 创始成员均来自于百度、网易等一线互联网公司， 拥有多年知名互联网产品的设计和研发经验。</span>
-        <p class="company-stage" >
-          扁平化的管理架构和组织模式， 通过减少管理层次来建立高效而紧密的团队， 使每个团队成员都更具有自由度和创造性。 我们会一直是一家年轻的互联网快公司， 不断引入硅谷风格的管理方法， 倡导所有团队成员自下而上的自我驱动精神， 鼓励每个人的主观能动性， 保持团队的活力和激情。
+      <header class="main-header">
+        <h1 class="title">关于我们</h1>
+        <span class="description">ElephantBI是由悦视光合科技(大连)有限公司出品， 公司专注于企业级互联网产品及云端服务， 创始成员均来自于百度、网易等一线互联网公司， 拥有多年知名互联网产品的设计和研发经验。</span>
+        <p class="company-stage">
+          扁平化的管理架构和组织模式， 通过减少管理层次来建立高效而紧密的团队， 使每个团队成员都更具有自由度和创造性。 我们会一直是一家年轻的互联网快公司， 不断引入硅谷风格的管理方法， 倡导所有团队成员自下而上的自我驱动精神， 鼓励每个人的主观能动性，
+          保持团队的活力和激情。
         </p>
       </header>
-      <section  >
+      <section>
       </section>
-      <section class="join-us" >
+      <section class="join-us">
         <div class="main-joinup-bg" aria-hidden="true">
           <span></span>
           <span></span>
@@ -77,23 +121,23 @@
           <span></span>
           <span></span>
         </div>
-        <h3 class="title" >加入我们</h3>
-        <p class="description" >
-          请注明应聘岗位，投递简历至 
-          <span class="email" >
-           recruit@elephantbi.com
+        <h3 class="title">加入我们</h3>
+        <p class="description">
+          请注明应聘岗位，投递简历至
+          <span class="email">
+            recruit@elephantbi.com
           </span>
         </p>
-        <div class="list" >
+        <div class="list">
           <ul>
-            <li class="list-item list-select" >
-              <a href="javascript:void(0)" class="list-title" >
-                <span class="icon-right" ></span>
+            <li class="list-item list-select">
+              <a href="javascript:void(0)" class="list-title">
+                <span class="icon-right"></span>
                 <span>
                   Web后端开发工程师
                 </span>
               </a>
-              <div class="position-description" >
+              <div class="position-description">
                 <ol>
                   <li>本科及以上学历，计算机相关专业；</li>
                   <li>具有优良的编码风格和习惯；</li>
@@ -106,14 +150,14 @@
                 </ol>
               </div>
             </li>
-            <li class="list-item" >
-              <a href="javascript:void(0)" class="list-title" >
-                <span class="icon-right" ></span>
+            <li class="list-item">
+              <a href="javascript:void(0)" class="list-title">
+                <span class="icon-right"></span>
                 <span>
                   Web前端开发工程师
                 </span>
               </a>
-              <div class="position-description" >
+              <div class="position-description">
                 <ol>
                   <li>本科及以上学历，计算机相关专业；</li>
                   <li>具有优良的编码风格和习惯；</li>
@@ -126,14 +170,14 @@
                 </ol>
               </div>
             </li>
-            <li class="list-item" >
-              <a href="javascript:void(0)" class="list-title" >
-                <span class="icon-right" ></span>
+            <li class="list-item">
+              <a href="javascript:void(0)" class="list-title">
+                <span class="icon-right"></span>
                 <span>
                   产品经理
                 </span>
               </a>
-              <div class="position-description" >
+              <div class="position-description">
                 <div>【岗位职责】</div>
                 <ol>
                   <li>参与公司项目的产品设计，输出产品原型和文档</li>
@@ -150,14 +194,14 @@
                 </ol>
               </div>
             </li>
-            <li class="list-item" >
-              <a href="javascript:void(0)" class="list-title" >
-                <span class="icon-right" ></span>
+            <li class="list-item">
+              <a href="javascript:void(0)" class="list-title">
+                <span class="icon-right"></span>
                 <span>
                   商务拓展专员
                 </span>
               </a>
-              <div class="position-description" >
+              <div class="position-description">
                 <div>【岗位职责】</div>
                 <ol>
                   <li>积极拓展新客户，筛选有价值的客户信息，通过电话、邮件、拜访等各种渠道与新客户建立联系，充分了解客户需求并制定销售方案；</li>
@@ -178,14 +222,14 @@
                 </ol>
               </div>
             </li>
-            <li class="list-item" >
-              <a href="javascript:void(0)" class="list-title" >
-                <span class="icon-right" ></span>
+            <li class="list-item">
+              <a href="javascript:void(0)" class="list-title">
+                <span class="icon-right"></span>
                 <span>
                   UI设计师
                 </span>
               </a>
-              <div class="position-description" >
+              <div class="position-description">
                 <div>【岗位职责】</div>
                 <ol>
                   <li>参与公司WEB产品的界面设计、图标设计；</li>
@@ -204,14 +248,14 @@
                 </ol>
               </div>
             </li>
-            <li class="list-item" >
-              <a href="javascript:void(0)" class="list-title" >
-                <span class="icon-right" ></span>
+            <li class="list-item">
+              <a href="javascript:void(0)" class="list-title">
+                <span class="icon-right"></span>
                 <span>
                   运营专员
                 </span>
               </a>
-              <div class="position-description" >
+              <div class="position-description">
                 <div>【岗位职责】</div>
                 <ol>
                   <li>参与公司互联网产品线上线下整体运营，制定运营策略，方案并组织执行，推动产品商业模式的形成并不断优化；</li>
@@ -232,14 +276,14 @@
                 </ol>
               </div>
             </li>
-            <li class="list-item" >
-              <a href="javascript:void(0)" class="list-title" >
-                <span class="icon-right" ></span>
+            <li class="list-item">
+              <a href="javascript:void(0)" class="list-title">
+                <span class="icon-right"></span>
                 <span>
                   人力资源专员
                 </span>
               </a>
-              <div class="position-description" >
+              <div class="position-description">
                 <div>【岗位职责】</div>
                 <ol>
                   <li>维护招聘渠道，发布招聘信息并负责部分实习岗位的招聘；</li>
@@ -263,18 +307,22 @@
         </div>
       </section>
     </main>
-    <footer class="footer-content" >
-      <ul class="footer-nav" >
-        <li class="footer-nav-icon" >
-          <img src='<%= require("./assets/footer-icon.png") %>' />
+    <footer class="footer-content">
+      <ul class="footer-nav">
+        <li class="footer-nav-icon">
+          <img src='<%= require("./assets/footer-icon.png") %>' id="footer-logo" width=160 height=32 />
         </li>
-        <li class="footer-nav-list" >
+        <li class="footer-nav-list">
           <ul>
+            <li class="footer-list-title">产品</li>
             <li>
-              <a href="./index.html">首页</a>
+              <a href="./product.html">产品介绍</a>
             </li>
             <li>
-              <a href="./product.html">企业微信</a>
+              <a href="./demo.html">预约演示</a>
+            </li>
+            <li>
+              <a href="./price.html">价格</a>
             </li>
             <li>
               <a href="./server.html">服务支持</a>
@@ -283,105 +331,104 @@
               <a href="./about.html">关于我们</a>
             </li>
           </ul>
+          <ul class="footer-industry">
+            <li class="footer-list-title">行业Demo</li>
+            <ul>
+              <li>
+                <a class="industry0">互联网行业</a>
+              </li>
+              <li>
+                <a class="industry2">零售行业</a>
+              </li>
+              <li>
+                <a class="industry4">企业服务行业</a>
+              </li>
+              <li>
+                <a class="industry6">文娱行业</a>
+              </li>
+              <li>
+                <a class="industry8">教育行业</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a class="industry1">金融行业</a>
+              </li>
+              <li>
+                <a class="industry3">制造行业</a>
+              </li>
+              <li>
+                <a class="industry5">电商行业</a>
+              </li>
+              <li>
+                <a class="industry7">餐饮行业</a>
+              </li>
+              <li>
+                <a class="industry9">物流行业</a>
+              </li>
+            </ul>
+          </ul>
           <ul>
-            <li class="footer-list-title" >商务咨询</li>
+            <li class="footer-list-title">商务咨询</li>
             <li>
-              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
+              <img src='<%= require("./assets/footer-phone.png") %>' width=14 height=14 />
               <span>0411-39026089</span>
             </li>
             <li>
-              <img src='<%= require("./assets/footer-email.png") %>' />
+              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 style="margin-top: 3px" />
               <span>bd@elephantbi.com</span>
             </li>
             <li>
-              <img src='<%= require("./assets/address.svg") %>' />
-              <span>辽宁省大连市沙河口区软件园东路23号15#501AB室</span>
+              <img src='<%= require("./assets/address.svg") %>' width=12 height=15 />
+              <span class="addressSpan">辽宁省大连市沙河口区软件园东路23号15#501AB室</span>
             </li>
           </ul>
           <ul>
-            <li class="footer-list-title" >技术支持</li>
+            <li class="footer-list-title">技术支持</li>
             <li>
-              <img src='<%= require("./assets/footer-time.png") %>' />
+              <img src='<%= require("./assets/footer-time.png") %>' width=14 height=14 />
               <span>09:00~19:00</span>
             </li>
             <li>
-              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
+              <img src='<%= require("./assets/footer-phone.png") %>' width=14 height=14 />
               <span>18004083463</span>
             </li>
             <li>
-              <img src='<%= require("./assets/footer-email.png") %>' />
+              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 style="margin-top: 3px" />
               <span>support@elephantbi.com</span>
             </li>
           </ul>
         </li>
-        <li class="footer-nav-sq" >
-          <img src='<%= require("./assets/footer-sq.png") %>' width=100 />
-          <span class="footer-nav-sq-description" >关注 ElephantBI</span>
+        <li class="footer-nav-sq">
+          <img src='<%= require("./assets/footer-sq.png") %>' width=140 height=140 />
+          <span class="footer-nav-sq-description">关注 ElephantBI</span>
         </li>
       </ul>
-      <div class="record" >辽ICP备18008272号</div>
+      <div class="record">Copyright© 悦视光合科技(大连)有限公司&nbsp&nbsp&nbsp&nbsp辽ICP备18008272号</div>
     </footer>
   </div>
-  <div class="modal" id="modal-application" >
-    <a href="javascript:void(0)" id="modal-id-close" class="modal-close" >
-      ×
-    </a>
-    <h3 class="title" >
-      预约体验ElephantBI
-    </h3>
-    <p class="sub-title" >
-      ElephantBI团队将尽快和您联系
-    </p>
-    <form action="POST" name="formModal" >
-      <span class="form-item" data-attr="请输入姓名" >
-        <img src='<%= require("./assets/input-name.png") %>' />
-        <input class="form-input" type="text" name="name" placeholder="姓名" />
-      </span>
-      <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱" >
-        <img src='<%= require("./assets/input-email.png") %>' />
-        <input class="form-input" type="text" name="email" placeholder="邮箱" />
-      </span>
-      <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)" >
-        <img src='<%= require("./assets/input-phone.png") %>' />
-        <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
-      </span>
-      <span class="form-item" data-attr="请输入公司姓名" >
-        <img src='<%= require("./assets/input-companyname.png") %>' />
-        <input class="form-input" type="text" name="company" placeholder="公司名称" />
-      </span>
-      <span class="form-item" data-attr="请输入所属部门" >
-        <img src='<%= require("./assets/input-department.png") %>' />
-        <input class="form-input" type="text" name="department" placeholder="所属部门" />
-      </span>
-      <span class="form-item" data-attr="请输入职位" >
-        <img src='<%= require("./assets/input-position.png") %>' />
-        <input class="form-input" type="text" name="title" placeholder="职位" />
-      </span>
-    </form>
-    <button class="modal-submint" id="form-modal-submit-btn-id" >提交</button>
-  </div>
-  <div id="cover"></div>
-  <div class="tootip-modal" id="tootip-succeed" >
-    <div class="tootip-icon" >
-      <div class="tooptip-succeed" >
+  <div class="tootip-modal" id="tootip-succeed">
+    <div class="tootip-icon">
+      <div class="tooptip-succeed">
         <img src='<%= require("./assets/tootip-succeed.png") %>' alt="">
       </div>
     </div>
-    <div class="tootip-content" >
-      <div class="tootip-title" >提交成功</div>
-      <div class="tootip-description" >ElephantBI团队会尽快跟您联系</div>
+    <div class="tootip-content">
+      <div class="tootip-title">提交成功</div>
+      <div class="tootip-description">ElephantBI团队会尽快跟您联系</div>
     </div>
   </div>
-  <div class="tootip-modal" id="tootip-err" >
-    <div class="tootip-icon" >
-      <div class="tooptip-err" >
+  <div class="tootip-modal" id="tootip-err">
+    <div class="tootip-icon">
+      <div class="tooptip-err">
         <img src='<%= require("./assets/tootip-err.png") %>' alt="">
       </div>
     </div>
-    <div class="tootip-content" >
-      <div class="tootip-title" >提交失败</div>
-      <div class="tootip-description" >请电话联系：0411-39026089</div>
+    <div class="tootip-content">
+      <div class="tootip-title">提交失败</div>
+      <div class="tootip-description">请电话联系：0411-39026089</div>
     </div>
   </div>
 </body>
+
 </html>

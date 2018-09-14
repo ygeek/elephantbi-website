@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>ElephantBI</title>
@@ -11,42 +12,81 @@
     window.corpid = 'WX_CORP_ID';
     window.imageEnv = 'IMAGE_ENV';
     window.OAUTHURL = 'OAUTH_URL';
+    window.DEMOURL = 'DEMO_URL'
   </script>
 </head>
+
 <body>
   <div id="root">
-    <header class="nav-header" >
-      <nav class="nav-content" >
-        <ul class="nav-list" >
-          <li class="nav-section logo" >
-            <img src='<%= require("./assets/nav-logo-black.svg") %>' width=180 id="logo" />
-            <div class="isvWrap" >
-              <image src='<%= require("./assets/isv.svg") %>' class="isv"/>
-            </div>
+    <header class="nav-header" id="nav-header">
+      <nav class="nav-content">
+        <ul class="nav-list">
+          <li class="nav-section logo">
+            <img src='<%= require("./assets/nav-logo-black.svg") %>' width=160 height=32 id="logo" />
           </li>
-          <li class="nav-section page-list" >
-            <a href="./index.html">首页</a>
-            <a class="selected" href="./product.html">企业微信</a>
+          <li class="nav-section page-list">
+            <a href="./product.html">产品介绍</a>
+            <a href="javascript:void(0)" id="nav-industry-link">行业DEMO</a>
+            <a href="./demo.html">预约演示</a>
+            <a href="./price.html">价格</a>
             <a href="./server.html">服务支持</a>
             <a href="./about.html">关于我们</a>
+            <div class="nav-industry-modal" id="nav-industry-modal">
+              <div class="nav-industry-arrow"></div>
+              <ul>
+                <li>
+                  <a class="industry0">互联网行业</a>
+                </li>
+                <li>
+                  <a class="industry2">零售行业</a>
+                </li>
+                <li>
+                  <a class="industry4">企业服务行业</a>
+                </li>
+                <li>
+                  <a class="industry6">文娱行业</a>
+                </li>
+                <li>
+                  <a class="industry8">教育行业</a>
+                </li>
+              </ul>
+              <div class="divider"></div>
+              <ul>
+                <li>
+                  <a class="industry1">金融行业</a>
+                </li>
+                <li>
+                  <a class="industry3">制造行业</a>
+                </li>
+                <li>
+                  <a class="industry5">电商行业</a>
+                </li>
+                <li>
+                  <a class="industry7">餐饮行业</a>
+                </li>
+                <li>
+                  <a class="industry9">物流行业</a>
+                </li>
+              </ul>
+            </div>
           </li>
-          <li class="nav-section login" >
-            <span class="login-btn-content" >
-              <button id="wx-login" >企业微信登录</button>
-              <div class="login-modal" id="login-modal" >
-                <span class="login-block" >
-                  <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名" >
-                  <span class="login-cell login-fixed" >elephantbi.com</span>
+          <li class="nav-section login">
+            <span class="login-btn-content">
+              <button id="nav-login">登录</button>
+              <div class="login-modal" id="login-modal">
+                <span class="login-block">
+                  <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
+                  <span class="login-cell login-fixed">elephantbi.com</span>
                 </span>
-                <button class="login-btn" id="login-product" >登录</button>
+                <button class="login-btn" id="login-product">登录</button>
               </div>
             </span>
-            <button id="nav-application" >免费试用</button>
+            <button id="nav-application" class="free-btn">免费注册</button>
           </li>
         </ul>
       </nav>
     </header>
-    <main class="main-content" >
+    <main class="main-content">
       <div class="main-header-bg" aria-hidden="true">
         <span></span>
         <span></span>
@@ -60,306 +100,272 @@
         <span></span>
         <span></span>
       </div>
-      <header class="main-header" >
-        <div class="main-header-box" >
-          <span class="title" >高效数据分析，聚焦团队协作与决策</span>
-          <span class="description" >快速多维度的数据整合，灵活、高效的数据分析，多群组的分析结果共享，让团队中人人都是数据分析师，将数据决策覆盖到每一个工作场景</span>
-          <div class="banner" >
-            <img class="banner-image" src='<%= require("./assets/main-header-banner-product.png") %>' width=507 >
+      <header class="main-header">
+        <div class="main-header-box">
+          <span class="title">高效数据分析，聚焦团队协作与决策</span>
+          <span class="description">快速多维度的数据整合，灵活、高效的数据分析，多群组的分析结果共享，让团队中人人都是数据分析师，将数据决策覆盖到每一个工作场景</span>
+          <div class="banner">
+            <img class="banner-image" src='<%= require("./assets/main-header-banner-product.png") %>' width=507>
           </div>
           <div></div>
-          <div style="display: inline-block;margin-right: 20px;color: #32325d;font-size: 14px;margin-top: 48px;" >
-            <a href="javascript:void(0);" class="wx-btn" id="wx-btn-logup" >
-              <img src='<%= require("./assets/wx-install.svg") %>' width="204" alt="">
-            </a>
-            <div class="product-banner-under-btn">
-              立即安装ElephantBI到企业微信
-            </div>
-          </div>
-          <div style="display: inline-block;color: #32325d;font-size: 14px;margin-top: 48px;" >
-            <a href="javascript:void(0);" class="wx-btn" id="wx-btn-login" >
-              <img src='<%= require("./assets/wx-lonup.svg") %>' width="204" alt="">
-            </a>
-            <div class="product-banner-under-btn">
-              立即注册企业微信和ElephantBI
-            </div>
+          <div>
+            <button class="free-btn" id="free-btn-id">免费注册</button>
+            <button class="reserve-btn demo-btn" id="reserve-btn-id">预约演示</button>
           </div>
         </div>
       </header>
-      <section class="product-stage" >
-        <div class="product-item" >
-          <div class="product-part" >
-            <h4 class="product-title" >连接业务系统数据</h4>
-            <p class="product-description" >支持包括HRM、CRM、ERP、OA、进销存等业务系统，业务数据一目了然</p>
+      <section class="product-stage">
+        <div class="product-item">
+          <div class="product-part">
+            <h4 class="product-title">连接业务系统数据</h4>
+            <p class="product-description">支持包括HRM、CRM、ERP、OA、进销存等业务系统，业务数据一目了然</p>
           </div>
-          <div class="product-part" >
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct1.png") %>' width=395 height=226 />
           </div>
         </div>
-        <div class="product-item" >
-          <div class="product-part" >
+        <div class="product-item">
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct2.png") %>' width=395 height=226 />
           </div>
-          <div class="product-part" >
-            <h4 class="product-title" >分析本地数据</h4>
-            <p class="product-description" >Excel/csv文件也可轻松上传分析</p>
+          <div class="product-part">
+            <h4 class="product-title">分析本地数据</h4>
+            <p class="product-description">Excel/csv文件也可轻松上传分析</p>
           </div>
         </div>
 
-        <div class="product-item" >
-          <div class="product-part" >
-            <h4 class="product-title" >连接SaaS应用数据</h4>
-            <p class="product-description" >企业SaaS应用一键连接，云端应用数据集成毫无障碍</p>
+        <div class="product-item">
+          <div class="product-part">
+            <h4 class="product-title">连接SaaS应用数据</h4>
+            <p class="product-description">企业SaaS应用一键连接，云端应用数据集成毫无障碍</p>
           </div>
-          <div class="product-part" >
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct3.png") %>' width=395 height=226 />
           </div>
         </div>
-        <div class="product-item" >
-          <div class="product-part" >
+        <div class="product-item">
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct4.png") %>' width=395 height=226 />
           </div>
-          <div class="product-part" >
-            <h4 class="product-title" >连接数据库数据</h4>
-            <p class="product-description" >支持连接常用关系型数据库，如MySQL、PostgreSQL、Oracle Database等，有效集成企业数据</p>
+          <div class="product-part">
+            <h4 class="product-title">连接数据库数据</h4>
+            <p class="product-description">支持连接常用关系型数据库，如MySQL、PostgreSQL、Oracle Database等，有效集成企业数据</p>
           </div>
         </div>
 
-        <div class="product-item" >
-          <div class="product-part" >
-            <h4 class="product-title" >通过API连接更多数据</h4>
-            <p class="product-description" >支持API数据接入，灵活扩展数据集成</p>
+        <div class="product-item">
+          <div class="product-part">
+            <h4 class="product-title">通过API连接更多数据</h4>
+            <p class="product-description">支持API数据接入，灵活扩展数据集成</p>
           </div>
-          <div class="product-part" >
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct5.png") %>' width=395 height=226 />
           </div>
         </div>
-        <div class="product-item" >
-          <div class="product-part" >
+        <div class="product-item">
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct6.png") %>' width=395 height=226 />
           </div>
-          <div class="product-part" >
-            <h4 class="product-title" >大数据稳定支撑</h4>
-            <p class="product-description" >强大的并行计算集群，百亿数据，实时查询，轻松处理企业大数据</p>
+          <div class="product-part">
+            <h4 class="product-title">大数据稳定支撑</h4>
+            <p class="product-description">强大的并行计算集群，百亿数据，实时查询，轻松处理企业大数据</p>
           </div>
         </div>
 
-        <div class="product-item" >
-          <div class="product-part" >
-            <h4 class="product-title" >数据实时刷新</h4>
-            <p class="product-description" >实时自动更新数据，方便您对数据的实时掌控，并依此零时差推进业务</p>
+        <div class="product-item">
+          <div class="product-part">
+            <h4 class="product-title">数据实时刷新</h4>
+            <p class="product-description">实时自动更新数据，方便您对数据的实时掌控，并依此零时差推进业务</p>
           </div>
-          <div class="product-part" >
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct7.png") %>' width=395 height=226 />
           </div>
         </div>
-        <div class="product-item" >
-          <div class="product-part" >
+        <div class="product-item">
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct8.png") %>' width=395 height=226 />
           </div>
-          <div class="product-part" >
-            <h4 class="product-title" >多表联合</h4>
-            <p class="product-description" >拖拽即可完成多表联合、追加合并数据，重复繁琐的ETL工作也可以如此轻松搞定</p>
+          <div class="product-part">
+            <h4 class="product-title">多表联合</h4>
+            <p class="product-description">拖拽即可完成多表联合、追加合并数据，重复繁琐的ETL工作也可以如此轻松搞定</p>
           </div>
         </div>
 
-        <div class="product-item" >
-          <div class="product-part" >
-            <h4 class="product-title" >拖拽式数据可视化分析</h4>
-            <p class="product-description" >简单拖拽，数据图表瞬间生成</p>
+        <div class="product-item">
+          <div class="product-part">
+            <h4 class="product-title">拖拽式数据可视化分析</h4>
+            <p class="product-description">简单拖拽，数据图表瞬间生成</p>
           </div>
-          <div class="product-part" >
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct9.png") %>' width=395 height=226 />
           </div>
         </div>
-        <div class="product-item" >
-          <div class="product-part" >
+        <div class="product-item">
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct10.png") %>' width=395 height=226 />
           </div>
-          <div class="product-part" >
-            <h4 class="product-title" >丰富的数据可视化展示</h4>
-            <p class="product-description" >图表类型丰富，几十种随意挑选</p>
+          <div class="product-part">
+            <h4 class="product-title">丰富的数据可视化展示</h4>
+            <p class="product-description">图表类型丰富，几十种随意挑选</p>
           </div>
         </div>
 
-        <div class="product-item" >
-          <div class="product-part" >
-            <h4 class="product-title" >灵动的交互式图表</h4>
-            <p class="product-description" >图表联动，数据不再静止，让数据说话。自由布局，图文混排，数据动向清晰明了</p>
+        <div class="product-item">
+          <div class="product-part">
+            <h4 class="product-title">灵动的交互式图表</h4>
+            <p class="product-description">图表联动，数据不再静止，让数据说话。自由布局，图文混排，数据动向清晰明了</p>
           </div>
-          <div class="product-part" >
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct11.png") %>' width=395 height=226 />
           </div>
         </div>
-        <div class="product-item" >
-          <div class="product-part" >
+        <div class="product-item">
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct12.png") %>' width=395 height=226 />
           </div>
-          <div class="product-part" >
-            <h4 class="product-title" >强大的数据分析功能</h4>
-            <p class="product-description" >广泛支持数据多层钻取、横向钻取、筛选分析对比拆分等操作，深度挖掘数据背后的线索</p>
+          <div class="product-part">
+            <h4 class="product-title">强大的数据分析功能</h4>
+            <p class="product-description">广泛支持数据多层钻取、横向钻取、筛选分析对比拆分等操作，深度挖掘数据背后的线索</p>
           </div>
         </div>
 
-        <div class="product-item" >
-          <div class="product-part" >
-            <h4 class="product-title" >数据故事</h4>
-            <p class="product-description" >多种类、多终端的交互式图表和仪表盘，帮助决策者从容讲述数据背后的线索</p>
+        <div class="product-item">
+          <div class="product-part">
+            <h4 class="product-title">数据故事</h4>
+            <p class="product-description">多种类、多终端的交互式图表和仪表盘，帮助决策者从容讲述数据背后的线索</p>
           </div>
-          <div class="product-part" >
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct13.png") %>' width=395 height=226 />
           </div>
         </div>
-        <div class="product-item" >
-          <div class="product-part" >
+        <div class="product-item">
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct14.png") %>' width=395 height=226 />
           </div>
-          <div class="product-part" >
-            <h4 class="product-title" >数据驱动沟通</h4>
-            <p class="product-description" >深度集成即时沟通工具，帮助全员围绕商业数据分享协作，让数据驱动沟通融入日常工作的方方面面</p>
+          <div class="product-part">
+            <h4 class="product-title">数据驱动沟通</h4>
+            <p class="product-description">深度集成即时沟通工具，帮助全员围绕商业数据分享协作，让数据驱动沟通融入日常工作的方方面面</p>
           </div>
         </div>
 
-        <div class="product-item" >
-          <div class="product-part" >
-            <h4 class="product-title" >权限体系</h4>
-            <p class="product-description" >灵活严谨的用户和角色体系，快速准确的赋予数据权限，兼具效率与安全</p>
+        <div class="product-item">
+          <div class="product-part">
+            <h4 class="product-title">权限体系</h4>
+            <p class="product-description">灵活严谨的用户和角色体系，快速准确的赋予数据权限，兼具效率与安全</p>
           </div>
-          <div class="product-part" >
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct15.png") %>' width=395 height=226 />
           </div>
         </div>
-        <div class="product-item" >
-          <div class="product-part" >
+        <div class="product-item">
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct16.png") %>' width=395 height=226 />
           </div>
-          <div class="product-part" >
-            <h4 class="product-title" >精细数据管控</h4>
-            <p class="product-description" >提供行列粒度的数据权限控制，确保每一行每一列数据的访问都尽在掌控</p>
+          <div class="product-part">
+            <h4 class="product-title">精细数据管控</h4>
+            <p class="product-description">提供行列粒度的数据权限控制，确保每一行每一列数据的访问都尽在掌控</p>
           </div>
         </div>
 
-        <div class="product-item" >
-          <div class="product-part" >
-            <h4 class="product-title" >流畅的移动设备体验</h4>
-            <p class="product-description" >完善的移动交互体验，流畅进行图表缩放、数据钻取联动等操作，任何时候都能够便捷的查看和分析数据</p>
+        <div class="product-item">
+          <div class="product-part">
+            <h4 class="product-title">流畅的移动设备体验</h4>
+            <p class="product-description">完善的移动交互体验，流畅进行图表缩放、数据钻取联动等操作，任何时候都能够便捷的查看和分析数据</p>
           </div>
-          <div class="product-part" >
+          <div class="product-part">
             <img class="spaice-img" src='<%= require("./assets/pruduct17.png") %>' />
           </div>
         </div>
-        <div class="product-item" >
-          <div class="product-part" >
-            <img class="spaice-img" src='<%= require("./assets/pruduct18.png") %>'  />
+        <div class="product-item">
+          <div class="product-part">
+            <img class="spaice-img" src='<%= require("./assets/pruduct18.png") %>' />
           </div>
-          <div class="product-part" >
-            <h4 class="product-title" >完善的移动设备功能</h4>
-            <p class="product-description" >移动设备功能同样强大，全面支持数据分析、图表分享沟通等功能，助力高效移动办公</p>
+          <div class="product-part">
+            <h4 class="product-title">完善的移动设备功能</h4>
+            <p class="product-description">移动设备功能同样强大，全面支持数据分析、图表分享沟通等功能，助力高效移动办公</p>
           </div>
         </div>
 
-        <div class="product-item" >
-          <div class="product-part" >
-            <h4 class="product-title" >移动设备数据安全</h4>
-            <p class="product-description" >多种认证机制、设备绑定、加密传输，全面保障移动设备安全访问数据</p>
+        <div class="product-item">
+          <div class="product-part">
+            <h4 class="product-title">移动设备数据安全</h4>
+            <p class="product-description">多种认证机制、设备绑定、加密传输，全面保障移动设备安全访问数据</p>
           </div>
-          <div class="product-part" >
+          <div class="product-part">
             <img class="spaice-img" src='<%= require("./assets/pruduct19.png") %>' />
           </div>
         </div>
-        <div class="product-item" >
-          <div class="product-part" >
+        <div class="product-item">
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct20.png") %>' width=395 height=226 />
           </div>
-          <div class="product-part" >
-            <h4 class="product-title" >消息推送</h4>
-            <p class="product-description" >主动推送关键数据，及时了解关键数据的变化，无论身处何处，都能时刻保持与数据的连接</p>
+          <div class="product-part">
+            <h4 class="product-title">消息推送</h4>
+            <p class="product-description">主动推送关键数据，及时了解关键数据的变化，无论身处何处，都能时刻保持与数据的连接</p>
           </div>
         </div>
 
-        <div class="product-item" >
-          <div class="product-part" >
-            <h4 class="product-title" >多屏支持</h4>
-            <p class="product-description" >全面支持数据多屏展示，数据大屏、PC显示器、投影仪等，有价值的图表无所不在</p>
+        <div class="product-item">
+          <div class="product-part">
+            <h4 class="product-title">多屏支持</h4>
+            <p class="product-description">全面支持数据多屏展示，数据大屏、PC显示器、投影仪等，有价值的图表无所不在</p>
           </div>
-          <div class="product-part" >
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct21.png") %>' width=395 height=226 />
           </div>
         </div>
-        <div class="product-item" >
-          <div class="product-part" >
+        <div class="product-item">
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct22.png") %>' width=395 height=226 />
           </div>
-          <div class="product-part" >
-            <h4 class="product-title" >实时数据大屏</h4>
-            <p class="product-description" >实时展示最新数据动态，及时了解关键数据变化。以数据了解企业脉搏，及时预警，时刻激励</p>
+          <div class="product-part">
+            <h4 class="product-title">实时数据大屏</h4>
+            <p class="product-description">实时展示最新数据动态，及时了解关键数据变化。以数据了解企业脉搏，及时预警，时刻激励</p>
           </div>
         </div>
 
-        <div class="product-item" >
-          <div class="product-part" >
-            <h4 class="product-title" >专属服务</h4>
-            <p class="product-description" >完善的数据咨询和技术支持服务体系，7X24小时快速响应，为您提供坚实可靠的数据服务</p>
+        <div class="product-item">
+          <div class="product-part">
+            <h4 class="product-title">专属服务</h4>
+            <p class="product-description">完善的数据咨询和技术支持服务体系，7X24小时快速响应，为您提供坚实可靠的数据服务</p>
           </div>
-          <div class="product-part" >
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct23.png") %>' width=395 height=226 />
           </div>
         </div>
-        <div class="product-item" >
-          <div class="product-part" >
+        <div class="product-item">
+          <div class="product-part">
             <img src='<%= require("./assets/pruduct24.png") %>' width=395 height=226 />
           </div>
-          <div class="product-part" >
-            <h4 class="product-title" >仪表盘</h4>
-            <p class="product-description" >聚合企业核心业务数据可视化指标，实时查看全局关键数据，快速洞察业务全局状态</p>
+          <div class="product-part">
+            <h4 class="product-title">仪表盘</h4>
+            <p class="product-description">聚合企业核心业务数据可视化指标，实时查看全局关键数据，快速洞察业务全局状态</p>
           </div>
         </div>
 
       </section>
-      <section class="reserve-form" >
-        <h3 class="reserve-form-title" >预约体验ElephantBI</h3>
-        <p class="reserve-form-subtitle" >ElephantBI团队会尽快跟您联系</p>
-        <form action="POST" name="form1" >
-          <span class="form-item" data-attr="请输入姓名" >
-            <img src='<%= require("./assets/input-name.png") %>' />
-            <input class="form-input" type="text" name="name" placeholder="姓名" />
-          </span>
-          <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱" >
-            <img src='<%= require("./assets/input-email.png") %>' />
-            <input class="form-input" type="text" name="email" placeholder="邮箱" />
-          </span>
-          <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)" >
-            <img src='<%= require("./assets/input-phone.png") %>' />
-            <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
-          </span>
-          <span class="form-item" data-attr="请输入公司姓名" >
-            <img src='<%= require("./assets/input-companyname.png") %>' />
-            <input class="form-input" type="text" name="company" placeholder="公司名称" />
-          </span>
-          <span class="form-item" data-attr="请输入所属部门" >
-            <img src='<%= require("./assets/input-department.png") %>' />
-            <input class="form-input" type="text" name="department" placeholder="所属部门" />
-          </span>
-          <span class="form-item" data-attr="请输入职位" >
-            <img src='<%= require("./assets/input-position.png") %>' />
-            <input class="form-input" type="text" name="title" placeholder="职位" />
-          </span>
-        </form>
-        <button class="form-submit-btn" id="form-submit-btn-id" >提交</button>
+      <section class="register-section">
+        <div class="register-section-title">数据驱动，精准决策，即刻启程</div>
+        <div class="register-section-subTitle">ElephantBI专注数据价值，让数据真正服务于工作，现在开始免费试用</div>
+        <button class="register-section-button free-btn">免费注册</button>
       </section>
     </main>
-    <footer class="footer-content" >
-      <ul class="footer-nav" >
-        <li class="footer-nav-icon" >
-          <img src='<%= require("./assets/footer-icon.png") %>' />
+    <footer class="footer-content">
+      <ul class="footer-nav">
+        <li class="footer-nav-icon">
+          <img src='<%= require("./assets/footer-icon.png") %>' id="footer-logo" width=160 height=32 />
         </li>
-        <li class="footer-nav-list" >
+        <li class="footer-nav-list">
           <ul>
+            <li class="footer-list-title">产品</li>
             <li>
-              <a href="./index.html">首页</a>
+              <a href="./product.html">产品介绍</a>
             </li>
             <li>
-              <a href="./product.html">企业微信</a>
+              <a href="./demo.html">预约演示</a>
+            </li>
+            <li>
+              <a href="./price.html">价格</a>
             </li>
             <li>
               <a href="./server.html">服务支持</a>
@@ -368,105 +374,104 @@
               <a href="./about.html">关于我们</a>
             </li>
           </ul>
+          <ul class="footer-industry">
+            <li class="footer-list-title">行业Demo</li>
+            <ul>
+              <li>
+                <a class="industry0">互联网行业</a>
+              </li>
+              <li>
+                <a class="industry2">零售行业</a>
+              </li>
+              <li>
+                <a class="industry4">企业服务行业</a>
+              </li>
+              <li>
+                <a class="industry6">文娱行业</a>
+              </li>
+              <li>
+                <a class="industry8">教育行业</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a class="industry1">金融行业</a>
+              </li>
+              <li>
+                <a class="industry3">制造行业</a>
+              </li>
+              <li>
+                <a class="industry5">电商行业</a>
+              </li>
+              <li>
+                <a class="industry7">餐饮行业</a>
+              </li>
+              <li>
+                <a class="industry9">物流行业</a>
+              </li>
+            </ul>
+          </ul>
           <ul>
-            <li class="footer-list-title" >商务咨询</li>
+            <li class="footer-list-title">商务咨询</li>
             <li>
-              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
+              <img src='<%= require("./assets/footer-phone.png") %>' width=14 height=14 />
               <span>0411-39026089</span>
             </li>
             <li>
-              <img src='<%= require("./assets/footer-email.png") %>' />
+              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 style="margin-top: 3px" />
               <span>bd@elephantbi.com</span>
             </li>
             <li>
-              <img src='<%= require("./assets/address.svg") %>' />
-              <span>辽宁省大连市沙河口区软件园东路23号15#501AB室</span>
+              <img src='<%= require("./assets/address.svg") %>' width=12 height=15 />
+              <span class="addressSpan">辽宁省大连市沙河口区软件园东路23号15#501AB室</span>
             </li>
           </ul>
           <ul>
-            <li class="footer-list-title" >技术支持</li>
+            <li class="footer-list-title">技术支持</li>
             <li>
-              <img src='<%= require("./assets/footer-time.png") %>' />
+              <img src='<%= require("./assets/footer-time.png") %>' width=14 height=14 />
               <span>09:00~19:00</span>
             </li>
             <li>
-              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
+              <img src='<%= require("./assets/footer-phone.png") %>' width=14 height=14 />
               <span>18004083463</span>
             </li>
             <li>
-              <img src='<%= require("./assets/footer-email.png") %>' />
+              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 style="margin-top: 3px" />
               <span>support@elephantbi.com</span>
             </li>
           </ul>
         </li>
-        <li class="footer-nav-sq" >
-          <img src='<%= require("./assets/footer-sq.png") %>' width=100 />
-          <span class="footer-nav-sq-description" >关注 ElephantBI</span>
+        <li class="footer-nav-sq">
+          <img src='<%= require("./assets/footer-sq.png") %>' width=140 height=140 />
+          <span class="footer-nav-sq-description">关注 ElephantBI</span>
         </li>
       </ul>
-      <div class="record" >辽ICP备18008272号</div>
+      <div class="record">Copyright© 悦视光合科技(大连)有限公司&nbsp&nbsp&nbsp&nbsp辽ICP备18008272号</div>
     </footer>
   </div>
-  <div class="modal" id="modal-application" >
-    <a href="javascript:void(0)" id="modal-id-close" class="modal-close" >
-      ×
-    </a>
-    <h3 class="title" >
-      预约体验ElephantBI
-    </h3>
-    <p class="sub-title" >
-      ElephantBI团队将尽快和您联系
-    </p>
-    <form action="POST" name="formModal" >
-      <span class="form-item" data-attr="请输入姓名" >
-        <img src='<%= require("./assets/input-name.png") %>' />
-        <input class="form-input" type="text" name="name" placeholder="姓名" />
-      </span>
-      <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱" >
-        <img src='<%= require("./assets/input-email.png") %>' />
-        <input class="form-input" type="text" name="email" placeholder="邮箱" />
-      </span>
-      <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)" >
-        <img src='<%= require("./assets/input-phone.png") %>' />
-        <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
-      </span>
-      <span class="form-item" data-attr="请输入公司姓名" >
-        <img src='<%= require("./assets/input-companyname.png") %>' />
-        <input class="form-input" type="text" name="company" placeholder="公司名称" />
-      </span>
-      <span class="form-item" data-attr="请输入所属部门" >
-        <img src='<%= require("./assets/input-department.png") %>' />
-        <input class="form-input" type="text" name="department" placeholder="所属部门" />
-      </span>
-      <span class="form-item" data-attr="请输入职位" >
-        <img src='<%= require("./assets/input-position.png") %>' />
-        <input class="form-input" type="text" name="title" placeholder="职位" />
-      </span>
-    </form>
-    <button class="modal-submint" id="form-modal-submit-btn-id" >提交</button>
-  </div>
-  <div id="cover"></div>
-  <div class="tootip-modal" id="tootip-succeed" >
-    <div class="tootip-icon" >
-      <div class="tooptip-succeed" >
+  <div class="tootip-modal" id="tootip-succeed">
+    <div class="tootip-icon">
+      <div class="tooptip-succeed">
         <img src='<%= require("./assets/tootip-succeed.png") %>' alt="">
       </div>
     </div>
-    <div class="tootip-content" >
-      <div class="tootip-title" >提交成功</div>
-      <div class="tootip-description" >ElephantBI团队会尽快跟您联系</div>
+    <div class="tootip-content">
+      <div class="tootip-title">提交成功</div>
+      <div class="tootip-description">ElephantBI团队会尽快跟您联系</div>
     </div>
   </div>
-  <div class="tootip-modal" id="tootip-err" >
-    <div class="tootip-icon" >
-      <div class="tooptip-err" >
+  <div class="tootip-modal" id="tootip-err">
+    <div class="tootip-icon">
+      <div class="tooptip-err">
         <img src='<%= require("./assets/tootip-err.png") %>' alt="">
       </div>
     </div>
-    <div class="tootip-content" >
-      <div class="tootip-title" >提交失败</div>
-      <div class="tootip-description" >请电话联系：0411-39026089</div>
+    <div class="tootip-content">
+      <div class="tootip-title">提交失败</div>
+      <div class="tootip-description">请电话联系：0411-39026089</div>
     </div>
   </div>
 </body>
+
 </html>
