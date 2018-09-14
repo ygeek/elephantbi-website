@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>ElephantBI</title>
@@ -7,45 +8,87 @@
     window.host = window.location.origin;
     window.backhost = 'https://api.elephantbi.com';
     var SOURCE = "官网";
-    
+
     window.corpid = 'WX_CORP_ID';
     window.imageEnv = 'IMAGE_ENV';
     window.OAUTHURL = 'OAUTH_URL';
+    window.DEMOURL = 'DEMO_URL'
   </script>
 </head>
+
 <body>
-  <div id="root" >
-    <header>
-      <nav class="nav-content" >
-        <ul class="nav-list" >
-          <li class="nav-section logo" >
-            <img src='<%= require("./assets/nav-logo.svg") %>' id="logo" width=180 />
+  <div id="root">
+    <header id="nav-header">
+      <nav class="nav-content">
+        <ul class="nav-list">
+          <li class="nav-section logo">
+            <img src='<%= require("./assets/nav-logo.svg") %>' id="logo" width=160 height=32 />
           </li>
-          <li class="nav-section page-list" >
-            <a class="selected" href="./index.html">首页</a>
-            <a href="./product.html">企业微信</a>
+          <li class="nav-section page-list">
+            <a href="./product.html">产品介绍</a>
+            <a href="javascript:void(0)" id="nav-industry-link">行业DEMO</a>
+            <a href="./demo.html">预约演示</a>
+            <a href="./price.html">价格</a>
             <a href="./server.html">服务支持</a>
             <a href="./about.html">关于我们</a>
+            <div class="nav-industry-modal" id="nav-industry-modal">
+              <div class="nav-industry-arrow"></div>
+              <ul>
+                <li>
+                  <a class="industry0">互联网行业</a>
+                </li>
+                <li>
+                  <a class="industry2">零售行业</a>
+                </li>
+                <li>
+                  <a class="industry4">企业服务行业</a>
+                </li>
+                <li>
+                  <a class="industry6">文娱行业</a>
+                </li>
+                <li>
+                  <a class="industry8">教育行业</a>
+                </li>
+              </ul>
+              <div class="divider"></div>
+              <ul>
+                <li>
+                  <a class="industry1">金融行业</a>
+                </li>
+                <li>
+                  <a class="industry3">制造行业</a>
+                </li>
+                <li>
+                  <a class="industry5">电商行业</a>
+                </li>
+                <li>
+                  <a class="industry7">餐饮行业</a>
+                </li>
+                <li>
+                  <a class="industry9">物流行业</a>
+                </li>
+              </ul>
+            </div>
           </li>
-          <li class="nav-section login" >
-            <span class="login-btn-content" >
-              <button id="nav-login" >登录</button>
-              <div class="login-modal" id="login-modal" >
+          <li class="nav-section login">
+            <span class="login-btn-content">
+              <button id="nav-login">登录</button>
+              <div class="login-modal" id="login-modal">
                 <span class="login-block-wrapper">
-                  <span class="login-block" >
-                    <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名" >
-                    <span class="login-cell login-fixed" >elephantbi.com</span>
+                  <span class="login-block">
+                    <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
+                    <span class="login-cell login-fixed">elephantbi.com</span>
                   </span>
                 </span>
-                <button class="login-btn" id="login-product" >登录</button>
+                <button class="login-btn" id="login-product">登录</button>
               </div>
             </span>
-            <button id="nav-application" >免费试用</button>
+            <button id="nav-application" class="free-btn">免费注册</button>
           </li>
         </ul>
       </nav>
     </header>
-    <main class="main-content" >
+    <main class="main-content">
       <div class="main-header-bg" aria-hidden="true">
         <span></span>
         <span></span>
@@ -53,38 +96,47 @@
         <span></span>
         <span></span>
       </div>
-      <div class="gray-bg-1" ></div>
-      <div class="gray-bg-2" ></div>
-      <div class="gray-bg-3" ></div>
-      <div class="gray-bg-4" >
-        <div class="block-group" >
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+      <div class="gray-bg-1"></div>
+      <div class="gray-bg-2"></div>
+      <div class="gray-bg-3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <header class="main-header" >
-        <h2 class="sub-title" >数据驱动管理，人人都是数据专家</h2>
-        <span class="description" >通过数据整合，可以提高跨系统数据的统一性、准确性和时效性，更容易获得全面的观点深入洞察数据与精准决策，用数据驱动行为，让数据融入工作的每个环节</span>
-        <div class="banner" >
-          <img class="banner-image" src='<%= require("./assets/main-header-banner.svg") %>' >
+      <!-- <div class="gray-bg-4">
+        <div class="block-group">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <button class="free-btn" id="free-btn-id" >免费试用</button>
+      </div> -->
+      <header class="main-header">
+        <h2 class="sub-title">数据驱动，精准决策</h2>
+        <span class="description">通过数据整合，可以提高跨系统数据的统一性、准确性和时效性，更容易获得全面的观点深入洞察数据与精准决策，用数据驱动行为，让数据融入工作的每个环节</span>
+        <div class="banner">
+          <img class="banner-image" src='<%= require("./assets/main-header-banner.svg") %>'>
+        </div>
+        <div>
+          <button class="free-btn" id="free-btn-id">免费注册</button>
+          <button class="reserve-btn demo-btn" id="reserve-btn-id">预约演示</button>
+        </div>
       </header>
-      <section class="show-box" >
-        <div class="box-item left" >
-          <img class="box-title box-title-img" src='<%= require("./assets/box-left-icon1.png") %>' width=66 height=66 />
-          <div class="box-title" >
-            <h3>集成全部数据</h3>
+      <section class="show-box">
+        <div class="box-item left">
+          <img class="box-title box-title-img" src='<%= require("./assets/box-left-icon1.png") %>' width=57 height=57 />
+          <div class="box-title">
+            <div class="box-title-name">集成全部数据</div>
             <p>Integrating All Data</p>
           </div>
-          <ul class="box-list" >
+          <ul class="box-list">
             <li>内部系统数据，包括支持HRM，CRM，ERP，OA，进销存等业务系统</li>
             <li>本地数据：Excel/Csv文件也可轻松上传</li>
             <li>各种SaaS应用数据</li>
@@ -93,282 +145,180 @@
             <li>通过API连接更多数据</li>
           </ul>
         </div>
-        <div class="box-item right" >
-          <img width=405 height=482 src='<%= require("./assets/index-box-1.svg") %>' />
+        <div class="box-item right">
+          <img width=314 height=374 src='<%= require("./assets/index-box-1.svg") %>' />
         </div>
       </section>
-      <section class="show-box" >
-        <div class="box-item left" >
-          <img width=469 height=314 src='<%= require("./assets/index-box-2.png") %>' />
+      <section class="show-box">
+        <div class="box-item left">
+          <img width=330 height=221 src='<%= require("./assets/index-box-2.png") %>' />
         </div>
-        <div class="box-item right" style="max-width: 450px;margin-right: 0" >
-          <img class="box-title box-title-img" src='<%= require("./assets/box-right-icon1.png") %>' width=66 height=66 />
-          <div class="box-title" >
-            <h3>可视化拖拽分析</h3>
-            <p>Visualized drag and drop data analysis</p>
+        <div class="box-item right">
+          <div class="box-right-content">
+            <img class="box-title box-title-img" src='<%= require("./assets/box-right-icon1.png") %>' width=57 height=57 />
+            <div class="box-title">
+              <div class="box-title-name">可视化拖拽分析</div>
+              <p>Visualized drag and drop data analysis</p>
+            </div>
+            <ul class="box-list">
+              <li>简单拖拽，数据图表瞬间生成</li>
+              <li>图表类型丰富，几十种随意挑选</li>
+              <li>自由布局，图文混排，数据动向清晰明了</li>
+              <li>图表联动，数据不再静止，让数据说话</li>
+            </ul>
           </div>
-          <ul class="box-list" >
-            <li>简单拖拽，数据图表瞬间生成</li>
-            <li>图表类型丰富，几十种随意挑选</li>
-            <li>自由布局，图文混排，数据动向清晰明了</li>
-            <li>图表联动，数据不再静止，让数据说话</li>
-          </ul>
         </div>
       </section>
-      <section class="show-box" >
-        <div class="box-item left" >
-          <img class="box-title box-title-img" src='<%= require("./assets/box-left-icon2.png") %>' width=66 height=66 />
-          <div class="box-title" >
-            <h3>团队协作</h3>
+      <section class="show-box">
+        <div class="box-item left">
+          <img class="box-title box-title-img" src='<%= require("./assets/box-left-icon2.png") %>' width=57 height=57 />
+          <div class="box-title">
+            <div class="box-title-name">团队协作</div>
             <p>Integrating All Data</p>
           </div>
-          <ul class="box-list" >
+          <ul class="box-list">
             <li>多种类，多终端的交互式图表和仪表盘，帮助决策者从容讲述数据背后的线索</li>
             <li>深度集成即时沟通工具，帮助全员围绕商业数据分享协作，让数据驱动沟通融入日常工作的方方面面</li>
             <li>以数据连接全体成员，打破团队成员见的信息隔阂。帮助团队时刻了解业务关键指标，保持清晰的业务共识</li>
           </ul>
         </div>
-        <div class="box-item right" height=269 >
-          <img width=368 height=417 src='<%= require("./assets/index-box-3.png") %>' />
+        <div class="box-item right" height=269>
+          <img width=330 height=400 src='<%= require("./assets/index-box-3.png") %>' />
         </div>
       </section>
-      <section class="show-box" >
-        <div class="box-item left" >
-          <img width=486 height=297 src='<%= require("./assets/index-box-4.png") %>' />
+      <section class="show-box">
+        <div class="box-item left">
+          <img width=374 height=229 src='<%= require("./assets/index-box-4.png") %>' />
         </div>
-        <div class="box-item right" >
-          <img class="box-title box-title-img" src='<%= require("./assets/box-right-icon2.png") %>' width=66 height=66 />
-          <div class="box-title" >
-            <h3>精细化权限管理</h3>
-            <p>Integrating All Data</p>
+        <div class="box-item right">
+          <div class="box-right-content">
+            <img class="box-title box-title-img" src='<%= require("./assets/box-right-icon2.png") %>' width=57 height=57 />
+            <div class="box-title">
+              <div class="box-title-name">精细化权限管理</div>
+              <p>Integrating All Data</p>
+            </div>
+            <ul class="box-list">
+              <li>灵活严谨的用户和角色体系，快速准确的赋予数据权限，兼具效率与安全</li>
+              <li>提供行列粒度的数据权限控制，确保每一行每一列数据的访问都尽在控制</li>
+            </ul>
           </div>
-          <ul class="box-list" >
-            <li>灵活严谨的用户和角色体系，快速准确的赋予数据权限，兼具效率与安全</li>
-            <li>提供行列粒度的数据权限控制，确保每一行每一列数据的访问都尽在控制</li>
-          </ul>
         </div>
       </section>
-      <section class="show-box" >
-        <div class="box-item left" >
-          <img class="box-title box-title-img" src='<%= require("./assets/box-left-icon3.png") %>' width=66 height=66 />
-          <div class="box-title" >
-            <h3>移动BI</h3>
-            <p>Integrating All Data</p>
-          </div>
-          <ul class="box-list" >
-            <li>完善的移动交互体验，流畅进行图表缩放，数据钻取联动等操作，任何时候都能够便捷的查看和分析数据</li>
-            <li>移动设备功能同样强大，全面支持数据分析，图表分享沟通等功能，助力高效移动办公</li>
-            <li>主动推送关键数据，及时了解关键数据的变化，无论身处何处，都能时刻保持与数据的连接</li>
-            <li>多种认证机制，设备绑定，加密传输，全面保障移动设备安全访问数据</li>
-          </ul>
-        </div>
-        <div class="box-item right" height=300 >
-          <img width=486 height=297 src='<%= require("./assets/index-box-5.png") %>' />
-        </div>
+      <section class="industry-section">
+        <div class="industry-main-title">请选择下方要体验的行业Demo</div>
+        <ul class="industry-list">
+          <li>
+            <img class="industry-title-img" width=30 height=30 src='<%= require("./assets/industry1.svg") %>' />
+            <div class="industry-title">互联网行业</div>
+            <div class="industry-description">
+              实时跟踪访客数，流量走势，竞争对手策略趋势等关键业务指标，掌握最新产品动向，辅助决策和调整产品方向
+            </div>
+            <button class="industry-operator industry0">体验DEMO</button>
+          </li>
+          <li>
+            <img class="industry-title-img" width=30 height=34 src='<%= require("./assets/industry2.svg") %>' />
+            <div class="industry-title">零售行业</div>
+            <div class="industry-description">
+              从精细化管理的角度，利用数据分析，帮助零售企业给出数据解决方案，提高零售转化率同时降低退货率
+            </div>
+            <button class="industry-operator industry2">体验DEMO</button>
+          </li>
+          <li>
+            <img class="industry-title-img" width=30 height=27 src='<%= require("./assets/industry3.svg") %>' />
+            <div class="industry-title">企业服务行业</div>
+            <div class="industry-description">
+              了解客户差异化需求，提供更专业的服务，降低获客成本，提高客户活跃度和留存度，增加客户黏性，提高续约率
+            </div>
+            <button class="industry-operator industry4">体验DEMO</button>
+          </li>
+          <li>
+            <img class="industry-title-img" width=30 height=30 src='<%= require("./assets/industry4.svg") %>' />
+            <div class="industry-title">文娱行业</div>
+            <div class="industry-description">
+              时刻保持最新状态，对即将发生的事件进行趋势预测，让数据变得可靠实用，数据指导精准营销活动
+            </div>
+            <button class="industry-operator industry6">体验DEMO</button>
+          </li>
+          <li>
+            <img class="industry-title-img" width=30 height=25.2 src='<%= require("./assets/industry5.svg") %>' />
+            <div class="industry-title">教育行业</div>
+            <div class="industry-description">
+              从重复琐碎工作中解放大脑，指导根据创新的教学方法，提供用户分组、漏斗分析等，跟踪学生动态，提出具有针对性的提升方案
+            </div>
+            <button class="industry-operator industry8">体验DEMO</button>
+          </li>
+          <li>
+            <img class="industry-title-img" width=30 height=30 src='<%= require("./assets/industry6.svg") %>' />
+            <div class="industry-title">金融行业</div>
+            <div class="industry-description">
+              以精细化运营的姿态面对行业变化，依靠数据为客户提供精准保险服务，降低获客成本，提高用户留存和增购
+            </div>
+            <button class="industry-operator industry1">体验DEMO</button>
+          </li>
+          <li>
+            <img class="industry-title-img" width=30 height=29.4 src='<%= require("./assets/industry7.svg") %>' />
+            <div class="industry-title">制造行业</div>
+            <div class="industry-description">
+              整合多业务系统和大型ERP数据互通，合理分配资源降低生产成本，优化生产线管理提升产品质量
+            </div>
+            <button class="industry-operator industry3">体验DEMO</button>
+          </li>
+          <li>
+            <img class="industry-title-img" width=30 height=22.8 src='<%= require("./assets/industry8.svg") %>' />
+            <div class="industry-title">电商行业</div>
+            <div class="industry-description">
+              多业务系统的数据整合，打破信息孤岛，高效的客户管理及供应商合作管理，差异化线上和线下运营，帮助电商客户科学决策
+            </div>
+            <button class="industry-operator industry5">体验DEMO</button>
+          </li>
+          <li>
+            <img class="industry-title-img" width=30 height=30 src='<%= require("./assets/industry9.svg") %>' />
+            <div class="industry-title">餐饮行业</div>
+            <div class="industry-description">
+              实现繁杂数据整合，提高顾客就餐率，及时调整营销策略，提供数据驱动的解决方案，轻松提高客户的满意度
+            </div>
+            <button class="industry-operator industry7">体验DEMO</button>
+          </li>
+          <li>
+            <img class="industry-title-img" width=30 height=22.8 src='<%= require("./assets/industry10.svg") %>' />
+            <div class="industry-title">物流行业</div>
+            <div class="industry-description">
+              轻松了解追踪客户行为，打通业务系统，科学调度车辆，提高订单完成率、准时率，提高物流效率，保证客户满意度
+            </div>
+            <button class="industry-operator industry9">体验DEMO</button>
+          </li>
+          <li>
+            <img class="industry-title-img" width=30 height=30 src='<%= require("./assets/industry11.svg") %>' />
+            <div class="industry-title">其他行业</div>
+            <div class="industry-description">
+              旅游业，保险业，农产品，电气化工，高新科技，生活服务等更多行业，立即预约，专业行业顾问将为您进行免费线上演示
+            </div>
+            <button class="industry-operator demo-btn">预约演示</button>
+          </li>
+        </ul>
       </section>
-      <section class="show-box" >
-        <div class="box-item left" >
-          <img width=486 height=297 src='<%= require("./assets/index-box-6.png") %>' />
-        </div>
-        <div class="box-item right" >
-          <img class="box-title box-title-img" src='<%= require("./assets/box-right-icon3.png") %>' width=66 height=66 />
-          <div class="box-title" >
-            <h3>数据大屏</h3>
-            <p>Integrating All Data</p>
-          </div>
-          <ul class="box-list" >
-            <li>全面支持数据多屏展示，数据大屏，PC显示器，投影仪等，有价值的图表无处不在</li>
-            <li>实时展示最新数据动态，即使了解关键数据变化。以数据了解企业脉搏，及时预警，时刻激励</li>
-          </ul>
-        </div>
-      </section>
-      
-      <section class="rotate-card" >
-        <h3 class="rotate-card-title" >行业解决方案</h3>
-        <div class="card-stage" >
-          <div class="cards" >
-            <div class="show-card show" id="0" style="left: 0%" >
-              <div class="card-title card-image-1" >零售与电商</div>
-              <div class="card-description" >
-                <div class="card-p" >
-                  <div>
-                    利用数据分析实时掌握进销存动态，选择可靠的供应商，指定最合理的销售价格，提升电商网站转化率同时降低退货率
-                  </div>
-                  <button class="card-btn" >免费试用</button>
-                </div>
-              </div>
-            </div>
-            <div class="show-card" id="1" style="left: 100%" >
-              <div class="card-title card-image-2" >金融服务</div>
-              <div class="card-description" >
-                <div class="card-p" >
-                  <div>
-                    实时监控数据保证覆盖众多复杂金融指标，依靠数据为客户提供精准保险服务，对关键财务指标预警并实时接受通知
-                  </div>
-                  <button class="card-btn" >免费试用</button>
-                </div>
-              </div>
-            </div>
-            <div class="show-card" id="2" style="left: 100%" >
-              <div class="card-title card-image-3" >教育</div>
-              <div class="card-description" >
-                <div class="card-p" >
-                  <div>
-                    从重复琐碎工作中解放大脑，指导根据创新的教学方法，跟踪学生动态，提出具有针对性的提升方案
-                  </div>
-                  <button class="card-btn" >免费试用</button>
-                </div>
-              </div>
-            </div>
-            <div class="show-card" id="3" >
-              <div class="card-title card-image-4" >健康医疗</div>
-              <div class="card-description" >
-                <div class="card-p" >
-                  <div>
-                    实现繁杂数据整合，提高就医效率，提供数据驱动的解决方案，实时监控患者生理周期各项指标，轻松提高客户的满意度
-                  </div>
-                  <button class="card-btn" >免费试用</button>
-                </div>
-              </div>
-            </div>
-            <div class="show-card" id="4" >
-              <div class="card-title card-image-5" >地产行业</div>
-              <div class="card-description" >
-                <div class="card-p" >
-                  <div>
-                    整合企业复杂数据源，及时分析瞬息万变的房产行情，及时调整营销策略，辅助指定开发方案，各类销售分析促进楼盘回款率
-                  </div>
-                  <button class="card-btn" >免费试用</button>
-                </div>
-              </div>
-            </div>
-            <div class="show-card" id="5" >
-              <div class="card-title card-image-6" >制造业</div>
-              <div class="card-description" >
-                <div class="card-p" >
-                  <div>
-                    整合多业务系统和大型ERP数据互通，合理分配资源降低生产成本，优化生产线管理提升产品质量
-                  </div>
-                  <button class="card-btn" >免费试用</button>
-                </div>
-              </div>
-            </div>
-            <div class="show-card" id="6" >
-              <div class="card-title card-image-7" >汽车行业</div>
-              <div class="card-description" >
-                <div class="card-p" >
-                  <div>
-                    多业务系统和大型ERP的数据整合，打破信息孤岛，高效的客户关系管理及供应商合作管理，把我市场价格变化行情调整销售策略
-                  </div>
-                  <button class="card-btn" >免费试用</button>
-                </div>
-              </div>
-            </div>
-            <div class="show-card" id="7" >
-              <div class="card-title card-image-8" >酒店与交通</div>
-              <div class="card-description" >
-                <div class="card-p" >
-                  <div>
-                    轻松了解追踪客户行为，领先竞争对手对购买趋势的预测，提高物流高效率，保证客户满意度
-                  </div>
-                  <button class="card-btn" >免费试用</button>
-                </div>
-              </div>
-            </div>
-            <div class="show-card" id="8" >
-              <div class="card-title card-image-9" >高新技术</div>
-              <div class="card-description" >
-                <div class="card-p" >
-                  <div>
-                    试试跟踪访客数、流量走势、竞争对手策略趋势等关键业务指标，掌握最新科技动向，辅助决策和调整产品方向
-                  </div>
-                  <button class="card-btn" >免费试用</button>
-                </div>
-              </div>
-            </div>
-            <div class="show-card" id="9" >
-              <div class="card-title card-image-10" >电信行业</div>
-              <div class="card-description" >
-                <div class="card-p" >
-                  <div>
-                    融合业务、计费、财务、网管、监控等多系统数据，大数据分析辅助决策，用户数据分析防止欺诈等行为，减少客户流失
-                  </div>
-                  <button class="card-btn" >免费试用</button>
-                </div>
-              </div>
-            </div>
-            <div class="show-card" id="10" style="left: -100%" >
-              <div class="card-title card-image-11" >媒体娱乐</div>
-              <div class="card-description" >
-                <div class="card-p" >
-                  <div>
-                    时刻保持最新状态，对即将发生的事件进行趋势预测，让数据变得可靠实用，数据指导精准营销活动
-                  </div>
-                  <button class="card-btn" >免费试用</button>
-                </div>
-              </div>
-            </div>
-            <div class="show-card" id="11" style="left: -100%" >
-              <div class="card-title card-image-12" >专业服务</div>
-              <div class="card-description" >
-                <div class="card-p" >
-                  <div>
-                    从重复繁琐的工作中抽身以提升效率，更好的了解客户差异化需求，快速积累成功经验所需的信息，提供更专业的服务
-                  </div>
-                  <button class="card-btn" >免费试用</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="btn-up" id="up-btn" />
-          <button class="btn-down" id="down-btn" />
-        </div>
-      </section>
-
-      <section class="reserve-form" >
-        <h3 class="reserve-form-title" >预约体验ElephantBI</h3>
-        <p class="reserve-form-subtitle" >ElephantBI团队会尽快跟您联系</p>
-        <form action="POST" name="form1" >
-          <span class="form-item" data-attr="请输入姓名" >
-            <img src='<%= require("./assets/input-name.png") %>' />
-            <input class="form-input" type="text" name="name" placeholder="姓名" />
-          </span>
-          <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱" >
-            <img src='<%= require("./assets/input-email.png") %>' />
-            <input class="form-input" type="text" name="email" placeholder="邮箱" />
-          </span>
-          <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)" >
-            <img src='<%= require("./assets/input-phone.png") %>' />
-            <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
-          </span>
-          <span class="form-item" data-attr="请输入公司姓名" >
-            <img src='<%= require("./assets/input-companyname.png") %>' />
-            <input class="form-input" type="text" name="company" placeholder="公司名称" />
-          </span>
-          <span class="form-item" data-attr="请输入所属部门" >
-            <img src='<%= require("./assets/input-department.png") %>' />
-            <input class="form-input" type="text" name="department" placeholder="所属部门" />
-          </span>
-          <span class="form-item" data-attr="请输入职位" >
-            <img src='<%= require("./assets/input-position.png") %>' />
-            <input class="form-input" type="text" name="title" placeholder="职位" />
-          </span>
-        </form>
-        <button class="form-submit-btn" id="form-submit-btn-id" >提交</button>
+      <section class="register-section">
+        <div class="register-section-title">数据驱动，精准决策，即刻启程</div>
+        <div class="register-section-subTitle">ElephantBI专注数据价值，让数据真正服务于工作，现在开始免费试用</div>
+        <button class="register-section-button free-btn">免费注册</button>
       </section>
     </main>
-    <footer class="footer-content" >
-      <ul class="footer-nav" >
-        <li class="footer-nav-icon" >
-          <img src='<%= require("./assets/footer-icon.png") %>' />
+    <footer class="footer-content">
+      <ul class="footer-nav">
+        <li class="footer-nav-icon">
+          <img src='<%= require("./assets/footer-icon.png") %>' id="footer-logo" width=160 height=32 />
         </li>
-        <li class="footer-nav-list" >
+        <li class="footer-nav-list">
           <ul>
+            <li class="footer-list-title">产品</li>
             <li>
-              <a href="./index.html">首页</a>
+              <a href="./product.html">产品介绍</a>
             </li>
             <li>
-              <a href="./product.html">企业微信</a>
+              <a href="./demo.html">预约演示</a>
+            </li>
+            <li>
+              <a href="./price.html">价格</a>
             </li>
             <li>
               <a href="./server.html">服务支持</a>
@@ -377,105 +327,104 @@
               <a href="./about.html">关于我们</a>
             </li>
           </ul>
+          <ul class="footer-industry">
+            <li class="footer-list-title">行业Demo</li>
+            <ul>
+              <li>
+                <a class="industry0">互联网行业</a>
+              </li>
+              <li>
+                <a class="industry2">零售行业</a>
+              </li>
+              <li>
+                <a class="industry4">企业服务行业</a>
+              </li>
+              <li>
+                <a class="industry6">文娱行业</a>
+              </li>
+              <li>
+                <a class="industry8">教育行业</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a class="industry1">金融行业</a>
+              </li>
+              <li>
+                <a class="industry3">制造行业</a>
+              </li>
+              <li>
+                <a class="industry5">电商行业</a>
+              </li>
+              <li>
+                <a class="industry7">餐饮行业</a>
+              </li>
+              <li>
+                <a class="industry9">物流行业</a>
+              </li>
+            </ul>
+          </ul>
           <ul>
-            <li class="footer-list-title" >商务咨询</li>
+            <li class="footer-list-title">商务咨询</li>
             <li>
-              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
+              <img src='<%= require("./assets/footer-phone.png") %>' width=14 height=14 />
               <span>0411-39026089</span>
             </li>
             <li>
-              <img src='<%= require("./assets/footer-email.png") %>' />
+              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 style="margin-top: 3px" />
               <span>bd@elephantbi.com</span>
             </li>
             <li>
-              <img src='<%= require("./assets/address.svg") %>' />
-              <span class="addressSpan" >辽宁省大连市沙河口区软件园东路23号15#501AB室</span>
+              <img src='<%= require("./assets/address.svg") %>' width=12 height=15 />
+              <span class="addressSpan">辽宁省大连市沙河口区软件园东路23号15#501AB室</span>
             </li>
           </ul>
           <ul>
-            <li class="footer-list-title" >技术支持</li>
+            <li class="footer-list-title">技术支持</li>
             <li>
-              <img src='<%= require("./assets/footer-time.png") %>' />
+              <img src='<%= require("./assets/footer-time.png") %>' width=14 height=14 />
               <span>09:00~19:00</span>
             </li>
             <li>
-              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
+              <img src='<%= require("./assets/footer-phone.png") %>' width=14 height=14 />
               <span>18004083463</span>
             </li>
             <li>
-              <img src='<%= require("./assets/footer-email.png") %>' />
+              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 style="margin-top: 3px" />
               <span>support@elephantbi.com</span>
             </li>
           </ul>
         </li>
-        <li class="footer-nav-sq" >
-          <img src='<%= require("./assets/footer-sq.png") %>' width=100 />
-          <span class="footer-nav-sq-description" >关注 ElephantBI</span>
+        <li class="footer-nav-sq">
+          <img src='<%= require("./assets/footer-sq.png") %>' width=140 height=140 />
+          <span class="footer-nav-sq-description">关注 ElephantBI</span>
         </li>
       </ul>
-      <div class="record" >辽ICP备18008272号</div>
+      <div class="record">Copyright© 悦视光合科技(大连)有限公司&nbsp&nbsp&nbsp&nbsp辽ICP备18008272号</div>
     </footer>
   </div>
-  <div class="modal" id="modal-application" >
-    <a href="javascript:void(0)" id="modal-id-close" class="modal-close" >
-      ×
-    </a>
-    <h3 class="title" >
-      预约体验ElephantBI
-    </h3>
-    <p class="sub-title" >
-      ElephantBI团队将尽快和您联系
-    </p>
-    <form action="POST" name="formModal" >
-      <span class="form-item" data-attr="请输入姓名" >
-        <img src='<%= require("./assets/input-name.png") %>' />
-        <input class="form-input" type="text" name="name" placeholder="姓名" />
-      </span>
-      <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱" >
-        <img src='<%= require("./assets/input-email.png") %>' />
-        <input class="form-input" type="text" name="email" placeholder="邮箱" />
-      </span>
-      <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)" >
-        <img src='<%= require("./assets/input-phone.png") %>' />
-        <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
-      </span>
-      <span class="form-item" data-attr="请输入公司姓名" >
-        <img src='<%= require("./assets/input-companyname.png") %>' />
-        <input class="form-input" type="text" name="company" placeholder="公司名称" />
-      </span>
-      <span class="form-item" data-attr="请输入所属部门" >
-        <img src='<%= require("./assets/input-department.png") %>' />
-        <input class="form-input" type="text" name="department" placeholder="所属部门" />
-      </span>
-      <span class="form-item" data-attr="请输入职位" >
-        <img src='<%= require("./assets/input-position.png") %>' />
-        <input class="form-input" type="text" name="title" placeholder="职位" />
-      </span>
-    </form>
-    <button class="modal-submint" id="form-modal-submit-btn-id" >提交</button>
-  </div>
-  <div id="cover"></div>
-  <div class="tootip-modal" id="tootip-succeed" >
-    <div class="tootip-icon" >
-      <div class="tooptip-succeed" >
+  <div class="tootip-modal" id="tootip-succeed">
+    <div class="tootip-icon">
+      <div class="tooptip-succeed">
         <img src='<%= require("./assets/tootip-succeed.png") %>' alt="">
       </div>
     </div>
-    <div class="tootip-content" >
-      <div class="tootip-title" >提交成功</div>
-      <div class="tootip-description" >ElephantBI团队会尽快跟您联系</div>
+    <div class="tootip-content">
+      <div class="tootip-title">提交成功</div>
+      <div class="tootip-description">ElephantBI团队会尽快跟您联系</div>
     </div>
   </div>
-  <div class="tootip-modal" id="tootip-err" >
-    <div class="tootip-icon" >
-      <div class="tooptip-err" >
+  <div class="tootip-modal" id="tootip-err">
+    <div class="tootip-icon">
+      <div class="tooptip-err">
         <img src='<%= require("./assets/tootip-err.png") %>' alt="">
       </div>
     </div>
-    <div class="tootip-content" >
-      <div class="tootip-title" >提交失败</div>
-      <div class="tootip-description" >请电话联系：0411-39026089</div>
+    <div class="tootip-content">
+      <div class="tootip-title">提交失败</div>
+      <div class="tootip-description">请电话联系：0411-39026089</div>
     </div>
   </div>
 </body>
+
 </html>

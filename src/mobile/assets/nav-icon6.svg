@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="46px" viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 34 Copy 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="22" cy="22" r="22"></circle>
+    </defs>
+    <g id="1首页导航" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-99.000000, -153.000000)">
+        <g id="Group-14" transform="translate(100.000000, 154.000000)">
+            <g id="Group-6">
+                <g id="Group-34-Copy-4" transform="translate(22.000000, 22.000000) rotate(90.000000) translate(-22.000000, -22.000000) ">
+                    <circle id="Oval" stroke="#3CCFD2" stroke-width="1.584" fill="#87BBFD" cx="22" cy="22" r="22"></circle>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#40D1CC" xlink:href="#path-1"></use>
+                    <circle id="Oval-15-Copy" fill="#A2EDDC" mask="url(#mask-2)" cx="9.42857143" cy="17.2857143" r="6.28571429"></circle>
+                    <path d="M13,12.584 L13,34.0769933 C13,34.9518123 13.709181,35.6609933 14.584,35.6609933 L44.0753192,35.6609933 C44.9501382,35.6609933 45.6593192,34.9518123 45.6593192,34.0769933 L45.6593192,12.584 C45.6593192,11.709181 44.9501382,11 44.0753192,11 L14.584,11 C13.709181,11 13,11.709181 13,12.584 Z" id="Path-7" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                    <circle id="Oval-15" fill="#A2EDDC" mask="url(#mask-2)" cx="33.2857143" cy="23.2857143" r="6.28571429"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

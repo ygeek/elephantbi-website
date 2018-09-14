@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ElephantBI</title>
+  <script>
+    window.host = window.location.origin;
+    window.backhost = 'https://api.elephantbi.com';
+    var SOURCE = "官网";
+
+    window.corpid = 'WX_CORP_ID';
+    window.imageEnv = 'IMAGE_ENV';
+    window.OAUTHURL = 'OAUTH_URL';
+    window.DEMOURL = 'DEMO_URL'
+  </script>
+</head>
+
+<body>
+  <div id="root">
+    <header class="nav-header" id="nav-header">
+      <nav class="nav-content">
+        <ul class="nav-list">
+          <li class="nav-section logo">
+            <img src='<%= require("./assets/nav-logo-black.svg") %>' width=160 height=32 id="logo" />
+          </li>
+          <li class="nav-section page-list">
+            <a href="./product.html">产品介绍</a>
+            <a href="javascript:void(0)" id="nav-industry-link">行业DEMO</a>
+            <a href="./demo.html">预约演示</a>
+            <a href="./price.html">价格</a>
+            <a href="./server.html">服务支持</a>
+            <a href="./about.html">关于我们</a>
+            <div class="nav-industry-modal" id="nav-industry-modal">
+              <div class="nav-industry-arrow"></div>
+              <ul>
+                <li>
+                  <a class="industry0">互联网行业</a>
+                </li>
+                <li>
+                  <a class="industry2">零售行业</a>
+                </li>
+                <li>
+                  <a class="industry4">企业服务行业</a>
+                </li>
+                <li>
+                  <a class="industry6">文娱行业</a>
+                </li>
+                <li>
+                  <a class="industry8">教育行业</a>
+                </li>
+              </ul>
+              <div class="divider"></div>
+              <ul>
+                <li>
+                  <a class="industry1">金融行业</a>
+                </li>
+                <li>
+                  <a class="industry3">制造行业</a>
+                </li>
+                <li>
+                  <a class="industry5">电商行业</a>
+                </li>
+                <li>
+                  <a class="industry7">餐饮行业</a>
+                </li>
+                <li>
+                  <a class="industry9">物流行业</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-section login">
+            <span class="login-btn-content">
+              <button id="nav-login">登录</button>
+              <div class="login-modal" id="login-modal">
+                <span class="login-block">
+                  <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
+                  <span class="login-cell login-fixed">elephantbi.com</span>
+                </span>
+                <button class="login-btn" id="login-product">登录</button>
+              </div>
+            </span>
+            <button id="nav-application" class="free-btn">免费注册</button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main-content">
+      <div class="main-header-bg" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="gray-bg"></div>
+      <div class="main-title">升级ElephantBI，释放数据价值</div>
+      <div class="price-table">
+        <ul class="price-list">
+          <li class="price-list-intro price-empty"></li>
+          <li class="price-list-title">数据准备</li>
+          <li>用户数</li>
+          <li>数据源连接个数</li>
+          <li>数据存储容量</li>
+          <li>数据库自动刷新频率</li>
+          <li>并发同步连接个数</li>
+          <li>线上数据仓库</li>
+          <li>数据库连接</li>
+          <li>内网数据连接</li>
+          <li>本地文件数据连接</li>
+          <li>多表联合</li>
+          <li>数据查看权限管理</li>
+          <li>数据源管理及设定</li>
+          <li>导出数据条数</li>
+          <li class="price-list-title">数据分析</li>
+          <li>交叉表/透视表展示</li>
+          <li>各类图表展示</li>
+          <li>拖拽式操作</li>
+          <li>数据筛选</li>
+          <li>数据排序</li>
+          <li>图表样式设定</li>
+          <li class="price-list-title">数据分析</li>
+          <li>图表仪表盘管理</li>
+          <li>仪表盘站外分享</li>
+          <li>仪表盘权限管理</li>
+          <li class="price-list-title">结果展示</li>
+          <li>图表仪表盘管理</li>
+          <li>仪表盘站外分享</li>
+          <li>仪表盘权限管理</li>
+          <li class="price-list-title">团队管理</li>
+          <li>团队成员管理</li>
+          <li>支持批量管理</li>
+          <li>支持成员分组</li>
+          <li>团队设定</li>
+          <li>公司设定</li>
+          <li class="price-list-title">服务支持</li>
+          <li>中英文邮件支持</li>
+          <li>产品手册支持</li>
+          <li>8*5电话支持</li>
+          <li>一对一客户顾问</li>
+        </ul>
+        <ul class="price-list">
+          <li class="price-list-intro price-list-intro-free">
+            <div>免费版</div>
+            <div>个人用户</div>
+            <div>免费</div>
+            <button class="price-list-button">立即体验</button>
+          </li>
+          <li class="price-list-title"></li>
+          <li>5</li>
+          <li>3</li>
+          <li>100M</li>
+          <li>-</li>
+          <li>-</li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>-</li>
+          <li>-</li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>10Ｗ条</li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check1.png") %>' />
+          </li>
+          <li>-</li>
+          <li>-</li>
+          <li>-</li>
+        </ul>
+        <ul class="price-list">
+          <li class="price-list-intro price-list-intro-std">
+            <div>标准版</div>
+            <div>个人或小型团队</div>
+            <div>99/人/月</div>
+            <button class="price-list-button">立即体验</button>
+            <div>现在注册，可享受企业版免费90天试用</div>
+          </li>
+          <li class="price-list-title"></li>
+          <li>10</li>
+          <li>10</li>
+          <li>1Ｇ/5人</li>
+          <li>每天</li>
+          <li>
+            1
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>20Ｗ条</li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check2.png") %>' />
+          </li>
+          <li>-</li>
+        </ul>
+        <ul class="price-list">
+          <li class="price-list-intro price-list-intro-cpy">
+            <div>企业版（推荐）</div>
+            <div>企业用户</div>
+            <div>399/人/月</div>
+            <button class="price-list-button">立即体验</button>
+            <div>现在注册，可享受企业版免费90天试用</div>
+          </li>
+          <li class="price-list-title"></li>
+          <li>不限</li>
+          <li>不限</li>
+          <li>5Ｇ/10人（可灵活扩展）</li>
+          <li>按需</li>
+          <li>4</li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>50Ｗ条</li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check3.png") %>' />
+          </li>
+        </ul>
+        <ul class="price-list">
+          <li class="price-list-intro price-list-intro-cpycostom">
+            <div>企业定制版</div>
+            <div>需私有部署/有定制需求的企业用户</div>
+            <div>联系我们 0411-39026089</div>
+            <button class="price-list-button">立即体验</button>
+          </li>
+          <li class="price-list-title"></li>
+          <li>不限</li>
+          <li>不限</li>
+          <li>不限</li>
+          <li>按需</li>
+          <li>不限</li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>不限</li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li class="price-list-title"></li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+          <li>
+            <img src='<%= require("./assets/check4.png") %>' />
+          </li>
+        </ul>
+      </div>
+    </main>
+    <footer class="footer-content">
+      <ul class="footer-nav">
+        <li class="footer-nav-icon">
+          <img src='<%= require("./assets/footer-icon.png") %>' id="footer-logo" width=160 height=32 />
+        </li>
+        <li class="footer-nav-list">
+          <ul>
+            <li class="footer-list-title">产品</li>
+            <li>
+              <a href="./product.html">产品介绍</a>
+            </li>
+            <li>
+              <a href="./demo.html">预约演示</a>
+            </li>
+            <li>
+              <a href="./price.html">价格</a>
+            </li>
+            <li>
+              <a href="./server.html">服务支持</a>
+            </li>
+            <li>
+              <a href="./about.html">关于我们</a>
+            </li>
+          </ul>
+          <ul class="footer-industry">
+            <li class="footer-list-title">行业Demo</li>
+            <ul>
+              <li>
+                <a class="industry0">互联网行业</a>
+              </li>
+              <li>
+                <a class="industry2">零售行业</a>
+              </li>
+              <li>
+                <a class="industry4">企业服务行业</a>
+              </li>
+              <li>
+                <a class="industry6">文娱行业</a>
+              </li>
+              <li>
+                <a class="industry8">教育行业</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a class="industry1">金融行业</a>
+              </li>
+              <li>
+                <a class="industry3">制造行业</a>
+              </li>
+              <li>
+                <a class="industry5">电商行业</a>
+              </li>
+              <li>
+                <a class="industry7">餐饮行业</a>
+              </li>
+              <li>
+                <a class="industry9">物流行业</a>
+              </li>
+            </ul>
+          </ul>
+          <ul>
+            <li class="footer-list-title">商务咨询</li>
+            <li>
+              <img src='<%= require("./assets/footer-phone.png") %>' width=14 height=14 />
+              <span>0411-39026089</span>
+            </li>
+            <li>
+              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 style="margin-top: 3px" />
+              <span>bd@elephantbi.com</span>
+            </li>
+            <li>
+              <img src='<%= require("./assets/address.svg") %>' width=12 height=15 />
+              <span class="addressSpan">辽宁省大连市沙河口区软件园东路23号15#501AB室</span>
+            </li>
+          </ul>
+          <ul>
+            <li class="footer-list-title">技术支持</li>
+            <li>
+              <img src='<%= require("./assets/footer-time.png") %>' width=14 height=14 />
+              <span>09:00~19:00</span>
+            </li>
+            <li>
+              <img src='<%= require("./assets/footer-phone.png") %>' width=14 height=14 />
+              <span>18004083463</span>
+            </li>
+            <li>
+              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 style="margin-top: 3px" />
+              <span>support@elephantbi.com</span>
+            </li>
+          </ul>
+        </li>
+        <li class="footer-nav-sq">
+          <img src='<%= require("./assets/footer-sq.png") %>' width=140 height=140 />
+          <span class="footer-nav-sq-description">关注 ElephantBI</span>
+        </li>
+      </ul>
+      <div class="record">Copyright© 悦视光合科技(大连)有限公司&nbsp&nbsp&nbsp&nbsp辽ICP备18008272号</div>
+    </footer>
+  </div>
+  <div class="tootip-modal" id="tootip-succeed">
+    <div class="tootip-icon">
+      <div class="tooptip-succeed">
+        <img src='<%= require("./assets/tootip-succeed.png") %>' alt="">
+      </div>
+    </div>
+    <div class="tootip-content">
+      <div class="tootip-title">提交成功</div>
+      <div class="tootip-description">ElephantBI团队会尽快跟您联系</div>
+    </div>
+  </div>
+  <div class="tootip-modal" id="tootip-err">
+    <div class="tootip-icon">
+      <div class="tooptip-err">
+        <img src='<%= require("./assets/tootip-err.png") %>' alt="">
+      </div>
+    </div>
+    <div class="tootip-content">
+      <div class="tootip-title">提交失败</div>
+      <div class="tootip-description">请电话联系：0411-39026089</div>
+    </div>
+  </div>
+</body>
+
+</html>

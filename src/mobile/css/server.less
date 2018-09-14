@@ -7,6 +7,10 @@
   .nav-content-creat(#6b7c93, #1db977);
 }
 
+.nav-scroll-white {
+  .nav-content-creat(#6b7c93, #1db977);
+}
+
 .server-title-icon {
   width: 100px;
   height: 80px;
@@ -28,18 +32,18 @@
 
   .main-header {
     width: 100%;
-    padding: 50px 48px 70px 48px;
+    padding: 208px 48px 70px 48px;
     .title {
       max-width: 60%;
 
       color: #32325d;
-      font-size: 60px;
+      font-size: 42px;
     }
     .description {
       display: inline-block;
       max-width: 80%;
       min-width: 300px;
-      margin-top: 26px;
+      margin-top: 40px;
 
       color: #64728c;
       font-size: 24px;
@@ -48,7 +52,7 @@
       .creatFullButton(#fff, @color-green);
 
       display: block;
-      margin-top: 76px;
+      margin-top: 80px;
 
       border-radius: 5px;
       box-shadow: 2px 1px 4px #aeaeae;
@@ -102,32 +106,94 @@
       margin: 0 auto;
     }
     p {
-      margin: 14px 0 10px 0;
+      margin: 20px 0 40px 0;
 
       text-align: center;
     }
   }
 }
 
-.reserve-form {
-  margin: 50px auto 0 auto;
+.reserve-section {
+  padding: 40px 0px;
+  background-color: #1db977;
+  margin-top: 85px;
+}
 
+.feedback-section {
+  width: 92%;
+  padding-bottom: 24px;
+  margin: auto;
+  border: 6px solid #f5f5f9;
   background-color: #fff;
-  border: 1px solid #f0f0f0;
+}
+.feedback-title {
+  font-size: 32px;
+  color: #4a4a4a;
+  padding-top: 26px;
+  text-align: center;
+}
+.feedback-subtitle {
+  font-size: 24px;
+  color: #757575;
+  width: 85%;
+  margin: 20px auto 40px auto;
+  text-align: center;
+}
 
-  .reserve-form-title, h3, p {
-    margin: 0;
-    padding: 0;
+.feedback-item {
+  padding: 0px 40px;
+  font-size: 24px;
+  color: #757575;
+  padding-bottom: 36px;
+  overflow: hidden;
+  .label {
+    display: inline-block;
+    padding-top: 5px;
   }
-  .reserve-form-title {
-    margin-bottom: 20px;
+  .feedback-form-item {
+    display: inline-block;
+    float: right;
+    position: relative;
+    input {
+      width: 440px;
+      height: 51px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      font-size: 24px;
+      color: #757575;
+      padding: 2px 5px;
+    }
   }
-  .reserve-form-subtitle {
-    margin-bottom: 18px;
+  .feedback-form-item.error {
+    &:after {
+      content: attr(data-err) !important;
+      white-space: pre;
+      position: absolute;
+      left: 0px;
+      bottom: -24px;
+      display: block;
+      padding-left: 7px;
+      padding-top: 5px;
+      font-size: 16px;
+      color: #f1584d;
+      width: 210px
+    }
   }
-  label:nth-child(2) {
-    margin-left: 10px
+  textarea {
+    width: 440px;
+    height: 156px;
+    box-sizing: border-box;
+    color: #757575;
+    border: 1px solid #ccc;
+    font-size: 24px;
+    padding: 2px 5px;
+    font-family: Arial;
   }
+}
+#feedback-submit {
+  .creatFullButton(#fff, #1db977);
+  display: block;
+  margin: auto;
 }
 
 .main-header-bg {

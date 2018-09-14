@@ -18,10 +18,10 @@ const postcssOpts = {
       addDependencyTo: webpack
     }),
     autoprefixer({
-      browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
+      browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4']
     }),
     pxtorem({ rootValue: 200, propWhiteList: [] })
-  ],
+  ]
 };
 
 module.exports = [
@@ -31,6 +31,8 @@ module.exports = [
       product: './src/mobile/css/product.less',
       server: './src/mobile/css/server.less',
       about: './src/mobile/css/about.less',
+      demo: './src/mobile/css/demo.less',
+      price: './src/mobile/css/price.less',
       main: './src/js/main.js'
     },
     output: {
@@ -69,6 +71,10 @@ module.exports = [
         }
       ]
     },
+    devServer: {
+      port: 8586,
+      contentBase: './dist'
+    },
     plugins: [
       new CleanWebpackPlugin(['dist']),
       new webpack.HashedModuleIdsPlugin(),
@@ -92,6 +98,16 @@ module.exports = [
         chunks: ['main', 'about'],
         filename: 'about.html',
         template: './src/mobile/about.html'
+      }),
+      new HtmlWebpackPlugin({
+        chunks: ['main', 'demo'],
+        filename: 'demo.html',
+        template: './src/mobile/demo.html'
+      }),
+      new HtmlWebpackPlugin({
+        chunks: ['main', 'price'],
+        filename: 'price.html',
+        template: './src/mobile/price.html'
       }),
       new UglifyJsPlugin(),
       new CompressionPlugin({

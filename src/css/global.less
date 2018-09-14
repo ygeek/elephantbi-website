@@ -62,15 +62,28 @@ textarea::placeholder {
 #root {
   min-width: 1200px;
   overflow: hidden;
+  position: relative;
+}
+
+header#nav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+}
+
+main.main-content {
+  padding-top: 78px;
 }
 
 .baseButton() {
   .clearButtonStyle();
 
-  width: 120px;
-  height: 40px;
+  width: 100px;
+  height: 32px;
   
-  font-size: 16px;
+  font-size: 12px;
   border-width: 1px;
   border-style: solid;
   border-radius: 3px;
@@ -114,6 +127,68 @@ textarea::placeholder {
     padding: 0;
     z-index: 99;
   }
+  #nav-industry-modal {
+    position: absolute;
+    height: 188px;
+    padding-top: 12px;
+    width: 304px;
+    background-color: #fff;
+    border-radius: 5px;
+    bottom: -200px;
+    left: 420px;
+    box-shadow: 2px 1px 4px #dedede;
+    display: none;
+    .nav-industry-arrow {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: #fff;
+      top: -4px;
+      transform: rotate(45deg);
+      left: 40px;
+    }
+
+    .divider {
+      width: 0px;
+      height: 160px;
+      border: 0.5px solid #eaeaea;
+      display: inline-block;
+      margin: 0px 30px 0px 20px;
+    }
+  }
+  #nav-industry-modal ul {
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    text-align: left
+  }
+  #nav-industry-modal ul li {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    text-align: left;
+    line-height: 36px;
+    color: #64728c;
+    cursor: pointer;
+    a {
+      margin: 0px;
+      &:hover {
+        color: #64728c;
+        font-weight: bold;
+      }
+    }
+
+    &:before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: #1db977;
+      display: inline-block;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  }
 
   .nav-section {
     list-style: none;
@@ -129,9 +204,9 @@ textarea::placeholder {
     display: none;
     position: absolute;
     bottom: -20px;
-    left: 50%;
+    left: 120%;
     z-index: 9999;
-    padding: 10px;
+    padding: 20px;
 
     transform: translate(-50%, 100%);
     background-color: #fff;
@@ -150,13 +225,14 @@ textarea::placeholder {
         border: 1px solid #f1584d;
       }
       &:after {
-        content: '输入的域名不存在，请重新检查。\A如果您还没有团队请联系我们申请试用。' !important;
+        content: '输入的域名不存在，请重新检查。\A如果您还没有注册请前往免费注册。' !important;
         white-space: pre;
         display: block;
         padding-left: 0px;
         font-size: 12px;
         color: #f1584d;
-        width: 210px
+        width: 210px;
+        margin-top: 5px;
       }
     }
 
@@ -165,28 +241,35 @@ textarea::placeholder {
       border-collapse: separate;
       border-spacing: 0;
       width: 100%;
-      line-height: 1.5;
       position: relative;
     }
-
     .login-cell {
       display: table-cell;
-      height: 25px;
+      height: 36px;
+      box-sizing: border-box;
       padding: 6px 11px;
 
-      border: 1px solid #d9d9d9;
-      line-height: 1.5;
+      border: 1px solid #eaeefe;
 
       &::placeholder {
         font-size: 14px;
       }
     }
+    .login-cell:first-child {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
     .login-fixed {
       background-color: #eaeefe;
+      font-size: 14px;
+      color: #474747;
+      border: none;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
     .login-btn {
       .creatFullButton(#fff, @color-green);
-
+      font-size: 14px;
       display: block;
       margin: 20px auto 0 auto;
     }
@@ -220,6 +303,7 @@ textarea::placeholder {
     }
     #nav-application {
       .creatFullButton(@full-font-color, @full-btn-color);
+      margin-right: 50px;
       &:hover {
         font-weight: bold;
       }
@@ -231,13 +315,12 @@ textarea::placeholder {
     height: 50px;
 
     line-height: 50px;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
-
+    position: relative;
     transform: translateX(30px);
-
     a {
-      margin: 0 30px;
+      margin: 0 15px;
 
       &:hover {
         font-weight: bold;
@@ -254,14 +337,13 @@ textarea::placeholder {
     top: @half-percent;
     left: 0;
     transform: translateY(-@half-percent);
-    margin: 0 20px;
+    margin: 0 50px;
   }
 }
 
 .footer-content {
-  height: 250px;
-  padding: 80px 0;
-
+  padding-top: 64px;
+  padding-bottom: 20px;
   background-color: #f8f9fd;
 
   li {
@@ -285,20 +367,37 @@ textarea::placeholder {
     vertical-align: top;
   }
 
+  .footer-nav-icon {
+    margin: 0px 50px;
+  }
+
   .footer-nav-list ul {
     display: inline-block;
-    margin: 0 45px;
+    margin: 0 35px;
+    -webkit-padding-start: 0px;
 
     @media screen and (max-width: 1300px) {
       margin: 0 25px;
     }
 
-    font-size: 15px;
+    font-size: 12px;
     color: #5f6e80;
     vertical-align: top;
   }
+
+  .footer-nav-list ul.footer-industry ul {
+    margin: 0px;
+    padding: 0px;
+    -webkit-padding-start: 0px;
+  }
+  .footer-nav-list ul.footer-industry ul:nth-child(3) {
+    margin: 0px;
+    padding: 0px;
+    -webkit-padding-start: 20px;
+    
+  }
   .footer-nav-list li {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     a {
       .clearAStyle(#6b7c93);
       color: #6b7c93;
@@ -319,17 +418,19 @@ textarea::placeholder {
   .footer-list-title {
     font-weight: bold;
   }
-
+  .footer-nav-sq {
+    margin-right: 50px;
+  }
   .footer-nav-sq-description {
     display: block;
-
+    text-align: center;
     color: #909caa;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .addressSpan {
     display: inline-block;
-    max-width: 240px;
+    max-width: 130px;
   }
 }
 
@@ -338,27 +439,27 @@ textarea::placeholder {
   text-align: center;
   width: 1200px;
   margin: 0 auto;
+  margin-bottom: 60px;
 
   .reserve-form-title {
-    margin: 109px 0 20px 0;
+    margin: 60px 0 10px 0;
 
     color: @color-title;
-    font-size: 30px;
-    font-weight: normal;
+    font-size: 24px;
+    font-weight: 500;
   }
   .reserve-form-subtitle {
-    margin-bottom: 63px;
-
     color: #6d6d8a;
-    font-size: 18px;
+    font-size: 14px;
+    margin-bottom: 60px;
   }
 
   .form-item {
     display: inline-block;
-    width: 360px;
+    width: 400px;
     height: 30px;
     line-height: 30px;
-    margin: 0 30px 75px 40px;
+    margin: 0 30px 40px 40px;
     padding: 0;
 
     vertical-align: top;
@@ -370,16 +471,16 @@ textarea::placeholder {
     }
   }
   .form-textarea {
-    width: 780px;
-    min-height: 150px;
+    width: 905px;
+    min-height: 182px;
     padding: 10px;
-    margin-bottom: 68px;
+    margin-bottom: 40px;
 
     border-radius: 6px;
     resize: none;
-    font-size: 18px;
+    font-size: 14px;
     color: #6d6d8a;
-
+    font-family: Arial;
     border-color: #ccd3da;
     outline: none;
 
@@ -387,16 +488,16 @@ textarea::placeholder {
       outline: none;
     }
     &::placeholder {
-      color: #a3a3a3;
+      color: #cdcdcd;
       border-radius: 10px;
-      font-size: 18px;
+      font-size: 14px;
       opacity: 1; /* Firefox */
     }
   }
   .form-radio {
     display: inline-block;
-    width: 780px;
-    margin: 0 0 22px 0;
+    width: 920px;
+    margin: 0 0 12px 0;
 
     text-align: left;
     border: none;
@@ -409,11 +510,12 @@ textarea::placeholder {
     .radio {
       display: inline-block;
       position: relative;
-      width: 12px;
-      height: 12px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
-      border:solid 1px #479eed;
+      border:solid 1px #1db977;
       margin: 0 5px;
+      margin-bottom: -3px;
 
 
       cursor: pointer;
@@ -436,17 +538,17 @@ textarea::placeholder {
       display: none;
     }
     input[type="radio"]:checked + div{
-      border:solid 1px #479eed;
+      border:solid 1px #1db977;
     }
     input[type="radio"]:checked + div:after{
-      background-color: #479eed;
+      background-color: #1db977;
     }
   }
   .form-input {
     width: 300px;
     margin-left: 10px;
-
-    font-size: 18px;
+    color: #606d8a;
+    font-size: 14px;
     background-color: transparent;
     border: none;
 
@@ -454,15 +556,20 @@ textarea::placeholder {
       outline: none;
     }
     &::placeholder {
-      color: #a3a3a3;
+      color: #cdcdcd;
       opacity: 1; /* Firefox */
+      font-size: 14px;
     }
   }
 
   .form-submit-btn {
     .creatFullButton(#fff, @color-green);
-
-    border-radius: 100px;
+    width: 120px;
+    height: 36px;
+    border-radius: 4px;
+    font-size: 14px;
+    word-spacing: 3px;
+    letter-spacing: 3px;
   }
 }
 
@@ -583,13 +690,14 @@ textarea::placeholder {
   textarea {
     border-color: #f1584d !important;
   }
-
+  position: relative;
   &:after {
     content: attr(data-err) !important;
+    position: absolute;
+    bottom: -140px;
     display: block;
     padding-left: 25px;
     transform: translateY(-60px);
-
     text-align: left;
     font-size: 12px;
     color: #f1584d;
@@ -707,6 +815,6 @@ textarea::placeholder {
   color: #5f6e80;
   text-align: center;
   vertical-align: bottom;
-  font-size: 14px;
-  margin-top: 100px;
+  font-size: 12px;
+  margin-top: 50px;
 }

@@ -17,9 +17,9 @@ const postcssOpts = {
       addDependencyTo: webpack
     }),
     autoprefixer({
-      browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
-    }),
-  ],
+      browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4']
+    })
+  ]
 };
 
 module.exports = [
@@ -29,6 +29,9 @@ module.exports = [
       product: './src/css/product.less',
       server: './src/css/server.less',
       about: './src/css/about.less',
+      price: './src/css/price.less',
+      register: './src/css/register.less',
+      demo: './src/css/demo.less',
       main: './src/js/main.js'
     },
     output: {
@@ -67,6 +70,10 @@ module.exports = [
         }
       ]
     },
+    devServer: {
+      port: 8384,
+      contentBase: './dist'
+    },
     plugins: [
       new CleanWebpackPlugin(['dist']),
       new webpack.HashedModuleIdsPlugin(),
@@ -90,6 +97,21 @@ module.exports = [
         chunks: ['main', 'about'],
         filename: 'about.html',
         template: './src/about.html'
+      }),
+      new HtmlWebpackPlugin({
+        chunks: ['main', 'price'],
+        filename: 'price.html',
+        template: './src/price.html'
+      }),
+      new HtmlWebpackPlugin({
+        chunks: ['main', 'demo'],
+        filename: 'demo.html',
+        template: './src/demo.html'
+      }),
+      new HtmlWebpackPlugin({
+        chunks: ['main', 'register'],
+        filename: 'register.html',
+        template: './src/register.html'
       }),
       new UglifyJsPlugin(),
       new CompressionPlugin({
