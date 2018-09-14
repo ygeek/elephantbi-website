@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="5px" viewBox="0 0 10 5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>向下边框三角</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="3成员管理-1企业团队" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-962.000000, -557.000000)">
+        <g id="Group-4" transform="translate(649.000000, 385.000000)" fill="#474747" fill-rule="nonzero">
+            <g id="Group-6" transform="translate(89.000000, 160.000000)">
+                <g id="向下边框三角" transform="translate(229.000000, 14.500000) scale(1, -1) translate(-229.000000, -14.500000) translate(224.000000, 12.000000)">
+                    <path d="M4.67966096,0.125533 L0.130445577,4.28629442 C-0.0434818589,4.44537033 -0.0434818589,4.71326237 0.130445577,4.88069307 C0.304373012,5.03976898 0.597275789,5.03976898 0.780338036,4.88069307 L5.00916664,1.01296085 L9.21966196,4.86392526 C9.3935894,5.02300116 9.68649218,5.02300116 9.86955442,4.86392526 C10.0434819,4.70484935 10.0434819,4.43695731 9.86955442,4.26952661 L5.33870415,0.125562111 C5.14650709,-0.041854037 4.86273912,-0.041854037 4.67956548,0.125562111 L4.67966096,0.125533 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
