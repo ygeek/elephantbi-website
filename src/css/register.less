@@ -20,9 +20,35 @@ main.main-content {
     width: 900px;
     margin: auto;
     background-color: #fff;
-    padding-top: 35px;
     padding-bottom: 60px;
     box-shadow: 2px 2px 5px #fafafa,2px -2px 5px #fafafa,-2px 2px 5px #fafafa,-2px -2px 5px #fafafa;
+    .register-header {
+      text-align: center;
+      border-bottom: 1px solid #ddddde;
+      padding: 10px 0px;
+      div:first-child {
+        font-size: 14px;
+        color: #474747;
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+      div:nth-child(2) {
+        font-size: 12px;
+        color: #757575;
+        button {
+          padding: 0px;
+          margin: 0px;
+          border: none;
+          outline: none;
+          background-color: #fff;
+          color: #76c1ef;
+          font-size: 12px;
+        }
+      }
+    }
+    form {
+      padding-top: 35px;
+    }
     .group-title {
       margin-left: 200px;
       color: #474747;
@@ -42,6 +68,7 @@ main.main-content {
       display: inline-block;
       vertical-align: top;
       color: #757575;
+      transform: translateY(30%);
       .required {
         color: #f1584d;
         margin-left: 2px;
@@ -329,4 +356,108 @@ main.main-content {
     
     background-color: #f0f1f2;
   };
+}
+
+.modal-cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  z-index: 9998;
+  opacity: 0.5
+}
+
+.join-modal {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  z-index: 9999;
+  padding: 20px;
+
+  transform: translate(-50%, 100%);
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 2px 1px 4px #dedede;
+
+  .join-title {
+    font-size: 14px;
+    text-align: center;
+    color: #474747;
+    margin-bottom: 16px;
+  }
+
+  .login-block-wrapper {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .login-block-wrapper.err {
+    border: none !important;
+
+    input {
+      border: 1px solid #f1584d;
+    }
+    &:after {
+      content: '输入的域名不存在，请重新检查。\A如果您还没有注册请前往免费注册。' !important;
+      white-space: pre;
+      display: block;
+      padding-left: 0px;
+      font-size: 12px;
+      color: #f1584d;
+      width: 210px;
+      margin-top: 5px;
+    }
+  }
+
+  .login-block {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    position: relative;
+  }
+  .login-cell {
+    display: table-cell;
+    height: 36px;
+    box-sizing: border-box;
+    padding: 6px 11px;
+
+    border: 1px solid #eaeefe;
+
+    &::placeholder {
+      font-size: 14px;
+    }
+  }
+  .login-cell:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  .login-fixed {
+    background-color: #eaeefe;
+    font-size: 14px;
+    color: #474747;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .actions {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+
+    .login-btn {
+      .creatFullButton(#fff, @color-green);
+      font-size: 14px;
+      display: inline-block;
+      margin: 0px 20px;
+    }
+    .login-btn:first-child {
+      .creatFullButton(#757575, #fff);
+      border: 1px solid #757575;
+      font-size: 14px;
+    }
+  }
+
 }

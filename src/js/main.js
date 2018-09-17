@@ -85,7 +85,7 @@ const closeleLoginModal = () => {
 
 const request = (url, params) => {
   return fetch(
-    `${window.backhost}${url}`,
+    `https://api.flexceed.com${url}`,
     {
       method: 'POST',
       headers: {
@@ -344,13 +344,14 @@ const submitFormReserve = () => {
 
 const opentNewWindow = () => {
   const hostsName = document.getElementById('input-hosts');
-  const hostMatch = window.host.match(/(https*:\/\/)[\w]*\.([\w]*\.[\w]*)$/) || window.host.match(/^(https*:\/\/)([\w]*\.[\w]*)$/) || [];
+  const matchBackHost = window.backhost.match(/https:\/\/api.(.*).com/)
+  const envHost = matchBackHost[1]
 
   request('/website/domain', { domain: hostsName.value })
     .then((res) => {
       const data = res.data || {};
       if (data.exists === 1) {
-        openNewWindow(hostMatch[1] + hostsName.value + '.' + hostMatch[2]);
+        openNewWindow('https://' + hostsName.value + '.' + envHost + '.com/unregister/login');
         hostsName.value === null
         closeleLoginModal();
       } else {
@@ -360,6 +361,25 @@ const opentNewWindow = () => {
     });
 
 };
+
+const jumpToProduct = () => {
+  const hostsName = document.getElementById('input-register');
+  const matchBackHost = window.backhost.match(/https:\/\/api.(.*).com/)
+  const envHost = matchBackHost[1]
+
+  request('/website/domain', { domain: hostsName.value })
+    .then((res) => {
+      const data = res.data || {};
+      if (data.exists === 1) {
+        window.location.href = "https://" + hostsName.value + '.' + envHost + '.com/unregister/signup'
+        hostsName.value === null
+        toogleJoinModal('hide')
+      } else {
+        const parent = hostsName.parentNode.parentNode;
+        parent.setAttribute('class', parent.className + ' ' + 'err')
+      }
+    });
+}
 
 const jumpHomePage = () => {
   window.location.href = window.host;
@@ -546,14 +566,38 @@ const switchToGroup = (e) => {
     const registerEmail = document.getElementById('register-email')
     registerEmail.value = null;
     registerEmail.placeholder = '请输入登录团队使用的邮箱'
+
+    const groupMobileLabel = document.createElement('label')
+    groupMobileLabel.innerText = '手机号'
+    groupMobileLabel.setAttribute('id', 'group-mobile-label')
+    groupMobileLabel.setAttribute('for', 'group-mobile')
+    const groupMobileRequired = document.createElement('span')
+    groupMobileRequired.innerText = '*'
+    groupMobileRequired.setAttribute('class', 'required')
+    groupMobileLabel.appendChild(groupMobileRequired)
+    const groupMobileItem = document.createElement('span')
+    groupMobileItem.setAttribute('class', 'register-form-item')
+    const groupMobileInput = document.createElement('input')
+    groupMobileInput.setAttribute('id', 'group-mobile')
+    groupMobileInput.setAttribute('class', 'normal-input')
+    groupMobileInput.setAttribute('name', 'registerDisplayMobile')
+    groupMobileInput.placeholder = '请输入登录时使用的手机号'
+    groupMobileItem.appendChild(groupMobileInput)
+    registerForm.appendChild(groupMobileLabel)
+    registerForm.appendChild(groupMobileItem)
   }
 }
 const switchToFree = (e) => {
   if (e.target.checked) {
     const registerForm = document.getElementById('register-form')
     const domainField = document.getElementById('domain-field')
-    if (domainField) {
+    const groupMobile = document.getElementById('group-mobile')
+    if (domainField && groupMobile) {
+      const groupMobileItem = groupMobile.parentNode
+      const groupMobileLabel = document.getElementById('group-mobile-label')
       registerForm.removeChild(domainField)
+      registerForm.removeChild(groupMobileLabel)
+      registerForm.removeChild(groupMobileItem)
       const switchLabel = document.getElementById('switch-label')
       const required = document.createElement('span')
       required.innerText = '*'
@@ -577,6 +621,7 @@ const submitRegister = () => {
   const registerPasswordSet = registerForm.registerPasswordSet.value
   const registerPasswordConfirm = registerForm.registerPasswordConfirm.value
   const registerDisplayName = registerForm.registerDisplayName.value
+  const registerGroupMobile = registerForm.registerDisplayMobile.value
   const inputDomains = document.getElementsByClassName('input-domain')
   let errorNum = 0
   const aliVerification = JSON.parse(sessionStorage.getItem('aliVerification'))
@@ -617,6 +662,18 @@ const submitRegister = () => {
     errorNum += 1
   }
 
+  if (!registerDisplayName) {
+    const formItem = registerForm.registerDisplayName.parentNode
+    formItem.className = formItem.className + ' error'
+    errorNum += 1
+  }
+
+  if (!registerGroupMobile) {
+    const formItem = registerForm.registerDisplayMobile.parentNode
+    formItem.className = formItem.className + ' error'
+    errorNum += 1
+  }
+
   if (errorNum > 0) {
     return false
   }
@@ -631,7 +688,7 @@ const submitRegister = () => {
     name: registerGroupName,
     team_type: registerTypeGroup ? 0 : 1,
     email: registerTypeGroup ? registerEmail : null,
-    mobile: registerTypeGroup ? null : registerEmail,
+    mobile: registerTypeGroup ? registerGroupMobile : registerEmail,
     code: registerVerifiedCode,
     password: registerPasswordSet,
     password_confirm: registerPasswordConfirm,
@@ -646,8 +703,11 @@ const submitRegister = () => {
 
   request('/team/create', params)
     .then(({ data }) => {
-      if (data) {
+      if (data.id) {
         onSucceed()
+        const matchBackHost = window.backhost.match(/https:\/\/api.(.*).com/)
+        const envHost = matchBackHost[1]
+        window.location.href = 'https://' + registerUrl + '.' + envHost + '.com/unregister/login'
       } else {
         onErr()
       }
@@ -724,6 +784,36 @@ const utlInputValidate = (value) => { //团队域名校验
 const groupNameValidate = (value) => { //团队名称校验
   const registerGroupName = document.getElementById('register-group-name')
   const errNode = registerGroupName.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    return false
+  }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
+}
+
+const registerDisplayNameValidate = (value) => {
+  const registerDisplayName = document.getElementById('display-name')
+  const errNode = registerDisplayName.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    return false
+  }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
+}
+
+const registerGroupMobileValidate = (value) => {
+  const registerGroupMobile = document.getElementById('group-mobile')
+  const errNode = registerGroupMobile.parentNode
   if (!value) {
     if (!currentError(errNode)) {
       errNode.className = errNode.className + ' error'
@@ -1183,6 +1273,30 @@ const closeEgOptions = () => {
   }
 }
 
+const toogleJoinModal = (type) => {
+  const joinModal = document.getElementById('join-modal')
+  const modalCover = document.getElementById('modal-cover')
+  const joinRegister = document.getElementById('input-register')
+  const errNode = joinRegister.parentNode.parentNode
+  if (joinModal && modalCover) {
+    if (type == 'show') {
+      modalCover.style.display = 'block'
+      joinModal.style.display = 'block'
+      document.body.style.overflow = 'hidden'
+      joinRegister.value = null
+    }
+    if (type == 'hide') {
+      modalCover.style.display = 'none'
+      joinModal.style.display = 'none'
+      document.body.style.overflow = 'auto'
+      joinRegister.value = null
+    }
+    if (errNode.className.indexOf('err') > -1) {
+      errNode.className = errNode.className.replace('err', '')
+    }
+  }
+}
+
 window.onload = function () {
   //wx login
   const wxbtnlogup = document.getElementById('wx-btn-logup');
@@ -1328,6 +1442,8 @@ window.onload = function () {
   const passwordConfirm = document.getElementById('password-confirm')
   const demoSubmitBtn = document.getElementById('demo-submit');
   const domainOperators = document.getElementsByClassName('input-domain-operator');
+  const registerDisplayName = document.getElementById('display-name')
+  const registerGroupMobile = document.getElementById('group-mobile')
   if (registerGroupRadio) {
     registerGroupRadio.addEventListener('change', switchToGroup)
   }
@@ -1364,8 +1480,16 @@ window.onload = function () {
     demoSubmitBtn.addEventListener('click', submitDemo, true)
   }
 
+  if (registerDisplayName) {
+    registerDisplayName.addEventListener('input', function(e) { registerDisplayNameValidate(e.target.value) })
+  }
+
   if (domainOperators.length > 0) {
     domainOperators[0].addEventListener('click', changeDomainItems, true)
+  }
+
+  if (registerGroupMobile) {
+    registerGroupMobile.addEventListener('input', function(e) { registerGroupMobileValidate(e.target.value) })
   }
   /**********************************/
   /***********demo***********/
@@ -1484,6 +1608,21 @@ window.onload = function () {
   document.getElementById('tootip-err').addEventListener('click', function () {
     hideTootip();
   }, true);
-
+  const joinTeam = document.getElementById('join-team')
+  if (joinTeam) {
+    joinTeam.addEventListener('click', function() { toogleJoinModal('show') })
+  }
+  const joinCancel = document.getElementById('login-register-cancel')
+  if (joinCancel) {
+    joinCancel.addEventListener('click', function() { toogleJoinModal('hide') })
+  }
+  const modalCover = document.getElementById('modal-cover')
+  if (modalCover) {
+    modalCover.addEventListener('click', function() { toogleJoinModal('hide')})
+  }
+  const loginRegister = document.getElementById('login-register')
+  if (loginRegister) {
+    loginRegister.addEventListener('click', jumpToProduct, true)
+  }
 
 }
