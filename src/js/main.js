@@ -85,7 +85,7 @@ const closeleLoginModal = () => {
 
 const request = (url, params) => {
   return fetch(
-    `https://api.flexceed.com${url}`,
+    `${window.backhost}${url}`,
     {
       method: 'POST',
       headers: {
