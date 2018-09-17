@@ -83,6 +83,24 @@ const closeleLoginModal = () => {
   }
 };
 
+function parseJSON(response) {
+  if (response.status === 204) {
+    return Promise.resolve({ data: 'success' });
+  }
+  return response.json();
+}
+
+async function checkStatus(response) {
+  if (response.status >= 200 && response.status < 300) {
+    return response;
+  }
+  const error = new Error(response.statusText);
+  error.response = await parseJSON(response).then(data => data);
+  // 提示请求错误
+  // errorMessage(response.status);
+  throw error;
+}
+
 const request = (url, params) => {
   return fetch(
     `${window.backhost}${url}`,
@@ -94,15 +112,8 @@ const request = (url, params) => {
       body: JSON.stringify(params)
     }
   )
-    .then(function (response) {
-      if (response.status >= 200 && response.status < 300) {
-        return response.json();
-      }
-
-      const error = new Error(response.statusText);
-      error.response = response;
-      throw error;
-    })
+    .then(checkStatus)
+    .then(parseJSON)
     .then(data => ({ data }))
     .catch(err => ({ err }));
 };
@@ -627,50 +638,68 @@ const submitRegister = () => {
   const aliVerification = JSON.parse(sessionStorage.getItem('aliVerification'))
   if (!aliVerification) {
     const ncContainer = document.getElementById('nc-container')
-    ncContainer.className = ncContainer.className + ' error'
+    if (ncContainer.className.indexOf('error') == -1) {
+      ncContainer.className = ncContainer.className + ' error'
+    }
     errorNum += 1
     sessionStorage.removeItem('aliVerification')
   }
   if (!registerUrl) {
     const formItem = registerForm.registerUrl.parentNode.parentNode
-    formItem.className = formItem.className + ' error'
+    if (formItem.className.indexOf('error') == -1) {
+      formItem.className = formItem.className + ' error'
+    }
     errorNum += 1
   }
   if (!registerGroupName) {
     const formItem = registerForm.registerGroupName.parentNode
-    formItem.className = formItem.className + ' error'
+    if (formItem.className.indexOf('error') == -1) {
+      formItem.className = formItem.className + ' error'
+    }
     errorNum += 1
   }
   if (!registerEmail) {
     const formItem = registerForm.registerEmail.parentNode
-    formItem.className = formItem.className + ' error'
+    if (formItem.className.indexOf('error') == -1) {
+      formItem.className = formItem.className + ' error'
+    }
     errorNum += 1
   }
   if (!registerVerifiedCode) {
     const formItem = registerForm.registerVerifiedCode.parentNode.parentNode
-    formItem.className = formItem.className + ' error'
+    if (formItem.className.indexOf('error') == -1) {
+      formItem.className = formItem.className + ' error'
+    }
     errorNum += 1
   }
   if (!registerPasswordSet) {
     const formItem = registerForm.registerPasswordSet.parentNode
-    formItem.className = formItem.className + ' error'
+    if (formItem.className.indexOf('error') == -1) {
+      formItem.className = formItem.className + ' error'
+    }
     errorNum += 1
   }
   if (!registerPasswordConfirm) {
     const formItem = registerForm.registerPasswordConfirm.parentNode
-    formItem.className = formItem.className + ' error'
+    if (formItem.className.indexOf('error') == -1) {
+      formItem.className = formItem.className + ' error'
+    }
     errorNum += 1
   }
 
   if (!registerDisplayName) {
     const formItem = registerForm.registerDisplayName.parentNode
-    formItem.className = formItem.className + ' error'
+    if (formItem.className.indexOf('error') == -1) {
+      formItem.className = formItem.className + ' error'
+    }
     errorNum += 1
   }
 
   if (!registerGroupMobile) {
     const formItem = registerForm.registerDisplayMobile.parentNode
-    formItem.className = formItem.className + ' error'
+    if (formItem.className.indexOf('error') == -1) {
+      formItem.className = formItem.className + ' error'
+    }
     errorNum += 1
   }
 
@@ -702,14 +731,22 @@ const submitRegister = () => {
   }
 
   request('/team/create', params)
-    .then(({ data }) => {
-      if (data.id) {
+    .then(({ data, err }) => {
+      if (data && data.hasOwnProperty('id')) {
         onSucceed()
         const matchBackHost = window.backhost.match(/https:\/\/api.(.*).com/)
         const envHost = matchBackHost[1]
         window.location.href = 'https://' + registerUrl + '.' + envHost + '.com/unregister/login'
-      } else {
-        onErr()
+      }
+      if (err) {
+        if (err.response.error == "DOMAIN_EXISTS") { //域名重复
+          const domainInput = document.getElementById('input-url')
+          const errNode = domainInput.parentNode.parentNode
+          if (errNode.className.indexOf('error') == -1) {
+            errNode.className = errNode.className + ' error'
+          }
+          errNode.setAttribute('data-err', '域名重复，请重新填写')
+        }
       }
     });
 }
@@ -727,6 +764,7 @@ const sendVerification = () => { //发送存储验证码
       if (data) {
         if (data.code_hash) {
           sessionStorage.setItem("verify", data.code_hash)
+          onSucceed()
         }
       } else {
       }
@@ -773,6 +811,7 @@ const utlInputValidate = (value) => { //团队域名校验
     if (!currentError(errNode)) {
       errNode.className = errNode.className + ' error'
     }
+    errNode.setAttribute('data-err', '请输入团队域名')
     return false
   }
   if (currentError(errNode)) {
@@ -818,7 +857,17 @@ const registerGroupMobileValidate = (value) => {
     if (!currentError(errNode)) {
       errNode.className = errNode.className + ' error'
     }
+    errNode.setAttribute('data-err', '请输入手机号码')
     return false
+  } else {
+    const reg = /^[1][3,4,5,7,8][0-9]{9}$/
+    if (!reg.test(value)) {
+      if (!currentError(errNode)) {
+        errNode.className = errNode.className + ' error'
+      }
+      errNode.setAttribute('data-err', '手机格式不正确')
+      return false
+    }
   }
   if (currentError(errNode)) {
     errNode.className = errNode.className.replace(/error/, '')
@@ -1298,6 +1347,12 @@ const toogleJoinModal = (type) => {
 }
 
 window.onload = function () {
+  if (sessionStorage.getItem('aliVerification')) {
+    sessionStorage.removeItem('aliVerification')
+  }
+  if (sessionStorage.getItem('verify')) {
+    sessionStorage.removeItem('verify')
+  }
   //wx login
   const wxbtnlogup = document.getElementById('wx-btn-logup');
   if (wxbtnlogup) {
