@@ -752,6 +752,21 @@ const submitRegister = () => {
 }
 
 const sendVerification = () => { //发送存储验证码
+  let second = 60;
+  const codeBtn = document.getElementById('send-verifycode')
+  const timer = setInterval(() => {
+    second -= 1
+    codeBtn.innerText = `${second}秒后重新获取`
+    codeBtn.setAttribute('disabled', 'disabled')
+    codeBtn.style.cursor = 'not-allowed'
+    if (second === 0) {
+      clearInterval(timer)
+      codeBtn.innerText = '发送验证码'
+      codeBtn.removeAttribute('disabled')
+      codeBtn.style.cursor = 'pointer'
+      second = 60
+    }
+  }, 1000)
   const registerTypeGroup = registerForm.registerType[0].checked
   const registerEmail = registerForm.registerEmail.value
   const params = {
