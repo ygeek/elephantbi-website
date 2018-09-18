@@ -88,6 +88,28 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 6px;
 }
 
+.a-link-btn(@color, @backColor, @borderColor) {
+  display: inline-block;
+  text-align: center;
+  line-height: 72px;
+  width: 240px;
+  height: 72px;
+  background-color: @backColor;
+  color: @color;
+  font-size: 28px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: @borderColor;
+  border-radius: 6px;
+  font-weight: 400px;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+
 .creatButton(@color) {
   .baseButton();
 

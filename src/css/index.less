@@ -84,19 +84,21 @@
     }
     .description {
       display: inline-block;
-      max-width: 47%;
-      min-width: 300px;
-      margin-top: 26px;
+      max-width: 67%;
+      min-width: 400px;
+      margin-top: 10px;
 
       vertical-align: top;
       font-size: 14px;
+      div {
+        margin-bottom: 8px;
+      }
     }
     .banner {
       display: inline-block;
       position: relative;
       width: 10px;
       height: 10px;
-
       vertical-align: top;
 
       .banner-image {
@@ -104,27 +106,28 @@
         height: 1070px;
         position: absolute;
         bottom: -800px;
-        left: -70px;
+        left: -170px;
         z-index: -1;
       }
     }
-    .free-btn, .reserve-btn {
-      .creatFullButton(#fff, #40d08f);
-
-      display: inline-block;
-      margin-top: 74px;
+    .free-btn {
+      .a-link-btn(#fff, #40d08f, #40d08f);
+      margin-top: 54px;
       width: 120px;
       height: 36px;
+      line-height: 36px;
       font-size: 14px;
-      border-radius: 3px;
       box-shadow: 2px 1px 4px #287fbc;
     }
     .reserve-btn {
-      margin-left: 20px;
-      background-color: #fff;
-      color: #40d08f;
-      border-color: #fff;
+      .a-link-btn(#40d08f, #fff, #fff);
+      margin-top: 54px;
+      width: 120px;
+      height: 36px;
+      line-height: 36px;
+      margin-left: 24px;
       font-size: 14px;
+      box-shadow: 2px 1px 4px #287fbc;
     }
   }
 
@@ -256,7 +259,15 @@
         height: 36px;
         margin: 30px 0px 0px 30px;
         font-size: 14px;
-        border: 1px solid #40d08f
+        border: 1px solid #40d08f      
+      }
+      .demo-btn {
+        .a-link-btn(#40d08f, #fff, #40d08f);
+        width: 120px;
+        height: 36px;
+        line-height: 36px;
+        font-size: 14px;
+        margin: 30px 0px 0px 30px;
       }
     }
   }
@@ -278,10 +289,11 @@
     margin-top: 10px;
   }
   .register-section-button {
-    .creatFullButton(#fff,#1bbd7a);
+    .a-link-btn(#40d08f, #fff, #40d08f);
     width: 120px;
-    font-size: 14px;
     height: 36px;
+    line-height: 36px;
+    font-size: 14px;
     margin: 20px 0px 80px 0px;
   }
 }

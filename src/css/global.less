@@ -99,6 +99,27 @@ main.main-content {
   }
 }
 
+.a-link-btn(@color, @backColor, @borderColor) {
+  display: inline-block;
+  text-align: center;
+  line-height: 32px;
+  height: 32px;
+  width: 100px;
+  background-color: @backColor;
+  color: @color;
+  font-size: 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: @borderColor;
+  border-radius: 3px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
+}
+
 .creatButton(@color) {
   .baseButton();
 
@@ -312,6 +333,11 @@ main.main-content {
       &:hover {
         font-weight: bold;
       }
+    }
+    .register-btn {
+      .a-link-btn(@full-font-color, @full-btn-color, @full-btn-color);
+      margin-left: 14px;
+      margin-right: 50px;
     }
   }
   .page-list {

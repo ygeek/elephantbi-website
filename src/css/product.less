@@ -62,24 +62,20 @@
         z-index: -1;
       }
     }
-    .free-btn, .reserve-btn {
-      .creatFullButton(#fff, #32325d);
-
-      display: inline-block;
+    .free-btn {
+      .a-link-btn(#fff, #32325d, #32325d);
       margin-top: 30px;
       width: 120px;
       height: 36px;
-
-      border-radius: 5px;
+      line-height: 36px;
     }
     .reserve-btn {
-      .creatFullButton(#32325d,#fff);
+      .a-link-btn(#32325d, #fff, #32325d);
       margin-left: 20px;
-      border: 1px solid #32325d;
       width: 120px;
       height: 36px;
+      line-height: 36px;
     }
-
   }
 
   .product-stage {
@@ -155,9 +151,11 @@
     margin-top: 10px;
   }
   .register-section-button {
-    .creatFullButton(#fff,#6871e7);
+    .a-link-btn(#fff, #6871e7, #6871e7);
     width: 120px;
     height: 36px;
+    line-height: 36px;
+    font-size: 14px;
     margin: 20px 0px 80px 0px;
   }
 }

@@ -1025,14 +1025,6 @@ const changeDomainItems = (e) => {
   }
 }
 
-const toRegister = (e) => {
-  window.location.href = window.location.origin + '/register.html'
-}
-
-const toDemo = () => {
-  window.location.href = window.location.origin + '/demo.html'
-}
-
 const changeHeader = () => {
   const htmlDom = document.documentElement
   const navHeader = document.getElementById('nav-header')
@@ -1371,18 +1363,6 @@ window.onload = function () {
     toggleNavModalVisible('hide');
     changeMobileHeader(e);
   })
-  const freeBtns = document.getElementsByClassName('free-btn') //免费注册按钮
-  if (freeBtns) {
-    for (let i = 0; i < freeBtns.length; i++) {
-      freeBtns[i].onclick = toRegister
-    }
-  }
-  const demoBtns = document.getElementsByClassName('demo-btn'); //预约演示按钮
-  if (demoBtns) {
-    for (let i = 0; i < demoBtns.length; i++) {
-      demoBtns[i].onclick = toDemo
-    }
-  }
   const formSubmitBtn = document.getElementById('form-submit-btn-id'); //移动端表单提交按钮
   const loginModal = document.getElementById('login-modal'); //登陆弹窗
   const navLogin = document.getElementById('nav-login'); //导航登陆按钮
@@ -1577,13 +1557,6 @@ window.onload = function () {
   const reserveSubmitBtn = document.getElementById('form-reserve-submit-btn-id')
   if (reserveSubmitBtn) {
     reserveSubmitBtn.addEventListener('click', submitFormReserve)
-  }
-
-  const priceListButton = document.getElementsByClassName('price-list-button')
-  if (priceListButton) {
-    for(let i = 0; i < priceListButton.length; i ++ ) {
-      priceListButton[i].addEventListener('click', toRegister)
-    }
   }
 
   const industry0 = document.getElementsByClassName('industry0')
