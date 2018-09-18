@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" name="format-detection" content="telephone=no">
   <meta name="description" content="ElephantBI是企业大数据管理分析和商业智能平台。实时连接聚合企业所有数据，提供简单灵活的交互式可视化数据分析能力。ElephantBI是先进的敏捷BI，助您轻松将数据转化为深刻的商业见解，深入挖掘大数据价值，更快获得全局洞察，精准制定数据支持的商业决策，以数据推进企业数字化变革。">
-  <link ref="canonical" href="https://www.elephantbi.com/index.html">
+  <link ref="canonical" href="https://www.elephantbi.com">
   <title>ElephantBI - 企业大数据管理分析和商业智能平台</title>
   <script>
     !function (e) { function t(a) { if (i[a]) return i[a].exports; var n = i[a] = { exports: {}, id: a, loaded: !1 }; return e[a].call(n.exports, n, n.exports, t), n.loaded = !0, n.exports } var i = {}; return t.m = e, t.c = i, t.p = "", t(0) }([function (e, t) { "use strict"; Object.defineProperty(t, "__esModule", { value: !0 }); var i = window; t["default"] = i.flex = function (e, t) { var a = e || 100, n = t || 1, r = i.document, o = navigator.userAgent, d = o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i), l = o.match(/U3\/((\d+|\.){5,})/i), c = l && parseInt(l[1].split(".").join(""), 10) >= 80, p = navigator.appVersion.match(/(iphone|ipad|ipod)/gi), s = i.devicePixelRatio || 1; p || d && d[1] > 534 || c || (s = 1); var u = 1 / s, m = r.querySelector('meta[name="viewport"]'); m || (m = r.createElement("meta"), m.setAttribute("name", "viewport"), r.head.appendChild(m)), m.setAttribute("content", "width=device-width,user-scalable=no,initial-scale=" + u + ",maximum-scale=" + u + ",minimum-scale=" + u), r.documentElement.style.fontSize = a / 2 * s * n + "px" }, e.exports = t["default"] }]);
@@ -38,7 +38,7 @@
       <nav class="nav-content">
         <ul class="nav-list">
           <li class="nav-section logo">
-            <image src='<%= require("./assets/nav-logo.svg") %>' width=220 height=44 id="logo" />
+            <img src='<%= require("./assets/nav-logo.svg") %>' width=220 height=44 id="logo" />
           </li>
           <li class="nav-section menu">
             <div class="nav-mobile">
@@ -67,7 +67,7 @@
       </header>
       <section class="show-box">
         <div class="box-item left">
-          <image class="box-title box-title-img" src='<%= require("./assets/box-left-icon1.svg") %>' />
+          <img class="box-title box-title-img" src='<%= require("./assets/box-left-icon1.svg") %>' />
           <ul class="box-list">
             <li>内部系统数据，包括支持HRM，CRM，ERP，OA，进销存等业务系统</li>
             <li>本地数据：Excel/Csv文件也可轻松上传</li>
@@ -78,7 +78,7 @@
           </ul>
         </div>
         <div class="box-item">
-          <image src='<%= require("./assets/index-box-1.png") %>' srcset='
+          <img src='<%= require("./assets/index-box-1.png") %>' srcset='
               <%= require("./assets/index-box-1.png") %> 260w,
               <%= require("./assets/index-box-1@2x.png") %> 520w,
               <%= require("./assets/index-box-1@3x.png") %> 780w' sizes="
@@ -90,7 +90,7 @@
       <section class="show-box">
         <div class="gray-bg-1"></div>
         <div class="box-item right">
-          <image class="box-title box-title-img" src='<%= require("./assets/box-right-icon1.svg") %>' />
+          <img class="box-title box-title-img" src='<%= require("./assets/box-right-icon1.svg") %>' />
           <ul class="box-list">
             <li>简单拖拽，数据图表瞬间生成</li>
             <li>图表类型丰富，几十种随意挑选</li>
@@ -99,7 +99,7 @@
           </ul>
         </div>
         <div class="box-item left">
-          <image src='<%= require("./assets/index-box-2.png") %>' srcset='
+          <img src='<%= require("./assets/index-box-2.png") %>' srcset='
               <%= require("./assets/index-box-2.png") %> 307w,
               <%= require("./assets/index-box-2@2x.png") %> 614w,
               <%= require("./assets/index-box-2@3x.png") %> 900w' sizes="
@@ -110,7 +110,7 @@
       </section>
       <section class="show-box">
         <div class="box-item left">
-          <image class="box-title box-title-img" src='<%= require("./assets/box-left-icon2.svg") %>' />
+          <img class="box-title box-title-img" src='<%= require("./assets/box-left-icon2.svg") %>' />
           <ul class="box-list">
             <li>多种类，多终端的交互式图表和仪表盘，帮助决策者从容讲述数据背后的线索</li>
             <li>深度集成即时沟通工具，帮助全员围绕商业数据分享协作，让数据驱动沟通融入日常工作的方方面面</li>
@@ -118,7 +118,7 @@
           </ul>
         </div>
         <div class="box-item" height=269>
-          <image src='<%= require("./assets/index-box-3.png") %>' srcset='
+          <img src='<%= require("./assets/index-box-3.png") %>' srcset='
               <%= require("./assets/index-box-3.png") %> 273w,
               <%= require("./assets/index-box-3@2x.png") %> 546w,
               <%= require("./assets/index-box-3@3x.png") %> 819w' sizes="
@@ -130,14 +130,14 @@
       <section class="show-box">
         <div class="gray-bg-2"></div>
         <div class="box-item right">
-          <image class="box-title box-title-img" src='<%= require("./assets/box-right-icon2.svg") %>' />
+          <img class="box-title box-title-img" src='<%= require("./assets/box-right-icon2.svg") %>' />
           <ul class="box-list">
             <li>灵活严谨的用户和角色体系，快速准确的赋予数据权限，兼具效率与安全</li>
             <li>提供行列粒度的数据权限控制，确保每一行每一列数据的访问都尽在控制</li>
           </ul>
         </div>
         <div class="box-item left">
-          <image src='<%= require("./assets/index-box-4.png") %>' srcset='
+          <img src='<%= require("./assets/index-box-4.png") %>' srcset='
               <%= require("./assets/index-box-4.png") %> 307w,
               <%= require("./assets/index-box-4@2x.png") %> 614w,
               <%= require("./assets/index-box-4@3x.png") %> 921w' sizes="
@@ -269,7 +269,7 @@
     <footer class="footer-content">
       <ul class="footer-nav">
         <li class="footer-nav-icon">
-          <image src='<%= require("./assets/footer-icon.png") %>' srcset='
+          <img src='<%= require("./assets/footer-icon.png") %>' srcset='
               <%= require("./assets/footer-icon.png") %> 107w,
               <%= require("./assets/footer-icon@2x.png") %> 214w,
               <%= require("./assets/footer-icon@3x.png") %> 321w' sizes="
@@ -281,7 +281,7 @@
           <ul>
             <li class="footer-list-title">商务咨询</li>
             <li>
-              <image src='<%= require("./assets/footer-phone.png") %>' srcset='
+              <img src='<%= require("./assets/footer-phone.png") %>' srcset='
                   <%= require("./assets/footer-phone.png") %> 6w,
                   <%= require("./assets/footer-phone@2x.png") %> 8w,
                   <%= require("./assets/footer-phone@3x.png") %> 14w' sizes="
@@ -291,7 +291,7 @@
               <span>0411-39026089</span>
             </li>
             <li>
-              <image src='<%= require("./assets/footer-email.png") %>' srcset='
+              <img src='<%= require("./assets/footer-email.png") %>' srcset='
                   <%= require("./assets/footer-email.png") %> 6w,
                   <%= require("./assets/footer-email@2x.png") %> 8w,
                   <%= require("./assets/footer-email@3x.png") %> 14w' sizes="
@@ -308,7 +308,7 @@
           <ul>
             <li class="footer-list-title">技术支持</li>
             <li>
-              <image src='<%= require("./assets/footer-time.png") %>' srcset='
+              <img src='<%= require("./assets/footer-time.png") %>' srcset='
                   <%= require("./assets/footer-time.png") %> 6w,
                   <%= require("./assets/footer-time@2x.png") %> 8w,
                   <%= require("./assets/footer-time@3x.png") %> 14w' sizes="
@@ -318,7 +318,7 @@
               <span>09:00~19:00</span>
             </li>
             <li>
-              <image src='<%= require("./assets/footer-phone.png") %>' srcset='
+              <img src='<%= require("./assets/footer-phone.png") %>' srcset='
                   <%= require("./assets/footer-phone.png") %> 6w,
                   <%= require("./assets/footer-phone@2x.png") %> 8w,
                   <%= require("./assets/footer-phone@3x.png") %> 14w' sizes="
@@ -328,7 +328,7 @@
               <span>18004083463</span>
             </li>
             <li>
-              <image src='<%= require("./assets/footer-email.png") %>' srcset='
+              <img src='<%= require("./assets/footer-email.png") %>' srcset='
                   <%= require("./assets/footer-email.png") %> 6w,
                   <%= require("./assets/footer-email@2x.png") %> 8w,
                   <%= require("./assets/footer-email@3x.png") %> 14w' sizes="
@@ -340,7 +340,7 @@
           </ul>
         </li>
         <li class="footer-nav-sq">
-          <image src='<%= require("./assets/footer-sq.png") %>' srcset='
+          <img src='<%= require("./assets/footer-sq.png") %>' srcset='
               <%= require("./assets/footer-sq.png") %> 100w,
               <%= require("./assets/footer-sq@2x.png") %> 200w,
               <%= require("./assets/footer-sq@3x.png") %> 300w' sizes="
@@ -376,7 +376,7 @@
       </li>
       <li class="nav-item">
         <img src='<%= require("./assets/nav-icon3.svg") %>' alt="">
-        <a href="./server.html" class="nav-5">服务支持</a>
+        <a href="./service.html" class="nav-5">服务支持</a>
       </li>
       <li class="nav-item">
         <img src='<%= require("./assets/nav-icon4.svg") %>' alt="">

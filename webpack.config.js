@@ -27,7 +27,7 @@ module.exports = [
     entry: {
       index: './src/css/index.less',
       product: './src/css/product.less',
-      server: './src/css/server.less',
+      service: './src/css/service.less',
       about: './src/css/about.less',
       price: './src/css/price.less',
       register: './src/css/register.less',
@@ -89,9 +89,9 @@ module.exports = [
         template: './src/product.html'
       }),
       new HtmlWebpackPlugin({
-        chunks: ['main', 'server'],
-        filename: 'server.html',
-        template: './src/server.html'
+        chunks: ['main', 'service'],
+        filename: 'service.html',
+        template: './src/service.html'
       }),
       new HtmlWebpackPlugin({
         chunks: ['main', 'about'],

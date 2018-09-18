@@ -34,7 +34,7 @@
             <a href="javascript:void(0)" id="nav-industry-link">行业DEMO</a>
             <a href="./demo.html">预约演示</a>
             <a href="./price.html">价格</a>
-            <a href="./server.html">服务支持</a>
+            <a href="./service.html">服务支持</a>
             <a href="./about.html">关于我们</a>
             <div class="nav-industry-modal" id="nav-industry-modal">
               <div class="nav-industry-arrow"></div>
@@ -120,13 +120,13 @@
           <label for="register-url">设置登录网址
             <span class="required">*</span>
           </label>
-          <span class="register-form-item" data-err="请输入团队域名" style="margin-bottom: 4px;">
+          <span class="register-form-item adjust-url-margin" data-err="请输入团队域名">
             <div class="register-block">
               <input id="input-url" type="text" name="registerUrl" placeholder="请输入团队域名">
               <span class="register-fixed">elephantbi.com</span>
             </div>
           </span>
-          <div class="url-description" style="margin-bottom: 10px;">团队创建完成后，使用此登录地址直接跳转团队页面，支持英文字母及数字</div>
+          <div class="url-description adjust-url-descrip-margin">团队创建完成后，使用此登录地址直接跳转团队页面，支持英文字母及数字</div>
           <label for="register-group-name">团队名称
             <span class="required">*</span>
           </label>
@@ -140,12 +140,12 @@
             <div>
               <input type="radio" id="comp-group" checked name="registerType" />
               <label for="comp-group">企业团队</label>
-              <span class="url-description" style="margin-left: 0px">团队成员以手机号码加入团队，更自由更独立</span>
+              <span class="url-description no-margin-left">团队成员以手机号码加入团队，更自由更独立</span>
             </div>
             <div>
               <input type="radio" id="free-group" name="registerType" />
               <label for="free-group">自由团队</label>
-              <span class="url-description" style="margin-left: 0px">团队成员以企业邮箱注册登录团队，更严谨安全</span>
+              <span class="url-description no-margin-left">团队成员以企业邮箱注册登录团队，更严谨安全</span>
             </div>
           </span>
           <div id="domain-field">
@@ -157,7 +157,7 @@
                 <img src="<%= require('./assets/checked.png') %>" class="input-domain-check input-domain-operator" />
               </span>
             </span>
-            <div id="domain-insert" class="url-description" style="width: 300px; margin-bottom: 35px;">免验证邮箱域名登陆后，不需要管理员审核，团队创建巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉</div>
+            <div id="domain-insert" class="url-description domain-descrip">免验证邮箱域名登陆后，不需要管理员审核，团队创建巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉</div>
           </div>
           <div class="group-title" id="free-title">
             <img src="<%= require('./assets/user.png') %>" width=16 height=16 /> 个人信息
@@ -176,7 +176,7 @@
           <label for="verifycode">验证码
             <span class="required">*</span>
           </label>
-          <span class="register-form-item" data-err="请输入验证码" style="margin-bottom: 16px;">
+          <span class="register-form-item verify-margin" data-err="请输入验证码">
             <div class="register-block">
               <input id="verifycode" placeholder="请输入验证码" name="registerVerifiedCode" />
               <span class="register-cell register-fixed">
@@ -184,7 +184,7 @@
                   id="send-verifycode"
                   type="button"
                   disabled="disabled"
-                  style="color:#ccc;cursor:not-allowed"
+                  class="verify-btn-default"
                 >
                   发送验证码
                   <div id="send-verifycode-shadow"></div>
@@ -255,8 +255,8 @@
       <div class="tootip-description">请电话联系：0411-39026089</div>
     </div>
   </div>
-  <div class="modal-cover" id="modal-cover" style="display: none"></div>
-  <div class="join-modal" id="join-modal" style="display: none">
+  <div class="modal-cover" id="modal-cover"></div>
+  <div class="join-modal" id="join-modal">
     <div class="join-title">登录团队</div>
     <span class="login-block-wrapper">
       <span class="login-block">
@@ -313,7 +313,8 @@
         const authCodeBtn = document.getElementById('send-verifycode')
         if (authCodeBtn.getAttribute('disabled') == 'disabled') {
           authCodeBtn.removeAttribute('disabled')
-          authCodeBtn.removeAttribute('style')
+          authCodeBtn.style.color = '#474747'
+          authCodeBtn.style.cursor = 'pointer'
         }
       }
     }
