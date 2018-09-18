@@ -764,7 +764,6 @@ const sendVerification = () => { //发送存储验证码
       if (data) {
         if (data.code_hash) {
           sessionStorage.setItem("verify", data.code_hash)
-          onSucceed()
         }
       } else {
       }
