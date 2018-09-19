@@ -632,7 +632,7 @@ const submitRegister = () => {
   const registerPasswordSet = registerForm.registerPasswordSet.value
   const registerPasswordConfirm = registerForm.registerPasswordConfirm.value
   const registerDisplayName = registerForm.registerDisplayName.value
-  const registerGroupMobile = registerForm.registerDisplayMobile.value
+  const registerGroupMobile = registerTypeGroup ? registerForm.registerDisplayMobile.value : null
   const inputDomains = document.getElementsByClassName('input-domain')
   let errorNum = 0
   const aliVerification = JSON.parse(sessionStorage.getItem('aliVerification'))
@@ -695,7 +695,7 @@ const submitRegister = () => {
     errorNum += 1
   }
 
-  if (!registerGroupMobile) {
+  if (!registerGroupMobile && registerTypeGroup) {
     const formItem = registerForm.registerDisplayMobile.parentNode
     if (formItem.className.indexOf('error') == -1) {
       formItem.className = formItem.className + ' error'
