@@ -577,6 +577,7 @@ const switchToGroup = (e) => {
     const registerEmail = document.getElementById('register-email')
     registerEmail.value = null;
     registerEmail.placeholder = '请输入登录团队使用的邮箱'
+    registerEmail.parentNode.setAttribute('data-err', '请输入电子邮箱')
 
     const groupMobileLabel = document.createElement('label')
     groupMobileLabel.innerText = '手机号'
@@ -618,6 +619,7 @@ const switchToFree = (e) => {
       const registerEmail = document.getElementById('register-email')
       registerEmail.value = null;
       registerEmail.placeholder = '请输入登录团队使用的手机号'
+      registerEmail.parentNode.setAttribute('data-err', '请输入手机号码')
     }
   }
 }
@@ -982,7 +984,7 @@ const passwordConfirmValidate = (value) => {
     if (!currentError(errNode)) {
       errNode.className = errNode.className + ' error'
     }
-    errNode.setAttribute('data-err', '请确认密码')
+    errNode.setAttribute('data-err', '请再次输入相同的密码')
   } else {
     if (passwordSet.value !== value) {
       if (!currentError(errNode)) {
