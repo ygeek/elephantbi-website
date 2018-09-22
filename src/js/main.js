@@ -828,6 +828,14 @@ const utlInputValidate = (value) => { //团队域名校验
     errNode.setAttribute('data-err', '请输入团队域名')
     return false
   }
+  const reg = /^[A-Za-z0-9]+$/
+  if (!reg.test(value)) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    errNode.setAttribute('data-err', '请输入只包含数字和字母的域名')
+    return false
+  }
   if (currentError(errNode)) {
     errNode.className = errNode.className.replace(/error/, '')
   }
