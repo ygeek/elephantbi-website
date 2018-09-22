@@ -745,7 +745,7 @@ const submitRegister = () => {
           if (errNode.className.indexOf('error') == -1) {
             errNode.className = errNode.className + ' error'
           }
-          errNode.setAttribute('data-err', '当前域名已重复，请尝试其他子域名')
+          errNode.setAttribute('data-err', '子域名已被占用，请尝试其他子域名')
         }
       }
     });
