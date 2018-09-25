@@ -971,7 +971,7 @@ const passwordSetValidate = (value) => {
       if (!currentError(errNode)) {
         errNode.className = errNode.className + ' error'
       }
-      errNode.setAttribute('data-err', '请输入8位-32位并且包含数字和字母的密码')
+      errNode.setAttribute('data-err', '请输入至少8位密码，需要包含数字和字母')
       return false
     }
     if (passwordConfirm.value && value !== passwordConfirm.value) {
