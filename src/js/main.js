@@ -971,7 +971,7 @@ const passwordSetValidate = (value) => {
       if (!currentError(errNode)) {
         errNode.className = errNode.className + ' error'
       }
-      errNode.setAttribute('data-err', '密码格式不正确')
+      errNode.setAttribute('data-err', '请输入至少8位并且包含数字和字母的密码')
       return false
     }
     if (passwordConfirm.value && value !== passwordConfirm.value) {
