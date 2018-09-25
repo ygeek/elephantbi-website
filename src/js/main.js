@@ -531,7 +531,7 @@ const switchToGroup = (e) => {
 
     const label = document.createElement('label');
     label.setAttribute('class', 'fake-label')
-    label.innerText = '免验证邮箱域名'
+    label.innerText = '免验证邮箱后缀'
 
     const domainItemWrapper = document.createElement('span')
     domainItemWrapper.setAttribute('class', 'domain-item-wrapper')
@@ -559,7 +559,7 @@ const switchToGroup = (e) => {
     domainDescription.setAttribute('class', 'url-description')
     domainDescription.style.width = '300px'
     domainDescription.style.marginBottom = '35px'
-    domainDescription.innerText = '免验证邮箱域名的账号可以直接注册加入团队，不需要管理员审核，团队创建后可在团队管理面板继续添加'
+    domainDescription.innerText = '团队成员使用免验证邮箱后缀注册，则不需要管理员审核，可直接进入团队。后缀示例：qq.com'
 
     domainField.appendChild(label)
     domainField.appendChild(domainItemWrapper)
@@ -1049,7 +1049,7 @@ const changeDomainItems = (e) => {
     const newInput = document.createElement('input');
     newInput.setAttribute('id', 'input-domain');
     newInput.setAttribute('class', 'input-domain')
-    newInput.setAttribute('placeholder', '请输入免验证域名')
+    newInput.setAttribute('placeholder', '免验证邮箱后缀')
     const newOperator = document.createElement('img')
     newOperator.src = require('../assets/checked.png')
     newOperator.setAttribute('class', 'input-domain-check input-domain-operator')
