@@ -103,7 +103,7 @@ async function checkStatus(response) {
 
 const request = (url, params) => {
   return fetch(
-    `https://api.flexceed.com${url}`,
+    `${window.backhost}${url}`,
     {
       method: 'POST',
       headers: {
@@ -1163,11 +1163,21 @@ const submitFeedback = () => {
     email,
     mobile,
     company,
-    remark
+    content: remark,
+    source: '官网'
   }
-  request('website/feedback', params).then((data) => {
-
-  })
+  request('/website/feedback', params).then(({ data }) => {
+    if (data) {
+      onSucceed();
+      feedbackForm.feedbackName.value = null
+      feedbackForm.feedbackEmail.value = null
+      feedbackForm.feedbackMobile.value = null
+      feedbackForm.feedbackCompany.value = null
+      feedbackForm.feedbackRemark.value = null
+    } else {
+      onErr();
+    }
+  });
 }
 
 const changeMobileHeader = () => {
