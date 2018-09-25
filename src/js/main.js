@@ -559,7 +559,7 @@ const switchToGroup = (e) => {
     domainDescription.setAttribute('class', 'url-description')
     domainDescription.style.width = '300px'
     domainDescription.style.marginBottom = '35px'
-    domainDescription.innerText = '免验证邮箱域名登陆后，不需要管理员审核，团队创建巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉'
+    domainDescription.innerText = '免验证邮箱域名的帐号可以直接注册加入团队，不需要管理员审核，团队创建后可在团队管理面板继续添加'
 
     domainField.appendChild(label)
     domainField.appendChild(domainItemWrapper)
