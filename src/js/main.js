@@ -956,7 +956,7 @@ const registerEmailMobileValidate = (value) => { //邮箱手机号校验
 }
 
 const passwordSetValidate = (value) => {
-  const reg = /^(?![A-Z]+$)(?![a-z]+$)(?!\d+$)\S{8,}$/
+  const reg = /^(?![A-Z]+$)(?![a-z]+$)(?!\d+$)\S{8,32}$/
   const passwordSet = document.getElementById('password-set')
   const passwordConfirm = document.getElementById('password-confirm')
   const errNode = passwordSet.parentNode
@@ -971,7 +971,7 @@ const passwordSetValidate = (value) => {
       if (!currentError(errNode)) {
         errNode.className = errNode.className + ' error'
       }
-      errNode.setAttribute('data-err', '请输入至少8位并且包含数字和字母的密码')
+      errNode.setAttribute('data-err', '请输入8位-32位并且包含数字和字母的密码')
       return false
     }
     if (passwordConfirm.value && value !== passwordConfirm.value) {
