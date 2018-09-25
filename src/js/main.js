@@ -103,7 +103,7 @@ async function checkStatus(response) {
 
 const request = (url, params) => {
   return fetch(
-    `${window.backhost}${url}`,
+    `https://api.flexceed.com${url}`,
     {
       method: 'POST',
       headers: {
@@ -836,6 +836,21 @@ const utlInputValidate = (value) => { //团队域名校验
       errNode.className = errNode.className + ' error'
     }
     errNode.setAttribute('data-err', '请输入只包含数字和字母的域名')
+    return false
+  }
+  let exist = 0;
+  request('/website/domain', {
+    domain: value
+  }).then((data) => {
+    if (data && data.data && data.data.exists === 1) {
+      if (!currentError(errNode)) {
+        errNode.className = errNode.className + ' error'
+      }
+      errNode.setAttribute('data-err', '子域名已被占用，请尝试其他子域名')
+      exist = 1
+    }
+  })
+  if (exist === 1) {
     return false
   }
   if (currentError(errNode)) {
