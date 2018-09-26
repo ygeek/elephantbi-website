@@ -355,14 +355,13 @@ const submitFormReserve = () => {
 
 const opentNewWindow = () => {
   const hostsName = document.getElementById('input-hosts');
-  const matchBackHost = window.backhost.match(/https:\/\/api.(.*).com/)
-  const envHost = matchBackHost[1]
+  const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
 
   request('/website/domain', { domain: hostsName.value })
     .then((res) => {
       const data = res.data || {};
       if (data.exists === 1) {
-        openNewWindow('https://' + hostsName.value + '.' + envHost + '.com/unregister/login');
+        openNewWindow('https://' + hostsName.value + '.' + matchBackHost[3] + '.com/unregister/login');
         hostsName.value === null
         closeleLoginModal();
       } else {
@@ -375,8 +374,8 @@ const opentNewWindow = () => {
 
 const jumpToProduct = () => {
   const hostsName = document.getElementById('input-register');
-  const matchBackHost = window.backhost.match(/https:\/\/api.(.*).com/)
-  const envHost = matchBackHost[1]
+  const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
+  const envHost = matchBackHost[3]
 
   request('/website/domain', { domain: hostsName.value })
     .then((res) => {
@@ -448,63 +447,63 @@ const hideTootip = () => {
   }
 };
 
-const requestWx = (url, params) => {
-  return fetch(
-    `https://api.elephantbi.com${url}`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      }
-    }
-  )
-    .then(function (response) {
-      if (response.status >= 200 && response.status < 300) {
-        return response.json();
-      }
+// const requestWx = (url, params) => {
+//   return fetch(
+//     `https://api.elephantbi.com${url}`,
+//     {
+//       method: 'GET',
+//       headers: {
+//         'Content-Type': 'application/json; charset=utf-8'
+//       }
+//     }
+//   )
+//     .then(function (response) {
+//       if (response.status >= 200 && response.status < 300) {
+//         return response.json();
+//       }
 
-      const error = new Error(response.statusText);
-      error.response = response;
-      throw error;
-    })
-    .then(data => ({ data }))
-    .catch(err => ({ err }));
-};
+//       const error = new Error(response.statusText);
+//       error.response = response;
+//       throw error;
+//     })
+//     .then(data => ({ data }))
+//     .catch(err => ({ err }));
+// };
 
-const authlink = () => {
-  requestWx('/wx/auth/link')
-    .then((res) => {
-      const link = res.data.auth_link;
-      openNewWindow(link);
-    });
-};
-const wxregisterlink = () => {
-  requestWx('/wx/register/link')
-    .then((res) => {
-      const link = res.data.register_link;
-      openNewWindow(link);
-    });
-};
+// const authlink = () => {
+//   requestWx('/wx/auth/link')
+//     .then((res) => {
+//       const link = res.data.auth_link;
+//       openNewWindow(link);
+//     });
+// };
+// const wxregisterlink = () => {
+//   requestWx('/wx/register/link')
+//     .then((res) => {
+//       const link = res.data.register_link;
+//       openNewWindow(link);
+//     });
+// };
 
 // 微信扫码登录 服务
 // fixed url
-const FIXED_URL = window.OAUTHURL;
-const gennerateFixedUrlRedirect = (rUrl) => {
-  return `${FIXED_URL}/login?redirect_url=${rUrl}`;
-};
+// const FIXED_URL = window.OAUTHURL;
+// const gennerateFixedUrlRedirect = (rUrl) => {
+//   return `${FIXED_URL}/login?redirect_url=${rUrl}`;
+// };
 
 // 单点登录
-const REDIRECT_URL_SSO = encodeURIComponent(`${FIXED_URL}/server_redirect?env=${window.imageEnv}`);
-const gennerateWxSSO = (redirectUri) => {
-  return `https://open.work.weixin.qq.com/wwopen/sso/3rd_qrConnect?appid=${window.corpid}&redirect_uri=${redirectUri}&usertype=admin`;
-};
+// const REDIRECT_URL_SSO = encodeURIComponent(`${FIXED_URL}/server_redirect?env=${window.imageEnv}`);
+// const gennerateWxSSO = (redirectUri) => {
+//   return `https://open.work.weixin.qq.com/wwopen/sso/3rd_qrConnect?appid=${window.corpid}&redirect_uri=${redirectUri}&usertype=admin`;
+// };
 
-const WX_SSO_RURL = encodeURIComponent(gennerateWxSSO(REDIRECT_URL_SSO));
-const WX_SSO = gennerateFixedUrlRedirect(WX_SSO_RURL);
+// const WX_SSO_RURL = encodeURIComponent(gennerateWxSSO(REDIRECT_URL_SSO));
+// const WX_SSO = gennerateFixedUrlRedirect(WX_SSO_RURL);
 
-const openWxServer = () => {
-  openNewWindow(WX_SSO);
-};
+// const openWxServer = () => {
+//   openNewWindow(WX_SSO);
+// };
 
 const showIndustryModal = (e) => {
   const industryModal = document.getElementById("nav-industry-modal")
@@ -736,8 +735,8 @@ const submitRegister = () => {
     .then(({ data, err }) => {
       if (data && data.hasOwnProperty('id')) {
         onSucceed()
-        const matchBackHost = window.backhost.match(/https:\/\/api.(.*).com/)
-        const envHost = matchBackHost[1]
+        const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
+        const envHost = matchBackHost[3]
         window.location.href = 'https://' + registerUrl + '.' + envHost + '.com/unregister/login'
       }
       if (err) {
@@ -1395,18 +1394,18 @@ window.onload = function () {
     sessionStorage.removeItem('verify')
   }
   //wx login
-  const wxbtnlogup = document.getElementById('wx-btn-logup');
-  if (wxbtnlogup) {
-    wxbtnlogup.addEventListener('click', authlink, true);
-  }
-  const wxbtnlogin = document.getElementById('wx-btn-login');
-  if (wxbtnlogin) {
-    wxbtnlogin.addEventListener('click', wxregisterlink, true);
-  }
-  const wxbtnserverlogin = document.getElementById('wx-login');
-  if (wxbtnserverlogin) {
-    wxbtnserverlogin.addEventListener('click', openWxServer, true);
-  }
+  // const wxbtnlogup = document.getElementById('wx-btn-logup');
+  // if (wxbtnlogup) {
+  //   wxbtnlogup.addEventListener('click', authlink, true);
+  // }
+  // const wxbtnlogin = document.getElementById('wx-btn-login');
+  // if (wxbtnlogin) {
+  //   wxbtnlogin.addEventListener('click', wxregisterlink, true);
+  // }
+  // const wxbtnserverlogin = document.getElementById('wx-login');
+  // if (wxbtnserverlogin) {
+  //   wxbtnserverlogin.addEventListener('click', openWxServer, true);
+  // }
   window.onscroll = changeHeader //
   document.body.addEventListener('scroll', function(e) {
     toggleNavModalVisible('hide');
