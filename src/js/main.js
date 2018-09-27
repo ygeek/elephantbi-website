@@ -645,42 +645,42 @@ const submitRegister = () => {
     errorNum += 1
     sessionStorage.removeItem('aliVerification')
   }
-  if (!registerUrl) {
+  if (!utlInputValidate(registerUrl)) {
     const formItem = registerForm.registerUrl.parentNode.parentNode
     if (formItem.className.indexOf('error') == -1) {
       formItem.className = formItem.className + ' error'
     }
     errorNum += 1
   }
-  if (!registerGroupName) {
+  if (!groupNameValidate(registerGroupName)) {
     const formItem = registerForm.registerGroupName.parentNode
     if (formItem.className.indexOf('error') == -1) {
       formItem.className = formItem.className + ' error'
     }
     errorNum += 1
   }
-  if (!registerEmail) {
+  if (!registerEmailMobileValidate(registerEmail)) {
     const formItem = registerForm.registerEmail.parentNode
     if (formItem.className.indexOf('error') == -1) {
       formItem.className = formItem.className + ' error'
     }
     errorNum += 1
   }
-  if (!registerVerifiedCode) {
+  if (!verifyCodeValidate(registerVerifiedCode)) {
     const formItem = registerForm.registerVerifiedCode.parentNode.parentNode
     if (formItem.className.indexOf('error') == -1) {
       formItem.className = formItem.className + ' error'
     }
     errorNum += 1
   }
-  if (!registerPasswordSet) {
+  if (!passwordSetValidate(registerPasswordSet)) {
     const formItem = registerForm.registerPasswordSet.parentNode
     if (formItem.className.indexOf('error') == -1) {
       formItem.className = formItem.className + ' error'
     }
     errorNum += 1
   }
-  if (!registerPasswordConfirm) {
+  if (!passwordConfirmValidate(registerPasswordConfirm)) {
     const formItem = registerForm.registerPasswordConfirm.parentNode
     if (formItem.className.indexOf('error') == -1) {
       formItem.className = formItem.className + ' error'
@@ -688,7 +688,7 @@ const submitRegister = () => {
     errorNum += 1
   }
 
-  if (!registerDisplayName) {
+  if (!registerDisplayNameValidate(registerDisplayName)) {
     const formItem = registerForm.registerDisplayName.parentNode
     if (formItem.className.indexOf('error') == -1) {
       formItem.className = formItem.className + ' error'
