@@ -361,7 +361,7 @@ const opentNewWindow = () => {
     .then((res) => {
       const data = res.data || {};
       if (data.exists === 1) {
-        openNewWindow('https://' + hostsName.value + '.' + matchBackHost[3] + '.com/unregister/login');
+        openNewWindow(matchBackHost[1] + '://' + hostsName.value + '.' + matchBackHost[3] + '.' + matchBackHost[4] +'/unregister/login');
         hostsName.value === null
         closeleLoginModal();
       } else {
@@ -375,13 +375,12 @@ const opentNewWindow = () => {
 const jumpToProduct = () => {
   const hostsName = document.getElementById('input-register');
   const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
-  const envHost = matchBackHost[3]
 
   request('/website/domain', { domain: hostsName.value })
     .then((res) => {
       const data = res.data || {};
       if (data.exists === 1) {
-        window.location.href = "https://" + hostsName.value + '.' + envHost + '.com/unregister/signup'
+        window.location.href = matchBackHost[1] + '://' + hostsName.value + '.' + matchBackHost[3] + '.' + matchBackHost[4] + '/unregister/signup'
         hostsName.value === null
         toogleJoinModal('hide')
       } else {
@@ -736,8 +735,7 @@ const submitRegister = () => {
       if (data && data.hasOwnProperty('id')) {
         onSucceed()
         const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
-        const envHost = matchBackHost[3]
-        window.location.href = 'https://' + registerUrl + '.' + envHost + '.com/unregister/login'
+        window.location.href = matchBackHost[1] + '://' + registerUrl + '.' +  matchBackHost[3] + '.' + matchBackHost[4] + '/unregister/login'
       }
       if (err) {
         if (err.response.error == "DOMAIN_EXISTS") { //域名重复
