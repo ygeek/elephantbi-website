@@ -53,6 +53,7 @@ main.main-content {
       margin-left: 200px;
       color: #474747;
       font-size: 14px;
+      font-weight: 500;
     }
     .divider {
       height: 0px;
@@ -69,6 +70,7 @@ main.main-content {
       vertical-align: top;
       color: #757575;
       transform: translateY(30%);
+      font-weight: 500;
       .required {
         color: #f1584d;
         margin-left: 2px;
@@ -78,6 +80,7 @@ main.main-content {
       box-sizing: border-box;
       border: 1px solid #ddddde;
       padding: 2px 5px;
+      border-radius: 2px;
       &::placeholder {
         color: #ddddde;
       }
@@ -92,6 +95,8 @@ main.main-content {
         height: 28px;
         line-height: 1;
         box-sizing: border-box;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
       }
       span {
         display: inline-block;
@@ -107,6 +112,8 @@ main.main-content {
         line-height: 1;
         text-align: center;
         line-height: 28px;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
       }
     }
     .url-description {
@@ -125,13 +132,14 @@ main.main-content {
       margin-bottom: 20px;
       input {
         display: inline-block;
+        border: 1px solid #76c1ef;
       }
       label {
         margin-left: 0px;
         margin-right: -10px;
         display: inline-block;
         width: 80px;
-        transform: translateY(10%)
+        transform: translateY(10%);
       }
       .url-description {
         transform: translateY(-10%);
@@ -162,12 +170,16 @@ main.main-content {
         text-align: center;
         color: #757575;
         font-size: 12px;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
       }
       input {
         height: 28px;
         width: 216px;
         float: left;
         margin-right: 23px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
       }
       img {
         margin-top: 6px;
@@ -188,6 +200,8 @@ main.main-content {
       height: 100%;
       color:#ccc;
       cursor:not-allowed;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
       &:active {
         #send-verifycode-shadow {
           position: absolute;
