@@ -546,7 +546,8 @@ const switchToGroup = (e) => {
     domainInput.placeholder = '请输入团队域名'
 
     const domainImage = document.createElement('img')
-    domainImage.src = require('../assets/checked.png')
+    domainImage.src = require('../assets/checked.svg')
+    domainImage.setAttribute('class', 'input-domain-check input-domain-operator')
 
     domainWrapper.appendChild(domainFixed)
     domainWrapper.appendChild(domainInput)
@@ -1048,7 +1049,7 @@ const changeDomainItems = (e) => {
     newInput.setAttribute('class', 'input-domain')
     newInput.setAttribute('placeholder', '免验证邮箱后缀')
     const newOperator = document.createElement('img')
-    newOperator.src = require('../assets/checked.png')
+    newOperator.src = require('../assets/checked.svg')
     newOperator.setAttribute('class', 'input-domain-check input-domain-operator')
     newOperator.addEventListener('click', changeDomainItems)
     newWrapper.appendChild(newFix)

@@ -132,13 +132,47 @@ main.main-content {
       margin-bottom: 20px;
       input {
         display: inline-block;
-        border: 1px solid #76c1ef;
+      }
+      .radio {
+        display: inline-block;
+        position: relative;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border:solid 1px #76c1ef;
+        margin: 0 5px;
+        margin-bottom: -2px;
+  
+        cursor: pointer;
+        &:after {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          content: "";
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: #fff;
+        }
+      }
+  
+      input[type="radio"] {
+        width: 12px;
+        height: 12px;
+        display: none;
+      }
+      input[type="radio"]:checked + div{
+        border:solid 1px #76c1ef;
+      }
+      input[type="radio"]:checked + div:after{
+        background-color: #76c1ef;
       }
       label {
         margin-left: 0px;
         margin-right: -10px;
         display: inline-block;
-        width: 80px;
+        width: 100px;
         transform: translateY(10%);
       }
       .url-description {
@@ -297,28 +331,28 @@ main.main-content {
     left: 15%;
     width: 6%;
     
-    border: 1px solid #f3f4f7;
+    border: 1px solid #EBF5FB;
   };
   span:nth-child(2) {
     bottom: 0;
     left: 0;
     width: 20%;
     
-    background-color: #7cdbaa;
+    background-color: #76c1ef;
   };
   span:nth-child(3) {
     bottom: 0;
     left: 18%;
     width: 8%;
     
-    background-color: @color-green;
+    background-color: 	#87CEFA;
   };
   span:nth-child(4) {
     bottom: @span-height * -1;
     left: 12%;
     width: 10%;
     
-    background-color: #def9d0;
+    background-color: #AED6F1;
   };
 
   span:nth-child(5) {
@@ -340,14 +374,14 @@ main.main-content {
     right: 0;
     width: 30%;
     
-    background-color: @color-green;
+    background-color: #AED6F1;
   };
   span:nth-child(8) {
     bottom: @span-height * -3;
     right: 18%;
     width: 12%;
     
-    background-color: #7cdbaa;
+    background-color: #AED6F1;
   };
   span:nth-child(9) {
     bottom: @span-height * -3;
@@ -501,4 +535,14 @@ main.main-content {
 .verify-btn-default {
   color:#ccc;
   cursor:not-allowed;
+}
+
+.input-domain-operator {
+  height: 17px;
+  width: 17px;
+}
+
+.input-domain-check {
+  height: 17px;
+  width: 17px;
 }
