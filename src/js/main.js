@@ -1060,12 +1060,16 @@ const changeDomainItems = (e) => {
     constainer.removeChild(currentWrapper)
   }
 }
-
+function getScrollTop() {
+  const el = document.scrollingElement || document.documentElement || document.body
+  return el.scrollTop
+}
 const changeHeader = () => {
+  const scrollTop = getScrollTop()
   const htmlDom = document.documentElement
   const navHeader = document.getElementById('nav-header')
   const logo = document.getElementById('logo')
-  if (htmlDom.scrollTop > 0) {
+  if (scrollTop > 0) {
     const navContent = document.getElementsByClassName('nav-content')[0]
     if (navContent) {
       navContent.className = 'nav-scroll-white'
@@ -1178,10 +1182,11 @@ const submitFeedback = () => {
 }
 
 const changeMobileHeader = () => {
+  const scrollTop = getScrollTop()
   const navHeader = document.getElementById('nav-header')
   const logo = document.getElementById('logo')
   const menu = document.getElementById('nav-menu-id')
-  if ((document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop) > 0) {
+  if ((document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop || document.scrollingElement.scrollTop) > 0) {
     const navContent = document.getElementsByClassName('nav-content')[0]
     if (navContent) {
       navContent.className = 'nav-scroll-white'
