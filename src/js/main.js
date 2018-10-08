@@ -1292,6 +1292,36 @@ const validateDemoCompany = (value) => {
   return true
 }
 
+const validateDemoIndustry = (value) => {
+  const self = document.getElementById('demo-industry')
+  const errNode = self.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    return false
+  }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
+}
+
+const validateDemoScale = (value) => {
+  const self = document.getElementById('demo-scale')
+  const errNode = self.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    return false
+  }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
+}
+
 const submitDemo = () => {
   const name = demoForm.demoName.value // required
   const email = demoForm.demoEmail.value // required
@@ -1307,6 +1337,8 @@ const submitDemo = () => {
   if (!validateDemoEmail(email)) { errNum += 1 }
   if (!validateDemoMobile(mobile)) { errNum += 1 }
   if (!validateDemoCompany(company)) { errNum += 1 }
+  if (!validateDemoIndustry(industry)) { errNum += 1 }
+  if (!validateDemoScale(scale)) { errNum += 1 }
   if (errNum > 0) {
     return false
   }
@@ -1333,6 +1365,10 @@ const toDemoDetail = (id) => {
 const setSelectValue = (valueNode, currentNode, targetOptions) => {
   valueNode.value = currentNode.getAttribute('value');
   targetOptions.style.display = 'none';
+  const errNode = valueNode.parentNode;
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
 }
 
 const switchOptions = (e) => {
