@@ -3,10 +3,20 @@
 
 .nav-content {
   .nav-content-creat(#6b7c93, #1db977);
+  #nav-login {
+    &:hover {
+      background-color: #f5f5f9
+    }
+  }
 }
 
 .nav-scroll-white {
   .nav-content-creat(#6b7c93, #1db977);
+  #nav-login {
+    &:hover {
+      background-color: #f5f5f9
+    }
+  }
 }
 
 .main-content {
@@ -27,12 +37,13 @@
     overflow: hidden;
     width: 1200px;
     margin: 0px auto 131px auto;
+    font-size: 0px;
     ul {
       display: inline-block;
-      vertical-align: top;
+      vertical-align: bottom;
       width: 230px;
-      float: left;
       box-sizing: border-box;
+      position: relative;
     }
     ul, li {
       margin: 0px;
@@ -54,7 +65,7 @@
     }
 
     li.price-empty {
-      visibility: hidden;
+     display: none;
     }
 
     li.price-list-title {

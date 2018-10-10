@@ -89,6 +89,7 @@
             <span class="login-btn-content">
               <button id="nav-login">登录</button>
               <div class="login-modal" id="login-modal">
+                <div class="modal-arrow"></div>
                 <span class="login-block-wrapper">
                   <span class="login-block">
                     <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
@@ -148,13 +149,19 @@
           </label>
           <span class="radio-field">
             <div>
-              <input type="radio" id="comp-group" checked name="registerType" />
-              <label for="comp-group">企业团队</label>
+              <label for="comp-group">
+                <input type="radio" id="comp-group" checked name="registerType" />
+                <div class="radio"></div>
+                企业团队
+              </label>
               <span class="url-description no-margin-left">团队成员以手机号码加入团队，更自由更独立</span>
             </div>
             <div>
-              <input type="radio" id="free-group" name="registerType" />
-              <label for="free-group">自由团队</label>
+              <label for="free-group">
+                <input type="radio" id="free-group" name="registerType" />
+                <div class="radio"></div>
+                自由团队
+              </label>
               <span class="url-description no-margin-left">团队成员以企业邮箱注册登录团队，更严谨安全</span>
             </div>
           </span>
@@ -164,7 +171,7 @@
               <span class="domain-field form-item">
                 <span class=" domain-fixed">@</span>
                 <input id="input-domain" class="input-domain" placeholder="请输入团队域名">
-                <img src="<%= require('./assets/checked.png') %>" class="input-domain-check input-domain-operator" />
+                <img src="<%= require('./assets/checked.svg') %>" class="input-domain-check input-domain-operator" />
               </span>
             </span>
             <div id="domain-insert" class="url-description domain-descrip">团队成员使用免验证邮箱后缀注册，则不需要管理员审核，可直接进入团队。后缀示例：qq.com</div>

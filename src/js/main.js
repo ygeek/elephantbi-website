@@ -546,7 +546,8 @@ const switchToGroup = (e) => {
     domainInput.placeholder = '请输入团队域名'
 
     const domainImage = document.createElement('img')
-    domainImage.src = require('../assets/checked.png')
+    domainImage.src = require('../assets/checked.svg')
+    domainImage.setAttribute('class', 'input-domain-check input-domain-operator')
 
     domainWrapper.appendChild(domainFixed)
     domainWrapper.appendChild(domainInput)
@@ -1023,8 +1024,12 @@ const focusPriceList = (node, i) => {
   const priceLists = document.getElementsByClassName('price-list')
   for (let i = 1; i < priceLists.length; i++) {
     priceLists[i].style.border = 'none'
+    priceLists[i].style.zIndex = 0;
+    priceLists[i].style.boxShadow = 'none'
   }
-  node.style.border = "2px solid " + colorLists[i]
+  node.style.border = "1px solid " + colorLists[i];
+  node.style.zIndex = 100;
+  node.style.boxShadow = '0px 0px 10px rgba(0, 0, 0, 0.2)'
 }
 
 const changeDomainItems = (e) => {
@@ -1048,7 +1053,7 @@ const changeDomainItems = (e) => {
     newInput.setAttribute('class', 'input-domain')
     newInput.setAttribute('placeholder', '免验证邮箱后缀')
     const newOperator = document.createElement('img')
-    newOperator.src = require('../assets/checked.png')
+    newOperator.src = require('../assets/checked.svg')
     newOperator.setAttribute('class', 'input-domain-check input-domain-operator')
     newOperator.addEventListener('click', changeDomainItems)
     newWrapper.appendChild(newFix)
@@ -1060,12 +1065,16 @@ const changeDomainItems = (e) => {
     constainer.removeChild(currentWrapper)
   }
 }
-
+function getScrollTop() {
+  const el = document.scrollingElement || document.documentElement || document.body
+  return el.scrollTop
+}
 const changeHeader = () => {
+  const scrollTop = getScrollTop()
   const htmlDom = document.documentElement
   const navHeader = document.getElementById('nav-header')
   const logo = document.getElementById('logo')
-  if (htmlDom.scrollTop > 0) {
+  if (scrollTop > 0) {
     const navContent = document.getElementsByClassName('nav-content')[0]
     if (navContent) {
       navContent.className = 'nav-scroll-white'
@@ -1087,6 +1096,31 @@ const changeHeader = () => {
 /*********************************/
 
 /**********mobile start***********/
+const changeMobileHeader = () => {
+  const scrollTop = getScrollTop()
+  const navHeader = document.getElementById('nav-header')
+  const logo = document.getElementById('logo')
+  const menu = document.getElementById('nav-menu-id')
+  if ((document.scrollingElement.scrollTop || document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop) > 0) {
+    const navContent = document.getElementsByClassName('nav-content')[0]
+    if (navContent) {
+      navContent.className = 'nav-scroll-white'
+      navHeader.className = navHeader.className + ' nav-header'
+      logo.src = require("../assets/nav-logo-black.svg")
+      menu.src = require('../mobile/assets/nav-menu.svg')
+    }
+  } else {
+    const navContent = document.getElementsByClassName('nav-scroll-white')[0]
+    if (navContent) {
+      navContent.className = 'nav-content'
+      navHeader.className = navHeader.className.replace(' nav-header', '')
+      if (navHeader.className.indexOf('nav-header') == -1) {
+        logo.src = require("../assets/nav-logo.svg")
+        menu.src = require('../mobile/assets/nav-menu-white.png')
+      }
+    }
+  }
+}
 const industryScrollLeft = () => {
   const casourelSection = document.getElementsByClassName('casourel-section')[0]
   const scrollStep = casourelSection.offsetWidth;
@@ -1177,30 +1211,6 @@ const submitFeedback = () => {
   });
 }
 
-const changeMobileHeader = () => {
-  const navHeader = document.getElementById('nav-header')
-  const logo = document.getElementById('logo')
-  const menu = document.getElementById('nav-menu-id')
-  if ((document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop) > 0) {
-    const navContent = document.getElementsByClassName('nav-content')[0]
-    if (navContent) {
-      navContent.className = 'nav-scroll-white'
-      navHeader.className = navHeader.className + ' nav-header'
-      logo.src = require("../assets/nav-logo-black.svg")
-      menu.src = require('../mobile/assets/nav-menu.svg')
-    }
-  } else {
-    const navContent = document.getElementsByClassName('nav-scroll-white')[0]
-    if (navContent) {
-      navContent.className = 'nav-content'
-      navHeader.className = navHeader.className.replace(' nav-header', '')
-      if (navHeader.className.indexOf('nav-header') == -1) {
-        logo.src = require("../assets/nav-logo.svg")
-        menu.src = require('../mobile/assets/nav-menu-white.png')
-      }
-    }
-  }
-}
 /**********mobile end*************/
 
 /*************demo*************/
@@ -1286,6 +1296,36 @@ const validateDemoCompany = (value) => {
   return true
 }
 
+const validateDemoIndustry = (value) => {
+  const self = document.getElementById('demo-industry')
+  const errNode = self.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    return false
+  }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
+}
+
+const validateDemoScale = (value) => {
+  const self = document.getElementById('demo-scale')
+  const errNode = self.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    return false
+  }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
+}
+
 const submitDemo = () => {
   const name = demoForm.demoName.value // required
   const email = demoForm.demoEmail.value // required
@@ -1301,6 +1341,8 @@ const submitDemo = () => {
   if (!validateDemoEmail(email)) { errNum += 1 }
   if (!validateDemoMobile(mobile)) { errNum += 1 }
   if (!validateDemoCompany(company)) { errNum += 1 }
+  if (!validateDemoIndustry(industry)) { errNum += 1 }
+  if (!validateDemoScale(scale)) { errNum += 1 }
   if (errNum > 0) {
     return false
   }
@@ -1327,6 +1369,10 @@ const toDemoDetail = (id) => {
 const setSelectValue = (valueNode, currentNode, targetOptions) => {
   valueNode.value = currentNode.getAttribute('value');
   targetOptions.style.display = 'none';
+  const errNode = valueNode.parentNode;
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
 }
 
 const switchOptions = (e) => {

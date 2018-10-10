@@ -45,10 +45,26 @@
 
 .nav-content {
   .nav-content-creat(#fff, #fff, #4a83ff);
+  #nav-login {
+    &:hover {
+      color: #32325d;
+      border-color: #32325d;
+    }
+  }
+  .register-btn {
+    &:hover {
+      background-color: #f5f5f9
+    }
+  }
 }
 
 .nav-scroll-white {
   .nav-content-creat(#6b7c93, #1db977);
+  #nav-login {
+    &:hover {
+      background-color: #f5f5f9
+    }
+  }
 }
 
 #input-hosts:focus {
@@ -105,11 +121,11 @@
       vertical-align: top;
 
       .banner-image {
-        width: 1133px;
-        height: 1070px;
+        width: 1000px;
+        height: 900px;
         position: absolute;
-        bottom: -800px;
-        left: -170px;
+        bottom: -650px;
+        left: -100px;
         z-index: -1;
       }
     }
@@ -120,7 +136,7 @@
       height: 36px;
       line-height: 36px;
       font-size: 14px;
-      box-shadow: 2px 1px 4px #287fbc;
+      box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.1);
     }
     .reserve-btn {
       .a-link-btn(#40d08f, #fff, #fff);
@@ -130,7 +146,11 @@
       line-height: 36px;
       margin-left: 24px;
       font-size: 14px;
-      box-shadow: 2px 1px 4px #287fbc;
+      box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.1);
+      &:hover {
+        background-color: #f5f5f9;
+        border-color: #f5f5f9;
+      }
     }
   }
 
@@ -262,7 +282,10 @@
         height: 36px;
         margin: 30px 0px 0px 30px;
         font-size: 14px;
-        border: 1px solid #40d08f      
+        border: 1px solid #40d08f;
+        &:hover {
+          background-color: #f5f5f9;
+        }      
       }
       .demo-btn {
         .a-link-btn(#40d08f, #fff, #40d08f);
@@ -270,7 +293,10 @@
         height: 36px;
         line-height: 36px;
         font-size: 14px;
-        margin: 30px 0px 0px 30px;
+        margin: 30px 0px 0px 30px;;
+        &:hover {
+          background-color: #f5f5f9;
+        }
       }
     }
   }

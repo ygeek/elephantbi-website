@@ -39,7 +39,7 @@
             <img src='<%= require("./assets/nav-logo-black.svg") %>' width=160 height=32 id="logo" />
           </li>
           <li class="nav-section page-list">
-            <a href="./product.html">产品</a>
+            <a class="selected" href="./product.html">产品</a>
             <a href="javascript:void(0)" id="nav-industry-link">行业DEMO</a>
             <a href="./demo.html">预约演示</a>
             <a href="./price.html">价格</a>
@@ -88,6 +88,7 @@
             <span class="login-btn-content">
               <button id="nav-login">登录</button>
               <div class="login-modal" id="login-modal">
+                <div class="modal-arrow"></div>
                 <span class="login-block-wrapper">
                   <span class="login-block">
                     <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
@@ -137,7 +138,7 @@
             <p class="product-description">支持包括HRM、CRM、ERP、OA、进销存等业务系统，业务数据一目了然</p>
           </div>
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct1.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct1.svg") %>' width=395 height=226 />
           </div>
         </div>
         <div class="product-item">
@@ -161,7 +162,7 @@
         </div>
         <div class="product-item">
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct4.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct4.svg") %>' width=395 height=226 />
           </div>
           <div class="product-part">
             <h4 class="product-title">连接数据库数据</h4>
@@ -180,7 +181,7 @@
         </div>
         <div class="product-item">
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct6.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct6.svg") %>' width=395 height=226 />
           </div>
           <div class="product-part">
             <h4 class="product-title">大数据稳定支撑</h4>
@@ -218,7 +219,7 @@
         </div>
         <div class="product-item">
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct10.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct10.svg") %>' width=395 height=226 />
           </div>
           <div class="product-part">
             <h4 class="product-title">丰富的数据可视化展示</h4>
@@ -237,7 +238,7 @@
         </div>
         <div class="product-item">
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct12.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct12.svg") %>' width=395 height=226 />
           </div>
           <div class="product-part">
             <h4 class="product-title">强大的数据分析功能</h4>
@@ -275,7 +276,7 @@
         </div>
         <div class="product-item">
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct16.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct16.svg") %>' width=395 height=226 />
           </div>
           <div class="product-part">
             <h4 class="product-title">精细数据管控</h4>
@@ -327,12 +328,12 @@
             <p class="product-description">全面支持数据多屏展示，数据大屏、PC显示器、投影仪等，有价值的图表无所不在</p>
           </div>
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct21.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct21.svg") %>' width=395 height=226 />
           </div>
         </div>
         <div class="product-item">
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct22.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct22.svg") %>' width=395 height=226 />
           </div>
           <div class="product-part">
             <h4 class="product-title">实时数据大屏</h4>
@@ -351,7 +352,7 @@
         </div>
         <div class="product-item">
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct24.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct24.svg") %>' width=395 height=226 />
           </div>
           <div class="product-part">
             <h4 class="product-title">仪表盘</h4>
@@ -459,7 +460,7 @@
           </ul>
         </li>
         <li class="footer-nav-sq">
-          <img src='<%= require("./assets/footer-sq.png") %>' width=140 height=140 />
+          <img src='<%= require("./assets/footer-sq.svg") %>' width=140 height=140 />
           <span class="footer-nav-sq-description">关注 ElephantBI</span>
         </li>
       </ul>

@@ -43,7 +43,7 @@
             <a href="javascript:void(0)" id="nav-industry-link">行业DEMO</a>
             <a href="./demo.html">预约演示</a>
             <a href="./price.html">价格</a>
-            <a href="./service.html">服务</a>
+            <a class="selected" href="./service.html">服务</a>
             <a href="./about.html">关于</a>
             <div class="nav-industry-modal" id="nav-industry-modal">
               <div class="nav-industry-arrow"></div>
@@ -88,6 +88,7 @@
             <span class="login-btn-content">
               <button id="nav-login">登录</button>
               <div class="login-modal" id="login-modal">
+                <div class="modal-arrow"></div>
                 <span class="login-block-wrapper">
                   <span class="login-block">
                     <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
@@ -316,7 +317,7 @@
           </ul>
         </li>
         <li class="footer-nav-sq">
-          <img src='<%= require("./assets/footer-sq.png") %>' width=140 height=140 />
+          <img src='<%= require("./assets/footer-sq.svg") %>' width=140 height=140 />
           <span class="footer-nav-sq-description">关注 ElephantBI</span>
         </li>
       </ul>
