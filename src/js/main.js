@@ -1722,6 +1722,12 @@ window.onload = function () {
   // }, false);
 
   // tootip listent
+  const closeJoinModal = document.getElementById('close-join-modal');
+  if (closeJoinModal) {
+    closeJoinModal.addEventListener('click', function() {
+      toogleJoinModal('hide')
+    })
+  }
   document.getElementById('tootip-succeed').addEventListener('click', function () {
     hideTootip();
   }, true);

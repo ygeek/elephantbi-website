@@ -264,16 +264,20 @@
   </div>
   <div class="modal-cover" id="modal-cover"></div>
   <div class="join-modal" id="join-modal">
+    <img alt="" src='<%= require("./assets/close.png") %>' class="close" id="close-join-modal" />
     <div class="join-title">登录团队</div>
-    <span class="login-block-wrapper">
-      <span class="login-block">
-        <input class="login-cell" id="input-register" type="text" placeholder="请输入团队域名">
-        <span class="login-cell login-fixed">elephantbi.com</span>
+    <div class="form">
+      <span class="label">团队网址<span class="required">*</span></span>
+      <span class="login-block-wrapper">
+        <span class="login-block">
+          <input class="login-cell" id="input-register" type="text" placeholder="请输入团队域名">
+          <span class="login-cell login-fixed">elephantbi.com</span>
+        </span>
       </span>
-    </span>
+    </div>
     <div class="actions" id="actions">
       <button class="login-btn" id="login-register-cancel">取消</button>
-      <button class="login-btn" id="login-register">登录</button>
+      <button class="login-btn" id="login-register">确认</button>
     </div>
   </div>
   <script type="text/javascript">
