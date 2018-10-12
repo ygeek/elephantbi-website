@@ -588,13 +588,14 @@ h1, h2, h3, h4, h5, h6 {
   img {
     width: 50px;
     height: 40px;
+    cursor: pointer;
   }
 }
 
 .nav-modal {
   display: none;
   position: fixed;
-  width: 700px;
+  width: 80%;
   height: 320px;
   margin: 0 auto;
   z-index: 500;
@@ -603,7 +604,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%);
   padding: 40px 38px;
   background-color: #fff;
-  box-shadow: 2px 4px 10px #aeaeae;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   .nav-icon {
     padding: 20px 0 15px 15px;
@@ -631,11 +632,11 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     .nav-item {
       display: flex;
-      width: 220px;
+      width: 200px;
       height: 60px;
       margin-bottom: 20px;
-      margin-left: 40px;
-      margin-right: 40px;
+      margin-left: 20px;
+      margin-right: 20px;
       flex-direction: row;
 
       list-style: none;
@@ -643,7 +644,7 @@ h1, h2, h3, h4, h5, h6 {
       img {
         height: 44px;
         width: 44px;
-        margin-right: 32px;
+        margin-right: 24px;
       }
       a {
         .clearAStyle(#6b7c93);

@@ -427,7 +427,7 @@ main.main-content {
 }
 
 .modal-cover {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -436,6 +436,52 @@ main.main-content {
   background-color: #000;
   z-index: 9998;
   opacity: 0.5
+}
+.auth-invalid-modal {
+  position: absolute;
+  width: 400px;
+  display: none;
+  height: 156px;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 32px 32px 24px 32px;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  box-sizing: border-box;
+  z-index: 9999;
+  .title {
+    display: flex;
+    font-size: 14px;
+    color: #474747;
+    line-height: 1;
+    align-items: center
+  }
+  img {
+    margin-right: 16px;
+  }
+  .content {
+    margin-left: 38px;
+    font-size: 12px;
+    margin-top: 8px;
+    color: #757575;
+  }
+  button {
+    position: absolute;
+    bottom: 24px;
+    right: 32px;
+    height: 28px;
+    padding: 2px 12px;
+    font-size: 12px;
+    word-spacing: 0;
+    letter-spacing: 0;
+    background-color: #76c1ef;
+    border-color: #76c1ef;
+    color: #fff;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+  }
 }
 
 .join-modal {

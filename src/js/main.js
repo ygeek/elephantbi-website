@@ -103,7 +103,7 @@ async function checkStatus(response) {
 
 const request = (url, params) => {
   return fetch(
-    `${window.backhost}${url}`,
+    `https://api.flexceed.com${url}`,
     {
       method: 'POST',
       headers: {
@@ -746,6 +746,10 @@ const submitRegister = () => {
             errNode.className = errNode.className + ' error'
           }
           errNode.setAttribute('data-err', '子域名已被占用，请尝试其他子域名')
+        }
+        console.log(err)
+        if (err.response.error == 'MAN_MACHINE_VERIFICATION_FAILED') {
+          toogleAuthInvalidModal('show')
         }
       }
     });
@@ -1430,6 +1434,23 @@ const toogleJoinModal = (type) => {
   }
 }
 
+const toogleAuthInvalidModal = (type) => {
+  const authInvalidModal = document.getElementById('auth-invalid-modal');
+  const modalCover = document.getElementById('modal-cover')
+  if (authInvalidModal && modalCover) {
+    if (type === 'show') {
+      modalCover.style.display = 'block';
+      authInvalidModal.style.display = 'block';
+      document.body.style.overflow = 'hidden'
+    }
+    if (type === 'hide') {
+      modalCover.style.display = 'none';
+      authInvalidModal.style.display = 'none';
+      document.body.style.overflow = 'auto'
+    }
+  }
+}
+
 window.onload = function () {
   if (sessionStorage.getItem('aliVerification')) {
     sessionStorage.removeItem('aliVerification')
@@ -1744,7 +1765,16 @@ window.onload = function () {
   }
   const modalCover = document.getElementById('modal-cover')
   if (modalCover) {
-    modalCover.addEventListener('click', function() { toogleJoinModal('hide')})
+    modalCover.addEventListener('click', function() {
+      toogleJoinModal('hide')
+      toogleAuthInvalidModal('hide')
+    })
+  }
+  const authConfirmBtn = document.getElementById('auth-confirm-btn')
+  if (authConfirmBtn) {
+    authConfirmBtn.addEventListener('click', function() {
+      toogleAuthInvalidModal('hide')
+    })
   }
   const loginRegister = document.getElementById('login-register')
   if (loginRegister) {
