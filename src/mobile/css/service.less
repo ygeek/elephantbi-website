@@ -149,23 +149,26 @@
   color: #757575;
   padding-bottom: 36px;
   overflow: hidden;
+  display: flex;
   .label {
     display: inline-block;
     padding-top: 5px;
     font-weight: 500;
+    width: 140px;
   }
   .feedback-form-item {
     display: inline-block;
     float: right;
     position: relative;
+    flex-grow: 1;
     input {
-      width: 500px;
       height: 51px;
       box-sizing: border-box;
       border: 1px solid #ccc;
       font-size: 24px;
       color: #757575;
       padding: 2px 8px;
+      width: 100%;
     }
   }
   .feedback-form-item.error {
@@ -184,7 +187,6 @@
     }
   }
   textarea {
-    width: 500px;
     height: 156px;
     box-sizing: border-box;
     color: #757575;
@@ -192,6 +194,7 @@
     font-size: 24px;
     padding: 2px 8px;
     font-family: Arial;
+    width: 100%;
   }
 }
 #feedback-submit {
