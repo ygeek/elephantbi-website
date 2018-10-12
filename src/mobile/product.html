@@ -31,13 +31,15 @@
     window.OAUTHURL = 'OAUTH_URL';
   </script>
   <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?84b931e300f6dc956894ff5eec64739c";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
+    if (window.host === 'https://m.elephantbi.com') {
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?84b931e300f6dc956894ff5eec64739c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    }
   </script>
 
 </head>
