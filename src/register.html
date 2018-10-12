@@ -127,7 +127,7 @@
         </div>
         <form name="registerForm" id="register-form">
           <div class="group-title">
-            <img src="<%= require('./assets/group.png') %>" width=18 height=16 /> 团队信息
+            <img src="<%= require('./assets/group.svg') %>" width=18 height=16 /> 团队信息
           </div>
           <div class="divider"></div>
           <label for="register-url">设置登录网址
@@ -179,7 +179,7 @@
             <div id="domain-insert" class="url-description domain-descrip">团队成员使用免验证邮箱后缀注册，则不需要管理员审核，可直接进入团队。后缀示例：qq.com</div>
           </div>
           <div class="group-title" id="free-title">
-            <img src="<%= require('./assets/user.png') %>" width=16 height=16 /> 个人信息
+            <img src="<%= require('./assets/user.svg') %>" width=16 height=16 /> 个人信息
           </div>
           <div class="divider"></div>
           <label for="register-email" id="switch-label">电子邮箱
@@ -276,16 +276,20 @@
   </div>
   <div class="modal-cover" id="modal-cover"></div>
   <div class="join-modal" id="join-modal">
+    <img alt="" src='<%= require("./assets/close.png") %>' class="close" id="close-join-modal" />
     <div class="join-title">登录团队</div>
-    <span class="login-block-wrapper">
-      <span class="login-block">
-        <input class="login-cell" id="input-register" type="text" placeholder="请输入团队域名">
-        <span class="login-cell login-fixed">elephantbi.com</span>
+    <div class="form">
+      <span class="label">团队网址<span class="required">*</span></span>
+      <span class="login-block-wrapper">
+        <span class="login-block">
+          <input class="login-cell" id="input-register" type="text" placeholder="请输入团队域名">
+          <span class="login-cell login-fixed">elephantbi.com</span>
+        </span>
       </span>
-    </span>
+    </div>
     <div class="actions" id="actions">
       <button class="login-btn" id="login-register-cancel">取消</button>
-      <button class="login-btn" id="login-register">登录</button>
+      <button class="login-btn" id="login-register">确认</button>
     </div>
   </div>
   <script type="text/javascript">
