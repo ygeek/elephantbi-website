@@ -20,17 +20,18 @@
     color: #32325d;
     font-size: 42px;
     text-align: center;
-    font-weight: 400;
+    font-weight: 500;
   }
   .price-title-second {
     margin-bottom: 60px;
   }
   .price-list {
+    border-radius: 4px;
     width: 92%;
     min-width: 650px;
     margin: 0px auto 40px auto;
     padding: 0px;
-    box-shadow:4px 4px 8px #f5f5f9,4px -4px 8px #f5f5f9,-4px 4px 8px #f5f5f9,-4px -4px 8px #f5f5f9;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     li {
       margin: 0px;
@@ -42,6 +43,7 @@
       padding-right: 80px;
       padding-top: 10px;
       padding-bottom: 10px;
+      font-weight: 500;
       img {
         width: 27px;
         height: 22px;
@@ -61,13 +63,12 @@
       padding-left: 0px;
       padding-right: 0px;
       .div1 {
-        height: 130px;
+        height: 110px;
         padding: 21px 0px;
-        font-weight: 400;
         div:nth-child(1) {
-          font-size: 42px;
+          font-size: 36px;
           margin-bottom: 10px;
-          font-weight: 400;
+          font-weight: 500;
         }
         div:nth-child(2) {
           font-size: 28px;
@@ -75,7 +76,11 @@
       }
       .div2 {
         margin-top: 30px;
-        font-size: 42px;
+        font-size: 24px;
+        .special {
+          font-size: 36px;
+          font-weight: 500;
+        }
       }
       .div3 {
         margin-top: 20px;
@@ -90,6 +95,12 @@
       .div1 {
         color: #fff;
         background-color: #0abebe;
+      }
+      .div2 {
+        color: #6b7c93;
+        .special {
+          color: #0abebe
+        }
       }
       .div3 {
         .creatFullButton(#fff, #0abebe);
@@ -112,6 +123,12 @@
       .div1 {
         color: #fff;
         background-color: #76c1ef;
+      }
+      .div2 {
+        color: #6b7c93;
+        .special {
+          color: #76c1ef
+        }
       }
       .div3 {
         .creatFullButton(#fff, #76c1ef);
@@ -139,6 +156,7 @@
       padding-top: 28px;
       padding-bottom: 28px;
       font-size: 24px;
+      font-weight: 500;
       color: #9b9b9b
     }
   }
@@ -160,6 +178,16 @@
     border: 0.5px solid #ddddde;
     margin-bottom: 26px;
   }
+}
+
+.cpy-attr {
+  color: #0abebe
+}
+.cpycostom-attr {
+  color: #f5a623
+}
+.std-attr {
+  color: #76c1ef
 }
 
 .main-bg {
