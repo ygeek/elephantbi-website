@@ -1560,7 +1560,7 @@ window.onload = function () {
 
   const registerGroupRadio = document.getElementById('comp-group')
   const registerFreeRadio = document.getElementById('free-group')
-  const sendVerifyBtn = document.getElementById('send-verifycode')
+  // const sendVerifyBtn = document.getElementById('send-verifycode')
   const verifyCodeInput = document.getElementById('verifycode')
   const registerUrlInput = document.getElementById('input-url')
   const registerGroupName = document.getElementById('register-group-name')
@@ -1581,9 +1581,9 @@ window.onload = function () {
   if (registerBtn) {
     registerBtn.addEventListener('click', submitRegister, true);
   }
-  if (sendVerifyBtn) {
-    sendVerifyBtn.addEventListener('click', sendVerification, true)
-  }
+  // if (sendVerifyBtn) {
+  //   sendVerifyBtn.addEventListener('click', sendVerification, true)
+  // }
   if (registerUrlInput) {
     registerUrlInput.addEventListener('input', function (e) { utlInputValidate(e.target.value) })
   }
