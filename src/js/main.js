@@ -48,7 +48,7 @@ const toggleLoginModalVisible = (e) => {
   }
 };
 
-// cover 
+// cover
 const showCover = () => {
   const cover = document.getElementById('cover');
   if (cover) {
@@ -409,7 +409,7 @@ const loginCellOnKeyDown = (e) => {
   return true;
 };
 
-// tootip 
+// tootip
 const onSucceed = () => {
   const tootipSucceed = document.getElementById('tootip-succeed');
   if (tootipSucceed) {
@@ -598,28 +598,33 @@ const switchToGroup = (e) => {
     registerForm.appendChild(groupMobileItem)
   }
 }
+
+const _switchToFree = () => {
+  const registerForm = document.getElementById('register-form')
+  const domainField = document.getElementById('domain-field')
+  const groupMobile = document.getElementById('group-mobile')
+  if (domainField && groupMobile) {
+    const groupMobileItem = groupMobile.parentNode
+    const groupMobileLabel = document.getElementById('group-mobile-label')
+    registerForm.removeChild(domainField)
+    registerForm.removeChild(groupMobileLabel)
+    registerForm.removeChild(groupMobileItem)
+    const switchLabel = document.getElementById('switch-label')
+    const required = document.createElement('span')
+    required.innerText = '*'
+    required.setAttribute('class', 'required')
+    switchLabel.innerText = "手机号"
+    switchLabel.appendChild(required)
+    const registerEmail = document.getElementById('register-email')
+    registerEmail.value = null;
+    registerEmail.placeholder = '请输入登录团队使用的手机号'
+    registerEmail.parentNode.setAttribute('data-err', '请输入手机号码')
+  }
+}
+
 const switchToFree = (e) => {
   if (e.target.checked) {
-    const registerForm = document.getElementById('register-form')
-    const domainField = document.getElementById('domain-field')
-    const groupMobile = document.getElementById('group-mobile')
-    if (domainField && groupMobile) {
-      const groupMobileItem = groupMobile.parentNode
-      const groupMobileLabel = document.getElementById('group-mobile-label')
-      registerForm.removeChild(domainField)
-      registerForm.removeChild(groupMobileLabel)
-      registerForm.removeChild(groupMobileItem)
-      const switchLabel = document.getElementById('switch-label')
-      const required = document.createElement('span')
-      required.innerText = '*'
-      required.setAttribute('class', 'required')
-      switchLabel.innerText = "手机号"
-      switchLabel.appendChild(required)
-      const registerEmail = document.getElementById('register-email')
-      registerEmail.value = null;
-      registerEmail.placeholder = '请输入登录团队使用的手机号'
-      registerEmail.parentNode.setAttribute('data-err', '请输入手机号码')
-    }
+    _switchToFree()
   }
 }
 
@@ -1359,7 +1364,7 @@ const submitDemo = () => {
   request('/website/trail', params).then((data) => {
     if (data) {
       onSucceed()
-    } else {  
+    } else {
       onErr()
     }
   })
@@ -1458,6 +1463,10 @@ window.onload = function () {
   if (sessionStorage.getItem('verify')) {
     sessionStorage.removeItem('verify')
   }
+
+  // NOTE (zhamgmeng): temporary restrict to only use free team
+  _switchToFree();
+
   //wx login
   // const wxbtnlogup = document.getElementById('wx-btn-logup');
   // if (wxbtnlogup) {
