@@ -337,7 +337,7 @@
 
     const request = (url, params) => {
       return fetch(
-        `${window.backhost}${url}`,
+        window.backhost + url,
         {
           method: 'POST',
           headers: {
