@@ -1083,12 +1083,16 @@ const changeHeader = () => {
   const htmlDom = document.documentElement
   const navHeader = document.getElementById('nav-header')
   const logo = document.getElementById('logo')
+  const menu = document.getElementById('nav-menu-id')
   if (scrollTop > 0) {
     const navContent = document.getElementsByClassName('nav-content')[0]
     if (navContent) {
       navContent.className = 'nav-scroll-white'
       navHeader.className = navHeader.className + ' nav-header'
       logo.src = require("../assets/nav-logo-black.svg")
+      if (menu) {
+        menu.src = require('../mobile/assets/nav-menu.svg')
+      }
     }
   } else {
     const navContent = document.getElementsByClassName('nav-scroll-white')[0]
@@ -1097,6 +1101,9 @@ const changeHeader = () => {
       navHeader.className = navHeader.className.replace(' nav-header', '')
       if (navHeader.className.indexOf('nav-header') == -1) {
         logo.src = require("../assets/nav-logo.svg")
+        if (menu) {
+          menu.src = require('../mobile/assets/nav-menu-white.png')
+        }
       }
     }
   }
@@ -1105,31 +1112,6 @@ const changeHeader = () => {
 /*********************************/
 
 /**********mobile start***********/
-const changeMobileHeader = () => {
-  const scrollTop = getScrollTop()
-  const navHeader = document.getElementById('nav-header')
-  const logo = document.getElementById('logo')
-  const menu = document.getElementById('nav-menu-id')
-  if ((document.scrollingElement.scrollTop || document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop) > 0) {
-    const navContent = document.getElementsByClassName('nav-content')[0]
-    if (navContent) {
-      navContent.className = 'nav-scroll-white'
-      navHeader.className = navHeader.className + ' nav-header'
-      logo.src = require("../assets/nav-logo-black.svg")
-      menu.src = require('../mobile/assets/nav-menu.svg')
-    }
-  } else {
-    const navContent = document.getElementsByClassName('nav-scroll-white')[0]
-    if (navContent) {
-      navContent.className = 'nav-content'
-      navHeader.className = navHeader.className.replace(' nav-header', '')
-      if (navHeader.className.indexOf('nav-header') == -1) {
-        logo.src = require("../assets/nav-logo.svg")
-        menu.src = require('../mobile/assets/nav-menu-white.png')
-      }
-    }
-  }
-}
 const industryScrollLeft = () => {
   const casourelSection = document.getElementsByClassName('casourel-section')[0]
   const scrollStep = casourelSection.offsetWidth;
@@ -1153,7 +1135,6 @@ const industryScrollRight = () => {
   const scrollStep = casourelSection.offsetWidth;
   const carouselList = document.getElementsByClassName('casourel-list')[0];
   const carouseItemlength = carouselList.getElementsByTagName('li').length
-  // carouselList.style.left = carouselList.offsetLeft + scrollStep + 'px'
   const target = carouselList.offsetLeft + scrollStep
   const speed = 30
   let timer = setInterval(() => {
@@ -1480,10 +1461,12 @@ window.onload = function () {
   // if (wxbtnserverlogin) {
   //   wxbtnserverlogin.addEventListener('click', openWxServer, true);
   // }
-  window.onscroll = changeHeader //
-  document.body.addEventListener('scroll', function(e) {
+  window.onscroll = function() {
+    changeHeader() //
     toggleNavModalVisible('hide');
-    changeMobileHeader(e);
+  }
+  document.body.addEventListener('scroll', function(e) {
+
   })
   const formSubmitBtn = document.getElementById('form-submit-btn-id'); //移动端表单提交按钮
   const loginModal = document.getElementById('login-modal'); //登陆弹窗

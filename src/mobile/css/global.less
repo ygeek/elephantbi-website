@@ -37,15 +37,13 @@
 
 html {
   height: 100%;
-  overflow: hidden;
+  overflow-y: auto;
 }
 body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -73,6 +71,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   right: 0;
+  transition: all 0.3s ease;
 }
 
 .baseButton() {
