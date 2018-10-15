@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="30px" viewBox="0 0 17 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="1首页导航" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-645.000000, -5394.000000)">
+        <g id="向下边框三角" transform="translate(671.500000, 5409.000000) scale(1, -1) rotate(90.000000) translate(-671.500000, -5409.000000) translate(656.500000, 5382.500000)" fill="#B4B4B4" fill-rule="nonzero">
+            <path d="M14.0248211,36.4113434 L0.390941971,50.0452226 C-0.13031399,50.5664785 -0.13031399,51.4443005 0.390941971,51.9929332 C0.912197933,52.5141892 1.79001987,52.5141892 2.33865262,51.9929332 L15.012341,39.3192448 L27.6310851,51.9379889 C28.152341,52.4592448 29.030163,52.4592448 29.5787957,51.9379889 C30.1000517,51.4167329 30.1000517,50.538911 29.5787957,49.9902782 L15.9999563,36.4114388 C15.4239467,35.8628537 14.5735016,35.8628537 14.024535,36.4114388 L14.0248211,36.4113434 Z" id="Shape-Copy" transform="translate(14.984869, 44.191938) scale(1, -1) translate(-14.984869, -44.191938) "></path>
+        </g>
+    </g>
+</svg>
