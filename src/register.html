@@ -424,9 +424,6 @@
       request('/auth/code', params)
         .then(({ data }) => {
           if (data) {
-            if (data.code_hash) {
-              sessionStorage.setItem("verify", data.code_hash)
-            }
           } else {
           }
         });

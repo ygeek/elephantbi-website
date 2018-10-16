@@ -752,8 +752,15 @@ const submitRegister = () => {
           }
           errNode.setAttribute('data-err', '子域名已被占用，请尝试其他子域名')
         }
-        if (err.response.error == 'MAN_MACHINE_VERIFICATION_FAILED') {
+        if (err.response.error == 'MAN_MACHINE_VERIFICATION_FAILED') { //人机验证失效
           toogleAuthInvalidModal('show')
+        }
+        if (err.response.error == 'ERR_VERIFICATION_CODE') { //验证码错误
+          const errNode = registerVerifiedCode.parentNode.parentNode
+          if (!currentError(errNode)) {
+            errNode.className = errNode.className + ' error'
+          }
+          errNode.setAttribute('data-err', '验证码输入错误')
         }
       }
     });
@@ -767,7 +774,6 @@ const currentError = (node) => { //校验当前是否为错误状态
 }
 
 const verifyCodeValidate = (value) => { //验证码校验
-  const md5 = require('MD5')
   const verifyCodeInput = document.getElementById('verifycode')
   const errNode = verifyCodeInput.parentNode.parentNode
   if (!value) {
@@ -776,20 +782,11 @@ const verifyCodeValidate = (value) => { //验证码校验
     }
     errNode.setAttribute('data-err', '请输入验证码')
     return false
-  } else {
-    const verifyCode = sessionStorage.getItem('verify')
-    if (md5(value) !== verifyCode) {
-      if (!currentError(errNode)) {
-        errNode.className = errNode.className + ' error'
-      }
-      errNode.setAttribute('data-err', '验证码输入错误')
-      return false
-    }
-    if (currentError(errNode)) {
-      errNode.className = errNode.className.replace(/error/, '')
-    }
-    return true
   }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
 }
 
 const utlInputValidate = (value) => { //团队域名校验
