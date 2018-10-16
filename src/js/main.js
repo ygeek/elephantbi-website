@@ -601,12 +601,12 @@ const switchToGroup = (e) => {
 
 const _switchToFree = () => {
   const registerForm = document.getElementById('register-form')
-  const domainField = document.getElementById('domain-field')
+  // const domainField = document.getElementById('domain-field')
   const groupMobile = document.getElementById('group-mobile')
-  if (domainField && groupMobile) {
+  if (groupMobile) {
     const groupMobileItem = groupMobile.parentNode
     const groupMobileLabel = document.getElementById('group-mobile-label')
-    registerForm.removeChild(domainField)
+    // registerForm.removeChild(domainField)
     registerForm.removeChild(groupMobileLabel)
     registerForm.removeChild(groupMobileItem)
     const switchLabel = document.getElementById('switch-label')
@@ -752,44 +752,9 @@ const submitRegister = () => {
           }
           errNode.setAttribute('data-err', '子域名已被占用，请尝试其他子域名')
         }
-        console.log(err)
         if (err.response.error == 'MAN_MACHINE_VERIFICATION_FAILED') {
           toogleAuthInvalidModal('show')
         }
-      }
-    });
-}
-
-const sendVerification = () => { //发送存储验证码
-  let second = 60;
-  const codeBtn = document.getElementById('send-verifycode')
-  const timer = setInterval(() => {
-    second -= 1
-    codeBtn.innerText = `${second}秒后重新获取`
-    codeBtn.setAttribute('disabled', 'disabled')
-    codeBtn.style.cursor = 'not-allowed'
-    if (second === 0) {
-      clearInterval(timer)
-      codeBtn.innerText = '发送验证码'
-      codeBtn.removeAttribute('disabled')
-      codeBtn.style.cursor = 'pointer'
-      second = 60
-    }
-  }, 1000)
-  const registerTypeGroup = registerForm.registerType[0].checked
-  const registerEmail = registerForm.registerEmail.value
-  const params = {
-    auth_type: registerTypeGroup ? 0 : 1,
-    send_to: registerEmail,
-    code_type: 2
-  }
-  request('/auth/code', params)
-    .then(({ data }) => {
-      if (data) {
-        if (data.code_hash) {
-          sessionStorage.setItem("verify", data.code_hash)
-        }
-      } else {
       }
     });
 }
