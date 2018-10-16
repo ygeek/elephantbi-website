@@ -756,7 +756,7 @@ const submitRegister = () => {
           toogleAuthInvalidModal('show')
         }
         if (err.response.error == 'ERR_VERIFICATION_CODE') { //验证码错误
-          const errNode = registerVerifiedCode.parentNode.parentNode
+          const errNode = registerForm.registerVerifiedCode.parentNode.parentNode
           if (!currentError(errNode)) {
             errNode.className = errNode.className + ' error'
           }
