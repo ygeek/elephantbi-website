@@ -1307,6 +1307,15 @@ const submitDemo = () => {
   request('/website/trail', params).then((data) => {
     if (data) {
       onSucceed()
+      demoForm.demoName.value = null
+      demoForm.demoEmail.value = null
+      demoForm.demoMobile.value = null
+      demoForm.demoCompany.value = null
+      demoForm.demoIndustry.value = null
+      demoForm.demoScale.value = null
+      demoForm.demoDepart.value = null
+      demoForm.demoPosi.value = null
+      demoForm.demoRemark.value = null
     } else {
       onErr()
     }
