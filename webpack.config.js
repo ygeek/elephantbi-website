@@ -31,6 +31,7 @@ module.exports = [
       about: './src/css/about.less',
       price: './src/css/price.less',
       register: './src/css/register.less',
+      register_info: './src/css/register-info.less',
       demo: './src/css/demo.less',
       main: './src/js/main.js'
     },
@@ -112,6 +113,11 @@ module.exports = [
         chunks: ['main', 'register'],
         filename: 'register.html',
         template: './src/register.html'
+      }),
+      new HtmlWebpackPlugin({
+        chunks: ['main', 'register_info'],
+        filename: 'register-info.html',
+        template: './src/register-info.html'
       }),
       new UglifyJsPlugin(),
       new CompressionPlugin({

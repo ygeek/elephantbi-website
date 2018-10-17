@@ -632,103 +632,67 @@ const submitRegister = () => {
   const registerUrl = registerForm.registerUrl.value
   const registerGroupName = registerForm.registerGroupName.value
   const registerTypeGroup = registerForm.registerType[0].checked
-  const registerTypeFree = registerForm.registerType[1].checked
+  // const registerTypeFree = registerForm.registerType[1].checked
   const registerEmail = registerForm.registerEmail.value
   const registerVerifiedCode = registerForm.registerVerifiedCode.value
   const registerPasswordSet = registerForm.registerPasswordSet.value
-  const registerPasswordConfirm = registerForm.registerPasswordConfirm.value
+  // const registerPasswordConfirm = registerForm.registerPasswordConfirm.value
   const registerDisplayName = registerForm.registerDisplayName.value
-  const registerGroupMobile = registerTypeGroup ? registerForm.registerDisplayMobile.value : null
-  const inputDomains = document.getElementsByClassName('input-domain')
+  // const registerGroupMobile = registerTypeGroup ? registerForm.registerDisplayMobile.value : null
+  // const inputDomains = document.getElementsByClassName('input-domain')
   let errorNum = 0
   const aliVerification = JSON.parse(sessionStorage.getItem('aliVerification'))
   if (!aliVerification) {
-    const ncContainer = document.getElementById('nc-container')
-    if (ncContainer.className.indexOf('error') == -1) {
-      ncContainer.className = ncContainer.className + ' error'
+    const errNode = document.getElementById('nc-container').parentNode
+    if (errNode.className.indexOf('error') == -1) {
+      errNode.className = errNode.className + ' error'
     }
     errorNum += 1
     sessionStorage.removeItem('aliVerification')
   }
-  if (!utlInputValidate(registerUrl)) {
-    const formItem = registerForm.registerUrl.parentNode.parentNode
-    if (formItem.className.indexOf('error') == -1) {
-      formItem.className = formItem.className + ' error'
-    }
-    errorNum += 1
-  }
-  if (!groupNameValidate(registerGroupName)) {
-    const formItem = registerForm.registerGroupName.parentNode
-    if (formItem.className.indexOf('error') == -1) {
-      formItem.className = formItem.className + ' error'
-    }
-    errorNum += 1
-  }
-  if (!registerEmailMobileValidate(registerEmail)) {
-    const formItem = registerForm.registerEmail.parentNode
-    if (formItem.className.indexOf('error') == -1) {
-      formItem.className = formItem.className + ' error'
-    }
-    errorNum += 1
-  }
-  if (!verifyCodeValidate(registerVerifiedCode)) {
-    const formItem = registerForm.registerVerifiedCode.parentNode.parentNode
-    if (formItem.className.indexOf('error') == -1) {
-      formItem.className = formItem.className + ' error'
-    }
-    errorNum += 1
-  }
-  if (!passwordSetValidate(registerPasswordSet)) {
-    const formItem = registerForm.registerPasswordSet.parentNode
-    if (formItem.className.indexOf('error') == -1) {
-      formItem.className = formItem.className + ' error'
-    }
-    errorNum += 1
-  }
-  if (!passwordConfirmValidate(registerPasswordConfirm)) {
-    const formItem = registerForm.registerPasswordConfirm.parentNode
-    if (formItem.className.indexOf('error') == -1) {
-      formItem.className = formItem.className + ' error'
-    }
-    errorNum += 1
-  }
+  if (!utlInputValidate(registerUrl)) { errorNum += 1 }
+  if (!groupNameValidate(registerGroupName)) { errorNum += 1 }
+  if (!registerEmailMobileValidate(registerEmail)) { errorNum += 1 }
+  if (!verifyCodeValidate(registerVerifiedCode)) { errorNum += 1 }
+  if (!passwordSetValidate(registerPasswordSet)) { errorNum += 1 }
+  // if (!passwordConfirmValidate(registerPasswordConfirm)) {
+  //   const formItem = registerForm.registerPasswordConfirm.parentNode
+  //   if (formItem.className.indexOf('error') == -1) {
+  //     formItem.className = formItem.className + ' error'
+  //   }
+  //   errorNum += 1
+  // }
 
-  if (!registerDisplayNameValidate(registerDisplayName)) {
-    const formItem = registerForm.registerDisplayName.parentNode
-    if (formItem.className.indexOf('error') == -1) {
-      formItem.className = formItem.className + ' error'
-    }
-    errorNum += 1
-  }
+  if (!registerDisplayNameValidate(registerDisplayName)) { errorNum += 1 }
 
-  if (!registerGroupMobile && registerTypeGroup) {
-    const formItem = registerForm.registerDisplayMobile.parentNode
-    if (formItem.className.indexOf('error') == -1) {
-      formItem.className = formItem.className + ' error'
-    }
-    errorNum += 1
-  }
+  // if (!registerGroupMobile && registerTypeGroup) {
+  //   const formItem = registerForm.registerDisplayMobile.parentNode
+  //   if (formItem.className.indexOf('error') == -1) {
+  //     formItem.className = formItem.className + ' error'
+  //   }
+  //   errorNum += 1
+  // }
 
   if (errorNum > 0) {
     return false
   }
-  const email_domains = [];
-  for (let i = 0; i < inputDomains.length; i++) {
-    if (inputDomains[i].value) {
-      email_domains.push(inputDomains[i].value)
-    }
-  }
+  // const email_domains = [];
+  // for (let i = 0; i < inputDomains.length; i++) {
+  //   if (inputDomains[i].value) {
+  //     email_domains.push(inputDomains[i].value)
+  //   }
+  // }
   const params = {
     domain: registerUrl,
     name: registerGroupName,
     team_type: registerTypeGroup ? 0 : 1,
-    email: registerTypeGroup ? registerEmail : null,
-    mobile: registerTypeGroup ? registerGroupMobile : registerEmail,
+    email: null,
+    mobile: registerEmail,
     code: registerVerifiedCode,
     password: registerPasswordSet,
-    password_confirm: registerPasswordConfirm,
+    password_confirm: registerPasswordSet,
     username: registerDisplayName,
-    email_domains,
+    email_domains: [],
     scene: aliVerification.scene,
     token: aliVerification.nc_token,
     sig: aliVerification.sig,
@@ -756,7 +720,7 @@ const submitRegister = () => {
           toogleAuthInvalidModal('show')
         }
         if (err.response.error == 'ERR_VERIFICATION_CODE') { //验证码错误
-          const errNode = registerForm.registerVerifiedCode.parentNode.parentNode
+          const errNode = registerForm.registerVerifiedCode.parentNode
           if (!currentError(errNode)) {
             errNode.className = errNode.className + ' error'
           }
@@ -775,7 +739,7 @@ const currentError = (node) => { //校验当前是否为错误状态
 
 const verifyCodeValidate = (value) => { //验证码校验
   const verifyCodeInput = document.getElementById('verifycode')
-  const errNode = verifyCodeInput.parentNode.parentNode
+  const errNode = verifyCodeInput.parentNode
   if (!value) {
     if (!currentError(errNode)) {
       errNode.className = errNode.className + ' error'
@@ -885,28 +849,28 @@ const registerGroupMobileValidate = (value) => {
 
 const registerEmailMobileValidate = (value) => { //邮箱手机号校验
   const registerEmail = document.getElementById('register-email')
-  const registerTypeGroup = registerForm.registerType[0].checked //checked-email unchecked-mobile
+  const registerTypeGroup = 0 //checked-email unchecked-mobile
   const errNode = registerEmail.parentNode
   if (!value) {
     if (!currentError(errNode)) {
       errNode.className = errNode.className + ' error'
     }
-    errNode.setAttribute('data-err', registerTypeGroup ? '请输入电子邮箱' : '请输入手机号码')
+    errNode.setAttribute('data-err', '请输入手机号码')
   } else {
-    if (registerTypeGroup) {
-      const reg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/
-      if (!reg.test(value)) { //邮箱验证不通过
-        if (!currentError(errNode)) {
-          errNode.className = errNode.className + ' error'
-        }
-        errNode.setAttribute('data-err', '邮箱格式不正确')
-        return false
-      }
-      if (currentError(errNode)) {
-        errNode.className = errNode.className.replace(/error/, '')
-      }
-      return true
-    }
+    // if (registerTypeGroup) {
+    //   const reg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/
+    //   if (!reg.test(value)) { //邮箱验证不通过
+    //     if (!currentError(errNode)) {
+    //       errNode.className = errNode.className + ' error'
+    //     }
+    //     errNode.setAttribute('data-err', '邮箱格式不正确')
+    //     return false
+    //   }
+    //   if (currentError(errNode)) {
+    //     errNode.className = errNode.className.replace(/error/, '')
+    //   }
+    //   return true
+    // }
     if (!registerTypeGroup) {
       const reg = /^[1][3,4,5,7,8][0-9]{9}$/
       if (!reg.test(value)) {
@@ -927,9 +891,9 @@ const registerEmailMobileValidate = (value) => { //邮箱手机号校验
 const passwordSetValidate = (value) => {
   const reg = /^(?![A-Z]+$)(?![a-z]+$)(?!\d+$)\S{8,32}$/
   const passwordSet = document.getElementById('password-set')
-  const passwordConfirm = document.getElementById('password-confirm')
+  // const passwordConfirm = document.getElementById('password-confirm')
   const errNode = passwordSet.parentNode
-  const confirmErrNode = passwordConfirm.parentNode
+  // const confirmErrNode = passwordConfirm.parentNode
   if (!value) {
     if (!currentError(errNode)) {
       errNode.className = errNode.className + ' error'
@@ -943,16 +907,16 @@ const passwordSetValidate = (value) => {
       errNode.setAttribute('data-err', '请输入至少8位密码，需要包含数字和字母')
       return false
     }
-    if (passwordConfirm.value && value !== passwordConfirm.value) {
-      if (currentError(errNode)) {
-        errNode.className = errNode.className.replace(/error/, '')
-      }
-      if (!currentError(confirmErrNode)) {
-        confirmErrNode.className = errNode.className + ' error'
-      }
-      confirmErrNode.setAttribute('data-err', '两次密码输入不一致')
-      return false
-    }
+    // if (passwordConfirm.value && value !== passwordConfirm.value) {
+    //   if (currentError(errNode)) {
+    //     errNode.className = errNode.className.replace(/error/, '')
+    //   }
+    //   if (!currentError(confirmErrNode)) {
+    //     confirmErrNode.className = errNode.className + ' error'
+    //   }
+    //   confirmErrNode.setAttribute('data-err', '两次密码输入不一致')
+    //   return false
+    // }
     if (currentError(errNode)) {
       errNode.className = errNode.className.replace(/error/, '')
     }
@@ -984,6 +948,17 @@ const passwordConfirmValidate = (value) => {
   }
 }
 
+const submitMobile = () => {
+  const registerGroupMobile = document.getElementById('group-mobile').value
+  if (!registerGroupMobileValidate(registerGroupMobile)) {
+    return false
+  }
+  request('/account/mobile_register', {
+    mobile: registerGroupMobile
+  }).then(() => {
+    window.location.href = window.location.origin + '/register-info.html'
+  })
+}
 
 const focusPriceList = (node, i) => {
   const colorLists = {
@@ -1417,7 +1392,7 @@ window.onload = function () {
   }
 
   // NOTE (zhamgmeng): temporary restrict to only use free team
-  _switchToFree();
+  // _switchToFree();
 
   //wx login
   // const wxbtnlogup = document.getElementById('wx-btn-logup');
@@ -1436,9 +1411,7 @@ window.onload = function () {
     changeHeader() //
     toggleNavModalVisible('hide');
   }
-  document.body.addEventListener('scroll', function(e) {
 
-  })
   const formSubmitBtn = document.getElementById('form-submit-btn-id'); //移动端表单提交按钮
   const loginModal = document.getElementById('login-modal'); //登陆弹窗
   const navLogin = document.getElementById('nav-login'); //导航登陆按钮
@@ -1743,5 +1716,8 @@ window.onload = function () {
   if (loginRegister) {
     loginRegister.addEventListener('click', jumpToProduct, true)
   }
-
+  const registerMobileBtn = document.getElementById('register-mobile-button')
+  if (registerMobileBtn) {
+    registerMobileBtn.addEventListener('click', submitMobile, true)
+  }
 }
