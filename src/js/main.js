@@ -682,6 +682,7 @@ const submitRegister = () => {
   //     email_domains.push(inputDomains[i].value)
   //   }
   // }
+  const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
   const params = {
     domain: registerUrl,
     name: registerGroupName,
@@ -697,7 +698,7 @@ const submitRegister = () => {
     token: aliVerification.nc_token,
     sig: aliVerification.sig,
     session_id: aliVerification.csessionid,
-    source: '官网'
+    source: '官网 - www' + '.' + matchBackHost[3] + '.' + matchBackHost[4]
   }
 
   request('/team/create', params)
