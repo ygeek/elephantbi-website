@@ -1393,6 +1393,15 @@ window.onload = function () {
   if (sessionStorage.getItem('verify')) {
     sessionStorage.removeItem('verify')
   }
+  const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
+  const loginFixed = document.getElementById('login-fixed')
+  const joinFixed = document.getElementById('join-fixed')
+  if (loginFixed) {
+    loginFixed.innerText = matchBackHost[3] + '.' + matchBackHost[4]
+  }
+  if (joinFixed) {
+    joinFixed.innerText = matchBackHost[3] + '.' + matchBackHost[4]
+  }
 
   // NOTE (zhamgmeng): temporary restrict to only use free team
   // _switchToFree();

@@ -95,7 +95,7 @@
                 <span class="login-block-wrapper">
                   <span class="login-block">
                     <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
-                    <span class="login-cell login-fixed">elephantbi.com</span>
+                    <span id="login-fixed" class="login-cell login-fixed">elephantbi.com</span>
                   </span>
                 </span>
                 <button class="login-btn" id="login-product">登录</button>
@@ -236,7 +236,7 @@
           <span class="register-form-item adjust-url-margin" data-err="请输入团队域名">
             <div class="register-block">
               <input id="input-url" type="text" name="registerUrl" placeholder="请输入团队域名">
-              <span class="register-fixed">elephantbi.com</span>
+              <span id="register-fixed" class="register-fixed">elephantbi.com</span>
             </div>
           </span>
           <div class="url-description adjust-url-descrip-margin">例如：输入team1，注册后可打开team1.elephantbi.com登录团队</div>
@@ -311,7 +311,7 @@
       <span class="login-block-wrapper">
         <span class="login-block">
           <input class="login-cell" id="input-register" type="text" placeholder="请输入团队域名">
-          <span class="login-cell login-fixed">elephantbi.com</span>
+          <span id="join-fixed" class="login-cell login-fixed">elephantbi.com</span>
         </span>
       </span>
     </div>
@@ -328,6 +328,9 @@
     <button class="auth-confirm-btn" id="auth-confirm-btn">我知道了</button>
   </div>
   <script type="text/javascript">
+    const registerFixed = document.getElementById('register-fixed')
+    const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
+    registerFixed.innerText = matchBackHost[3] + '.' + matchBackHost[4]
     const registerEmail = document.getElementById('register-email')
     if (registerEmail) {
       const mobile = sessionStorage.getItem('mobile')
