@@ -394,9 +394,9 @@
           sig: data.sig
         }
         sessionStorage.setItem('aliVerification', JSON.stringify(params))
-        const ncContainer = document.getElementById('nc-container')
-        if (ncContainer.className.indexOf('error') > -1) {
-          ncContainer.className = ncContainer.className.replace('error', '')
+        const errNode = document.getElementById('nc-container').parentNode
+        if (errNode.className.indexOf('error') > -1) {
+          errNode.className = errNode.className.replace('error', '')
         }
         const registerMobile = document.getElementById('register-email').value
         if (!registerEmailMobileValidate(registerMobile)) {
