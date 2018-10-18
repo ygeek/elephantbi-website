@@ -173,7 +173,7 @@
             </div> -->
           </span>
 
-          <label for="password-set">设置密码
+          <label for="password-set">登录密码
             <span class="required">*</span>
           </label>
           <span class="register-form-item" data-err="请输入密码">
@@ -328,6 +328,14 @@
     <button class="auth-confirm-btn" id="auth-confirm-btn">我知道了</button>
   </div>
   <script type="text/javascript">
+    const registerEmail = document.getElementById('register-email')
+    if (registerEmail) {
+      const mobile = sessionStorage.getItem('mobile')
+      if (mobile) {
+        registerEmail.value = mobile;
+        registerEmail.setAttribute('disabled', 'disabled')
+      }
+    }
     function parseJSON(response) {
       if (response.status === 204) {
         return Promise.resolve({ data: 'success' });

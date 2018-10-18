@@ -704,6 +704,7 @@ const submitRegister = () => {
     .then(({ data, err }) => {
       if (data && data.hasOwnProperty('id')) {
         onSucceed()
+        sessionStorage.removeItem('mobile')
         const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
         window.location.href = matchBackHost[1] + '://' + registerUrl + '.' +  matchBackHost[3] + '.' + matchBackHost[4] + '/unregister/login'
       }
@@ -953,6 +954,7 @@ const submitMobile = () => {
   if (!registerGroupMobileValidate(registerGroupMobile)) {
     return false
   }
+  sessionStorage.setItem('mobile', registerGroupMobile)
   request('/account/mobile_register', {
     mobile: registerGroupMobile
   }).then(() => {
@@ -1550,9 +1552,14 @@ window.onload = function () {
   if (registerGroupName) {
     registerGroupName.addEventListener('input', function (e) { groupNameValidate(e.target.value) })
   }
-  if (registerEmail) {
-    registerEmail.addEventListener('input', function (e) { registerEmailMobileValidate(e.target.value) })
-  }
+  // if (registerEmail) {
+  //   // registerEmail.addEventListener('input', function (e) { registerEmailMobileValidate(e.target.value) })
+  //   const mobile = sessionStorage.getItem('mobile')
+  //   if (mobile) {
+  //     registerEmail.value = mobile;
+  //     registerEmail.setAttribute('disabled', 'disabled')
+  //   }
+  // }
   if (passwordSet) {
     passwordSet.addEventListener('input', function (e) { passwordSetValidate(e.target.value) })
   }
