@@ -1386,6 +1386,18 @@ const toogleAuthInvalidModal = (type) => {
   }
 }
 
+function addEvent(obj,type,handle){
+  try{  // Chrome、FireFox、Opera、Safari、IE9.0及其以上版本
+      obj.addEventListener(type,handle,false);
+  }catch(e){
+      try{  // IE8.0及其以下版本
+          obj.attachEvent('on' + type,handle);
+      }catch(e){  // 早期浏览器
+          obj['on' + type] = handle;
+      }
+  }
+}
+
 window.onload = function () {
   if (sessionStorage.getItem('aliVerification')) {
     sessionStorage.removeItem('aliVerification')
@@ -1487,7 +1499,8 @@ window.onload = function () {
   const loginProduct = document.getElementById('login-product');
 
   if (loginProduct) {
-    loginProduct.addEventListener('click', opentNewWindow, true);
+    addEvent(loginProduct, 'click', opentNewWindow)
+    // loginProduct.addEventListener('click', opentNewWindow, true);
   }
 
   const priceLists = document.getElementsByClassName('price-list')
