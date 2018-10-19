@@ -1516,7 +1516,8 @@ window.onload = function () {
     }, false);
   }
   if (navLogin) { //导航登陆按钮
-    navLogin.addEventListener('click', toggleLoginModalVisible, true);
+    addEvent(navLogin, 'click', toggleLoginModalVisible)
+    // navLogin.addEventListener('click', toggleLoginModalVisible, true);
   }
   if (formSubmitBtn) { //移动端表单提交按钮
     formSubmitBtn.addEventListener('click', submitForm, true);
