@@ -476,7 +476,10 @@
         auth_type: registerTypeGroup ? 0 : 1,
         send_to: registerEmail,
         code_type: 2,
-        ...aliVerification
+        scene: aliVerification.scene,
+        nc_token: aliVerification.nc_token,
+        csessionid: aliVerification.csessionid,
+        sig: aliVerification.sig
       }
       request('/auth/code', params)
         .then(({ data }) => {
