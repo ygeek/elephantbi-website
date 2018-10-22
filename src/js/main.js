@@ -543,7 +543,7 @@ const switchToGroup = (e) => {
 
     const domainInput = document.createElement('input')
     domainInput.setAttribute('id', 'input-domain')
-    domainInput.placeholder = '请输入团队域名'
+    domainInput.placeholder = '请输入公司域名'
 
     const domainImage = document.createElement('img')
     domainImage.src = require('../assets/checked.svg')
@@ -762,7 +762,7 @@ const utlInputValidate = (value) => { //团队域名校验
     if (!currentError(errNode)) {
       errNode.className = errNode.className + ' error'
     }
-    errNode.setAttribute('data-err', '请输入团队域名')
+    errNode.setAttribute('data-err', '请输入公司域名')
     return false
   }
   const reg = /^[A-Za-z0-9]+$/
