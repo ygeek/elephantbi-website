@@ -1,4 +1,9 @@
 // reg
+import 'babel-polyfill';
+require('es6-promise').polyfill();
+import 'fetch-detector';
+import 'fetch-ie8';
+require('./noCaptcha')
 const mobileReg = /^[\d|+|-]*$/;
 const emailReg = /@(163|foxmail|qq|gmail)\./;
 
@@ -18,6 +23,13 @@ const isPC = () => {
   }
   return flag;
 };
+
+function isIE() {
+	if(!!window.ActiveXObject || "ActiveXObject" in window)
+		return true;
+	else
+		return false;
+}
 
 var joinListOnClick = function (index) {
   var joinLists = document.getElementsByClassName('list-item');
@@ -90,14 +102,13 @@ function parseJSON(response) {
   return response.json();
 }
 
-async function checkStatus(response) {
+function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
+
   const error = new Error(response.statusText);
-  error.response = await parseJSON(response).then(data => data);
-  // 提示请求错误
-  // errorMessage(response.status);
+  error.response = response;
   throw error;
 }
 
@@ -117,6 +128,27 @@ const request = (url, params) => {
     .then(data => ({ data }))
     .catch(err => ({ err }));
 };
+
+const requestIE = (url, params) => {
+  let xhr;
+  if (window.XMLHttpRequest) {
+    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+    xhr=new XMLHttpRequest();
+  } else {
+    // IE6, IE5 浏览器执行代码
+    xhr=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  xhr.onreadystatechange=function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      return Promise.resolve({ data: JSON.parse(xhr.responseText) })
+    }
+  }
+
+  xhr.open("POST", `${window.backhost}${url}`, true);
+  xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+  xhr.send(JSON.stringify(params));
+}
 
 const onChangeClearErr = (item) => {
   if (item && item.className !== "form-item") {
@@ -356,20 +388,18 @@ const submitFormReserve = () => {
 const opentNewWindow = () => {
   const hostsName = document.getElementById('input-hosts');
   const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
-
   request('/website/domain', { domain: hostsName.value })
-    .then((res) => {
-      const data = res.data || {};
-      if (data.exists === 1) {
-        openNewWindow(matchBackHost[1] + '://' + hostsName.value + '.' + matchBackHost[3] + '.' + matchBackHost[4] +'/unregister/login');
-        hostsName.value === null
-        closeleLoginModal();
-      } else {
-        const parent = hostsName.parentNode.parentNode;
-        parent.setAttribute('class', parent.className + ' ' + 'err')
-      }
-    });
-
+  .then((res) => {
+    const data = res.data || {};
+    if (data.exists === 1) {
+      openNewWindow(matchBackHost[1] + '://' + hostsName.value + '.' + matchBackHost[3] + '.' + matchBackHost[4] +'/unregister/login');
+      hostsName.value === null
+      closeleLoginModal();
+    } else {
+      const parent = hostsName.parentNode.parentNode;
+      parent.setAttribute('class', parent.className + ' ' + 'err')
+    }
+  });
 };
 
 const jumpToProduct = () => {
@@ -847,47 +877,6 @@ const registerGroupMobileValidate = (value) => {
     errNode.className = errNode.className.replace(/error/, '')
   }
   return true
-}
-
-const registerEmailMobileValidate = (value) => { //邮箱手机号校验
-  const registerEmail = document.getElementById('register-email')
-  const registerTypeGroup = 0 //checked-email unchecked-mobile
-  const errNode = registerEmail.parentNode
-  if (!value) {
-    if (!currentError(errNode)) {
-      errNode.className = errNode.className + ' error'
-    }
-    errNode.setAttribute('data-err', '请输入手机号码')
-  } else {
-    // if (registerTypeGroup) {
-    //   const reg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/
-    //   if (!reg.test(value)) { //邮箱验证不通过
-    //     if (!currentError(errNode)) {
-    //       errNode.className = errNode.className + ' error'
-    //     }
-    //     errNode.setAttribute('data-err', '邮箱格式不正确')
-    //     return false
-    //   }
-    //   if (currentError(errNode)) {
-    //     errNode.className = errNode.className.replace(/error/, '')
-    //   }
-    //   return true
-    // }
-    if (!registerTypeGroup) {
-      const reg = /^[1][3,4,5,7,8][0-9]{9}$/
-      if (!reg.test(value)) {
-        if (!currentError(errNode)) {
-          errNode.className = errNode.className + ' error'
-        }
-        errNode.setAttribute('data-err', '手机格式不正确')
-        return false
-      }
-      if (currentError(errNode)) {
-        errNode.className = errNode.className.replace(/error/, '')
-      }
-      return true
-    }
-  }
 }
 
 const passwordSetValidate = (value) => {
@@ -1398,6 +1387,71 @@ function addEvent(obj,type,handle){
   }
 }
 
+const registerEmailMobileValidate = (value) => { //邮箱手机号校验
+  const registerEmail = document.getElementById('register-email')
+  const registerTypeGroup = 0 //checked-email unchecked-mobile
+  const errNode = registerEmail.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    errNode.setAttribute('data-err', '请输入手机号码')
+    nc.reload()
+    return false
+  } else {
+    if (!registerTypeGroup) {
+      const reg = /^[1][3,4,5,7,8][0-9]{9}$/
+      if (!reg.test(value)) {
+        if (!currentError(errNode)) {
+          errNode.className = errNode.className + ' error'
+        }
+        errNode.setAttribute('data-err', '手机格式不正确')
+        nc.reload()
+        return false
+      }
+      if (currentError(errNode)) {
+        errNode.className = errNode.className.replace(/error/, '')
+      }
+      return true
+    }
+  }
+}
+
+const sendVerification = () => { //发送存储验证码
+  let second = 60;
+  const authCodeTip = document.getElementById('auth-code-tip')
+  authCodeTip.style.visibility = 'visible'
+  const timer = setInterval(() => {
+    second -= 1
+    authCodeTip.innerText = second + '秒后可重新获取'
+    if (second === 0) {
+      clearInterval(timer)
+      authCodeTip.style.visibility = 'hidden'
+      second = 60
+      authCodeTip.innerText = second + '秒后可重新获取'
+      nc.reload()
+    }
+  }, 1000)
+  const aliVerification = JSON.parse(sessionStorage.getItem('aliVerification'))
+  const registerTypeGroup = registerForm.registerType[0].checked
+  const registerEmail = registerForm.registerEmail.value
+  const params = {
+    auth_type: registerTypeGroup ? 0 : 1,
+    send_to: registerEmail,
+    code_type: 2,
+    scene: aliVerification.scene,
+    nc_token: aliVerification.nc_token,
+    csessionid: aliVerification.csessionid,
+    sig: aliVerification.sig
+  }
+  request('/auth/code', params)
+    .then(({ data }) => {
+      if (data) {
+      } else {
+      }
+    });
+}
+
 window.onload = function () {
   if (sessionStorage.getItem('aliVerification')) {
     sessionStorage.removeItem('aliVerification')
@@ -1408,11 +1462,89 @@ window.onload = function () {
   const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
   const loginFixed = document.getElementById('login-fixed')
   const joinFixed = document.getElementById('join-fixed')
+  const registerFixed = document.getElementById('register-fixed')
+  if (registerFixed) {
+    if (matchBackHost) {
+      registerFixed.innerText = matchBackHost[3] + '.' + matchBackHost[4]
+    } else {
+      registerFixed.innerText = 'elephantbi.com'
+    }
+  }
   if (loginFixed) {
-    loginFixed.innerText = matchBackHost[3] + '.' + matchBackHost[4]
+    if (matchBackHost) {
+      loginFixed.innerText = matchBackHost[3] + '.' + matchBackHost[4]
+    } else {
+      loginFixed.innerText = 'elephantbi.com'
+    }
   }
   if (joinFixed) {
-    joinFixed.innerText = matchBackHost[3] + '.' + matchBackHost[4]
+    if (matchBackHost) {
+      joinFixed.innerText = matchBackHost[3] + '.' + matchBackHost[4]
+    } else {
+      loginFixed.innerText = 'elephantbi.com'
+    }
+  }
+
+  const registerEmail = document.getElementById('register-email')
+  if (registerEmail) {
+    const mobile = sessionStorage.getItem('mobile')
+    if (mobile) {
+      registerEmail.value = mobile;
+      registerEmail.setAttribute('disabled', 'disabled')
+    }
+  }
+  const ncContainer = document.getElementById('nc-container')
+  if (ncContainer) {
+    var nc_token = ["FFFF0N00000000006B76", (new Date()).getTime(), Math.random()].join(':');
+    var NC_Opt =
+    {
+      renderTo: "nc-container",
+      appkey: "FFFF0N00000000006B76",
+      scene: "register",
+      token: nc_token,
+      customWidth: 244,
+      trans: { "key1": "code0" },
+      elementID: ["usernameID"],
+      is_Opt: 0,
+      language: "cn",
+      isEnabled: true,
+      timeout: 3000,
+      times: 5,
+      apimap: {
+      },
+      callback: function (data) {
+        const params = {
+          scene: "register",
+          nc_token,
+          csessionid: data.csessionid,
+          sig: data.sig
+        }
+        sessionStorage.setItem('aliVerification', JSON.stringify(params))
+        const errNode = document.getElementById('nc-container').parentNode
+        if (errNode.className.indexOf('error') > -1) {
+          errNode.className = errNode.className.replace('error', '')
+        }
+        const registerMobile = document.getElementById('register-email').value
+        if (!registerEmailMobileValidate(registerMobile)) {
+          return false
+        }
+        sendVerification()
+      }
+    }
+    var nc = new noCaptcha(NC_Opt)
+
+    nc.upLang('cn', {
+      _startTEXT: "请滑动获取",
+      _yesTEXT: "已发送验证码",
+      _error300: "哎呀，出错了，点击<a href=\"javascript:__nc.reset()\">刷新</a>再来一次",
+      _errorNetwork: "网络不给力，请<a href=\"javascript:__nc.reset()\">点击刷新</a>"
+    })
+  }
+
+
+  const sendVerifyBtn = document.getElementById('send-verifycode')
+  if (sendVerifyBtn) {
+    sendVerifyBtn.addEventListener('click', sendVerification, true)
   }
 
   // NOTE (zhamgmeng): temporary restrict to only use free team
@@ -1547,7 +1679,6 @@ window.onload = function () {
   const verifyCodeInput = document.getElementById('verifycode')
   const registerUrlInput = document.getElementById('input-url')
   const registerGroupName = document.getElementById('register-group-name')
-  const registerEmail = document.getElementById('register-email')
   const passwordSet = document.getElementById('password-set')
   const passwordConfirm = document.getElementById('password-confirm')
   const demoSubmitBtn = document.getElementById('demo-submit');
@@ -1576,14 +1707,6 @@ window.onload = function () {
   if (registerGroupName) {
     registerGroupName.addEventListener('input', function (e) { groupNameValidate(e.target.value) })
   }
-  // if (registerEmail) {
-  //   // registerEmail.addEventListener('input', function (e) { registerEmailMobileValidate(e.target.value) })
-  //   const mobile = sessionStorage.getItem('mobile')
-  //   if (mobile) {
-  //     registerEmail.value = mobile;
-  //     registerEmail.setAttribute('disabled', 'disabled')
-  //   }
-  // }
   if (passwordSet) {
     passwordSet.addEventListener('input', function (e) { passwordSetValidate(e.target.value) })
   }
