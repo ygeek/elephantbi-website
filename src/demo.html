@@ -94,7 +94,7 @@
                 <span class="login-block-wrapper">
                   <span class="login-block">
                     <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
-                    <span class="login-cell login-fixed">elephantbi.com</span>
+                    <span id="login-fixed" class="login-cell login-fixed">elephantbi.com</span>
                   </span>
                 </span>
                 <button class="login-btn" id="login-product">登录</button>
@@ -165,9 +165,9 @@
               </div>
             </div>
             <div class="demo-item">
-              <span class="label">行业规模</span>
-              <div class="demo-form-item" data-err="请选择您所在的行业规模">
-                <input onfocus="this.blur()" class="eg" name="demoScale" placeholder="请选择您所属行业" id="demo-scale" />
+              <span class="label">公司规模</span>
+              <div class="demo-form-item" data-err="请选择您所在的公司规模">
+                <input onfocus="this.blur()" class="eg" name="demoScale" placeholder="请选择您所在的公司规模" id="demo-scale" />
                 <div class="options">
                   <div value="1-15人">1-15人</div>
                   <div value="16-50人">16-50人</div>
@@ -182,7 +182,7 @@
             <div class="demo-item">
               <span class="label">所属部门</span>
               <div class="demo-form-item">
-                <input onfocus="this.blur()" class="eg" name="demoDepart" placeholder="请选择您所属行业" />
+                <input onfocus="this.blur()" class="eg" name="demoDepart" placeholder="请选择您的所属部门" />
                 <div class="options">
                   <div value="人事部">人事部</div>
                   <div value="财务部">财务部</div>
@@ -308,8 +308,8 @@
         </ul>
       </li>
       <li class="footer-nav-sq">
-        <img src='<%= require("./assets/footer-sq.svg") %>' width=140 height=140 />
-        <span class="footer-nav-sq-description">关注 ElephantBI</span>
+        <img src='<%= require("./assets/customService.jpg") %>' width=140 height=140 />
+        <span class="footer-nav-sq-description">微信扫码联系客服</span>
       </li>
     </ul>
     <div class="record">Copyright© 悦视光合科技(大连)有限公司&nbsp&nbsp&nbsp&nbsp辽ICP备18008272号</div>

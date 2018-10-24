@@ -16,6 +16,8 @@ priceFile=/usr/share/nginx/html/price.html
 sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $priceFile
 registerFile=/usr/share/nginx/html/register.html
 sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $registerFile
+registerInfoFile=/usr/share/nginx/html/register-info.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $registerInfoFile
 
 indexFile=/usr/share/nginx/html/index.html
 sed -i "s/WX_CORP_ID/${WX_CORP_ID}/g" $indexFile
@@ -58,5 +60,7 @@ priceFile=/usr/share/nginx/html/price.html
 sed -i "s/DEMO_URL/${DEMO_URL}/g" $priceFile
 registerFile=/usr/share/nginx/html/register.html
 sed -i "s/DEMO_URL/${DEMO_URL}/g" $registerFile
+registerInfoFile=/usr/share/nginx/html/register-info.html
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $registerInfoFile
 
 nginx -p /usr/share/nginx -g "daemon off;"
