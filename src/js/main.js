@@ -953,24 +953,6 @@ const submitMobile = () => {
   })
 }
 
-const focusPriceList = (node, i) => {
-  const colorLists = {
-    '1': '#6b7c93',
-    '2': '#76c1ef',
-    '3': '#0abebe',
-    '4': '#f5a623'
-  }
-  const priceLists = document.getElementsByClassName('price-list')
-  for (let i = 1; i < priceLists.length; i++) {
-    priceLists[i].style.border = 'none'
-    priceLists[i].style.zIndex = 0;
-    priceLists[i].style.boxShadow = 'none'
-  }
-  node.style.border = "1px solid " + colorLists[i];
-  node.style.zIndex = 100;
-  node.style.boxShadow = '0px 0px 10px rgba(0, 0, 0, 0.2)'
-}
-
 const changeDomainItems = (e) => {
   const currentOperator = e.target
   const currentWrapper = currentOperator.parentNode
@@ -1634,13 +1616,6 @@ window.onload = function () {
   if (loginProduct) {
     addEvent(loginProduct, 'click', opentNewWindow)
     // loginProduct.addEventListener('click', opentNewWindow, true);
-  }
-
-  const priceLists = document.getElementsByClassName('price-list')
-  if (priceLists) {
-    for (let i = 1; i < priceLists.length; i++) {
-      priceLists[i].addEventListener('mouseover', function () { focusPriceList(priceLists[i], i) }, true)
-    }
   }
 
   if (loginModal) { //登陆弹窗
