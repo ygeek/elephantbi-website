@@ -43,6 +43,10 @@
   background: ~'url("../assets/card12.png") no-repeat 0 0/500px 350px';
 }
 
+main.main-content {
+  padding-top: 0px;
+}
+
 .nav-content {
   .nav-content-creat(#fff, #fff, #4a83ff);
   #nav-login {
@@ -79,14 +83,38 @@
   position: relative;
 
   .main-header {
-    width: @max-width;
-    margin: 140px auto 50px auto;
-    padding: 0 50px;
-    height: 500px;
-
+    width: 100%;
+    height: 640px;
+    background-image: url(../assets/demo-bg.svg);
+    background-size: cover;
     box-sizing: border-box;
-
     color: #fff;
+    position: relative;
+
+    .main-banner-1 {
+      position: absolute;
+      top: 160px;
+      left: 50%;
+      transform: translateX(-220%)
+    }
+
+    .main-banner-2 {
+      position: absolute;
+      bottom: 60px;
+      right: 50%;
+      transform: translateX(200%)
+    }
+
+    .main-cover {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding-top: 178px;
+      text-align: center;
+    }
 
     h1, h2, p {
       margin: 0;
@@ -97,7 +125,6 @@
       font-size: 62px;
     }
     .sub-title {
-      margin-top: 10px;
       font-weight: 500;
       font-size: 32px;
     }
@@ -105,33 +132,21 @@
       display: inline-block;
       max-width: 67%;
       min-width: 400px;
-      margin-top: 10px;
+      margin-top: 20px;
 
       vertical-align: top;
       font-size: 14px;
       div {
-        margin-bottom: 3px;
+        margin-bottom: 1px;
       }
     }
-    .banner {
-      display: inline-block;
-      position: relative;
-      width: 10px;
-      height: 10px;
-      vertical-align: top;
-
-      .banner-image {
-        width: 1000px;
-        height: 900px;
-        position: absolute;
-        bottom: -650px;
-        left: -100px;
-        z-index: -1;
-      }
+    .play-btn {
+      display: block;
+      margin: 30px auto 0px auto
     }
     .free-btn {
       .a-link-btn(#fff, #40d08f, #40d08f);
-      margin-top: 54px;
+      margin-top: 30px;
       width: 120px;
       height: 36px;
       line-height: 36px;
@@ -140,7 +155,7 @@
     }
     .reserve-btn {
       .a-link-btn(#40d08f, #fff, #fff);
-      margin-top: 54px;
+      margin-top: 30px;
       width: 120px;
       height: 36px;
       line-height: 36px;
@@ -397,19 +412,19 @@
       z-index: -998;
 
       // transform-origin: 0;
-      transform: skewY(-9deg);
+      transform: skewY(-8deg);
       background-color: #f8f9fd;
     }
   }
 }
 
-.gray-bg-creat(1, 40);
-.gray-bg-creat(2, -130);
-.gray-bg-creat(3, -80);
+.gray-bg-creat(1, -80);
+.gray-bg-creat(2, -270);
+.gray-bg-creat(3, -200);
 .gray-bg-creat(4, -400);
 
 .gray-bg-3 {
-  top: 3920px;
+  top: 3800px;
   height: 900px;
   &:before {
     width: 100%;
@@ -573,5 +588,24 @@
 #wx-login {
   &:hover {
     font-weight: bold;
+  }
+}
+
+.video-js {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 700;
+  transform: translateX(-50%) translateY(-50%);
+  .vjs-big-play-button {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    line-height: 80px;
+    outline: none;
   }
 }

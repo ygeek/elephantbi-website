@@ -8,6 +8,8 @@
   <link ref="alternate" media="only screen and (max-width: 640px)" href="https://m.elephantbi.com">
   <title>ElephantBI - 企业大数据管理分析和商业智能平台</title>
   <link ref="canonical" href="https://www.elephantbi.com">
+  <link href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
+  <script src="https://vjs.zencdn.net/7.2/video.min.js"></script>
   <script>
     window.host = window.location.origin;
     window.backhost = 'https://api.elephantbi.com';
@@ -100,19 +102,12 @@
                 <button class="login-btn" id="login-product">登录</button>
               </div>
             </span>
-            <a class="register-btn" href="./register.html" >免费注册</a>
+            <a class="register-btn" href="./register.html">免费注册</a>
           </li>
         </ul>
       </nav>
     </header>
     <main class="main-content">
-      <div class="main-header-bg" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
       <div class="gray-bg-1"></div>
       <div class="gray-bg-2"></div>
       <div class="gray-bg-3">
@@ -122,32 +117,21 @@
         <span></span>
         <span></span>
       </div>
-      <!-- <div class="gray-bg-4">
-        <div class="block-group">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div> -->
       <header class="main-header">
-        <h2 class="sub-title">数据驱动，精准决策</h2>
-        <div class="description">
-          <div>ElephantBI 是企业大数据管理分析和商业智能平台</div>
-          <div>实时连接聚合企业所有数据，简单灵活的交互式可视化数据分析</div>
-          <div>ElephantBI是先进的敏捷BI，助您深入挖掘大数据价值，更快获得全局洞察，精准制定数据支持的商业决策</div>
-        </div>
-        <div class="banner">
-          <img class="banner-image" src='<%= require("./assets/main-header-banner.svg") %>'>
-        </div>
-        <div>
-          <a class="free-btn" href="./register.html">免费注册</a>
-          <a class="reserve-btn" href="./demo.html">预约演示</a>
+        <img alt="" class="main-banner-1" src='<%= require("./assets/main-banner1.svg") %>' />
+        <img alt="" class="main-banner-2" src='<%= require("./assets/main-banner2.svg") %>' />
+        <div class="main-cover">
+          <h2 class="sub-title">数据驱动，精准决策</h2>
+          <div class="description">
+            <div>ElephantBI 是企业大数据管理分析和商业智能平台</div>
+            <div>实时连接聚合企业所有数据，简单灵活的交互式可视化数据分析</div>
+            <div>ElephantBI是先进的敏捷BI，助您深入挖掘大数据价值，更快获得全局洞察，精准制定数据支持的商业决策</div>
+          </div>
+          <img class="play-btn" id="play-btn" alt="" src='<%= require("./assets/play.svg") %>' />
+          <div>
+            <a class="free-btn" href="./register.html">免费注册</a>
+            <a class="reserve-btn" href="./demo.html">预约演示</a>
+          </div>
         </div>
       </header>
       <section class="show-box">
@@ -423,6 +407,20 @@
       <div class="record">Copyright© 悦视光合科技(大连)有限公司&nbsp&nbsp&nbsp&nbsp辽ICP备18008272号</div>
     </footer>
   </div>
+  <div class="modal-cover" id="modal-cover"></div>
+  <video
+    id="video-player"
+    autoplay="autoplay"
+    loop
+    class="video-js"
+    controls
+    preload="auto"
+    width="960"
+    height="540"
+    data-setup='{}'
+  >
+    <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+  </video>
   <div class="tootip-modal" id="tootip-succeed">
     <div class="tootip-icon">
       <div class="tooptip-succeed">

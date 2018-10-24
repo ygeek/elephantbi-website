@@ -1319,20 +1319,17 @@ const closeEgOptions = () => {
 
 const toogleJoinModal = (type) => {
   const joinModal = document.getElementById('join-modal')
-  const modalCover = document.getElementById('modal-cover')
-  const joinRegister = document.getElementById('input-register')
-  const errNode = joinRegister.parentNode.parentNode
-  if (joinModal && modalCover) {
+  if (joinModal) {
+    const joinRegister = document.getElementById('input-register')
+    const errNode = joinRegister.parentNode.parentNode
     if (type == 'show') {
-      modalCover.style.display = 'block'
+      toggleModalCover(type)
       joinModal.style.display = 'block'
-      document.body.style.overflow = 'hidden'
       joinRegister.value = null
     }
     if (type == 'hide') {
-      modalCover.style.display = 'none'
+      toggleModalCover(type)
       joinModal.style.display = 'none'
-      document.body.style.overflow = 'auto'
       joinRegister.value = null
     }
     if (errNode.className.indexOf('err') > -1) {
@@ -1346,14 +1343,14 @@ const toogleAuthInvalidModal = (type) => {
   const modalCover = document.getElementById('modal-cover')
   if (authInvalidModal && modalCover) {
     if (type === 'show') {
+      toggleModalCover(type)
       modalCover.style.display = 'block';
       authInvalidModal.style.display = 'block';
-      document.body.style.overflow = 'hidden'
     }
     if (type === 'hide') {
+      toggleModalCover(type)
       modalCover.style.display = 'none';
       authInvalidModal.style.display = 'none';
-      document.body.style.overflow = 'auto'
     }
   }
 }
@@ -1433,6 +1430,20 @@ const sendVerification = () => { //发送存储验证码
       } else {
       }
     });
+}
+
+const toggleModalCover = (type) => {
+  const modalCover = document.getElementById('modal-cover')
+  if (modalCover) {
+    modalCover.style.display = (type === 'show' ? 'block' : 'none')
+  }
+}
+
+const toggleVideo = (type) => {
+  const videoPlayer = document.getElementById('video-player')
+  if (videoPlayer) {
+    videoPlayer.style.display = (type === 'show' ? 'block' : 'none')
+  }
 }
 
 window.onload = function () {
@@ -1834,6 +1845,8 @@ window.onload = function () {
     modalCover.addEventListener('click', function() {
       toogleJoinModal('hide')
       toogleAuthInvalidModal('hide')
+      toggleVideo('hide')
+      toggleModalCover('hide')
     })
   }
   const authConfirmBtn = document.getElementById('auth-confirm-btn')
@@ -1849,5 +1862,13 @@ window.onload = function () {
   const registerMobileBtn = document.getElementById('register-mobile-button')
   if (registerMobileBtn) {
     registerMobileBtn.addEventListener('click', submitMobile, true)
+  }
+
+  const videoPlayButton = document.getElementById('play-btn')
+  if (videoPlayButton) {
+    videoPlayButton.addEventListener('click', function() {
+      toggleVideo('show')
+      toggleModalCover('show')
+    })
   }
 }
