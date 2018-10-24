@@ -19,6 +19,7 @@
     "autoprefixer": "^8.6.5",
     "babel-loader": "^7.1.4",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-es2017": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "es6-promise": "^4.2.5",
