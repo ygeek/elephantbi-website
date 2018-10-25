@@ -627,15 +627,14 @@ h1, h2, h3, h4, h5, h6 {
 
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
+
     .nav-item {
       display: flex;
       width: 200px;
       height: 60px;
       margin-bottom: 20px;
-      margin-left: 20px;
-      margin-right: 20px;
+      margin-right: 0px;
       flex-direction: row;
 
       list-style: none;
@@ -650,6 +649,9 @@ h1, h2, h3, h4, h5, h6 {
         color: #6b7c93;
         font-size: 30px;
       }
+    }
+    .nav-item:nth-child(1), .nav-item:nth-child(3), .nav-item:nth-child(5) {
+      margin-right: 20%;
     }
 
     .nav-1 {

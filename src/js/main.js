@@ -1442,7 +1442,9 @@ const toggleModalCover = (type) => {
 const toggleVideo = (type) => {
   const videoPlayer = document.getElementById('video-player')
   if (videoPlayer) {
+    const player = videojs('video-player')
     videoPlayer.style.display = (type === 'show' ? 'block' : 'none')
+    type === 'show' ? player.play() : player.pause()
   }
 }
 
