@@ -1439,11 +1439,19 @@ const toggleModalCover = (type) => {
   }
 }
 
+const toggleVideoCover = (type) => {
+  const videoCover = document.getElementById('video-cover')
+  if (videoCover) {
+    videoCover.style.display = (type === 'show' ? 'block' : 'none')
+  }
+}
+
 const toggleVideo = (type) => {
   const videoPlayer = document.getElementById('video-player')
+  const officialVideo = document.getElementById('official-video')
   if (videoPlayer) {
     const player = videojs('video-player')
-    videoPlayer.style.display = (type === 'show' ? 'block' : 'none')
+    officialVideo.style.display = (type === 'show' ? 'block' : 'none')
     type === 'show' ? player.play() : player.pause()
   }
 }
@@ -1847,7 +1855,6 @@ window.onload = function () {
     modalCover.addEventListener('click', function() {
       toogleJoinModal('hide')
       toogleAuthInvalidModal('hide')
-      toggleVideo('hide')
       toggleModalCover('hide')
     })
   }
@@ -1870,7 +1877,15 @@ window.onload = function () {
   if (videoPlayButton) {
     videoPlayButton.addEventListener('click', function() {
       toggleVideo('show')
-      toggleModalCover('show')
+      toggleVideoCover('show')
+    })
+  }
+
+  const closeVideoBtn = document.getElementById('close-video');
+  if (closeVideoBtn) {
+    closeVideoBtn.addEventListener('click', function() {
+      toggleVideoCover('hide')
+      toggleVideo('hide')
     })
   }
 }

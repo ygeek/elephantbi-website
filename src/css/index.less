@@ -142,7 +142,12 @@ main.main-content {
     }
     .play-btn {
       display: block;
-      margin: 30px auto 0px auto
+      margin: 30px auto 0px auto;
+      border-radius: 50%;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.16)
+      }
     }
     .free-btn {
       .a-link-btn(#fff, #40d08f, #40d08f);
@@ -591,21 +596,46 @@ main.main-content {
   }
 }
 
-.video-js {
+.official-video {
   display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   z-index: 700;
+  width: 960px;
   transform: translateX(-50%) translateY(-50%);
-  .vjs-big-play-button {
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    line-height: 80px;
-    outline: none;
+  .video-js {
+    width: 100%;
+    position: relative;
+    .vjs-big-play-button {
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      line-height: 80px;
+      outline: none;
+    }
   }
+
+  .close-video {
+    position: absolute;
+    top: 0px;
+    cursor: pointer;
+    right: 0px;
+    transform: translateX(150%) translateY(-150%)
+  }
+}
+
+.video-cover {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  background-color: #000;
+  z-index: 600;
+  opacity: 0.5
 }
