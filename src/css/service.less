@@ -5,10 +5,20 @@
 
 .nav-content {
   .nav-content-creat(#6b7c93, #1db977);
+  #nav-login {
+    &:hover {
+      background-color: #f5f5f9
+    }
+  }
 }
 
 .nav-scroll-white {
   .nav-content-creat(#6b7c93, #1db977);
+  #nav-login {
+    &:hover {
+      background-color: #f5f5f9
+    }
+  }
 }
 
 .main-content {
@@ -55,19 +65,26 @@
       }
     }
     .free-btn {
-      .creatFullButton(#fff, @color-green);
+      .a-link-btn(#fff, #1db977, #1db977);
       margin-top: 30px;
       width: 120px;
       height: 36px;
-      border-radius: 5px;
-      box-shadow: 2px 1px 4px #aeaeae;
+      line-height: 36px;
+      border-radius: 3px;
+      font-size: 14px;
     }
     .reserve-btn {
-      .creatFullButton(#fff, @color-green);
+      .a-link-btn(#1db977, #fff, #1db977);
       margin-left: 20px;
       border-color: @color-green;
       width: 120px;
       height: 36px;
+      line-height: 36px;
+      border-radius: 3px;
+      font-size: 14px;
+      &:hover {
+        background-color: #f5f5f9;
+      }
     }
   }
 }
@@ -86,7 +103,12 @@
   .server-banner-item {
     display: inline-block;
     text-align: left;
-    width: 30%;
+    width: 22%;
+  }
+
+  .wx-service-sq {
+    margin-left: -10px;
+    margin-top: -10px;
   }
 
   li {
@@ -100,7 +122,7 @@
   }
   ul {
     display: inline-block;
-    margin-right: 110px;
+    margin-right: 0px;
     padding: 0;
     margin-bottom: 50px;
     font-size: 18px;
@@ -116,6 +138,7 @@
 
     p {
       margin: 14px 0 20px 0;
+      font-weight: 500;
     }
   }
 

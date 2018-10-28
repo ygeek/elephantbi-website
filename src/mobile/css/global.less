@@ -37,14 +37,13 @@
 
 html {
   height: 100%;
-  overflow: hidden;
+  overflow-y: auto;
 }
 body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -72,6 +71,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   right: 0;
+  transition: all 0.3s ease;
 }
 
 .baseButton() {
@@ -86,7 +86,32 @@ h1, h2, h3, h4, h5, h6 {
   border-width: 1px;
   border-style: solid;
   border-radius: 6px;
+  font-weight: 400;
+  box-shadow: 4px 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+.a-link-btn(@color, @backColor, @borderColor) {
+  display: inline-block;
+  text-align: center;
+  line-height: 72px;
+  width: 240px;
+  height: 72px;
+  background-color: @backColor;
+  color: @color;
+  font-size: 28px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: @borderColor;
+  border-radius: 6px;
+  font-weight: 400;
+  box-shadow: 4px 2px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
+}
+
 
 .creatButton(@color) {
   .baseButton();
@@ -236,7 +261,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 40px 0;
 
   background-color: #f8f9fd;
-
+  .address-icon {
+    height: 22px;
+    width: 16px;
+  }
   li {
     list-style: none;
     padding: 0;
@@ -253,11 +281,16 @@ h1, h2, h3, h4, h5, h6 {
       margin-bottom: 70px;
       display: block;
       margin: 0 auto;
+      width: 300px;
+      height: 60px;
     }
   }
 
   .footer-nav-sq {
     margin-bottom: 16px;
+    img {
+      width: 200px;
+    }
   }
 
   .footer-nav-sq, .footer-nav-list, .footer-nav-icon {
@@ -554,13 +587,14 @@ h1, h2, h3, h4, h5, h6 {
   img {
     width: 50px;
     height: 40px;
+    cursor: pointer;
   }
 }
 
 .nav-modal {
   display: none;
   position: fixed;
-  width: 700px;
+  width: 80%;
   height: 320px;
   margin: 0 auto;
   z-index: 500;
@@ -569,7 +603,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%);
   padding: 40px 38px;
   background-color: #fff;
-  box-shadow: 2px 4px 10px #aeaeae;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   .nav-icon {
     padding: 20px 0 15px 15px;
@@ -593,15 +627,14 @@ h1, h2, h3, h4, h5, h6 {
 
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
+
     .nav-item {
       display: flex;
-      width: 220px;
+      width: 200px;
       height: 60px;
       margin-bottom: 20px;
-      margin-left: 40px;
-      margin-right: 40px;
+      margin-right: 0px;
       flex-direction: row;
 
       list-style: none;
@@ -609,13 +642,16 @@ h1, h2, h3, h4, h5, h6 {
       img {
         height: 44px;
         width: 44px;
-        margin-right: 32px;
+        margin-right: 24px;
       }
       a {
         .clearAStyle(#6b7c93);
         color: #6b7c93;
         font-size: 30px;
       }
+    }
+    .nav-item:nth-child(1), .nav-item:nth-child(3), .nav-item:nth-child(5) {
+      margin-right: 20%;
     }
 
     .nav-1 {

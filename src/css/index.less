@@ -2,7 +2,7 @@
 @import url(./global.less);
 
 @btn-size: 53px;
-@box-height: 520px;
+@box-height: 480px;
 @card-height: 350px;
 @card-width: 500px;
 
@@ -43,31 +43,78 @@
   background: ~'url("../assets/card12.png") no-repeat 0 0/500px 350px';
 }
 
+main.main-content {
+  padding-top: 0px;
+}
+
 .nav-content {
   .nav-content-creat(#fff, #fff, #4a83ff);
+  #nav-login {
+    &:hover {
+      color: #32325d;
+      border-color: #32325d;
+    }
+  }
+  .register-btn {
+    &:hover {
+      background-color: #f5f5f9
+    }
+  }
 }
 
 .nav-scroll-white {
   .nav-content-creat(#6b7c93, #1db977);
+  #nav-login {
+    &:hover {
+      background-color: #f5f5f9
+    }
+  }
 }
 
 #input-hosts:focus {
   border: #63B8FF solid 1px;
   outline: none;
 }
+.nav-header {
+  background-color: #fff;
+}
 
 .main-content {
   position: relative;
 
   .main-header {
-    width: @max-width;
-    margin: 140px auto 50px auto;
-    padding: 0 50px;
-    height: 500px;
-
+    width: 100%;
+    height: 640px;
+    background-image: url(../assets/demo-bg.svg);
+    background-size: cover;
     box-sizing: border-box;
-
     color: #fff;
+    position: relative;
+
+    .main-banner-1 {
+      position: absolute;
+      top: 160px;
+      left: 50%;
+      transform: translateX(-220%)
+    }
+
+    .main-banner-2 {
+      position: absolute;
+      bottom: 60px;
+      right: 50%;
+      transform: translateX(200%)
+    }
+
+    .main-cover {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding-top: 178px;
+      text-align: center;
+    }
 
     h1, h2, p {
       margin: 0;
@@ -78,60 +125,59 @@
       font-size: 62px;
     }
     .sub-title {
-      margin-top: 10px;
       font-weight: 500;
       font-size: 32px;
     }
     .description {
       display: inline-block;
-      max-width: 47%;
-      min-width: 300px;
-      margin-top: 26px;
+      max-width: 67%;
+      min-width: 400px;
+      margin-top: 20px;
 
       vertical-align: top;
       font-size: 14px;
-    }
-    .banner {
-      display: inline-block;
-      position: relative;
-      width: 10px;
-      height: 10px;
-
-      vertical-align: top;
-
-      .banner-image {
-        width: 1133px;
-        height: 1070px;
-        position: absolute;
-        bottom: -800px;
-        left: -70px;
-        z-index: -1;
+      div {
+        margin-bottom: 1px;
       }
     }
-    .free-btn, .reserve-btn {
-      .creatFullButton(#fff, #40d08f);
-
-      display: inline-block;
-      margin-top: 74px;
+    .play-btn {
+      display: block;
+      margin: 30px auto 0px auto;
+      border-radius: 50%;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.16)
+      }
+    }
+    .free-btn {
+      .a-link-btn(#fff, #40d08f, #40d08f);
+      margin-top: 30px;
       width: 120px;
       height: 36px;
+      line-height: 36px;
       font-size: 14px;
-      border-radius: 5px;
-      box-shadow: 2px 1px 4px #287fbc;
+      box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.1);
     }
     .reserve-btn {
-      margin-left: 20px;
-      background-color: #fff;
-      color: #40d08f;
-      border-color: #fff;
+      .a-link-btn(#40d08f, #fff, #fff);
+      margin-top: 30px;
+      width: 120px;
+      height: 36px;
+      line-height: 36px;
+      margin-left: 24px;
       font-size: 14px;
+      box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.1);
+      &:hover {
+        background-color: #f5f5f9;
+        border-color: #f5f5f9;
+      }
     }
   }
 
   .show-box {
     width: 1200px;
     position: relative;
-    height: 520px;
+    height: 480px;
     margin: 0 auto;
     padding: @box-height / 2 0px 0 0px;
     overflow: hidden;
@@ -226,7 +272,7 @@
       display: inline-block;
       width: 320px;
       height: 240px;
-      box-shadow: 2px 2px 5px #fafafa,2px -2px 5px #fafafa,-2px 2px 5px #fafafa,-2px -2px 5px #fafafa;
+      box-shadow: 2px 2px 5px #f5f5f9,2px -2px 5px #f5f5f9,-2px 2px 5px #f5f5f9,-2px -2px 5px #f5f5f9;
       margin: 0px 8px 20px 8px;
       background-color: #fff;
       vertical-align: top;
@@ -256,7 +302,21 @@
         height: 36px;
         margin: 30px 0px 0px 30px;
         font-size: 14px;
-        border: 1px solid #40d08f
+        border: 1px solid #40d08f;
+        &:hover {
+          background-color: #f5f5f9;
+        }      
+      }
+      .demo-btn {
+        .a-link-btn(#40d08f, #fff, #40d08f);
+        width: 120px;
+        height: 36px;
+        line-height: 36px;
+        font-size: 14px;
+        margin: 30px 0px 0px 30px;;
+        &:hover {
+          background-color: #f5f5f9;
+        }
       }
     }
   }
@@ -278,10 +338,11 @@
     margin-top: 10px;
   }
   .register-section-button {
-    .creatFullButton(#fff,#1bbd7a);
+    .a-link-btn(#fff, #40d08f, #40d08f);
     width: 120px;
-    font-size: 14px;
     height: 36px;
+    line-height: 36px;
+    font-size: 14px;
     margin: 20px 0px 80px 0px;
   }
 }
@@ -356,19 +417,19 @@
       z-index: -998;
 
       // transform-origin: 0;
-      transform: skewY(-9deg);
+      transform: skewY(-8deg);
       background-color: #f8f9fd;
     }
   }
 }
 
-.gray-bg-creat(1, 100);
-.gray-bg-creat(2);
-.gray-bg-creat(3);
+.gray-bg-creat(1, -80);
+.gray-bg-creat(2, -270);
+.gray-bg-creat(3, -200);
 .gray-bg-creat(4, -400);
 
 .gray-bg-3 {
-  top: 4080px;
+  top: 3800px;
   height: 900px;
   &:before {
     width: 100%;
@@ -533,4 +594,48 @@
   &:hover {
     font-weight: bold;
   }
+}
+
+.official-video {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 700;
+  width: 960px;
+  transform: translateX(-50%) translateY(-50%);
+  .video-js {
+    width: 100%;
+    position: relative;
+    .vjs-big-play-button {
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      line-height: 80px;
+      outline: none;
+    }
+  }
+
+  .close-video {
+    position: absolute;
+    top: 0px;
+    cursor: pointer;
+    right: 0px;
+    transform: translateX(150%) translateY(-150%)
+  }
+}
+
+.video-cover {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  background-color: #000;
+  z-index: 600;
+  opacity: 0.5
 }

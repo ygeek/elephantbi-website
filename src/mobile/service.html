@@ -3,7 +3,9 @@
 
 <head>
   <meta charset="UTF-8" name="format-detection" content="telephone=no">
-  <title>ElephantBI</title>
+  <meta name="description" content="ElephantBI是企业大数据管理分析和商业智能平台。实时连接聚合企业所有数据，提供简单灵活的交互式可视化数据分析能力。ElephantBI是先进的敏捷BI，助您轻松将数据转化为深刻的商业见解，深入挖掘大数据价值，更快获得全局洞察，精准制定数据支持的商业决策，以数据推进企业数字化变革。">
+  <link ref="canonical" href="https://www.elephantbi.com/service.html">
+  <title>ElephantBI - 服务支持</title>
   <script>
     !function (e) { function t(a) { if (i[a]) return i[a].exports; var n = i[a] = { exports: {}, id: a, loaded: !1 }; return e[a].call(n.exports, n, n.exports, t), n.loaded = !0, n.exports } var i = {}; return t.m = e, t.c = i, t.p = "", t(0) }([function (e, t) { "use strict"; Object.defineProperty(t, "__esModule", { value: !0 }); var i = window; t["default"] = i.flex = function (e, t) { var a = e || 100, n = t || 1, r = i.document, o = navigator.userAgent, d = o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i), l = o.match(/U3\/((\d+|\.){5,})/i), c = l && parseInt(l[1].split(".").join(""), 10) >= 80, p = navigator.appVersion.match(/(iphone|ipad|ipod)/gi), s = i.devicePixelRatio || 1; p || d && d[1] > 534 || c || (s = 1); var u = 1 / s, m = r.querySelector('meta[name="viewport"]'); m || (m = r.createElement("meta"), m.setAttribute("name", "viewport"), r.head.appendChild(m)), m.setAttribute("content", "width=device-width,user-scalable=no,initial-scale=" + u + ",maximum-scale=" + u + ",minimum-scale=" + u), r.documentElement.style.fontSize = a / 2 * s * n + "px" }, e.exports = t["default"] }]);
     flex(200, 1);
@@ -28,6 +30,18 @@
     window.imageEnv = 'IMAGE_ENV';
     window.OAUTHURL = 'OAUTH_URL';
   </script>
+  <script>
+    if (window.host === 'https://m.elephantbi.com') {
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?84b931e300f6dc956894ff5eec64739c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    }
+  </script>
+
 </head>
 
 <body>
@@ -36,7 +50,7 @@
       <nav class="nav-content">
         <ul class="nav-list">
           <li class="nav-section logo">
-            <image src='<%= require("./assets/nav-logo-black.svg") %>' width=206 height=41 id="logo" />
+            <img src='<%= require("./assets/nav-logo-black.svg") %>' width=206 height=41 id="logo" />
           </li>
           <li class="nav-section menu">
             <div class="nav-mobile">
@@ -62,21 +76,32 @@
       <header class="main-header">
         <h1 class="title">服务支持</h1>
         <span class="description">ElephantBI拥有专业的商务团队和技术支持团队，将为您提供专业的服务</span>
-        <button class="free-btn demo-btn" id="free-btn-id">预约演示</button>
+        <a class="free-btn demo-btn" href="./demo.html">预约演示</a>
       </header>
       <div class="banner">
-        <image class="banner-image" src='<%= require("./assets/main-header-banner-server.svg") %>'>
+        <img class="banner-image" src='<%= require("./assets/main-header-banner-server.svg") %>'>
       </div>
       <section class="server-stage">
         <ul>
           <li class="server-title">
-            <image src='<%= require("./assets/server-title-icon2.svg") %>' class="server-title-icon" />
+            <img src='<%= require("./assets/wxService.svg") %>' class="server-title-icon" />
+            <p>
+              微信客服
+            </p>
+          </li>
+          <li class="wx-service-sq-li">
+            <img class="wx-service-sq" src='<%= require("./assets/customService.jpg") %>' />
+          </li>
+        </ul>
+        <ul>
+          <li class="server-title">
+            <img src='<%= require("./assets/server-title-icon2.svg") %>' class="server-title-icon" />
             <p>
               商务咨询
             </p>
           </li>
           <li>
-            <image src='<%= require("./assets/footer-phone.png") %>' srcset='
+            <img src='<%= require("./assets/footer-phone.png") %>' srcset='
                 <%= require("./assets/footer-phone.png") %> 18w,
                 <%= require("./assets/footer-phone@2x.png") %> 26w,
                 <%= require("./assets/footer-phone@3x.png") %> 30w' sizes="
@@ -86,7 +111,7 @@
             <span>0411-39026089</span>
           </li>
           <li>
-            <image src='<%= require("./assets/footer-email.png") %>' srcset='
+            <img src='<%= require("./assets/footer-email.png") %>' srcset='
                 <%= require("./assets/footer-email.png") %> 19w,
                 <%= require("./assets/footer-email@2x.png") %> 26w,
                 <%= require("./assets/footer-email@3x.png") %> 30w' sizes="
@@ -98,13 +123,13 @@
         </ul>
         <ul>
           <li class="server-title">
-            <image src='<%= require("./assets/server-title-icon1.svg") %>' class="server-title-icon" />
+            <img src='<%= require("./assets/server-title-icon1.svg") %>' class="server-title-icon" />
             <p>
               技术支持
             </p>
           </li>
           <li>
-            <image src='<%= require("./assets/footer-time.png") %>' srcset='
+            <img src='<%= require("./assets/footer-time.png") %>' srcset='
                 <%= require("./assets/footer-time.png") %> 18w,
                 <%= require("./assets/footer-time@2x.png") %> 26w,
                 <%= require("./assets/footer-time@3x.png") %> 30w' sizes="
@@ -114,7 +139,7 @@
             <span>09:00~19:00</span>
           </li>
           <li>
-            <image src='<%= require("./assets/footer-phone.png") %>' srcset='
+            <img src='<%= require("./assets/footer-phone.png") %>' srcset='
                 <%= require("./assets/footer-phone.png") %> 18w,
                 <%= require("./assets/footer-phone@2x.png") %> 26w,
                 <%= require("./assets/footer-phone@3x.png") %> 30w' sizes="
@@ -124,7 +149,7 @@
             <span>18004083463</span>
           </li>
           <li>
-            <image src='<%= require("./assets/footer-email.png") %>' srcset='
+            <img src='<%= require("./assets/footer-email.png") %>' srcset='
                 <%= require("./assets/footer-email.png") %> 19w,
                 <%= require("./assets/footer-email@2x.png") %> 26w,
                 <%= require("./assets/footer-email@3x.png") %> 30w' sizes="
@@ -136,13 +161,13 @@
         </ul>
         <ul>
           <li class="server-title">
-            <image src='<%= require("./assets/server-title-icon3.svg") %>' class="server-title-icon" />
+            <img src='<%= require("./assets/server-title-icon3.svg") %>' class="server-title-icon" />
             <p>
               投诉
             </p>
           </li>
           <li>
-            <image src='<%= require("./assets/footer-phone.png") %>' srcset='
+            <img src='<%= require("./assets/footer-phone.png") %>' srcset='
                 <%= require("./assets/footer-phone.png") %> 18w,
                 <%= require("./assets/footer-phone@2x.png") %> 26w,
                 <%= require("./assets/footer-phone@3x.png") %> 30w' sizes="
@@ -190,7 +215,7 @@
             </div>
           </form>
           <button id="feedback-submit">
-            立即预约
+            提交
           </button>
         </div>
       </section>
@@ -199,19 +224,13 @@
     <footer class="footer-content">
       <ul class="footer-nav">
         <li class="footer-nav-icon">
-          <image src='<%= require("./assets/footer-icon.png") %>' srcset='
-              <%= require("./assets/footer-icon.png") %> 107w,
-              <%= require("./assets/footer-icon@2x.png") %> 214w,
-              <%= require("./assets/footer-icon@3x.png") %> 321w' sizes="
-              (max-width:400px) 107px,
-              (max-width:800px) 214px,
-              (max-width:1300px) 321px" />
+          <img src='<%= require("./assets/footer-icon.svg") %>' />
         </li>
         <li class="footer-nav-list">
           <ul>
             <li class="footer-list-title">商务咨询</li>
             <li>
-              <image src='<%= require("./assets/footer-phone.png") %>' srcset='
+              <img src='<%= require("./assets/footer-phone.png") %>' srcset='
                   <%= require("./assets/footer-phone.png") %> 6w,
                   <%= require("./assets/footer-phone@2x.png") %> 8w,
                   <%= require("./assets/footer-phone@3x.png") %> 14w' sizes="
@@ -221,7 +240,7 @@
               <span>0411-39026089</span>
             </li>
             <li>
-              <image src='<%= require("./assets/footer-email.png") %>' srcset='
+              <img src='<%= require("./assets/footer-email.png") %>' srcset='
                   <%= require("./assets/footer-email.png") %> 6w,
                   <%= require("./assets/footer-email@2x.png") %> 8w,
                   <%= require("./assets/footer-email@3x.png") %> 14w' sizes="
@@ -231,14 +250,14 @@
               <span>bd@elephantbi.com</span>
             </li>
             <li>
-              <img src='<%= require("./assets/address.svg") %>' />
+              <img src='<%= require("./assets/address.svg") %>' class="address-icon" />
               <span>辽宁省大连市沙河口区软件园东路23号15#501AB室</span>
             </li>
           </ul>
           <ul>
             <li class="footer-list-title">技术支持</li>
             <li>
-              <image src='<%= require("./assets/footer-time.png") %>' srcset='
+              <img src='<%= require("./assets/footer-time.png") %>' srcset='
                   <%= require("./assets/footer-time.png") %> 6w,
                   <%= require("./assets/footer-time@2x.png") %> 8w,
                   <%= require("./assets/footer-time@3x.png") %> 14w' sizes="
@@ -248,7 +267,7 @@
               <span>09:00~19:00</span>
             </li>
             <li>
-              <image src='<%= require("./assets/footer-phone.png") %>' srcset='
+              <img src='<%= require("./assets/footer-phone.png") %>' srcset='
                   <%= require("./assets/footer-phone.png") %> 6w,
                   <%= require("./assets/footer-phone@2x.png") %> 8w,
                   <%= require("./assets/footer-phone@3x.png") %> 14w' sizes="
@@ -258,7 +277,7 @@
               <span>18004083463</span>
             </li>
             <li>
-              <image src='<%= require("./assets/footer-email.png") %>' srcset='
+              <img src='<%= require("./assets/footer-email.png") %>' srcset='
                   <%= require("./assets/footer-email.png") %> 6w,
                   <%= require("./assets/footer-email@2x.png") %> 8w,
                   <%= require("./assets/footer-email@3x.png") %> 14w' sizes="
@@ -270,14 +289,8 @@
           </ul>
         </li>
         <li class="footer-nav-sq">
-          <image src='<%= require("./assets/footer-sq.png") %>' srcset='
-              <%= require("./assets/footer-sq.png") %> 100w,
-              <%= require("./assets/footer-sq@2x.png") %> 200w,
-              <%= require("./assets/footer-sq@3x.png") %> 300w' sizes="
-              (max-width:400px) 100px,
-              (max-width:800px) 200px,
-              (max-width:1300px) 300px" />
-          <span class="footer-nav-sq-description">关注 ElephantBI</span>
+          <img src='<%= require("./assets/customService.jpg") %>' />
+          <span class="footer-nav-sq-description">微信扫码联系客服</span>
         </li>
       </ul>
       <div class="recordCopy">Copyright© 悦视光合科技(大连)有限公司</div>
@@ -306,7 +319,7 @@
       </li>
       <li class="nav-item">
         <img src='<%= require("./assets/nav-icon3.svg") %>' alt="">
-        <a href="./server.html" class="nav-5">服务支持</a>
+        <a href="./service.html" class="nav-5">服务支持</a>
       </li>
       <li class="nav-item">
         <img src='<%= require("./assets/nav-icon4.svg") %>' alt="">

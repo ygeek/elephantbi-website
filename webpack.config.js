@@ -27,12 +27,13 @@ module.exports = [
     entry: {
       index: './src/css/index.less',
       product: './src/css/product.less',
-      server: './src/css/server.less',
+      service: './src/css/service.less',
       about: './src/css/about.less',
       price: './src/css/price.less',
       register: './src/css/register.less',
+      register_info: './src/css/register-info.less',
       demo: './src/css/demo.less',
-      main: './src/js/main.js'
+      main: ['babel-polyfill', './src/js/main.js']
     },
     output: {
       path: path.resolve(__dirname, './dist'),
@@ -44,7 +45,7 @@ module.exports = [
         {
           test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader',
           options: {
-            presets: ['es2015']
+            presets: ['es2015', 'es2017']
           }
         },
         {
@@ -71,7 +72,7 @@ module.exports = [
       ]
     },
     devServer: {
-      port: 8384,
+      port: 8687,
       contentBase: './dist'
     },
     plugins: [
@@ -89,9 +90,9 @@ module.exports = [
         template: './src/product.html'
       }),
       new HtmlWebpackPlugin({
-        chunks: ['main', 'server'],
-        filename: 'server.html',
-        template: './src/server.html'
+        chunks: ['main', 'service'],
+        filename: 'service.html',
+        template: './src/service.html'
       }),
       new HtmlWebpackPlugin({
         chunks: ['main', 'about'],
@@ -112,6 +113,11 @@ module.exports = [
         chunks: ['main', 'register'],
         filename: 'register.html',
         template: './src/register.html'
+      }),
+      new HtmlWebpackPlugin({
+        chunks: ['main', 'register_info'],
+        filename: 'register-info.html',
+        template: './src/register-info.html'
       }),
       new UglifyJsPlugin(),
       new CompressionPlugin({

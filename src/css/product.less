@@ -3,10 +3,20 @@
 
 .nav-content {
   .nav-content-creat(#6b7c93, #6871e7);
+  #nav-login {
+    &:hover {
+      background-color: #f5f5f9
+    }
+  }
 }
 
 .nav-scroll-white {
   .nav-content-creat(#6b7c93, #1db977);
+  #nav-login {
+    &:hover {
+      background-color: #f5f5f9
+    }
+  }
 }
 
 @product-item-height: 450px;
@@ -62,24 +72,25 @@
         z-index: -1;
       }
     }
-    .free-btn, .reserve-btn {
-      .creatFullButton(#fff, #32325d);
-
-      display: inline-block;
+    .free-btn {
+      .a-link-btn(#fff, #32325d, #32325d);
       margin-top: 30px;
       width: 120px;
       height: 36px;
-
-      border-radius: 5px;
+      line-height: 36px;
+      font-size: 14px;
     }
     .reserve-btn {
-      .creatFullButton(#32325d,#fff);
+      .a-link-btn(#32325d, #fff, #32325d);
       margin-left: 20px;
-      border: 1px solid #32325d;
       width: 120px;
       height: 36px;
+      line-height: 36px;
+      font-size: 14px;
+      &:hover {
+        background-color: #eee;
+      }
     }
-
   }
 
   .product-stage {
@@ -94,7 +105,7 @@
     }
     .product-part{
       display: inline-block;
-      width: 450px;
+      width: 505px;
 
       transform: translateY(-50%);
       vertical-align: top;
@@ -111,15 +122,15 @@
     }
     .product-part:nth-child(2) {
       .product-title {
-        padding-left: 50px;
+        padding-left: 105px;
         font-weight: 500;
       }
       .product-description {
         width: 400px;
-        padding-left: 50px;
+        padding-left: 105px;
       }
       img {
-        margin-left: 50px;
+        margin-left: 105px;
       }
     }
     .product-title {
@@ -127,6 +138,7 @@
       margin: 0 0 20px 0;
       font-size: 24px;
       color: #373761;
+      font-weight: 500;
     }
     .product-description {
       width: 400px;
@@ -155,9 +167,11 @@
     margin-top: 10px;
   }
   .register-section-button {
-    .creatFullButton(#fff,#6871e7);
+    .a-link-btn(#fff, #6871e7, #6871e7);
     width: 120px;
     height: 36px;
+    line-height: 36px;
+    font-size: 14px;
     margin: 20px 0px 80px 0px;
   }
 }

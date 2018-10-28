@@ -3,7 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>ElephantBI</title>
+  <meta name="description" content="ElephantBI是企业大数据管理分析和商业智能平台。实时连接聚合企业所有数据，提供简单灵活的交互式可视化数据分析能力。ElephantBI是先进的敏捷BI，助您轻松将数据转化为深刻的商业见解，深入挖掘大数据价值，更快获得全局洞察，精准制定数据支持的商业决策，以数据推进企业数字化变革。">
+  <meta name="mobile-agent" content="format=html5;url=https://m.elephantbi.com/product.html">
+  <link ref="alternate" media="only screen and (max-width: 640px)" href="https://m.elephantbi.com/product.html">
+  <title>ElephantBI 产品介绍</title>
+  <link ref="canonical" href="https://www.elephantbi.com/product.html">
   <script>
     window.host = window.location.origin;
     window.backhost = 'https://api.elephantbi.com';
@@ -14,6 +18,18 @@
     window.OAUTHURL = 'OAUTH_URL';
     window.DEMOURL = 'DEMO_URL'
   </script>
+  <script>
+    if (window.host === 'https://www.elephantbi.com') {
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?75b7f1fb8fed402af2a2479288b0722e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    }
+  </script>
+
 </head>
 
 <body>
@@ -25,12 +41,12 @@
             <img src='<%= require("./assets/nav-logo-black.svg") %>' width=160 height=32 id="logo" />
           </li>
           <li class="nav-section page-list">
-            <a href="./product.html">产品介绍</a>
+            <a class="selected" href="./product.html">产品</a>
             <a href="javascript:void(0)" id="nav-industry-link">行业DEMO</a>
             <a href="./demo.html">预约演示</a>
             <a href="./price.html">价格</a>
-            <a href="./server.html">服务支持</a>
-            <a href="./about.html">关于我们</a>
+            <a href="./service.html">服务</a>
+            <a href="./about.html">关于</a>
             <div class="nav-industry-modal" id="nav-industry-modal">
               <div class="nav-industry-arrow"></div>
               <ul>
@@ -74,14 +90,17 @@
             <span class="login-btn-content">
               <button id="nav-login">登录</button>
               <div class="login-modal" id="login-modal">
-                <span class="login-block">
-                  <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
-                  <span class="login-cell login-fixed">elephantbi.com</span>
+                <div class="modal-arrow"></div>
+                <span class="login-block-wrapper">
+                  <span class="login-block">
+                    <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
+                    <span id="login-fixed" class="login-cell login-fixed">elephantbi.com</span>
+                  </span>
                 </span>
                 <button class="login-btn" id="login-product">登录</button>
               </div>
             </span>
-            <button id="nav-application" class="free-btn">免费注册</button>
+            <a class="register-btn" href="./register.html" >免费注册</a>
           </li>
         </ul>
       </nav>
@@ -102,15 +121,15 @@
       </div>
       <header class="main-header">
         <div class="main-header-box">
-          <span class="title">高效数据分析，聚焦团队协作与决策</span>
+          <span class="title">可靠的大数据整合及ETL能力，高效的可视化分析决策依据</span>
           <span class="description">快速多维度的数据整合，灵活、高效的数据分析，多群组的分析结果共享，让团队中人人都是数据分析师，将数据决策覆盖到每一个工作场景</span>
           <div class="banner">
             <img class="banner-image" src='<%= require("./assets/main-header-banner-product.png") %>' width=507>
           </div>
           <div></div>
           <div>
-            <button class="free-btn" id="free-btn-id">免费注册</button>
-            <button class="reserve-btn demo-btn" id="reserve-btn-id">预约演示</button>
+            <a class="free-btn" href="./register.html">免费注册</a>
+            <a class="reserve-btn demo-btn" href="./demo.html">预约演示</a>
           </div>
         </div>
       </header>
@@ -121,7 +140,7 @@
             <p class="product-description">支持包括HRM、CRM、ERP、OA、进销存等业务系统，业务数据一目了然</p>
           </div>
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct1.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct1.svg") %>' width=395 height=226 />
           </div>
         </div>
         <div class="product-item">
@@ -134,7 +153,7 @@
           </div>
         </div>
 
-        <div class="product-item">
+        <!-- <div class="product-item">
           <div class="product-part">
             <h4 class="product-title">连接SaaS应用数据</h4>
             <p class="product-description">企业SaaS应用一键连接，云端应用数据集成毫无障碍</p>
@@ -142,18 +161,18 @@
           <div class="product-part">
             <img src='<%= require("./assets/pruduct3.png") %>' width=395 height=226 />
           </div>
-        </div>
+        </div> -->
         <div class="product-item">
-          <div class="product-part">
-            <img src='<%= require("./assets/pruduct4.png") %>' width=395 height=226 />
-          </div>
           <div class="product-part">
             <h4 class="product-title">连接数据库数据</h4>
             <p class="product-description">支持连接常用关系型数据库，如MySQL、PostgreSQL、Oracle Database等，有效集成企业数据</p>
           </div>
+          <div class="product-part">
+            <img src='<%= require("./assets/pruduct4.svg") %>' width=395 height=226 />
+          </div>
         </div>
 
-        <div class="product-item">
+        <!-- <div class="product-item">
           <div class="product-part">
             <h4 class="product-title">通过API连接更多数据</h4>
             <p class="product-description">支持API数据接入，灵活扩展数据集成</p>
@@ -161,10 +180,10 @@
           <div class="product-part">
             <img src='<%= require("./assets/pruduct5.png") %>' width=395 height=226 />
           </div>
-        </div>
+        </div> -->
         <div class="product-item">
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct6.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct6.svg") %>' width=395 height=226 />
           </div>
           <div class="product-part">
             <h4 class="product-title">大数据稳定支撑</h4>
@@ -202,7 +221,7 @@
         </div>
         <div class="product-item">
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct10.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct10.svg") %>' width=395 height=226 />
           </div>
           <div class="product-part">
             <h4 class="product-title">丰富的数据可视化展示</h4>
@@ -221,7 +240,7 @@
         </div>
         <div class="product-item">
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct12.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct12.svg") %>' width=395 height=226 />
           </div>
           <div class="product-part">
             <h4 class="product-title">强大的数据分析功能</h4>
@@ -259,7 +278,7 @@
         </div>
         <div class="product-item">
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct16.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct16.svg") %>' width=395 height=226 />
           </div>
           <div class="product-part">
             <h4 class="product-title">精细数据管控</h4>
@@ -267,7 +286,7 @@
           </div>
         </div>
 
-        <div class="product-item">
+        <!-- <div class="product-item">
           <div class="product-part">
             <h4 class="product-title">流畅的移动设备体验</h4>
             <p class="product-description">完善的移动交互体验，流畅进行图表缩放、数据钻取联动等操作，任何时候都能够便捷的查看和分析数据</p>
@@ -275,8 +294,8 @@
           <div class="product-part">
             <img class="spaice-img" src='<%= require("./assets/pruduct17.png") %>' />
           </div>
-        </div>
-        <div class="product-item">
+        </div> -->
+        <!-- <div class="product-item">
           <div class="product-part">
             <img class="spaice-img" src='<%= require("./assets/pruduct18.png") %>' />
           </div>
@@ -284,9 +303,9 @@
             <h4 class="product-title">完善的移动设备功能</h4>
             <p class="product-description">移动设备功能同样强大，全面支持数据分析、图表分享沟通等功能，助力高效移动办公</p>
           </div>
-        </div>
+        </div> -->
 
-        <div class="product-item">
+        <!-- <div class="product-item">
           <div class="product-part">
             <h4 class="product-title">移动设备数据安全</h4>
             <p class="product-description">多种认证机制、设备绑定、加密传输，全面保障移动设备安全访问数据</p>
@@ -294,29 +313,29 @@
           <div class="product-part">
             <img class="spaice-img" src='<%= require("./assets/pruduct19.png") %>' />
           </div>
-        </div>
+        </div> -->
         <div class="product-item">
-          <div class="product-part">
-            <img src='<%= require("./assets/pruduct20.png") %>' width=395 height=226 />
-          </div>
           <div class="product-part">
             <h4 class="product-title">消息推送</h4>
             <p class="product-description">主动推送关键数据，及时了解关键数据的变化，无论身处何处，都能时刻保持与数据的连接</p>
           </div>
+          <div class="product-part">
+            <img src='<%= require("./assets/pruduct20.png") %>' width=395 height=226 />
+          </div>
         </div>
 
-        <div class="product-item">
+        <!-- <div class="product-item">
           <div class="product-part">
             <h4 class="product-title">多屏支持</h4>
             <p class="product-description">全面支持数据多屏展示，数据大屏、PC显示器、投影仪等，有价值的图表无所不在</p>
           </div>
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct21.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct21.svg") %>' width=395 height=226 />
           </div>
-        </div>
+        </div> -->
         <div class="product-item">
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct22.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct22.svg") %>' width=395 height=226 />
           </div>
           <div class="product-part">
             <h4 class="product-title">实时数据大屏</h4>
@@ -335,7 +354,7 @@
         </div>
         <div class="product-item">
           <div class="product-part">
-            <img src='<%= require("./assets/pruduct24.png") %>' width=395 height=226 />
+            <img src='<%= require("./assets/pruduct24.svg") %>' width=395 height=226 />
           </div>
           <div class="product-part">
             <h4 class="product-title">仪表盘</h4>
@@ -347,13 +366,13 @@
       <section class="register-section">
         <div class="register-section-title">数据驱动，精准决策，即刻启程</div>
         <div class="register-section-subTitle">ElephantBI专注数据价值，让数据真正服务于工作，现在开始免费试用</div>
-        <button class="register-section-button free-btn">免费注册</button>
+        <a class="register-section-button" href="./register.html">免费注册</a>
       </section>
     </main>
     <footer class="footer-content">
       <ul class="footer-nav">
         <li class="footer-nav-icon">
-          <img src='<%= require("./assets/footer-icon.png") %>' id="footer-logo" width=160 height=32 />
+          <img src='<%= require("./assets/footer-icon.svg") %>' id="footer-logo" width=160 height=32 />
         </li>
         <li class="footer-nav-list">
           <ul>
@@ -368,7 +387,7 @@
               <a href="./price.html">价格</a>
             </li>
             <li>
-              <a href="./server.html">服务支持</a>
+              <a href="./service.html">服务支持</a>
             </li>
             <li>
               <a href="./about.html">关于我们</a>
@@ -418,7 +437,7 @@
               <span>0411-39026089</span>
             </li>
             <li>
-              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 style="margin-top: 3px" />
+              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 class="adjust-footer-icon" />
               <span>bd@elephantbi.com</span>
             </li>
             <li>
@@ -437,14 +456,14 @@
               <span>18004083463</span>
             </li>
             <li>
-              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 style="margin-top: 3px" />
+              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 class="adjust-footer-icon" />
               <span>support@elephantbi.com</span>
             </li>
           </ul>
         </li>
         <li class="footer-nav-sq">
-          <img src='<%= require("./assets/footer-sq.png") %>' width=140 height=140 />
-          <span class="footer-nav-sq-description">关注 ElephantBI</span>
+          <img src='<%= require("./assets/customService.jpg") %>' width=140 height=140 />
+          <span class="footer-nav-sq-description">微信扫码联系客服</span>
         </li>
       </ul>
       <div class="record">Copyright© 悦视光合科技(大连)有限公司&nbsp&nbsp&nbsp&nbsp辽ICP备18008272号</div>

@@ -3,7 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>ElephantBI</title>
+  <meta name="description" content="ElephantBI是企业大数据管理分析和商业智能平台。实时连接聚合企业所有数据，提供简单灵活的交互式可视化数据分析能力。ElephantBI是先进的敏捷BI，助您轻松将数据转化为深刻的商业见解，深入挖掘大数据价值，更快获得全局洞察，精准制定数据支持的商业决策，以数据推进企业数字化变革。">
+  <meta name="mobile-agent" content="format=html5;url=https://m.elephantbi.com/about.html">
+  <link ref="alternate" media="only screen and (max-width: 640px)" href="https://m.elephantbi.com/about.html">
+  <title>ElephantBI - 关于我们</title>
+  <link ref="canonical" href="https://www.elephantbi.com/about.html">
   <script>
     window.host = window.location.origin;
     window.backhost = 'https://api.elephantbi.com';
@@ -14,6 +18,18 @@
     window.OAUTHURL = 'OAUTH_URL';
     window.DEMOURL = 'DEMO_URL'
   </script>
+  <script>
+    if (window.host === 'https://www.elephantbi.com') {
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?75b7f1fb8fed402af2a2479288b0722e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    }
+  </script>
+
 </head>
 
 <body>
@@ -25,12 +41,12 @@
             <img src='<%= require("./assets/nav-logo-black.svg") %>' width=160 height=32 id="logo" />
           </li>
           <li class="nav-section page-list">
-            <a href="./product.html">产品介绍</a>
+            <a href="./product.html">产品</a>
             <a href="javascript:void(0)" id="nav-industry-link">行业DEMO</a>
             <a href="./demo.html">预约演示</a>
             <a href="./price.html">价格</a>
-            <a href="./server.html">服务支持</a>
-            <a class="selected" href="./about.html">关于我们</a>
+            <a href="./service.html">服务</a>
+            <a class="selected" href="./about.html">关于</a>
             <div class="nav-industry-modal" id="nav-industry-modal">
               <div class="nav-industry-arrow"></div>
               <ul>
@@ -74,14 +90,17 @@
             <span class="login-btn-content">
               <button id="nav-login">登录</button>
               <div class="login-modal" id="login-modal">
-                <span class="login-block">
-                  <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
-                  <span class="login-cell login-fixed">elephantbi.com</span>
+                <div class="modal-arrow"></div>
+                <span class="login-block-wrapper">
+                  <span class="login-block">
+                    <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
+                    <span id="login-fixed" class="login-cell login-fixed">elephantbi.com</span>
+                  </span>
                 </span>
                 <button class="login-btn" id="login-product">登录</button>
               </div>
             </span>
-            <button id="nav-application" class="free-btn">免费注册</button>
+            <a class="register-btn" href="./register.html" >免费注册</a>
           </li>
         </ul>
       </nav>
@@ -104,11 +123,7 @@
       </div>
       <header class="main-header">
         <h1 class="title">关于我们</h1>
-        <span class="description">ElephantBI是由悦视光合科技(大连)有限公司出品， 公司专注于企业级互联网产品及云端服务， 创始成员均来自于百度、网易等一线互联网公司， 拥有多年知名互联网产品的设计和研发经验。</span>
-        <p class="company-stage">
-          扁平化的管理架构和组织模式， 通过减少管理层次来建立高效而紧密的团队， 使每个团队成员都更具有自由度和创造性。 我们会一直是一家年轻的互联网快公司， 不断引入硅谷风格的管理方法， 倡导所有团队成员自下而上的自我驱动精神， 鼓励每个人的主观能动性，
-          保持团队的活力和激情。
-        </p>
+        <span class="description">ElephantBI企业大数据管理分析和商业智能平台，由悦视光合科技（大连）有限公司研发，公司专注于企业级大数据商业智能产品的研发及服务，核心团队成员来自百度、网易等一线互联网公司，拥有多年知名互联网产品的设计和研发经验，倡导人人可用的敏捷式BI产品设计，为企业提供商业智能解决方案，涉及大数据可视化分析服务、搭建大数据管理中心等，助力企业数据化精细管理。</span>
       </header>
       <section>
       </section>
@@ -178,7 +193,7 @@
                 </span>
               </a>
               <div class="position-description">
-                <div>【岗位职责】</div>
+                <div class="position-title">【岗位职责】</div>
                 <ol>
                   <li>参与公司项目的产品设计，输出产品原型和文档</li>
                   <li>与用户沟通，国内外竞品分析，分析各类咨询报告，深刻了解用户的需求；</li>
@@ -202,7 +217,7 @@
                 </span>
               </a>
               <div class="position-description">
-                <div>【岗位职责】</div>
+                <div class="position-title">【岗位职责】</div>
                 <ol>
                   <li>积极拓展新客户，筛选有价值的客户信息，通过电话、邮件、拜访等各种渠道与新客户建立联系，充分了解客户需求并制定销售方案；</li>
                   <li>跟进并维修现有客户，及时更新公司产品信息，传达企业及品牌文化，分析客户管理问题和需求，并整合公司资源提供建议或产品；</li>
@@ -230,7 +245,7 @@
                 </span>
               </a>
               <div class="position-description">
-                <div>【岗位职责】</div>
+                <div class="position-title">【岗位职责】</div>
                 <ol>
                   <li>参与公司WEB产品的界面设计、图标设计；</li>
                   <li>参与各产品团队设计讨论，和开发团队共同创建用户界面，跟踪产品效果，提出设计改善方案；</li>
@@ -256,7 +271,7 @@
                 </span>
               </a>
               <div class="position-description">
-                <div>【岗位职责】</div>
+                <div class="position-title">【岗位职责】</div>
                 <ol>
                   <li>参与公司互联网产品线上线下整体运营，制定运营策略，方案并组织执行，推动产品商业模式的形成并不断优化；</li>
                   <li>参与制定公司运营事项决策及发展战略，实现运营管理目标；</li>
@@ -284,7 +299,7 @@
                 </span>
               </a>
               <div class="position-description">
-                <div>【岗位职责】</div>
+                <div class="position-title">【岗位职责】</div>
                 <ol>
                   <li>维护招聘渠道，发布招聘信息并负责部分实习岗位的招聘；</li>
                   <li>协助策划并实施校招方案（文案专业、海报设计）；</li>
@@ -310,7 +325,7 @@
     <footer class="footer-content">
       <ul class="footer-nav">
         <li class="footer-nav-icon">
-          <img src='<%= require("./assets/footer-icon.png") %>' id="footer-logo" width=160 height=32 />
+          <img src='<%= require("./assets/footer-icon.svg") %>' id="footer-logo" width=160 height=32 />
         </li>
         <li class="footer-nav-list">
           <ul>
@@ -325,7 +340,7 @@
               <a href="./price.html">价格</a>
             </li>
             <li>
-              <a href="./server.html">服务支持</a>
+              <a href="./service.html">服务支持</a>
             </li>
             <li>
               <a href="./about.html">关于我们</a>
@@ -375,7 +390,7 @@
               <span>0411-39026089</span>
             </li>
             <li>
-              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 style="margin-top: 3px" />
+              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 class="adjust-footer-icon" />
               <span>bd@elephantbi.com</span>
             </li>
             <li>
@@ -394,14 +409,14 @@
               <span>18004083463</span>
             </li>
             <li>
-              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 style="margin-top: 3px" />
+              <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 class="adjust-footer-icon" />
               <span>support@elephantbi.com</span>
             </li>
           </ul>
         </li>
         <li class="footer-nav-sq">
-          <img src='<%= require("./assets/footer-sq.png") %>' width=140 height=140 />
-          <span class="footer-nav-sq-description">关注 ElephantBI</span>
+          <img src='<%= require("./assets/customService.jpg") %>' width=140 height=140 />
+          <span class="footer-nav-sq-description">微信扫码联系客服</span>
         </li>
       </ul>
       <div class="record">Copyright© 悦视光合科技(大连)有限公司&nbsp&nbsp&nbsp&nbsp辽ICP备18008272号</div>

@@ -1,274 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>ElephantBI</title>
-  <script>
-    window.host = window.location.origin;
-    window.backhost = 'https://api.elephantbi.com';
-    var SOURCE = "官网";
-
-    window.corpid = 'WX_CORP_ID';
-    window.imageEnv = 'IMAGE_ENV';
-    window.OAUTHURL = 'OAUTH_URL';
-    window.DEMOURL = 'DEMO_URL'
-  </script>
-  <script type="text/javascript" charset="utf-8" src="//g.alicdn.com/sd/ncpc/nc.js?t=2015052012"></script>
-</head>
-
-<body>
-  <div id="root">
-    <header class="nav-header" id="nav-header">
-      <nav class="nav-content">
-        <ul class="nav-list">
-          <li class="nav-section logo">
-            <img src='<%= require("./assets/nav-logo-black.svg") %>' width=160 height=32 id="logo" />
-          </li>
-          <li class="nav-section page-list">
-            <a href="./product.html">产品介绍</a>
-            <a href="javascript:void(0)" id="nav-industry-link">行业DEMO</a>
-            <a href="./demo.html">预约演示</a>
-            <a href="./price.html">价格</a>
-            <a href="./server.html">服务支持</a>
-            <a href="./about.html">关于我们</a>
-            <div class="nav-industry-modal" id="nav-industry-modal">
-              <div class="nav-industry-arrow"></div>
-              <ul>
-                <li>
-                  <a class="industry0">互联网行业</a>
-                </li>
-                <li>
-                  <a class="industry2">零售行业</a>
-                </li>
-                <li>
-                  <a class="industry4">企业服务行业</a>
-                </li>
-                <li>
-                  <a class="industry6">文娱行业</a>
-                </li>
-                <li>
-                  <a class="industry8">教育行业</a>
-                </li>
-              </ul>
-              <div class="divider"></div>
-              <ul>
-                <li>
-                  <a class="industry1">金融行业</a>
-                </li>
-                <li>
-                  <a class="industry3">制造行业</a>
-                </li>
-                <li>
-                  <a class="industry5">电商行业</a>
-                </li>
-                <li>
-                  <a class="industry7">餐饮行业</a>
-                </li>
-                <li>
-                  <a class="industry9">物流行业</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-section login">
-            <span class="login-btn-content">
-              <button id="nav-login">登录</button>
-              <div class="login-modal" id="login-modal">
-                <span class="login-block">
-                  <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
-                  <span class="login-cell login-fixed">elephantbi.com</span>
-                </span>
-                <button class="login-btn" id="login-product">登录</button>
-              </div>
-            </span>
-            <button id="nav-application">免费注册</button>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main class="main-content">
-      <div class="main-header-bg" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="register-content">
-        <form name="registerForm" id="register-form">
-          <div class="group-title">
-            <img src="<%= require('./assets/group.png') %>" width=18 height=16 /> 团队信息
-          </div>
-          <div class="divider"></div>
-          <label for="register-url">设置登录网址
-            <span class="required">*</span>
-          </label>
-          <span class="register-form-item" data-err="请输入团队域名" style="margin-bottom: 4px;">
-            <div class="register-block">
-              <input id="input-url" type="text" name="registerUrl" placeholder="请输入团队域名">
-              <span class="register-fixed">elephantbi.com</span>
-            </div>
-          </span>
-          <div class="url-description" style="margin-bottom: 10px;">团队创建完成后，使用此登录地址直接跳转团队页面，支持英文字母及数字</div>
-          <label for="register-group-name">团队名称
-            <span class="required">*</span>
-          </label>
-          <span class="register-form-item" data-err="请输入团队名称">
-            <input class="normal-input" id="register-group-name" name="registerGroupName" placeholder="请输入团队名称" type="text" />
-          </span>
-          <label class="fake-label">团队类型
-            <span class="required">*</span>
-          </label>
-          <span class="radio-field">
-            <div>
-              <input type="radio" id="comp-group" checked name="registerType" />
-              <label for="comp-group">企业团队</label>
-              <span class="url-description" style="margin-left: 0px">团队成员以手机号码加入团队，更自由更独立</span>
-            </div>
-            <div>
-              <input type="radio" id="free-group" name="registerType" />
-              <label for="free-group">自由团队</label>
-              <span class="url-description" style="margin-left: 0px">团队成员以企业邮箱注册登录团队，更严谨安全</span>
-            </div>
-          </span>
-          <div id="domain-field">
-            <label class="fake-label">免验证邮箱域名</label>
-            <span class="domain-item-wrapper">
-              <span class="domain-field form-item">
-                <span class=" domain-fixed">@</span>
-                <input id="input-domain" class="input-domain" placeholder="请输入团队域名">
-                <img src="<%= require('./assets/checked.png') %>" class="input-domain-check input-domain-operator" />
-              </span>
-            </span>
-            <div id="domain-insert" class="url-description" style="width: 300px; margin-bottom: 35px;">免验证邮箱域名登陆后，不需要管理员审核，团队创建巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉</div>
-          </div>
-          <div class="group-title" id="free-title">
-            <img src="<%= require('./assets/user.png') %>" width=16 height=16 /> 个人信息
-          </div>
-          <div class="divider"></div>
-          <label for="register-email" id="switch-label">电子邮箱
-            <span class="required">*</span>
-          </label>
-          <span class="register-form-item" data-err="请输入电子邮箱">
-            <input id="register-email" class="normal-input" name="registerEmail" placeholder="请输入登录团队使用的邮箱" />
-          </span>
-          <label for="nc-container" id="nc-container-label">人机验证
-            <span class="required">*</span>
-          </label>
-          <div id="nc-container" class="nc-container normal-input register-form-item" data-err="请进行人机验证"></div>
-          <label for="verifycode">验证码
-            <span class="required">*</span>
-          </label>
-          <span class="register-form-item" data-err="请输入验证码" style="margin-bottom: 16px;">
-            <div class="register-block">
-              <input id="verifycode" placeholder="请输入验证码" name="registerVerifiedCode" />
-              <span class="register-cell register-fixed">
-                <button id="send-verifycode" type="button">
-                  发送验证码
-                  <div id="send-verifycode-shadow"></div>
-                </button>
-              </span>
-            </div>
-          </span>
-          <label for="password-set">设置密码
-            <span class="required">*</span>
-          </label>
-          <span class="register-form-item" data-err="请输入密码">
-            <input id="password-set" type="password" class="normal-input" name="registerPasswordSet" placeholder="请输入希望使用的密码" />
-          </span>
-          <label for="password-confirm">确认密码
-            <span class="required">*</span>
-          </label>
-          <span class="register-form-item" data-err="请输入确认密码">
-            <input id="password-confirm" type="password" class="normal-input" name="registerPasswordConfirm" placeholder="请输入相同的密码" />
-          </span>
-          <label for="display-name">显示名称</label>
-          <span class="register-form-item">
-            <input id="display-name" class="normal-input" name="registerDisplayName" placeholder="请输入希望使用的名称" />
-          </span>
-        </form>
-        <button id="register-button">
-          创建团队
-        </button>
-      </div>
-    </main>
-  </div>
-  <div class="tootip-modal" id="tootip-succeed">
-    <div class="tootip-icon">
-      <div class="tooptip-succeed">
-        <img src='<%= require("./assets/tootip-succeed.png") %>' alt="">
-      </div>
-    </div>
-    <div class="tootip-content">
-      <div class="tootip-title">提交成功</div>
-      <div class="tootip-description">ElephantBI团队会尽快跟您联系</div>
-    </div>
-  </div>
-  <div class="tootip-modal" id="tootip-err">
-    <div class="tootip-icon">
-      <div class="tooptip-err">
-        <img src='<%= require("./assets/tootip-err.png") %>' alt="">
-      </div>
-    </div>
-    <div class="tootip-content">
-      <div class="tootip-title">提交失败</div>
-      <div class="tootip-description">请电话联系：0411-39026089</div>
-    </div>
-  </div>
-  <script type="text/javascript">
-    var nc_token = ["FFFF0N00000000006B76", (new Date()).getTime(), Math.random()].join(':');
-    var NC_Opt =
-    {
-      renderTo: "nc-container",
-      appkey: "FFFF0N00000000006B76",
-      scene: "register",
-      token: nc_token,
-      customWidth: 244,
-      trans: { "key1": "code0" },
-      elementID: ["usernameID"],
-      is_Opt: 0,
-      language: "cn",
-      isEnabled: true,
-      timeout: 3000,
-      times: 5,
-      apimap: {
-        // 'analyze': '//a.com/nocaptcha/analyze.jsonp',
-        // 'get_captcha': '//b.com/get_captcha/ver3',
-        // 'get_captcha': '//pin3.aliyun.com/get_captcha/ver3'
-        // 'get_img': '//c.com/get_img',
-        // 'checkcode': '//d.com/captcha/checkcode.jsonp',
-        // 'umid_Url': '//e.com/security/umscript/3.2.1/um.js',
-        // 'uab_Url': '//aeu.alicdn.com/js/uac/909.js',
-        // 'umid_serUrl': 'https://g.com/service/um.json'
-      },
-      callback: function (data) {
-        window.console && console.log(nc_token)
-        window.console && console.log(data.csessionid)
-        window.console && console.log(data.sig)
-        const params = {
-          scene: "register",
-          nc_token,
-          csessionid: data.csessionid,
-          sig: data.sig
-        }
-        sessionStorage.setItem('aliVerification', JSON.stringify(params))
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="ElephantBI是企业大数据管理分析和商业智能平台。实时连接聚合企业所有数据，提供简单灵活的交互式可视化数据分析能力。ElephantBI是先进的敏捷BI，助您轻松将数据转化为深刻的商业见解，深入挖掘大数据价值，更快获得全局洞察，精准制定数据支持的商业决策，以数据推进企业数字化变革。">
+    <meta name="mobile-agent" content="format=html5;url=http://m.elephantbi.com/register-mobile.html">
+    <link ref="alternate" media="only screen and (max-width: 640px)" href="http://m.elephantbi.com/register-mobile.html">
+    <title>ElephantBI</title>
+    <link ref="canonical" href="https://www.elephantbi.com/register-mobile.html">
+    <script>
+      window.host = window.location.origin;
+      window.backhost = 'https://api.elephantbi.com';
+      var SOURCE = "官网";
+  
+      window.corpid = 'WX_CORP_ID';
+      window.imageEnv = 'IMAGE_ENV';
+      window.OAUTHURL = 'OAUTH_URL';
+      window.DEMOURL = 'DEMO_URL'
+    </script>
+    <script type="text/javascript" charset="utf-8" src="//g.alicdn.com/sd/ncpc/nc.js?t=2015052012"></script>
+    <script>
+      if (window.host === 'https://www.elephantbi.com') {
+        var _hmt = _hmt || [];
+        (function () {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?75b7f1fb8fed402af2a2479288b0722e";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
       }
-    }
-    var nc = new noCaptcha(NC_Opt)
-    nc.upLang('cn', {
-      _startTEXT: "请滑动验证",
-      _yesTEXT: "验证通过",
-      _error300: "哎呀，出错了，点击<a href=\"javascript:__nc.reset()\">刷新</a>再来一次",
-      _errorNetwork: "网络不给力，请<a href=\"javascript:__nc.reset()\">点击刷新</a>",
-    })
-  </script>
-</body>
-
+    </script>
+  </head>
+  <body>
+    <div id="root">
+      <header class="nav-header" id="nav-header">
+        <nav class="nav-content">
+          <ul class="nav-list">
+            <li class="nav-section logo">
+              <img src='<%= require("./assets/nav-logo-black.svg") %>' width=160 height=32 id="logo" />
+            </li>
+            <li class="nav-section page-list">
+              <a href="./product.html">产品</a>
+              <a href="javascript:void(0)" id="nav-industry-link">行业DEMO</a>
+              <a href="./demo.html">预约演示</a>
+              <a href="./price.html">价格</a>
+              <a href="./service.html">服务</a>
+              <a href="./about.html">关于</a>
+              <div class="nav-industry-modal" id="nav-industry-modal">
+                <div class="nav-industry-arrow"></div>
+                <ul>
+                  <li>
+                    <a class="industry0">互联网行业</a>
+                  </li>
+                  <li>
+                    <a class="industry2">零售行业</a>
+                  </li>
+                  <li>
+                    <a class="industry4">企业服务行业</a>
+                  </li>
+                  <li>
+                    <a class="industry6">文娱行业</a>
+                  </li>
+                  <li>
+                    <a class="industry8">教育行业</a>
+                  </li>
+                </ul>
+                <div class="divider"></div>
+                <ul>
+                  <li>
+                    <a class="industry1">金融行业</a>
+                  </li>
+                  <li>
+                    <a class="industry3">制造行业</a>
+                  </li>
+                  <li>
+                    <a class="industry5">电商行业</a>
+                  </li>
+                  <li>
+                    <a class="industry7">餐饮行业</a>
+                  </li>
+                  <li>
+                    <a class="industry9">物流行业</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-section login">
+              <span class="login-btn-content">
+                <button id="nav-login">登录</button>
+                <div class="login-modal" id="login-modal">
+                  <div class="modal-arrow"></div>
+                  <span class="login-block-wrapper">
+                    <span class="login-block">
+                      <input class="login-cell" id="input-hosts" type="text" placeholder="请输入团队域名">
+                      <span id="login-fixed" class="login-cell login-fixed">elephantbi.com</span>
+                    </span>
+                  </span>
+                  <button class="login-btn" id="login-product">登录</button>
+                </div>
+              </span>
+              <a class="register-btn" href="./register.html" >免费注册</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main class="main-content">
+        <div class="main-header-bg" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="register-content">
+          <img class="register-logo" src='<%= require("./assets/footer-icon.svg") %>' width="160" height="32" />
+          <label for="group-mobile" id="group-mobile-label">手机号
+            <span class="required">*</span>
+          </label>
+          <span class="register-form-item" data-err="请输入手机号">
+            <input id="group-mobile" class="normal-input" name="registerDisplayMobile" placeholder="请输入登录时使用的手机号" />
+          </span>
+          <button id="register-mobile-button">
+            开始注册
+          </button>
+          <div class="divider"></div>
+          <div class="join-team-text">已有团队还不是团队成员？去
+            <button id="join-team" class="join-team">加入团队</button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="modal-cover" id="modal-cover"></div>
+    <div class="join-modal" id="join-modal">
+      <img alt="" src='<%= require("./assets/close.svg") %>' class="close" id="close-join-modal" />
+      <div class="join-title">登录团队</div>
+      <div class="form">
+        <span class="label">团队网址
+          <span class="required">*</span>
+        </span>
+        <span class="login-block-wrapper">
+          <span class="login-block">
+            <input class="login-cell" id="input-register" type="text" placeholder="请输入团队域名">
+            <span id="join-fixed" class="login-cell login-fixed">elephantbi.com</span>
+          </span>
+        </span>
+      </div>
+      <div class="actions" id="actions">
+        <button class="login-btn" id="login-register-cancel">取消</button>
+        <button class="login-btn" id="login-register">确认</button>
+      </div>
+    </div>
+    <div class="tootip-modal" id="authCode-succeed">
+      <div class="tootip-icon">
+        <div class="tooptip-succeed">
+          <img src='<%= require("./assets/tootip-succeed.png") %>' alt="">
+        </div>
+      </div>
+      <div class="tootip-content">
+        <div class="tootip-title">发送成功</div>
+      </div>
+    </div>
+    <div class="tootip-modal" id="tootip-succeed">
+      <div class="tootip-icon">
+        <div class="tooptip-succeed">
+          <img src='<%= require("./assets/tootip-succeed.png") %>' alt="">
+        </div>
+      </div>
+      <div class="tootip-content">
+        <div class="tootip-title">提交成功</div>
+        <div class="tootip-description">ElephantBI团队会尽快跟您联系</div>
+      </div>
+    </div>
+    <div class="tootip-modal" id="tootip-err">
+      <div class="tootip-icon">
+        <div class="tooptip-err">
+          <img src='<%= require("./assets/tootip-err.png") %>' alt="">
+        </div>
+      </div>
+      <div class="tootip-content">
+        <div class="tootip-title">提交失败</div>
+        <div class="tootip-description">请电话联系：0411-39026089</div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -29,7 +29,7 @@ module.exports = [
     entry: {
       index: './src/mobile/css/index.less',
       product: './src/mobile/css/product.less',
-      server: './src/mobile/css/server.less',
+      service: './src/mobile/css/service.less',
       about: './src/mobile/css/about.less',
       demo: './src/mobile/css/demo.less',
       price: './src/mobile/css/price.less',
@@ -90,9 +90,9 @@ module.exports = [
         template: './src/mobile/product.html'
       }),
       new HtmlWebpackPlugin({
-        chunks: ['main', 'server'],
-        filename: 'server.html',
-        template: './src/mobile/server.html'
+        chunks: ['main', 'service'],
+        filename: 'service.html',
+        template: './src/mobile/service.html'
       }),
       new HtmlWebpackPlugin({
         chunks: ['main', 'about'],

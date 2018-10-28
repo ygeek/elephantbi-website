@@ -14,8 +14,9 @@
   padding: 0;
 
   .main-header {
-    margin: 150px 0 0 0;
     margin: 0 auto;
+    padding-top: 80px;
+    padding-bottom: 100px;
 
     .title {
       margin: 0;
@@ -24,14 +25,15 @@
       text-align: center;
       color: @color-purple;
       font-size: 42px;
+      font-weight: 500;
     }
     .description {
       display: inline-block;
       margin-top: 47px;
       padding: 0 48px;
-
+      font-weight: 400;
       text-align: center;
-      color: #64728c;
+      color: @color-purple;
       font-size: 24px;
     }
     .company-stage {
@@ -39,8 +41,9 @@
       margin: 0;
       padding: 100px 48px;
       text-align: center;
-      font-size: 24px;
+      font-size: 22px;
       color: #909caa;
+      font-weight: 400;
     }
   }
 }
@@ -52,7 +55,7 @@
   .title {
     padding: 0;
     margin: 0 0 20px 0;
-
+    font-weight: 500;
     color: #4a4a4a;
     font-size: 32px;
     text-align: center;
@@ -68,6 +71,7 @@
     .email {
       display: block;
       text-decoration: underline;
+      color: #6373e0
     }
   }
   .list {
@@ -141,19 +145,19 @@
 
 @span-height: 50px;
 .main-header-bg {
-  height: 100%;
+  height: 700px;
   width: 100%;
   overflow: hidden;
   position: absolute;
-  bottom: 0px;
+  top: 0px;
 
   .bg-block {
     display: block;
     content: '';
     width: 100%;
-    height: 900px;
+    height: 500px;
     position: absolute;
-    bottom: -400px;
+    bottom: -240px;
     z-index: -999;
     
     transform: skewY(-12deg);
@@ -168,14 +172,14 @@
   };
 
   span:nth-child(1) {
-    top: @span-height * -8;
+    top: @span-height * -5;
     left: 14%;
     width: 10%;
     
     border: 1px solid #f3f4f7;
   };
   span:nth-child(2) {
-    top: @span-height * -6;
+    top: @span-height * -3;
     left: 22%;
     width: 6%;
     

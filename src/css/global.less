@@ -51,6 +51,10 @@ body {
   font-weight: 400;
 }
 
+main.main-content {
+  padding-top: 78px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
@@ -71,10 +75,12 @@ header#nav-header {
   left: 0;
   right: 0;
   z-index: 500;
+  transition: all 0.3s ease;
 }
 
-main.main-content {
-  padding-top: 78px;
+#input-hosts:focus {
+  border: #63B8FF solid 1px;
+  outline: none;
 }
 
 .baseButton() {
@@ -86,11 +92,35 @@ main.main-content {
   font-size: 12px;
   border-width: 1px;
   border-style: solid;
-  border-radius: 3px;
+  border-radius: 2px;
   font-weight: 500;
-
+  transition: all 0.3s ease;
   &:hover {
     font-weight: bold;
+  }
+}
+
+.a-link-btn(@color, @backColor, @borderColor) {
+  display: inline-block;
+  text-align: center;
+  line-height: 32px;
+  height: 32px;
+  width: 100px;
+  background-color: @backColor;
+  color: @color;
+  font-size: 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: @borderColor;
+  border-radius: 2px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+    background-color: @backColor + #111;
+    border-color: @borderColor + #111;
   }
 }
 
@@ -109,7 +139,9 @@ main.main-content {
 }
 
 .nav-header {
-  background-color: #f3f9fc;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .nav-content-creat(@font-color, @full-btn-color, @full-font-color: #fff) {
@@ -169,6 +201,7 @@ main.main-content {
     text-align: left;
     line-height: 36px;
     color: #64728c;
+    transition: all 0.3s ease;
     cursor: pointer;
     a {
       margin: 0px;
@@ -212,6 +245,16 @@ main.main-content {
     background-color: #fff;
     border-radius: 6px;
     box-shadow: 2px 1px 4px #dedede;
+
+    .modal-arrow {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      top: -2px;
+      left: 70px;
+      transform: rotate(45deg);
+      background-color: #fff;
+    }
 
     .login-block-wrapper {
       display: inline-block;
@@ -292,7 +335,7 @@ main.main-content {
     button {
       .clearButtonStyle();
       
-      margin: 0 14px;
+      margin: 0 8px;
     }
 
     #nav-login {
@@ -307,6 +350,11 @@ main.main-content {
       &:hover {
         font-weight: bold;
       }
+    }
+    .register-btn {
+      .a-link-btn(@full-font-color, @full-btn-color, @full-btn-color);
+      margin-left: 8px;
+      margin-right: 50px;
     }
   }
   .page-list {
@@ -416,7 +464,7 @@ main.main-content {
     padding-left: 10px;
   }
   .footer-list-title {
-    font-weight: bold;
+    font-size: 14px;
   }
   .footer-nav-sq {
     margin-right: 50px;
@@ -498,7 +546,7 @@ main.main-content {
     display: inline-block;
     width: 920px;
     margin: 0 0 12px 0;
-
+    font-size: 14px;
     text-align: left;
     border: none;
     color: #606d8a;
@@ -510,12 +558,12 @@ main.main-content {
     .radio {
       display: inline-block;
       position: relative;
-      width: 16px;
-      height: 16px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       border:solid 1px #1db977;
       margin: 0 5px;
-      margin-bottom: -3px;
+      margin-bottom: -2px;
 
 
       cursor: pointer;
@@ -533,8 +581,8 @@ main.main-content {
     }
 
     input[type="radio"] {
-      width: 15px;
-      height: 15px;
+      width: 12px;
+      height: 12px;
       display: none;
     }
     input[type="radio"]:checked + div{
@@ -570,6 +618,10 @@ main.main-content {
     font-size: 14px;
     word-spacing: 3px;
     letter-spacing: 3px;
+    &:hover {
+      background-color: @color-green + #111;
+      border-color: @color-green + #111
+    }
   }
 }
 
@@ -817,4 +869,20 @@ main.main-content {
   vertical-align: bottom;
   font-size: 12px;
   margin-top: 50px;
+}
+
+.adjust-footer-icon {
+  margin-top: 3px;
+}
+
+.modal-cover {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  background-color: #000;
+  z-index: 600;
+  opacity: 0.5
 }
