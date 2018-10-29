@@ -1919,14 +1919,16 @@ window.onload = function () {
     closeVideoBtn.addEventListener('click', function() {
       toggleVideoCover('hide')
       toggleVideo('hide')
+      toggleVideoMask('hide')
     })
   }
 
-  const videoColor = document.getElementById('video-cover')
-  if (videoColor) {
-    videoColor.addEventListener('click', function() {
+  const videoCovor = document.getElementById('video-cover')
+  if (videoCovor) {
+    videoCovor.addEventListener('click', function() {
       toggleVideoCover('hide')
       toggleVideo('hide')
+      toggleVideoMask('hide')
     })
   }
 }
