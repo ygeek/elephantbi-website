@@ -244,6 +244,11 @@ const clearForm = () => {
   form1.title.value = '';
 };
 
+const getSource = () => {
+  const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
+  return '官网 - www' + '.' + matchBackHost[3] + '.' + matchBackHost[4]
+}
+
 const submitForm = () => {
   const name = form1.name.value;
   const email = form1.email.value;
@@ -291,7 +296,7 @@ const submitForm = () => {
     company,
     department,
     title,
-    source: SOURCE
+    source: getSource()
   };
   request('/website/trail', params)
     .then(({ data }) => {
@@ -342,7 +347,7 @@ const submitFormReserve = () => {
     company,
     type,
     content,
-    source: SOURCE
+    source: getSource()
   };
 
   const allItem = formReserve.querySelectorAll('.form-item');
@@ -696,7 +701,6 @@ const submitRegister = () => {
   //     email_domains.push(inputDomains[i].value)
   //   }
   // }
-  const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
   const params = {
     domain: registerUrl,
     name: registerGroupName,
@@ -712,7 +716,7 @@ const submitRegister = () => {
     token: aliVerification.nc_token,
     sig: aliVerification.sig,
     session_id: aliVerification.csessionid,
-    source: '官网 - www' + '.' + matchBackHost[3] + '.' + matchBackHost[4]
+    source: getSource()
   }
 
   request('/team/create', params)
@@ -1080,7 +1084,7 @@ const submitFeedback = () => {
     mobile,
     company,
     content: remark,
-    source: '官网'
+    source: getSource()
   }
   request('/website/feedback', params).then(({ data }) => {
     if (data) {
@@ -1235,7 +1239,7 @@ const submitDemo = () => {
     name, email, mobile,
     company, industry, scale,
     department, position, remarks,
-    source: '官网'
+    source: getSource()
   }
   request('/website/trail', params).then((data) => {
     if (data) {
