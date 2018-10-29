@@ -1882,4 +1882,12 @@ window.onload = function () {
       toggleVideo('hide')
     })
   }
+
+  const videoColor = document.getElementById('video-cover')
+  if (videoColor) {
+    videoColor.addEventListener('click', function() {
+      toggleVideoCover('hide')
+      toggleVideo('hide')
+    })
+  }
 }

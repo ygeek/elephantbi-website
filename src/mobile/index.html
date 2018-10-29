@@ -335,16 +335,19 @@
     </footer>
   </div>
   <div class="modal-cover" id="modal-cover"></div>
-  <video
-    id="video-player"
-    loop
-    class="video-js"
-    controls
-    preload="auto"
-    data-setup='{}'
-  >
-    <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-  </video>
+  <div class="video-cover" id="video-cover"></div>
+  <div class="official-video" id="official-video">
+    <video
+      id="video-player"
+      loop
+      class="video-js"
+      controls
+      preload="auto"
+      data-setup='{}'
+    >
+      <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="nav-modal" id="nav-modal-id">
     <img src='<%= require("./assets/nav-modal-close.png") %>' width="44" height="44" class="nav-close" id="nav-modal-close-id">
     <img alt="" src='<%= require("./assets/logo.svg") %>' class="nav-logo" />
