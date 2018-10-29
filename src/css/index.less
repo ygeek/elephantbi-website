@@ -95,16 +95,14 @@ main.main-content {
       position: absolute;
       top: 160px;
       left: 50%;
-      width: 255px;
-      transform: translateX(-220%)
+      transform: translateX(-190%)
     }
 
     .main-banner-2 {
       position: absolute;
       bottom: 60px;
       right: 50%;
-      width: 255px;
-      transform: translateX(210%)
+      transform: translateX(172%)
     }
 
     .main-cover {
@@ -607,6 +605,58 @@ main.main-content {
   width: 960px;
   height: 540px;
   transform: translateX(-50%) translateY(-50%);
+  .video-mask {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 800;
+    text-align: center;
+    display: none;
+    .video-replay {
+      display: block;
+      margin: 216px auto 0px auto;
+      width: 24px;
+      cursor: pointer;
+    }
+    .replay-text {
+      font-size: 12px;
+      color: #fff;
+      margin-top: 4px;
+    }
+    .actions {
+      margin-top: 20px;
+      .free-btn {
+        .a-link-btn(#fff, #40d08f, #40d08f);
+        height: 30px;
+        line-height: 30px;
+        margin-right: 20px;
+      }
+      .reserve-btn {
+        .a-link-btn(#40d08f, #fff, #fff);
+        height: 30px;
+        line-height: 30px;
+        &:hover {
+          background-color: #f5f5f9;
+          border-color: #f5f5f9;
+        }
+      }
+    }
+    .custom-service-sq {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: #d1d1d1;
+      img {
+        margin: 0px auto 10px auto;
+        display: block;
+      }
+    }
+  }
   .video-js {
     width: 100%;
     width: 960px;

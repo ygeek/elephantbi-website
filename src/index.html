@@ -411,6 +411,18 @@
   <div class="modal-cover" id="modal-cover"></div>
   <div class="video-cover" id="video-cover"></div>
   <div class="official-video" id="official-video">
+    <div class="video-mask" id="video-mask">
+      <img alt="" src='<%= require("./assets/replay.svg") %>' id="video-replay" class="video-replay" />
+      <div class="replay-text">重新播放</div>
+      <div class="actions">
+        <a class="free-btn" href="./register.html">免费注册</a>
+        <a class="reserve-btn" href="./demo.html">预约演示</a>
+      </div>
+      <div class="custom-service-sq">
+        <img alt="" src='<%= require("./assets/customService.jpg") %>' width=80 height=80 class="custom-service" />
+        扫描二维码联系客服
+      </div>
+    </div>
     <video
       id="video-player"
       class="video-js"

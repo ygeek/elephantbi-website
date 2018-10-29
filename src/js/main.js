@@ -1443,7 +1443,44 @@ const toggleVideo = (type) => {
   }
 }
 
+function launchFullscreen(element) {
+  if(element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if(element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if(element.msRequestFullscreen){
+    element.msRequestFullscreen();
+  } else if(element.webkitRequestFullscreen) {
+    element.webkitRequestFullScreen();
+  }
+}
+
+const toggleVideoMask = (type) => {
+  const videoMask = document.getElementById('video-mask');
+  if (videoMask) {
+    videoMask.style.display = (type === 'show' ? 'block' : 'none')
+  }
+}
+
+const replayVideo = () => {
+  const player = videojs('video-player')
+  toggleVideoMask('hide')
+  player.play()
+}
+
 window.onload = function () {
+  const videoPlayer = document.getElementById('video-player')
+  if (videoPlayer) {
+    const player = videojs('video-player')
+    player.on('ended', () => {
+      toggleVideoMask('show')
+    })
+  }
+  const videoReplayBtn = document.getElementById('video-replay')
+  if (videoReplayBtn) {
+    videoReplayBtn.addEventListener('click', replayVideo)
+  }
+
   if (window.location.pathname === '/register-info.html') {
     const mobile = sessionStorage.getItem('mobile')
     if (!mobile) {

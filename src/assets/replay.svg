@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="30px" viewBox="0 0 24 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_replay_px</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="视频静止画面-copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-588.000000, -448.000000)">
+        <g id="Group-3" transform="translate(490.000000, 448.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Group-4" transform="translate(86.000000, 0.000000)">
+                <g id="ic_replay_px" transform="translate(12.000000, 0.000000)">
+                    <path d="M11.8333335,6.50000035 L11.8333335,0.750000366 L4.6458335,7.93750036 L11.8333335,15.1250004 L11.8333335,9.37500037 C16.598646,9.37500037 20.4583335,13.2346879 20.4583335,18.0000004 C20.4583335,22.7653129 16.598646,26.6250004 11.8333335,26.6250004 C7.068021,26.6250004 3.20833349,22.7653129 3.20833349,18.0000004 L0.3333335,18.0000004 C0.3333335,24.3537504 5.47958352,29.5000004 11.8333335,29.5000004 C18.1870835,29.5000004 23.3333335,24.3537504 23.3333335,18.0000004 C23.3333335,11.6462504 18.1870835,6.50000038 11.8333335,6.50000035 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
