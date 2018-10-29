@@ -1461,6 +1461,10 @@ window.onload = function () {
   const loginFixed = document.getElementById('login-fixed')
   const joinFixed = document.getElementById('join-fixed')
   const registerFixed = document.getElementById('register-fixed')
+  const videoSource = document.getElementById('video-source')
+  if (videoSource) {
+    videoSource.setAttribute('src', matchBackHost[1] + '://www.' + matchBackHost[3] + '.' + matchBackHost[4] + '/elephantbi.mp4')
+  }
   if (registerFixed) {
     if (matchBackHost) {
       registerFixed.innerText = matchBackHost[3] + '.' + matchBackHost[4]

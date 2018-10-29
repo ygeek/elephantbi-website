@@ -20,6 +20,7 @@ RUN NODE_ENV=production yarn run build && \
     rm -f /etc/nginx/sites-enabled/* && \
     mkdir -p /usr/share/nginx/html && \
     cp -r dist/* /usr/share/nginx/html && \
+    cp src/elephantbi.mp4 /usr/share/nginx/html && \
     cp -r root_pc/* /usr/share/nginx/html
 
 EXPOSE 80
