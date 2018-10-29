@@ -686,24 +686,7 @@ const submitRegister = () => {
   if (!registerEmailMobileValidate(registerEmail)) { errorNum += 1 }
   if (!verifyCodeValidate(registerVerifiedCode)) { errorNum += 1 }
   if (!passwordSetValidate(registerPasswordSet)) { errorNum += 1 }
-  // if (!passwordConfirmValidate(registerPasswordConfirm)) {
-  //   const formItem = registerForm.registerPasswordConfirm.parentNode
-  //   if (formItem.className.indexOf('error') == -1) {
-  //     formItem.className = formItem.className + ' error'
-  //   }
-  //   errorNum += 1
-  // }
-
   if (!registerDisplayNameValidate(registerDisplayName)) { errorNum += 1 }
-
-  // if (!registerGroupMobile && registerTypeGroup) {
-  //   const formItem = registerForm.registerDisplayMobile.parentNode
-  //   if (formItem.className.indexOf('error') == -1) {
-  //     formItem.className = formItem.className + ' error'
-  //   }
-  //   errorNum += 1
-  // }
-
   if (errorNum > 0) {
     return false
   }
@@ -1457,6 +1440,13 @@ const toggleVideo = (type) => {
 }
 
 window.onload = function () {
+  if (window.location.pathname === '/register-info.html') {
+    const mobile = sessionStorage.getItem('mobile')
+    if (!mobile) {
+      window.location.href = window.location.origin + '/register.html'
+    }
+  }
+
   if (sessionStorage.getItem('aliVerification')) {
     sessionStorage.removeItem('aliVerification')
   }
