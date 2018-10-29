@@ -21,7 +21,7 @@
     window.DEMOURL = 'DEMO_URL'
   </script>
   <script>
-    if (window.host === 'https://www.elephantbi.com') {
+    if (window.host === 'https://www.elephantbi.com') {      
       var _hmt = _hmt || [];
       (function () {
         var hm = document.createElement("script");
@@ -415,8 +415,8 @@
       <img alt="" src='<%= require("./assets/replay.svg") %>' id="video-replay" class="video-replay" />
       <div class="replay-text">重新播放</div>
       <div class="actions">
-        <a class="free-btn" href="./register.html">免费注册</a>
-        <a class="reserve-btn" href="./demo.html">预约演示</a>
+        <a id="video-register-btn" class="free-btn" href="./register.html">免费注册</a>
+        <a id="video-demo-btn" onclick="_hmt.push(['_trackEvent', 'demo'])" class="reserve-btn" href="./demo.html">预约演示</a>
       </div>
       <div class="custom-service-sq">
         <img alt="" src='<%= require("./assets/customService.jpg") %>' width=80 height=80 class="custom-service" />

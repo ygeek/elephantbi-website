@@ -1468,12 +1468,24 @@ const replayVideo = () => {
   player.play()
 }
 
+const pushHmt = (action, duration) => {
+  if (_hmt) {
+    _hmt.push(['_trackEvent', 'video', action, 'duration', duration])
+  }
+}
+
 window.onload = function () {
   const videoPlayer = document.getElementById('video-player')
   if (videoPlayer) {
     const player = videojs('video-player')
     player.on('ended', () => {
       toggleVideoMask('show')
+    })
+    player.on('play', () => {
+      pushHmt('play', player.currentTime())
+    })
+    player.on('pause', () => {
+      pushHmt('pause', player.currentTime())
     })
   }
   const videoReplayBtn = document.getElementById('video-replay')
@@ -1916,19 +1928,37 @@ window.onload = function () {
 
   const closeVideoBtn = document.getElementById('close-video');
   if (closeVideoBtn) {
+    const player = videojs('video-player')
     closeVideoBtn.addEventListener('click', function() {
       toggleVideoCover('hide')
       toggleVideo('hide')
       toggleVideoMask('hide')
+      pushHmt('close', player.currentTime())
     })
   }
 
   const videoCovor = document.getElementById('video-cover')
   if (videoCovor) {
+    const player = videojs('video-player')
     videoCovor.addEventListener('click', function() {
       toggleVideoCover('hide')
       toggleVideo('hide')
       toggleVideoMask('hide')
+      pushHmt('close', player.currentTime())
+    })
+  }
+
+  const videoRegisterBtn = document.getElementById('video-register-btn')
+  if (videoRegisterBtn) {
+    videoRegisterBtn.addEventListener('click', function() {
+      pushHmt('register')
+    })
+  }
+
+  const videoDemoBtn = document.getElementById('video-demo-btn')
+  if (videoDemoBtn) {
+    videoDemoBtn.addEventListener('click', function() {
+      pushHmt('demo')
     })
   }
 }
