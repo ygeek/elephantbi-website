@@ -1461,10 +1461,6 @@ window.onload = function () {
   const loginFixed = document.getElementById('login-fixed')
   const joinFixed = document.getElementById('join-fixed')
   const registerFixed = document.getElementById('register-fixed')
-  const videoSource = document.getElementById('video-source')
-  if (videoSource) {
-    videoSource.setAttribute('src', matchBackHost[1] + '://www.' + matchBackHost[3] + '.' + matchBackHost[4] + '/elephantbi.mp4')
-  }
   if (registerFixed) {
     if (matchBackHost) {
       registerFixed.innerText = matchBackHost[3] + '.' + matchBackHost[4]
@@ -1565,10 +1561,12 @@ window.onload = function () {
   // if (wxbtnserverlogin) {
   //   wxbtnserverlogin.addEventListener('click', openWxServer, true);
   // }
-  window.onscroll = function() {
+  window.onscroll = function() { //页面滚动
     changeHeader() //
     toggleNavModalVisible('hide');
   }
+
+  changeHeader() //刷新页面触发一次
 
   const formSubmitBtn = document.getElementById('form-submit-btn-id'); //移动端表单提交按钮
   const loginModal = document.getElementById('login-modal'); //登陆弹窗

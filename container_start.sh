@@ -63,4 +63,7 @@ sed -i "s/DEMO_URL/${DEMO_URL}/g" $registerFile
 registerInfoFile=/usr/share/nginx/html/register-info.html
 sed -i "s/DEMO_URL/${DEMO_URL}/g" $registerInfoFile
 
+indexFile=/usr/share/nginx/html/index.html
+sed -i "s/VIDEO_URL/${VIDEO_URL}/g" $indexFile
+
 nginx -p /usr/share/nginx -g "daemon off;"
