@@ -51,10 +51,6 @@ body {
   font-weight: 400;
 }
 
-main.main-content {
-  padding-top: 78px;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
@@ -280,14 +276,14 @@ header#nav-header {
     }
 
     .login-block {
-      display: table;
+      display: flex;
       border-collapse: separate;
       border-spacing: 0;
       width: 100%;
       position: relative;
     }
     .login-cell {
-      display: table-cell;
+      display: inline-block;
       height: 36px;
       box-sizing: border-box;
       padding: 6px 11px;
@@ -423,7 +419,7 @@ header#nav-header {
     display: inline-block;
     margin: 0 35px;
     -webkit-padding-start: 0px;
-
+    padding-left: 0px;
     @media screen and (max-width: 1300px) {
       margin: 0 25px;
     }
@@ -522,14 +518,13 @@ header#nav-header {
     width: 905px;
     min-height: 182px;
     padding: 10px;
-    margin-bottom: 40px;
 
     border-radius: 6px;
     resize: none;
     font-size: 14px;
     color: #6d6d8a;
     font-family: Arial;
-    border-color: #ccd3da;
+    border: 1px solid #ccd3da;
     outline: none;
 
     &:focus {
@@ -727,8 +722,7 @@ header#nav-header {
 
 .form-wrap {
   display: inline-block;
-  height: 150px;
-
+  margin-bottom: 40px;
   &:after {
     content: ' ';
     display: block;
@@ -746,7 +740,7 @@ header#nav-header {
   &:after {
     content: attr(data-err) !important;
     position: absolute;
-    bottom: -140px;
+    bottom: -80px;
     display: block;
     padding-left: 25px;
     transform: translateY(-60px);

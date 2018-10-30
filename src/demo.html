@@ -100,118 +100,121 @@
                 <button class="login-btn" id="login-product">登录</button>
               </div>
             </span>
-            <a class="register-btn" href="./register.html" >免费注册</a>
+            <a class="register-btn" href="./register.html">免费注册</a>
           </li>
         </ul>
       </nav>
     </header>
     <main class="main-content">
       <div class="main-wrapper">
-        <div class="main-title">数据驱动，精准决策</div>
-        <div class="main-description">填写右侧信息，我们将会尽快与您联系安排演示；您也可以直接致电0411-39026089联系我们</div>
-        <div class="main-line"></div>
-        <img src='<%= require("./assets/demobg@2x.png") %>' class="demo-banner" width=390 height=245 />
-        <div class="form-section">
-          <div class="demo-title">我要预约免费演示</div>
-          <div class="demo-description">为更好的制定针对性的数据方案，请让我们了解您更多，行业顾问将在24小时内与您取得联系</div>
-          <form name="demoForm">
-            <div class="demo-item">
-              <span class="label">姓名</span>
-              <div class="demo-form-item" data-err="请输入您的姓名">
-                <input id="demo-name" name="demoName" placeholder="请输入您的姓名" />
-              </div>
-            </div>
-            <div class="demo-item">
-              <span class="label">工作邮箱</span>
-              <div class="demo-form-item" data-err="请输入电子邮箱">
-                <input id="demo-email" name="demoEmail" placeholder="请输入电子邮箱" />
-              </div>
-            </div>
-            <div class="demo-item">
-              <span class="label">电话</span>
-              <div class="demo-form-item" data-err="请输入手机号">
-                <input id="demo-mobile" name="demoMobile" placeholder="请输入手机号" />
-              </div>
-            </div>
-            <div class="demo-item">
-              <span class="label">公司名称</span>
-              <div class="demo-form-item" data-err="请输入您所在的公司名称">
-                <input id="demo-company" name="demoCompany" placeholder="请输入您所在的公司名称" />
-              </div>
-            </div>
-            <div class="demo-item">
-              <span class="label">所属行业</span>
-              <div class="demo-form-item" data-err="请选择您所属行业">
-                <input onfocus="this.blur()" class="eg" name="demoIndustry" placeholder="请选择您所属行业" id="demo-industry" />
-                <div class="options">
-                  <div value="互联网及IT行业">互联网及IT行业</div>
-                  <div value="零售行业">零售行业</div>
-                  <div value="企业服务行业">企业服务行业</div>
-                  <div value="文娱行业">文娱行业</div>
-                  <div value="教育行业">教育行业</div>
-                  <div value="金融行业">金融行业</div>
-                  <div value="制造行业">制造行业</div>
-                  <div value="电商行业">电商行业</div>
-                  <div value="餐饮行业">餐饮行业</div>
-                  <div value="物流行业">物流行业</div>
-                  <div value="旅游行业">旅游行业</div>
-                  <div value="保险行业">保险行业</div>
-                  <div value="农产品行业">农产品行业</div>
-                  <div value="电气化工行业">电气化工行业</div>
-                  <div value="科技研发行业">科技研发行业</div>
-                  <div value="生活服务行业">生活服务行业</div>
-                  <div value="其他行业">其他行业</div>
+        <div class="main-content">
+          <div class="main-title">数据驱动，精准决策</div>
+          <div class="main-description">填写右侧信息，我们将会尽快与您联系安排演示；您也可以直接致电0411-39026089联系我们</div>
+          <div class="main-line"></div>
+          <img src='<%= require("./assets/demobg@2x.png") %>' class="demo-banner" width=390 height=245 />
+          <div class="form-section">
+            <div class="demo-title">我要预约免费演示</div>
+            <div class="demo-description">为更好的制定针对性的数据方案，请让我们了解您更多，行业顾问将在24小时内与您取得联系</div>
+            <form name="demoForm">
+              <div class="demo-item">
+                <span class="label">姓名</span>
+                <div class="demo-form-item" data-err="请输入您的姓名">
+                  <input id="demo-name" name="demoName" placeholder="请输入您的姓名" />
                 </div>
               </div>
-            </div>
-            <div class="demo-item">
-              <span class="label">公司规模</span>
-              <div class="demo-form-item" data-err="请选择您所在的公司规模">
-                <input onfocus="this.blur()" class="eg" name="demoScale" placeholder="请选择您所在的公司规模" id="demo-scale" />
-                <div class="options">
-                  <div value="1-15人">1-15人</div>
-                  <div value="16-50人">16-50人</div>
-                  <div value="51-200人">51-200人</div>
-                  <div value="201-500人">201-500人</div>
-                  <div value="501-2000人">501-2000人</div>
-                  <div value="2001-5000人">2001-5000人</div>
-                  <div value="5001及以上">5001及以上</div>
+              <div class="demo-item">
+                <span class="label">工作邮箱</span>
+                <div class="demo-form-item" data-err="请输入电子邮箱">
+                  <input id="demo-email" name="demoEmail" placeholder="请输入电子邮箱" />
                 </div>
               </div>
-            </div>
-            <div class="demo-item">
-              <span class="label">所属部门</span>
-              <div class="demo-form-item">
-                <input onfocus="this.blur()" class="eg" name="demoDepart" placeholder="请选择您的所属部门" />
-                <div class="options">
-                  <div value="人事部">人事部</div>
-                  <div value="财务部">财务部</div>
-                  <div value="行政部">行政部</div>
-                  <div value="销售部">销售部</div>
-                  <div value="技术部">技术部</div>
-                  <div value="市场部">市场部</div>
-                  <div value="运营部">运营部</div>
-                  <div value="产品部">产品部</div>
-                  <div value="其他部门">其他部门</div>
+              <div class="demo-item">
+                <span class="label">电话</span>
+                <div class="demo-form-item" data-err="请输入手机号">
+                  <input id="demo-mobile" name="demoMobile" placeholder="请输入手机号" />
                 </div>
               </div>
-            </div>
-            <div class="demo-item">
-              <span class="label">现任职位</span>
-              <div class="demo-form-item">
-                <input id="position" name="demoPosi" placeholder="请输入您的现任职位" />
+              <div class="demo-item">
+                <span class="label">公司名称</span>
+                <div class="demo-form-item" data-err="请输入您所在的公司名称">
+                  <input id="demo-company" name="demoCompany" placeholder="请输入您所在的公司名称" />
+                </div>
               </div>
-            </div>
-            <div class="demo-item">
-              <div class="demo-form-item">
-                <textarea name="demoRemark" placeholder="请描述您希望在演示中了解的内容或问题"></textarea>
+              <div class="demo-item">
+                <span class="label">所属行业</span>
+                <div class="demo-form-item" data-err="请选择您所属行业">
+                  <input onfocus="this.blur()" class="eg" name="demoIndustry" placeholder="请选择您所属行业" id="demo-industry" />
+                  <div class="options">
+                    <div value="互联网及IT行业">互联网及IT行业</div>
+                    <div value="零售行业">零售行业</div>
+                    <div value="企业服务行业">企业服务行业</div>
+                    <div value="文娱行业">文娱行业</div>
+                    <div value="教育行业">教育行业</div>
+                    <div value="金融行业">金融行业</div>
+                    <div value="制造行业">制造行业</div>
+                    <div value="电商行业">电商行业</div>
+                    <div value="餐饮行业">餐饮行业</div>
+                    <div value="物流行业">物流行业</div>
+                    <div value="旅游行业">旅游行业</div>
+                    <div value="保险行业">保险行业</div>
+                    <div value="农产品行业">农产品行业</div>
+                    <div value="电气化工行业">电气化工行业</div>
+                    <div value="科技研发行业">科技研发行业</div>
+                    <div value="生活服务行业">生活服务行业</div>
+                    <div value="其他行业">其他行业</div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </form>
-          <button id="demo-submit">
-            立即预约
-          </button>
+              <div class="demo-item">
+                <span class="label">公司规模</span>
+                <div class="demo-form-item" data-err="请选择您所在的公司规模">
+                  <input onfocus="this.blur()" class="eg" name="demoScale" placeholder="请选择您所在的公司规模" id="demo-scale" />
+                  <div class="options">
+                    <div value="1-15人">1-15人</div>
+                    <div value="16-50人">16-50人</div>
+                    <div value="51-200人">51-200人</div>
+                    <div value="201-500人">201-500人</div>
+                    <div value="501-2000人">501-2000人</div>
+                    <div value="2001-5000人">2001-5000人</div>
+                    <div value="5001及以上">5001及以上</div>
+                  </div>
+                </div>
+              </div>
+              <div class="demo-item">
+                <span class="label">所属部门</span>
+                <div class="demo-form-item">
+                  <input onfocus="this.blur()" class="eg" name="demoDepart" placeholder="请选择您的所属部门" />
+                  <div class="options">
+                    <div value="人事部">人事部</div>
+                    <div value="财务部">财务部</div>
+                    <div value="行政部">行政部</div>
+                    <div value="销售部">销售部</div>
+                    <div value="技术部">技术部</div>
+                    <div value="市场部">市场部</div>
+                    <div value="运营部">运营部</div>
+                    <div value="产品部">产品部</div>
+                    <div value="其他部门">其他部门</div>
+                  </div>
+                </div>
+              </div>
+              <div class="demo-item">
+                <span class="label">现任职位</span>
+                <div class="demo-form-item">
+                  <input id="position" name="demoPosi" placeholder="请输入您的现任职位" />
+                </div>
+              </div>
+              <div class="demo-item">
+                <div class="demo-form-item">
+                  <textarea name="demoRemark" placeholder="请描述您希望在演示中了解的内容或问题"></textarea>
+                </div>
+              </div>
+            </form>
+            <button id="demo-submit">
+              立即预约
+            </button>
+          </div>
         </div>
+
       </div>
   </div>
   </main>

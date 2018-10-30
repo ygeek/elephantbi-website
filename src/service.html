@@ -106,136 +106,139 @@
       </nav>
     </header>
     <main class="main-content">
-      <div class="main-header-bg" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="service-content">
+        <div class="main-header-bg" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <header class="main-header">
+          <h1 class="title">服务支持</h1>
+          <span class="description">ElephantBI拥有专业的商务团队和技术支持团队，将为您提供专业的服务</span>
+          <div class="banner">
+            <img class="banner-image" src='<%= require("./assets/main-header-banner-server.png") %>' width=415 height=380>
+          </div>
+          <div>
+            <a class="free-btn" href="./register.html">免费试用</a>
+            <a class="reserve-btn demo-btn" href="./demo.html">预约演示</a>
+          </div>
+        </header>
+        <section class="server-stage">
+          <div class="server-banner-item">
+            <ul>
+              <li class="server-title">
+                <img src='<%= require("./assets/wxService.svg") %>' width=46 height=48 />
+                <p>
+                  微信客服
+                </p>
+              </li>
+              <img class="wx-service-sq" src='<%= require("./assets/customService.jpg") %>' width="128" height="128" />
+            </ul>
+          </div>
+          <div class="server-banner-item">
+            <ul>
+              <li class="server-title">
+                <img src='<%= require("./assets/server-title-icon2.png") %>' width=53 height=44 />
+                <p>
+                  商务咨询
+                </p>
+              </li>
+              <li class="server-item">
+                <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
+                <span>0411-39026089</span>
+              </li>
+              <li class="server-item">
+                <img src='<%= require("./assets/footer-email.png") %>' />
+                <span>bd@elephantbi.com</span>
+              </li>
+            </ul>
+          </div>
+          <div class="server-banner-item">
+            <ul>
+              <li class="server-title">
+                <img src='<%= require("./assets/server-title-icon1.png") %>' width=43 height=44 />
+                <p>
+                  技术支持
+                </p>
+              </li>
+              <li class="server-item">
+                <img src='<%= require("./assets/footer-time.png") %>' />
+                <span>09:00~19:00</span>
+              </li>
+              <li class="server-item">
+                <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
+                <span>18004083463</span>
+              </li>
+              <li class="server-item">
+                <img src='<%= require("./assets/footer-email.png") %>' />
+                <span>support@elephantbi.com</span>
+              </li>
+            </ul>
+          </div>
+          <div class="server-banner-item">
+            <ul>
+              <li class="server-title">
+                <img src='<%= require("./assets/server-title-icon3.png") %>' width=44 height=44 />
+                <p>
+                  投诉
+                </p>
+              </li>
+              <li class="server-item">
+                <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
+                <span>总裁办电话 15910603382</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <div class="line"></div>
+        <section class="reserve-form">
+          <h3 class="reserve-form-title">我的反馈</h3>
+          <p class="reserve-form-subtitle">请将您的问题或建议填写在下方，并可留下联系方式，ElephantBI团队将及时向您反馈处理结果</p>
+          <form action="POST" name="formReserve">
+            <span class="form-radio">
+              <label for="1">
+                <input type="radio" name="type" id="1" checked />
+                <div class="radio"></div>
+                问题反馈
+              </label>
+              <label for="2">
+                <input type="radio" name="type" id="2" />
+                <div class="radio"></div>
+                功能建议
+              </label>
+            </span>
+            <span class="form-wrap" data-attr="请填写问题或建议">
+              <textarea class="form-textarea" name="content" id="content" cols="96" rows="5" placeholder="请填写您想反馈的问题或建议"></textarea>
+            </span>
+            <span class="form-item" data-attr="请输入姓名">
+              <img src='<%= require("./assets/input-name.png") %>' />
+              <input class="form-input" type="text" name="name" placeholder="姓名" />
+            </span>
+            <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱">
+              <img src='<%= require("./assets/input-email.png") %>' />
+              <input class="form-input" type="text" name="email" placeholder="邮箱" />
+            </span>
+            <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)">
+              <img src='<%= require("./assets/input-phone.png") %>' />
+              <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
+            </span>
+            <span class="form-item" data-attr="请输入公司姓名">
+              <img src='<%= require("./assets/input-companyname.png") %>' />
+              <input class="form-input" type="text" name="company" placeholder="公司名称" />
+            </span>
+          </form>
+          <button class="form-submit-btn" id="form-reserve-submit-btn-id">提交</button>
+        </section>
       </div>
-      <header class="main-header">
-        <h1 class="title">服务支持</h1>
-        <span class="description">ElephantBI拥有专业的商务团队和技术支持团队，将为您提供专业的服务</span>
-        <div class="banner">
-          <img class="banner-image" src='<%= require("./assets/main-header-banner-server.png") %>' width=415 height=380>
-        </div>
-        <div>
-          <a class="free-btn" href="./register.html">免费试用</a>
-          <a class="reserve-btn demo-btn" href="./demo.html">预约演示</a>
-        </div>
-      </header>
-      <section class="server-stage">
-        <div class="server-banner-item">
-          <ul>
-            <li class="server-title">
-              <img src='<%= require("./assets/wxService.svg") %>' width=46 height=48 />
-              <p>
-                微信客服
-              </p>
-            </li>
-            <img class="wx-service-sq" src='<%= require("./assets/customService.jpg") %>' width="128" height="128" />
-          </ul>
-        </div>
-        <div class="server-banner-item">
-          <ul>
-            <li class="server-title">
-              <img src='<%= require("./assets/server-title-icon2.png") %>' width=53 height=44 />
-              <p>
-                商务咨询
-              </p>
-            </li>
-            <li class="server-item">
-              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
-              <span>0411-39026089</span>
-            </li>
-            <li class="server-item">
-              <img src='<%= require("./assets/footer-email.png") %>' />
-              <span>bd@elephantbi.com</span>
-            </li>
-          </ul>
-        </div>
-        <div class="server-banner-item">
-          <ul>
-            <li class="server-title">
-              <img src='<%= require("./assets/server-title-icon1.png") %>' width=43 height=44 />
-              <p>
-                技术支持
-              </p>
-            </li>
-            <li class="server-item">
-              <img src='<%= require("./assets/footer-time.png") %>' />
-              <span>09:00~19:00</span>
-            </li>
-            <li class="server-item">
-              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
-              <span>18004083463</span>
-            </li>
-            <li class="server-item">
-              <img src='<%= require("./assets/footer-email.png") %>' />
-              <span>support@elephantbi.com</span>
-            </li>
-          </ul>
-        </div>
-        <div class="server-banner-item">
-          <ul>
-            <li class="server-title">
-              <img src='<%= require("./assets/server-title-icon3.png") %>' width=44 height=44 />
-              <p>
-                投诉
-              </p>
-            </li>
-            <li class="server-item">
-              <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
-              <span>总裁办电话 15910603382</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <div class="line"></div>
-      <section class="reserve-form">
-        <h3 class="reserve-form-title">我的反馈</h3>
-        <p class="reserve-form-subtitle">请将您的问题或建议填写在下方，并可留下联系方式，ElephantBI团队将及时向您反馈处理结果</p>
-        <form action="POST" name="formReserve">
-          <span class="form-radio">
-            <label for="1">
-              <input type="radio" name="type" id="1" checked />
-              <div class="radio"></div>
-              问题反馈
-            </label>
-            <label for="2">
-              <input type="radio" name="type" id="2" />
-              <div class="radio"></div>
-              功能建议
-            </label>
-          </span>
-          <span class="form-wrap" data-attr="请填写问题或建议">
-            <textarea class="form-textarea" name="content" id="content" cols="96" rows="5" placeholder="请填写您想反馈的问题或建议"></textarea>
-          </span>
-          <span class="form-item" data-attr="请输入姓名">
-            <img src='<%= require("./assets/input-name.png") %>' />
-            <input class="form-input" type="text" name="name" placeholder="姓名" />
-          </span>
-          <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱">
-            <img src='<%= require("./assets/input-email.png") %>' />
-            <input class="form-input" type="text" name="email" placeholder="邮箱" />
-          </span>
-          <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)">
-            <img src='<%= require("./assets/input-phone.png") %>' />
-            <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
-          </span>
-          <span class="form-item" data-attr="请输入公司姓名">
-            <img src='<%= require("./assets/input-companyname.png") %>' />
-            <input class="form-input" type="text" name="company" placeholder="公司名称" />
-          </span>
-        </form>
-        <button class="form-submit-btn" id="form-reserve-submit-btn-id">提交</button>
-      </section>
+
     </main>
     <footer class="footer-content">
       <ul class="footer-nav">
