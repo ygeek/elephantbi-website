@@ -1384,41 +1384,6 @@ const registerEmailMobileValidate = (value) => { //邮箱手机号校验
   }
 }
 
-const sendVerification = () => { //发送存储验证码
-  let second = 60;
-  const authCodeTip = document.getElementById('auth-code-tip')
-  authCodeTip.style.visibility = 'visible'
-  const timer = setInterval(() => {
-    second -= 1
-    authCodeTip.innerText = second + '秒后可重新获取'
-    if (second === 0) {
-      clearInterval(timer)
-      authCodeTip.style.visibility = 'hidden'
-      second = 60
-      authCodeTip.innerText = second + '秒后可重新获取'
-      nc.reload()
-    }
-  }, 1000)
-  const aliVerification = JSON.parse(sessionStorage.getItem('aliVerification'))
-  const registerTypeGroup = registerForm.registerType[0].checked
-  const registerEmail = registerForm.registerEmail.value
-  const params = {
-    auth_type: registerTypeGroup ? 0 : 1,
-    send_to: registerEmail,
-    code_type: 2,
-    scene: aliVerification.scene,
-    nc_token: aliVerification.nc_token,
-    csessionid: aliVerification.csessionid,
-    sig: aliVerification.sig
-  }
-  request('/auth/code', params)
-    .then(({ data }) => {
-      if (data) {
-      } else {
-      }
-    });
-}
-
 const toggleModalCover = (type) => {
   const modalCover = document.getElementById('modal-cover')
   if (modalCover) {
@@ -1586,12 +1551,46 @@ window.onload = function () {
       _error300: "哎呀，出错了，点击<a href=\"javascript:__nc.reset()\">刷新</a>再来一次",
       _errorNetwork: "网络不给力，请<a href=\"javascript:__nc.reset()\">点击刷新</a>"
     })
-  }
 
+    const sendVerification = () => { //发送存储验证码
+      let second = 60;
+      const authCodeTip = document.getElementById('auth-code-tip')
+      authCodeTip.style.visibility = 'visible'
+      const timer = setInterval(() => {
+        second -= 1
+        authCodeTip.innerText = second + '秒后可重新获取'
+        if (second === 0) {
+          clearInterval(timer)
+          authCodeTip.style.visibility = 'hidden'
+          second = 60
+          authCodeTip.innerText = second + '秒后可重新获取'
+          nc.reload()
+        }
+      }, 1000)
+      const aliVerification = JSON.parse(sessionStorage.getItem('aliVerification'))
+      const registerTypeGroup = registerForm.registerType[0].checked
+      const registerEmail = registerForm.registerEmail.value
+      const params = {
+        auth_type: registerTypeGroup ? 0 : 1,
+        send_to: registerEmail,
+        code_type: 2,
+        scene: aliVerification.scene,
+        nc_token: aliVerification.nc_token,
+        csessionid: aliVerification.csessionid,
+        sig: aliVerification.sig
+      }
+      request('/auth/code', params)
+        .then(({ data }) => {
+          if (data) {
+          } else {
+          }
+        });
+    }
 
-  const sendVerifyBtn = document.getElementById('send-verifycode')
-  if (sendVerifyBtn) {
-    sendVerifyBtn.addEventListener('click', sendVerification, true)
+    const sendVerifyBtn = document.getElementById('send-verifycode')
+    if (sendVerifyBtn) {
+      sendVerifyBtn.addEventListener('click', sendVerification, true)
+    }
   }
 
   // NOTE (zhamgmeng): temporary restrict to only use free team
