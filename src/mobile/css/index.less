@@ -122,9 +122,13 @@
 
   }
 
+  .show-box.less-padding-top {
+    padding-top: 60px;
+  }
+
   .show-box {
     margin: 0 auto;
-    padding: 120px 60px 80px 60px;
+    padding: 140px 60px 40px 60px;
     position: relative;
     box-sizing: border-box;
 
@@ -384,22 +388,21 @@
 .gray-bg-1 {
   width: 100%;
   position: absolute;
-  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   overflow: hidden;
-  
+  height: 1300px;
   &:before {
     width: 100%;
-    height: 1220px;
+    height: 1260px;
     content: '';
     position: absolute;
     bottom: -220px;
     left: 0;
     z-index: -1;
     // transform-origin: 0;
-    transform: skewY(-9deg);
+    transform: skewY(-12deg);
     background-color: #f8f9fd;
   }
 }
@@ -408,7 +411,7 @@
   height: 950px;
   width: 100%;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   overflow: hidden;
@@ -423,7 +426,7 @@
     left: 0;
 
     // transform-origin: 0;
-    transform: skewY(9deg);
+    transform: skewY(12deg);
     background-color: #f8f9fd;
   }
 }
