@@ -934,7 +934,8 @@ const submitMobile = () => {
   }
   sessionStorage.setItem('mobile', registerGroupMobile)
   request('/account/mobile_register', {
-    mobile: registerGroupMobile
+    mobile: registerGroupMobile,
+    source: getSource()
   }).then(() => {
     window.location.href = window.location.origin + '/register-info.html'
   })
