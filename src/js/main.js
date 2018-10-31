@@ -1312,16 +1312,13 @@ const toogleJoinModal = (type) => {
 
 const toogleAuthInvalidModal = (type) => {
   const authInvalidModal = document.getElementById('auth-invalid-modal');
-  const modalCover = document.getElementById('modal-cover')
-  if (authInvalidModal && modalCover) {
+  if (authInvalidModal) {
     if (type === 'show') {
       toggleModalCover(type)
-      modalCover.style.display = 'block';
       authInvalidModal.style.display = 'block';
     }
     if (type === 'hide') {
       toggleModalCover(type)
-      modalCover.style.display = 'none';
       authInvalidModal.style.display = 'none';
     }
   }
