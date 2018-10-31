@@ -79,7 +79,13 @@
         <a class="free-btn demo-btn" href="./demo.html">预约演示</a>
       </header>
       <div class="banner">
-        <img class="banner-image" src='<%= require("./assets/main-header-banner-server.svg") %>'>
+        <img class="banner-image" src='<%= require("./assets/main-header-banner-server@1x.png") %>' srcset='
+          <%= require("./assets/main-header-banner-server@1x.png") %> 18w,
+          <%= require("./assets/main-header-banner-server@2x.png") %> 26w,
+          <%= require("./assets/main-header-banner-server@3x.png") %> 30w' sizes="
+          (max-width:400px) 18px,
+          (max-width:800px) 26px,
+          (max-width:1500px) 30px" />
       </div>
       <section class="server-stage">
         <ul>
@@ -100,7 +106,7 @@
               商务咨询
             </p>
           </li>
-          <li>
+          <li class="commercial-li">
             <img src='<%= require("./assets/footer-phone.png") %>' srcset='
                 <%= require("./assets/footer-phone.png") %> 18w,
                 <%= require("./assets/footer-phone@2x.png") %> 26w,
@@ -110,7 +116,7 @@
                 (max-width:1500px) 30px" />
             <span>0411-39026089</span>
           </li>
-          <li>
+          <li class="commercial-li">
             <img src='<%= require("./assets/footer-email.png") %>' srcset='
                 <%= require("./assets/footer-email.png") %> 19w,
                 <%= require("./assets/footer-email@2x.png") %> 26w,
