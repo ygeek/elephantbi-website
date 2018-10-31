@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="7px" viewBox="0 0 12 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>下  拉 copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="关于我们" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-610.000000, -849.000000)">
+        <g id="下--拉-copy" transform="translate(616.000000, 852.500000) scale(1, -1) translate(-616.000000, -852.500000) translate(610.000000, 849.000000)" fill="#7D7D7D" fill-rule="nonzero">
+            <path d="M5.4078574,0.303344776 C5.5756623,0.126962739 5.80339752,-0.0368205819 6.01914667,0.0135742857 C6.23489583,-0.0242218651 6.43865892,0.152160172 6.60646381,0.303344776 L11.7964296,5.78378666 C12.060123,6.06095843 12.060123,6.51451224 11.7964296,6.79168402 C11.5327362,7.06885579 11.1012379,7.06885579 10.8375445,6.79168402 L6.00716061,1.57581519 L1.1647907,6.79168402 C0.901097289,7.06885579 0.46959898,7.06885579 0.205905569,6.79168402 C-0.0577878415,6.51451224 -0.0577878416,6.06095843 0.205905569,5.78378666 L5.4078574,0.303344776 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
