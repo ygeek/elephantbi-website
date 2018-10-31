@@ -1055,26 +1055,10 @@ const submitFeedback = () => {
   const company = feedbackForm.feedbackCompany.value;
   const remark = feedbackForm.feedbackRemark.value
   let errNum = 0;
-  if (!name) {
-    const errNode = feedbackForm.feedbackName.parentNode;
-    errNode.className = errNode.className.indexOf('error') > -1 ? errNode.className : errNode.className + ' error'
-    errNum += 1
-  }
-  if (!email) {
-    const errNode = feedbackForm.feedbackEmail.parentNode;
-    errNode.className = errNode.className.indexOf('error') > -1 ? errNode.className : errNode.className + ' error'
-    errNum += 1
-  }
-  if (!mobile) {
-    const errNode = feedbackForm.feedbackMobile.parentNode;
-    errNode.className = errNode.className.indexOf('error') > -1 ? errNode.className : errNode.className + ' error'
-    errNum += 1
-  }
-  if (!company) {
-    const errNode = feedbackForm.feedbackCompany.parentNode;
-    errNode.className = errNode.className.indexOf('error') > -1 ? errNode.className : errNode.className + ' error'
-    errNum += 1
-  }
+  if (!feedbackNameVerify(name)) { errNum += 1 }
+  if (!feedbackEmailVerify(email)) { errNum += 1 }
+  if (!feedbackMobileVerify(mobile)) { errNum += 1 }
+  if (!feedbackCompanyVerify(company)) { errNum += 1 }
   if (errNum > 0) {
     return false
   }
@@ -1439,6 +1423,103 @@ const pushHmt = (action, duration) => {
   }
 }
 
+const feedbackRemarkVerify = (value) => {
+  const self = document.getElementById('feedback-remark')
+  const errNode = self.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    return false
+  }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
+}
+
+const feedbackNameVerify = (value) => {
+  const self = document.getElementById('feedback-name')
+  const errNode = self.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    return false
+  }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
+}
+
+const feedbackCompanyVerify = (value) => {
+  const self = document.getElementById('feedback-company')
+  const errNode = self.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    return false
+  }
+  if (currentError(errNode)) {
+    errNode.className = errNode.className.replace(/error/, '')
+  }
+  return true
+}
+
+const feedbackMobileVerify = (value) => {
+  const self = document.getElementById('feedback-mobile')
+  const errNode = self.parentNode
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    errNode.setAttribute('data-err', '请输入手机号码')
+    return false
+  }
+  if (value) {
+    const reg = /^[1][3,4,5,7,8][0-9]{9}$/
+    if (!reg.test(value)) {
+      if (!currentError(errNode)) {
+        errNode.className = errNode.className + ' error'
+      }
+      errNode.setAttribute('data-err', '手机格式不正确')
+      return false
+    }
+    if (currentError(errNode)) {
+      errNode.className = errNode.className.replace(/error/, '')
+    }
+    return true
+  }
+}
+
+const feedbackEmailVerify = (value) => {
+  const self = document.getElementById('feedback-email')
+  const errNode = self.parentNode
+  const reg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/
+  if (!value) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    errNode.setAttribute('data-err', '请输入电子邮箱')
+    return false
+  }
+  if (value) {
+    if (!reg.test(value)) { //邮箱验证不通过
+      if (!currentError(errNode)) {
+        errNode.className = errNode.className + ' error'
+      }
+      errNode.setAttribute('data-err', '邮箱格式不正确')
+      return false
+    }
+    if (currentError(errNode)) {
+      errNode.className = errNode.className.replace(/error/, '')
+    }
+    return true
+  }
+}
+
 window.onload = function () {
   const videoPlayer = document.getElementById('video-player')
   if (videoPlayer) {
@@ -1622,6 +1703,37 @@ window.onload = function () {
   const logo = document.getElementById("logo"); //导航logo
   const footerLogo = document.getElementById("footer-logo") //页底logo
   const industryLink = document.getElementById("nav-industry-link") //导航行业信息链接
+
+  const feedbackRemark = document.getElementById('feedback-remark')
+  const feedbackName = document.getElementById('feedback-name')
+  const feedbackEmail = document.getElementById('feedback-email')
+  const feedbackMobile = document.getElementById('feedback-mobile')
+  const feedbackCompany = document.getElementById('feedback-company')
+  if (feedbackRemark) {
+    feedbackRemark.addEventListener('input', function(e) {
+      feedbackRemarkVerify(e.target.value)
+    })
+  }
+  if (feedbackName) {
+    feedbackName.addEventListener('input', function(e) {
+      feedbackNameVerify(e.target.value)
+    })
+  }
+  if (feedbackEmail) {
+    feedbackEmail.addEventListener('input', function(e) {
+      feedbackEmailVerify(e.target.value)
+    })
+  }
+  if (feedbackMobile) {
+    feedbackMobile.addEventListener('input', function(e) {
+      feedbackMobileVerify(e.target.value)
+    })
+  }
+  if (feedbackCompany) {
+    feedbackCompany.addEventListener('input', function(e) {
+      feedbackCompanyVerify(e.target.value)
+    })
+  }
 
   const feedbackBtn = document.getElementById('feedback-submit');
   if (feedbackBtn) {
