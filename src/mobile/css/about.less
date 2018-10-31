@@ -16,12 +16,12 @@
   .main-header {
     margin: 0 auto;
     padding-top: 80px;
-    padding-bottom: 100px;
+    padding-bottom: 160px;
 
     .title {
       margin: 0;
       padding: 0;
-      padding-top: 192px;
+      padding-top: 160px;
       text-align: center;
       color: @color-purple;
       font-size: 42px;
@@ -49,9 +49,9 @@
 }
 
 .join-us {
-  padding: 60px 0;
+  padding-bottom: 60px;
   position: relative;
-
+  padding-top: 60px;
   .title {
     padding: 0;
     margin: 0 0 20px 0;
@@ -143,7 +143,7 @@
   }
 }
 
-@span-height: 50px;
+@span-height: 70px;
 .main-header-bg {
   height: 700px;
   width: 100%;
@@ -157,7 +157,7 @@
     width: 100%;
     height: 500px;
     position: absolute;
-    bottom: -240px;
+    bottom: -280px;
     z-index: -999;
     
     transform: skewY(-12deg);
@@ -172,73 +172,30 @@
   };
 
   span:nth-child(1) {
-    top: @span-height * -5;
-    left: 14%;
-    width: 10%;
+    top: @span-height * 2;
+    left: 0;
+    width: 20%;
     
-    border: 1px solid #f3f4f7;
+    background-color: #6772e5;
   };
   span:nth-child(2) {
-    top: @span-height * -3;
-    left: 22%;
+    top: @span-height * 1;
+    left: 0;
     width: 6%;
     
-    background-color: #bff0fe;
+    background-color: #bbc5fc;
   };
   span:nth-child(3) {
     top: @span-height * -2;
-    left: 14%;
+    right: 0;
     width: 10%;
     
     background-color: #80baf9;
   };
   span:nth-child(4) {
     top: @span-height * -1;
-    left: 0;
-    width: 30%;
-    
-    background-color: #bbc5fc;
-  };
-
-  span:nth-child(5) {
-    top: @span-height * 0;
-    left: 16%;
-    width: 12%;
-    
-    background-color: #bff0fe;
-  };
-  span:nth-child(6) {
-    top: @span-height * 0;
-    left: 28%;
-    width: 10%;
-    
-    background-color: #6373e0;
-  };
-  span:nth-child(7) {
-    top: @span-height * 0;
-    right: 10%;
-    width: 12%;
-    
-    background-color: #6373e0;
-  };
-  span:nth-child(8) {
-    top: @span-height * 1;
     right: 0;
     width: 30%;
-    
-    background-color: #bff0fe;
-  };
-  span:nth-child(9) {
-    top: @span-height * 2;
-    right: 24%;
-    width: 10%;
-    
-    background-color: #80baf9;
-  };
-  span:nth-child(10) {
-    top: @span-height * 2;
-    right: 14%;
-    width: 10%;
     
     background-color: #bbc5fc;
   };
