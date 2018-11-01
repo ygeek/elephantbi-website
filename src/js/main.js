@@ -737,6 +737,21 @@ const submitRegister = () => {
           errNode.setAttribute('data-err', '子域名已被占用，请尝试其他子域名')
         }
         if (err.response.error == 'MAN_MACHINE_VERIFICATION_FAILED') { //人机验证失效
+          const authModalTitle = document.getElementById('auth-modal-title')
+          const authModalContent = document.getElementById('auth-modal-content')
+          if (authModalTitle && authModalContent) {
+            authModalTitle.innerText = "人机验证失效"
+            authModalContent.innerText = "人机验证已失效，请从新进行人机验证"
+          }
+          toogleAuthInvalidModal('show')
+        }
+        if (err.response.error == 'AUTH_CODE_TIME_OUT') { //验证码失效
+          const authModalTitle = document.getElementById('auth-modal-title')
+          const authModalContent = document.getElementById('auth-modal-content')
+          if (authModalTitle && authModalContent) {
+            authModalTitle.innerText = "验证码失效"
+            authModalContent.innerText = "验证码已失效，请从新获取验证码"
+          }
           toogleAuthInvalidModal('show')
         }
         if (err.response.error == 'ERR_VERIFICATION_CODE') { //验证码错误
