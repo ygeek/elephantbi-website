@@ -33,11 +33,9 @@ function isIE() {
 
 var joinListOnClick = function (index) {
   var joinLists = document.getElementsByClassName('list-item');
-  var joinListsLength = joinLists.length;
-  for (var joinListsIndex = 0; joinListsIndex < joinListsLength; joinListsIndex++) {
-    var item = joinLists[joinListsIndex];
-    item.className = 'list-item';
-  };
+  const joinListsArr = [...joinLists]
+  var currentOpenIndex = joinListsArr.findIndex((item, index) => item.className.indexOf('list-select') > -1)
+  joinLists[currentOpenIndex].className = 'list-item'
   joinLists[index].className = 'list-item list-select';
 }
 
