@@ -1,6 +1,8 @@
 config=/etc/nginx/conf.d/default.conf
 sed -i "s/http:\/\/elephantbi.com\//${WEBSITE_URL}/" $config
+sed -i "s/http:\/\/www.elephantbi.com\//${WEBSITE_URL}/" $config
 sed -i "s/http:\/\/m.elephantbi.com\//${WEBSITE_MOBILE_URL}/" $config
+sed -i "s/elephantbi.com/${DOMAIN}" $config
 
 indexFile=/usr/share/nginx/html/index.html
 sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $indexFile
