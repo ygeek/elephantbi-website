@@ -122,153 +122,155 @@
           <span></span>
           <span></span>
         </div>
-        <div class="register-content">
+        <div class="content-wrapper">
+          <div class="register-content">
+            <!-- <div class="register-header">
+                        <div>注册新团队</div>
+                        <div>已有团队还不是团队成员？去
+                          <button id="join-team" class="join-team">加入团队</button>
+                        </div>
+                      </div> -->
+            <img class="register-logo" src='<%= require("./assets/footer-icon.svg") %>' width="160" height="32" />
+            <form name="registerForm" id="register-form">
 
-          <!-- <div class="register-header">
-                  <div>注册新团队</div>
-                  <div>已有团队还不是团队成员？去
-                    <button id="join-team" class="join-team">加入团队</button>
-                  </div>
-                </div> -->
-          <img class="register-logo" src='<%= require("./assets/footer-icon.svg") %>' width="160" height="32" />
-          <form name="registerForm" id="register-form">
+              <div class="group-title" id="free-title">
+                <img src="<%= require('./assets/user.svg') %>" width=16 height=16 /> 个人信息
+              </div>
+              <div class="divider"></div>
 
-            <div class="group-title" id="free-title">
-              <img src="<%= require('./assets/user.svg') %>" width=16 height=16 /> 个人信息
-            </div>
-            <div class="divider"></div>
+              <!-- <label for="register-email" id="switch-label">电子邮箱
+                              <span class="required">*</span>
+                            </label>
+                            <span class="register-form-item" data-err="请输入电子邮箱">
+                              <input id="register-email" class="normal-input" name="registerEmail" placeholder="请输入登录团队使用的邮箱" />
+                            </span> -->
 
-            <!-- <label for="register-email" id="switch-label">电子邮箱
-                        <span class="required">*</span>
-                      </label>
-                      <span class="register-form-item" data-err="请输入电子邮箱">
-                        <input id="register-email" class="normal-input" name="registerEmail" placeholder="请输入登录团队使用的邮箱" />
-                      </span> -->
-
-            <label for="register-email" id="switch-label">手机号
-              <span class="required">*</span>
-            </label>
-            <span class="register-form-item" data-err="请输入手机号码">
-              <input id="register-email" class="normal-input" name="registerEmail" placeholder="请输入登录团队使用的手机号" />
-            </span>
-
-            <label for="nc-container" id="nc-container-label">获取验证码
-              <span class="required">*</span>
-            </label>
-            <div class="register-form-item nc-wrapper" data-err="请进行人机验证">
-              <div id="nc-container" class="nc-container normal-input"></div>
-              <span class="auth-code-tip" id="auth-code-tip">60秒后可重新获取</span>
-            </div>
-            <label for="verifycode">验证码
-              <span class="required">*</span>
-            </label>
-
-            <span class="register-form-item verify-margin" data-err="请输入验证码">
-              <input id="verifycode" placeholder="请输入验证码" name="registerVerifiedCode" class="normal-input" />
-              <!-- <div class="register-block">
-                      <input id="verifycode" placeholder="请输入验证码" name="registerVerifiedCode" />
-                      <span class="register-cell register-fixed">
-                        <button id="send-verifycode" type="button" disabled="disabled" class="verify-btn-default">
-                          发送验证码
-                          <div id="send-verifycode-shadow"></div>
-                        </button>
-                      </span>
-                    </div> -->
-            </span>
-
-            <label for="password-set">登录密码
-              <span class="required">*</span>
-            </label>
-            <span class="register-form-item" data-err="请输入密码">
-              <input id="password-set" type="password" class="normal-input" name="registerPasswordSet" placeholder="请输入希望使用的密码" />
-            </span>
-
-            <!-- <label for="password-confirm">确认密码
-                    <span class="required">*</span>
-                  </label>
-                  <span class="register-form-item" data-err="请再次输入相同的密码">
-                    <input id="password-confirm" type="password" class="normal-input" name="registerPasswordConfirm" placeholder="请输入相同的密码" />
-                  </span> -->
-
-            <label for="display-name">显示名称
-              <span class="required">*</span>
-            </label>
-            <span class="register-form-item" data-err="请输入显示名称">
-              <input id="display-name" class="normal-input" name="registerDisplayName" placeholder="请输入希望使用的名称" />
-            </span>
-
-            <div class="group-title">
-              <img src="<%= require('./assets/group.svg') %>" width=18 height=16 /> 团队信息
-            </div>
-            <div class="divider"></div>
-
-            <label for="register-group-name">公司名称
-              <span class="required">*</span>
-            </label>
-            <span class="register-form-item" data-err="请输入公司名称">
-              <input class="normal-input" id="register-group-name" name="registerGroupName" placeholder="请输入公司名称" type="text" />
-            </span>
-
-            <div hidden>
-              <label class="fake-label">团队类型
+              <label for="register-email" id="switch-label">手机号
                 <span class="required">*</span>
               </label>
-              <span class="radio-field">
-                <div>
-                  <label for="comp-group">
-                    <input type="radio" id="comp-group" name="registerType" />
-                    <div class="radio"></div>
-                    企业团队
-                  </label>
-                  <span class="url-description no-margin-left">团队成员以企业邮箱注册登录团队，更严谨安全</span>
-                </div>
-                <div>
-                  <label for="free-group">
-                    <input type="radio" id="free-group" checked name="registerType" />
-                    <div class="radio"></div>
-                    自由团队
-                  </label>
-                  <span class="url-description no-margin-left">团队成员以手机号码加入团队，更自由更独立</span>
+              <span class="register-form-item" data-err="请输入手机号码">
+                <input id="register-email" class="normal-input" name="registerEmail" placeholder="请输入登录团队使用的手机号" />
+              </span>
+
+              <label for="nc-container" id="nc-container-label">获取验证码
+                <span class="required">*</span>
+              </label>
+              <div class="register-form-item nc-wrapper" data-err="请进行人机验证">
+                <div id="nc-container" class="nc-container normal-input"></div>
+                <span class="auth-code-tip" id="auth-code-tip">60秒后可重新获取</span>
+              </div>
+              <label for="verifycode">验证码
+                <span class="required">*</span>
+              </label>
+
+              <span class="register-form-item verify-margin" data-err="请输入验证码">
+                <input id="verifycode" placeholder="请输入验证码" name="registerVerifiedCode" class="normal-input" />
+                <!-- <div class="register-block">
+                            <input id="verifycode" placeholder="请输入验证码" name="registerVerifiedCode" />
+                            <span class="register-cell register-fixed">
+                              <button id="send-verifycode" type="button" disabled="disabled" class="verify-btn-default">
+                                发送验证码
+                                <div id="send-verifycode-shadow"></div>
+                              </button>
+                            </span>
+                          </div> -->
+              </span>
+
+              <label for="password-set">登录密码
+                <span class="required">*</span>
+              </label>
+              <span class="register-form-item" data-err="请输入密码">
+                <input id="password-set" type="password" class="normal-input" name="registerPasswordSet" placeholder="请输入希望使用的密码" />
+              </span>
+
+              <!-- <label for="password-confirm">确认密码
+                          <span class="required">*</span>
+                        </label>
+                        <span class="register-form-item" data-err="请再次输入相同的密码">
+                          <input id="password-confirm" type="password" class="normal-input" name="registerPasswordConfirm" placeholder="请输入相同的密码" />
+                        </span> -->
+
+              <label for="display-name">显示名称
+                <span class="required">*</span>
+              </label>
+              <span class="register-form-item" data-err="请输入显示名称">
+                <input id="display-name" class="normal-input" name="registerDisplayName" placeholder="请输入希望使用的名称" />
+              </span>
+
+              <div class="group-title">
+                <img src="<%= require('./assets/group.svg') %>" width=18 height=16 /> 团队信息
+              </div>
+              <div class="divider"></div>
+
+              <label for="register-group-name">公司名称
+                <span class="required">*</span>
+              </label>
+              <span class="register-form-item" data-err="请输入公司名称">
+                <input class="normal-input" id="register-group-name" name="registerGroupName" placeholder="请输入公司名称" type="text" />
+              </span>
+
+              <div hidden>
+                <label class="fake-label">团队类型
+                  <span class="required">*</span>
+                </label>
+                <span class="radio-field">
+                  <div>
+                    <label for="comp-group">
+                      <input type="radio" id="comp-group" name="registerType" />
+                      <div class="radio"></div>
+                      企业团队
+                    </label>
+                    <span class="url-description no-margin-left">团队成员以企业邮箱注册登录团队，更严谨安全</span>
+                  </div>
+                  <div>
+                    <label for="free-group">
+                      <input type="radio" id="free-group" checked name="registerType" />
+                      <div class="radio"></div>
+                      自由团队
+                    </label>
+                    <span class="url-description no-margin-left">团队成员以手机号码加入团队，更自由更独立</span>
+                  </div>
+                </span>
+              </div>
+
+              <label for="register-url">设置登录网址
+                <span class="required">*</span>
+              </label>
+              <span class="register-form-item adjust-url-margin" data-err="请输入公司域名">
+                <div class="register-block">
+                  <input id="input-url" type="text" name="registerUrl" placeholder="请输入公司域名">
+                  <span id="register-fixed" class="register-fixed">elephantbi.com</span>
                 </div>
               </span>
-            </div>
+              <div class="url-description adjust-url-descrip-margin">例如：输入team1，注册后可打开team1.elephantbi.com登录团队</div>
 
-            <label for="register-url">设置登录网址
-              <span class="required">*</span>
-            </label>
-            <span class="register-form-item adjust-url-margin" data-err="请输入公司域名">
-              <div class="register-block">
-                <input id="input-url" type="text" name="registerUrl" placeholder="请输入公司域名">
-                <span id="register-fixed" class="register-fixed">elephantbi.com</span>
-              </div>
-            </span>
-            <div class="url-description adjust-url-descrip-margin">例如：输入team1，注册后可打开team1.elephantbi.com登录团队</div>
+              <!-- 暂时取消企业团队 -->
+              <!-- <div id="domain-field">
+                          <label class="fake-label">免验证邮箱后缀</label>
+                          <span class="domain-item-wrapper">
+                            <span class="domain-field form-item">
+                              <span class=" domain-fixed">@</span>
+                              <input id="input-domain" class="input-domain" placeholder="请输入团队域名">
+                              <img src="<%= require('./assets/checked.svg') %>" class="input-domain-check input-domain-operator" />
+                            </span>
+                          </span>
+                          <div id="domain-insert" class="url-description domain-descrip">团队成员使用免验证邮箱后缀注册，则不需要管理员审核，可直接进入团队。后缀示例：qq.com</div>
+                        </div> -->
 
-            <!-- 暂时取消企业团队 -->
-            <!-- <div id="domain-field">
-                    <label class="fake-label">免验证邮箱后缀</label>
-                    <span class="domain-item-wrapper">
-                      <span class="domain-field form-item">
-                        <span class=" domain-fixed">@</span>
-                        <input id="input-domain" class="input-domain" placeholder="请输入团队域名">
-                        <img src="<%= require('./assets/checked.svg') %>" class="input-domain-check input-domain-operator" />
-                      </span>
-                    </span>
-                    <div id="domain-insert" class="url-description domain-descrip">团队成员使用免验证邮箱后缀注册，则不需要管理员审核，可直接进入团队。后缀示例：qq.com</div>
-                  </div> -->
+              <!-- <label for="group-mobile" id="group-mobile-label">手机号
+                            <span class="required">*</span>
+                        </label>
+                        <span class="register-form-item" data-err="请输入手机号">
+                          <input id="group-mobile" class="normal-input" name="registerDisplayMobile" placeholder="请输入登录时使用的手机号" />
+                        </span> -->
 
-            <!-- <label for="group-mobile" id="group-mobile-label">手机号
-                      <span class="required">*</span>
-                  </label>
-                  <span class="register-form-item" data-err="请输入手机号">
-                    <input id="group-mobile" class="normal-input" name="registerDisplayMobile" placeholder="请输入登录时使用的手机号" />
-                  </span> -->
-
-          </form>
-          <button id="register-button">
-            注册
-          </button>
+            </form>
+            <button id="register-button">
+              注册
+            </button>
+          </div>
         </div>
+
       </div>
 
     </main>
