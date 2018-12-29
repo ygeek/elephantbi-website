@@ -396,7 +396,7 @@ const opentNewWindow = () => {
   .then((res) => {
     const data = res.data || {};
     if (data.exists === 1) {
-      openNewWindow(matchBackHost[1] + '://' + hostsName.value + '.' + matchBackHost[3] + '.' + matchBackHost[4] +'/unregister/login');
+      openNewWindow(matchBackHost[1] + '://' + hostsName.value + '.' + matchBackHost[3] + '.' + matchBackHost[4] +'/accounts/login');
       hostsName.value === null
       closeleLoginModal();
     } else {
@@ -414,7 +414,7 @@ const jumpToProduct = () => {
     .then((res) => {
       const data = res.data || {};
       if (data.exists === 1) {
-        window.location.href = matchBackHost[1] + '://' + hostsName.value + '.' + matchBackHost[3] + '.' + matchBackHost[4] + '/unregister/signup'
+        window.location.href = matchBackHost[1] + '://' + hostsName.value + '.' + matchBackHost[3] + '.' + matchBackHost[4] + '/accounts/signup'
         hostsName.value === null
         toogleJoinModal('hide')
       } else {
