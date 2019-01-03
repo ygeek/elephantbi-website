@@ -796,12 +796,19 @@ const utlInputValidate = (value) => { //团队域名校验
     errNode.setAttribute('data-err', '请输入公司域名')
     return false
   }
-  const reg = /^[A-Za-z0-9]+$/
+  const reg = /^\w+$/
   if (!reg.test(value)) {
     if (!currentError(errNode)) {
       errNode.className = errNode.className + ' error'
     }
-    errNode.setAttribute('data-err', '请输入只包含数字和字母的域名')
+    errNode.setAttribute('data-err', '只支持数字、大小写字母和英文下划线')
+    return false
+  }
+  if (value.length > 10) {
+    if (!currentError(errNode)) {
+      errNode.className = errNode.className + ' error'
+    }
+    errNode.setAttribute('data-err', '最多可输入10个字符')
     return false
   }
   let exist = 0;
