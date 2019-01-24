@@ -42,54 +42,62 @@
             <img src='<%= require("./assets/nav-logo.svg") %>' id="logo" width=160 height=32 />
           </li>
           <li class="nav-section page-list">
-            <a href="./product.html">产品</a>
-            <a href="javascript:void(0)" id="nav-industry-link">行业DEMO</a>
-            <a class="selected" href="./demo.html">预约演示</a>
-            <a href="./price.html">价格</a>
-            <a href="./service.html">服务</a>
-            <a href="./about.html">关于</a>
+            <a href="./index.html" data-locale-id="nav-product">产品</a>
+            <a href="javascript:void(0)" id="nav-industry-link" data-locale-id="nav-demo">行业DEMO</a>
+            <a href="./demo.html" data-locale-id="nav-trial">免费试用</a>
+            <a href="./price.html" data-locale-id="nav-price">价格</a>
+            <a href="./service.html" data-locale-id="nav-service">服务支持</a>
+            <a href="javascript:void(0)" data-locale-id="nav-custom">需求定制</a>
+            <span class="nav-locale">
+              <button class="nav-locale-btn" id="nav-locale-btn">English</button>
+              <div class="nav-locale-modal" id="nav-locale-modal">
+                <div class="locale-item" data-locale="zh-cn">简体中文</div>
+                <div class="locale-item" data-locale="zh-tw">繁體中文</div>
+                <div class="locale-item" data-locale="en-US">English</div>
+              </div>
+            </span>
             <div class="nav-industry-modal" id="nav-industry-modal">
               <div class="nav-industry-arrow"></div>
               <ul>
                 <li>
-                  <a class="industry0">互联网行业</a>
+                  <a class="industry0" data-locale-id="internet-industry">互联网行业</a>
                 </li>
                 <li>
-                  <a class="industry2">零售行业</a>
+                  <a class="industry2" data-locale-id="retail-industry">零售行业</a>
                 </li>
                 <li>
-                  <a class="industry4">企业服务行业</a>
+                  <a class="industry4" data-locale-id="enterprise-service-industry">企业服务行业</a>
                 </li>
                 <li>
-                  <a class="industry6">文娱行业</a>
+                  <a class="industry6" data-locale-id="entertainment-industry">文娱行业</a>
                 </li>
                 <li>
-                  <a class="industry8">教育行业</a>
+                  <a class="industry8" data-locale-id="education-industry">教育行业</a>
                 </li>
               </ul>
               <div class="divider"></div>
               <ul>
                 <li>
-                  <a class="industry1">金融行业</a>
+                  <a class="industry1" data-locale-id="financial-industry">金融行业</a>
                 </li>
                 <li>
-                  <a class="industry3">制造行业</a>
+                  <a class="industry3" data-locale-id="manufacture-industry">制造行业</a>
                 </li>
                 <li>
-                  <a class="industry5">电商行业</a>
+                  <a class="industry5" data-locale-id="e-commerce-industry">电商行业</a>
                 </li>
                 <li>
-                  <a class="industry7">餐饮行业</a>
+                  <a class="industry7" data-locale-id="catering-industry">餐饮行业</a>
                 </li>
                 <li>
-                  <a class="industry9">物流行业</a>
+                  <a class="industry9" data-locale-id="logistics-industry">物流行业</a>
                 </li>
               </ul>
             </div>
           </li>
           <li class="nav-section login">
             <span class="login-btn-content">
-              <button id="nav-login">登录</button>
+              <button id="nav-login" data-locale-id="sign-in">登录</button>
               <div class="login-modal" id="login-modal">
                 <div class="modal-arrow"></div>
                 <span class="login-block-wrapper">
@@ -98,120 +106,159 @@
                     <span id="login-fixed" class="login-cell login-fixed">elephantbi.com</span>
                   </span>
                 </span>
-                <button class="login-btn" id="login-product">登录</button>
+                <button class="login-btn" id="login-product" data-locale-id="sign-in">登录</button>
               </div>
             </span>
-            <a class="register-btn" href="./register.html">免费注册</a>
+            <a class="register-btn" href="./demo.html" data-locale-id="nav-trial">免费试用</a>
           </li>
         </ul>
       </nav>
     </header>
+    <div class="quick-entry">
+      <div class="quick-entry-item">
+        <img alt="" class="quick-entry-phone" src='<%= require("./assets/quickEntryPhone.svg") %>' />
+        <div data-locale-id="consultation" class="quick-entry-item-text">电话咨询</div>
+        <div class="quick-entry-phone-tootip quick-entry-tootip">
+          <img alt="" class="quick-entry-tootip-phone" src='<%= require("./assets/quickEntryTootipPhone.svg") %>' />
+          <span class="quick-entry-tootip-info">
+            <div data-locale-id="consultation-phone-number">0411-39026089</div>
+            <div data-locale-id="work-time">工作日 09：00-19：00</div>
+          </span>
+          <div class="tootip-arrow"></div>
+        </div>
+      </div>
+      <div class="quick-entry-item">
+        <img alt="" class="quick-entry-wechat" src='<%= require("./assets/quickEntryWechat.svg") %>' />
+        <div data-locale-id="wechat-custom-service" class="quick-entry-item-text">微信客服</div>
+        <div class="quick-entry-wechat-tootip quick-entry-tootip">
+          <img alt="" class="quick-entry-tootip-wechat" src='<%= require("./assets/footer-sq.svg") %>' />
+          <div class="footer-nav-sq-description" data-locale-id="scan-code">微信扫码联系客服</div>
+          <div class="tootip-arrow"></div>
+        </div>
+      </div>
+      <div class="quick-entry-item">
+        <img alt="" class="quick-entry-email" src='<%= require("./assets/quickEntryEmail.svg") %>' />
+        <div data-locale-id="send-email" class="quick-entry-item-text">发送邮件</div>
+        <div class="quick-entry-email-tootip quick-entry-tootip">
+          <img alt="" class="quick-entry-tootip-email" src='<%= require("./assets/quickEntryTootipEmail.svg") %>' />
+          <span class="quick-entry-tootip-info">
+            <div>bd@elephantbi.com</div>
+            <div data-locale-id="reply-within-24-hours">我们会在24小时内给您回复</div>
+          </span>
+          <div class="tootip-arrow"></div>
+        </div>
+      </div>
+      <a class="quick-entry-item" href="./demo.html">
+        <img alt="" class="quick-entry-trail" src='<%= require("./assets/quickEntryTrail.svg") %>' />
+        <div data-locale-id="nav-trial" class="quick-entry-item-text">免费试用</div>
+      </a>
+    </div>
     <main class="main-content">
       <div class="main-wrapper">
         <div class="main-content">
-          <div class="main-title">数据驱动，精准决策</div>
-          <div class="main-description">填写右侧信息，我们将会尽快与您联系安排演示；您也可以直接致电0411-39026089联系我们</div>
+          <div class="main-title" data-locale-id="home-banner-title">数据驱动，精准决策</div>
+          <div class="main-description" data-locale-id="free-trail-description">填写右侧信息，我们将会尽快与您联系开通试用账号；您也可以直接致电0411-39026089联系我们</div>
           <div class="main-line"></div>
           <img src='<%= require("./assets/demobg@2x.png") %>' class="demo-banner" width=390 height=245 />
           <div class="form-section">
-            <div class="demo-title">我要预约免费演示</div>
-            <div class="demo-description">为更好的制定针对性的数据方案，请让我们了解您更多，行业顾问将在24小时内与您取得联系</div>
+            <div class="demo-title" data-locale-id="want-free-trial">我要免费试用</div>
+            <div class="demo-description" data-locale-id="want-free-trail-description">请留下您的联系方式和需求，客户经理会在24小时内与您取得联系，并为您开通试用账号</div>
             <form name="demoForm">
               <div class="demo-item">
-                <span class="label">姓名</span>
-                <div class="demo-form-item" data-err="请输入您的姓名">
-                  <input id="demo-name" name="demoName" placeholder="请输入您的姓名" />
+                <span class="label" data-locale-id="free-trail-name">姓名</span>
+                <div class="demo-form-item" data-err="请输入您的姓名" data-locale-id="name-required-tip">
+                  <input id="demo-name" name="demoName" placeholder="请输入您的姓名" data-locale-id="name-required-tip" />
                 </div>
               </div>
               <div class="demo-item">
-                <span class="label">工作邮箱</span>
-                <div class="demo-form-item" data-err="请输入电子邮箱">
-                  <input id="demo-email" name="demoEmail" placeholder="请输入电子邮箱" />
+                <span class="label" data-locale-id="free-trail-email">工作邮箱</span>
+                <div class="demo-form-item" data-err="请输入电子邮箱" data-locale-id="email-required-tip" data-input-locale-id="err-email">
+                  <input id="demo-email" name="demoEmail" placeholder="请输入电子邮箱" data-locale-id="email-required-tip" />
                 </div>
               </div>
               <div class="demo-item">
-                <span class="label">电话</span>
-                <div class="demo-form-item" data-err="请输入手机号">
-                  <input id="demo-mobile" name="demoMobile" placeholder="请输入手机号" />
+                <span class="label" data-locale-id="free-trail-phone">电话</span>
+                <div class="demo-form-item" data-err="请输入手机号" data-locale-id="phone-required-tip" data-input-locale-id="err-mobile">
+                  <input id="demo-mobile" name="demoMobile" placeholder="请输入手机号" data-locale-id="phone-required-tip" />
                 </div>
               </div>
               <div class="demo-item">
-                <span class="label">公司名称</span>
-                <div class="demo-form-item" data-err="请输入您所在的公司名称">
-                  <input id="demo-company" name="demoCompany" placeholder="请输入您所在的公司名称" />
+                <span class="label" data-locale-id="free-trail-company-name">公司名称</span>
+                <div class="demo-form-item" data-err="请输入您所在的公司名称" data-locale-id="company-required-tip">
+                  <input id="demo-company" name="demoCompany" placeholder="请输入您所在的公司名称" data-locale-id="company-required-tip" />
                 </div>
               </div>
               <div class="demo-item">
-                <span class="label">所属行业</span>
-                <div class="demo-form-item" data-err="请选择您所属行业">
-                  <input onfocus="this.blur()" class="eg" name="demoIndustry" placeholder="请选择您所属行业" id="demo-industry" />
+                <span class="label" data-locale-id="free-trail-industry">所属行业</span>
+                <div class="demo-form-item" data-err="请选择您所属行业" data-locale-id="industry-required-tip">
+                  <input onfocus="this.blur()" class="eg" name="demoIndustry" placeholder="请选择您所属行业" id="demo-industry" data-locale-id="industry-required-tip" />
                   <div class="options">
-                    <div value="互联网及IT行业">互联网及IT行业</div>
-                    <div value="零售行业">零售行业</div>
-                    <div value="企业服务行业">企业服务行业</div>
-                    <div value="文娱行业">文娱行业</div>
-                    <div value="教育行业">教育行业</div>
-                    <div value="金融行业">金融行业</div>
-                    <div value="制造行业">制造行业</div>
-                    <div value="电商行业">电商行业</div>
-                    <div value="餐饮行业">餐饮行业</div>
-                    <div value="物流行业">物流行业</div>
-                    <div value="旅游行业">旅游行业</div>
-                    <div value="保险行业">保险行业</div>
-                    <div value="农产品行业">农产品行业</div>
-                    <div value="电气化工行业">电气化工行业</div>
-                    <div value="科技研发行业">科技研发行业</div>
-                    <div value="生活服务行业">生活服务行业</div>
-                    <div value="其他行业">其他行业</div>
+                    <div value="互联网及IT行业" data-locale-id="internet-trail">互联网及IT行业</div>
+                    <div value="零售行业" data-locale-id="retail-industry">零售行业</div>
+                    <div value="企业服务行业" data-locale-id="enterprise-service-industry">企业服务行业</div>
+                    <div value="文娱行业" data-locale-id="entertainment-industry">文娱行业</div>
+                    <div value="教育行业" data-locale-id="education-industry">教育行业</div>
+                    <div value="金融行业" data-locale-id="financial-industry">金融行业</div>
+                    <div value="制造行业" data-locale-id="manufacture-industry">制造行业</div>
+                    <div value="电商行业" data-locale-id="e-commerce-industry">电商行业</div>
+                    <div value="餐饮行业" data-locale-id="catering-industry">餐饮行业</div>
+                    <div value="物流行业" data-locale-id="logistics-industry">物流行业</div>
+                    <div value="旅游行业" data-locale-id="tourism-industry">旅游行业</div>
+                    <div value="保险行业" data-locale-id="insurance-industry">保险行业</div>
+                    <div value="农产品行业" data-locale-id="agricultural-industry">农产品行业</div>
+                    <div value="电气化工行业" data-locale-id="electrical-and-chemistry-industry">电气化工行业</div>
+                    <div value="科技研发行业" data-locale-id="high-tech-industry">科技研发行业</div>
+                    <div value="生活服务行业" data-locale-id="services-industry">生活服务行业</div>
+                    <div value="其他行业" data-locale-id="other-industry">其他行业</div>
                   </div>
                 </div>
               </div>
               <div class="demo-item">
-                <span class="label">公司规模</span>
-                <div class="demo-form-item" data-err="请选择您所在的公司规模">
-                  <input onfocus="this.blur()" class="eg" name="demoScale" placeholder="请选择您所在的公司规模" id="demo-scale" />
+                <span class="label" data-locale-id="free-trail-company-size">公司规模</span>
+                <div class="demo-form-item" data-err="请选择您所在的公司规模" data-locale-id="enterprise-required-tip">
+                  <input onfocus="this.blur()" class="eg" name="demoScale" placeholder="请选择您所在的公司规模" id="demo-scale" data-locale-id="enterprise-required-tip" />
                   <div class="options">
-                    <div value="1-15人">1-15人</div>
-                    <div value="16-50人">16-50人</div>
-                    <div value="51-200人">51-200人</div>
-                    <div value="201-500人">201-500人</div>
-                    <div value="501-2000人">501-2000人</div>
-                    <div value="2001-5000人">2001-5000人</div>
-                    <div value="5001及以上">5001及以上</div>
+                    <div value="1-15人" data-locale-id="1-15">1-15人</div>
+                    <div value="16-50人" data-locale-id="16-50">16-50人</div>
+                    <div value="51-200人" data-locale-id="51-200">51-200人</div>
+                    <div value="201-500人" data-locale-id="201-500">201-500人</div>
+                    <div value="501-2000人" data-locale-id="501-2000">501-2000人</div>
+                    <div value="2001-5000人" data-locale-id="2001-5000">2001-5000人</div>
+                    <div value="5001及以上" data-locale-id="5001-and-above">5001及以上</div>
                   </div>
                 </div>
               </div>
               <div class="demo-item">
-                <span class="label">所属部门</span>
+                <span class="label" data-locale-id="free-trail-department">所属部门</span>
                 <div class="demo-form-item">
-                  <input onfocus="this.blur()" class="eg" name="demoDepart" placeholder="请选择您的所属部门" />
+                  <input onfocus="this.blur()" class="eg" name="demoDepart" placeholder="请选择您的所属部门" data-locale-id="department-required-tip" />
                   <div class="options">
-                    <div value="人事部">人事部</div>
-                    <div value="财务部">财务部</div>
-                    <div value="行政部">行政部</div>
-                    <div value="销售部">销售部</div>
-                    <div value="技术部">技术部</div>
-                    <div value="市场部">市场部</div>
-                    <div value="运营部">运营部</div>
-                    <div value="产品部">产品部</div>
-                    <div value="其他部门">其他部门</div>
+                    <div value="人事部" data-locale-id="human-resources">人事部</div>
+                    <div value="财务部" data-locale-id="finance">财务部</div>
+                    <div value="行政部" data-locale-id="administration">行政部</div>
+                    <div value="销售部" data-locale-id="sales">销售部</div>
+                    <div value="技术部" data-locale-id="it">技术部</div>
+                    <div value="市场部" data-locale-id="marketing">市场部</div>
+                    <div value="运营部" data-locale-id="operation">运营部</div>
+                    <div value="产品部" data-locale-id="product-management">产品部</div>
+                    <div value="其他部门" data-locale-id="others">其他部门</div>
                   </div>
                 </div>
               </div>
               <div class="demo-item">
-                <span class="label">现任职位</span>
+                <span class="label" data-locale-id="free-trail-position">现任职位</span>
                 <div class="demo-form-item">
-                  <input id="position" name="demoPosi" placeholder="请输入您的现任职位" />
+                  <input id="position" name="demoPosi" placeholder="请输入您的现任职位" data-locale-id="position-required-tip" />
                 </div>
               </div>
               <div class="demo-item">
                 <div class="demo-form-item">
-                  <textarea name="demoRemark" placeholder="请描述您希望在演示中了解的内容或问题"></textarea>
+                  <textarea name="demoRemark" placeholder="请描述您希望了解的内容或问题" data-locale-id="remark-required-tip"></textarea>
                 </div>
               </div>
             </form>
-            <button id="demo-submit">
-              立即预约
+            <button id="demo-submit" data-locale-id="nav-trial">
+              免费试用
             </button>
           </div>
         </div>
@@ -226,65 +273,65 @@
       </li>
       <li class="footer-nav-list">
         <ul>
-          <li class="footer-list-title">产品</li>
+          <li class="footer-list-title" data-locale-id="nav-product">产品</li>
           <li>
-            <a href="./product.html">产品介绍</a>
+            <a href="./index.html" data-locale-id="nav-product">产品介绍</a>
           </li>
           <li>
-            <a href="./demo.html">预约演示</a>
+            <a href="./demo.html" data-locale-id="nav-trial">免费试用</a>
           </li>
           <li>
-            <a href="./price.html">价格</a>
+            <a href="./price.html" data-locale-id="nav-price">价格</a>
           </li>
           <li>
-            <a href="./service.html">服务支持</a>
+            <a href="./service.html" data-locale-id="nav-service">服务支持</a>
           </li>
           <li>
-            <a href="./about.html">关于我们</a>
+            <a href="javascript:void(0)" data-locale-id="nav-custom">需求定制</a>
           </li>
         </ul>
         <ul class="footer-industry">
-          <li class="footer-list-title">行业Demo</li>
+          <li class="footer-list-title" data-locale-id="nav-demo">行业Demo</li>
           <ul>
             <li>
-              <a class="industry0">互联网行业</a>
+              <a class="industry0" data-locale-id="internet-industry">互联网行业</a>
             </li>
             <li>
-              <a class="industry2">零售行业</a>
+              <a class="industry2" data-locale-id="retail-industry">零售行业</a>
             </li>
             <li>
-              <a class="industry4">企业服务行业</a>
+              <a class="industry4" data-locale-id="enterprise-service-industry">企业服务行业</a>
             </li>
             <li>
-              <a class="industry6">文娱行业</a>
+              <a class="industry6" data-locale-id="entertainment-industry">文娱行业</a>
             </li>
             <li>
-              <a class="industry8">教育行业</a>
+              <a class="industry8" data-locale-id="education-industry">教育行业</a>
             </li>
           </ul>
           <ul>
             <li>
-              <a class="industry1">金融行业</a>
+              <a class="industry1" data-locale-id="financial-industry">金融行业</a>
             </li>
             <li>
-              <a class="industry3">制造行业</a>
+              <a class="industry3" data-locale-id="manufacture-industry">制造行业</a>
             </li>
             <li>
-              <a class="industry5">电商行业</a>
+              <a class="industry5" data-locale-id="e-commerce-industry">电商行业</a>
             </li>
             <li>
-              <a class="industry7">餐饮行业</a>
+              <a class="industry7" data-locale-id="catering-industry">餐饮行业</a>
             </li>
             <li>
-              <a class="industry9">物流行业</a>
+              <a class="industry9" data-locale-id="logistics-industry">物流行业</a>
             </li>
           </ul>
         </ul>
         <ul>
-          <li class="footer-list-title">商务咨询</li>
+          <li class="footer-list-title" data-locale-id="business-consulting">商务咨询</li>
           <li>
             <img src='<%= require("./assets/footer-phone.png") %>' width=14 height=14 />
-            <span>0411-39026089</span>
+            <span data-locale-id="consultation-phone-number">0411-39026089</span>
           </li>
           <li>
             <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 class="adjust-footer-icon" />
@@ -292,18 +339,21 @@
           </li>
           <li>
             <img src='<%= require("./assets/address.svg") %>' width=12 height=15 />
-            <span class="addressSpan">辽宁省大连市沙河口区软件园东路23号15#501AB室</span>
+            <span class="addressSpan">
+              <div data-locale-id="shenzhen-address">深圳市南山区卫星大厦15层</div>
+              <div data-locale-id="dalian-address">大连市软件园15号楼5层</div>
+            </span>
           </li>
         </ul>
         <ul>
-          <li class="footer-list-title">技术支持</li>
+          <li class="footer-list-title" data-locale-id="technical-support">技术支持</li>
           <li>
             <img src='<%= require("./assets/footer-time.png") %>' width=14 height=14 />
             <span>09:00~19:00</span>
           </li>
           <li>
             <img src='<%= require("./assets/footer-phone.png") %>' width=14 height=14 />
-            <span>0411-39551681</span>
+            <span data-locale-id="technical-phone-number">0411-39551681</span>
           </li>
           <li>
             <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 class="adjust-footer-icon" />
@@ -316,7 +366,7 @@
         <span class="footer-nav-sq-description">微信扫码联系客服</span>
       </li>
     </ul>
-    <div class="record">Copyright© 悦视光合科技(大连)有限公司&nbsp&nbsp&nbsp&nbsp辽ICP备18008272号</div>
+    <div class="record" data-locale-id="copyright">Copyright© 悦视光合科技(大连)有限公司&nbsp&nbsp&nbsp&nbsp辽ICP备18008272号</div>
   </footer>
   </div>
   <div class="tootip-modal" id="tootip-succeed">

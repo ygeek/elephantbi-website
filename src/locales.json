@@ -1,0 +1,862 @@
+{
+  "nav-product": {
+    "zh-cn": "产品",
+    "zh-tw": "產品",
+    "en-US": "Product"
+  },
+  "nav-demo": {
+    "zh-cn": "行业DEMO",
+    "zh-tw": "行業DEMO",
+    "en-US": "Demo"
+  },
+  "nav-trial": {
+    "zh-cn": "免费试用",
+    "zh-tw": "免費試用",
+    "en-US": "Free Trail"
+  },
+  "nav-price": {
+    "zh-cn": "价格",
+    "zh-tw": "價格",
+    "en-US": "Price"
+  },
+  "nav-service": {
+    "zh-cn": "服务支持",
+    "zh-tw": "服務支持",
+    "en-US": "Service"
+  },
+  "nav-custom": {
+    "zh-cn": "需求定制",
+    "zh-tw": "需求定制",
+    "en-US": "Customization"
+  },
+  "sign-in": {
+    "zh-cn": "登录",
+    "zh-tw": "登錄",
+    "en-US": "Sign in"
+  },
+  "internet-industry": {
+    "zh-cn": "互联网行业",
+    "zh-tw": "互聯網行業",
+    "en-US": "Internet"
+  },
+  "retail-industry": {
+    "zh-cn": "零售行业",
+    "zh-tw": "零售行業",
+    "en-US": "Retail"
+  },
+  "enterprise-service-industry": {
+    "zh-cn": "企业服务行业",
+    "zh-tw": "企業服務行業",
+    "en-US": "Enterprise Service"
+  },
+  "entertainment-industry": {
+    "zh-cn": "文娱行业",
+    "zh-tw": "文娛行業",
+    "en-US": "Entertainment"
+  },
+  "education-industry": {
+    "zh-cn": "教育行业",
+    "zh-tw": "教育行業",
+    "en-US": "Education"
+  },
+  "financial-industry": {
+    "zh-cn": "金融行业",
+    "zh-tw": "金融行業",
+    "en-US": "Finance"
+  },
+  "manufacture-industry": {
+    "zh-cn": "制造行业",
+    "zh-tw": "製造行業",
+    "en-US": "Manufacturing"
+  },
+  "e-commerce-industry": {
+    "zh-cn": "电商行业",
+    "zh-tw": "電商行業",
+    "en-US": "eCommerce"
+  },
+  "catering-industry": {
+    "zh-cn": "餐饮行业",
+    "zh-tw": "餐飲行業",
+    "en-US": "Catering"
+  },
+  "logistics-industry": {
+    "zh-cn": "物流行业",
+    "zh-tw": "物流行業",
+    "en-US": "Logistics"
+  },
+  "other-industry": {
+    "zh-cn": "其他行业",
+    "zh-tw": "其他行業",
+    "en-US": "Other Industry"
+  },
+  "consultation": {
+    "zh-cn": "电话咨询",
+    "zh-tw": "電話咨詢",
+    "en-US": "Call us"
+  },
+  "consultation-phone-number": {
+    "zh-cn": "0411-39026089",
+    "zh-tw": "0411-39026089",
+    "en-US": "+86-411-39026089"
+  },
+  "work-time": {
+    "zh-cn": "工作日 09：00-19：00",
+    "zh-tw": "工作日 09：00-19：00",
+    "en-US": "Weekday 09:00-19:00 (GMT+8)"
+  },
+  "business-consulting": {
+    "zh-cn": "商务咨询",
+    "zh-tw": "商務咨詢",
+    "en-US": "Consulting"
+  },
+  "shenzhen-address": {
+    "zh-cn": "深圳市南山区卫星大厦15层",
+    "zh-tw": "深圳市南山區衛星大廈15層",
+    "en-US": "15th Floor, Satellite Building, Nanshan District, Shenzhen, China"
+  },
+  "dalian-address": {
+    "zh-cn": "大连市软件园15号楼5层",
+    "zh-tw": "大連市軟件園15號樓5層",
+    "en-US": "5th Floor, Building 15, Dalian Software Park, China"
+  },
+  "technical-support": {
+    "zh-cn": "技术支持",
+    "zh-tw": "技術支持",
+    "en-US": "Technical Support"
+  },
+  "technical-phone-number": {
+    "zh-cn": "0411-39551681",
+    "zh-tw": "0411-39551681",
+    "en-US": "+86-0411-39551681"
+  },
+  "copyright": {
+    "zh-cn": "Copyright© 悦视光合科技(大连)有限公司  辽ICP备18008272号",
+    "zh-tw": "Copyright© 悅視光合科技(大連)有限公司   遼ICP備18008272號",
+    "en-US": "© 2019 All rights reserved. ElephantBI"
+  },
+  "home-banner-title": {
+    "zh-cn": "数据驱动，精准决策",
+    "zh-tw": "數據驅動，精準決策",
+    "en-US": "Data Driven, Precise Decision Making"
+  },
+  "home-banner-description-1": {
+    "zh-cn": "ElephantBI是企业大数据管理分析和商业智能平台",
+    "zh-tw": "ElephantBI是企業大數據管理分析和商業智能平台",
+    "en-US": "ElephantBI delivers big data management and analysis technology to enterprises"
+  },
+  "home-banner-description-2": {
+    "zh-cn": "实时连接聚合企业所有数据，简单灵活的交互式可视化数据分析",
+    "zh-tw": "實時連接聚合企業所有數據，簡單靈活的交互式可視化數據分析",
+    "en-US": "Pull from everywhere, integrate everything, connect everyone"
+  },
+  "home-banner-description-3": {
+    "zh-cn": "先进的敏捷BI模式，深入挖掘大数据价值，更快获得全局洞察，精准制定数据支持的商业决策",
+    "zh-tw": "先進的敏捷BI模式，深入挖掘大數據價值，更快獲得全局洞察，精準制定數據支持的商業決策",
+    "en-US": "Update data automatically, so you can track time-sensitive trends and see business performance in real time"
+  },
+  "contact-us": {
+    "zh-cn": "联系我们",
+    "zh-tw": "聯繫我們",
+    "en-US": "Contact Us"
+  },
+  "big-data-storage": {
+    "zh-cn": "大数据存储管理中心",
+    "zh-tw": "大數據存儲管理中心",
+    "en-US": "Integrating all your data"
+  },
+  "big-data-storage-description-1": {
+    "zh-cn": "数据库一键连接，支持MySQL、PostgreSQL、Microsoft SQL、Oracle等",
+    "zh-tw": "資料庫一鍵連接，支持MySQL、PostgreSQL、Microsoft SQL、Oracle等",
+    "en-US": "Import data from databases , including MySQL, PostgreSQL, Microsoft SQL, Oracle, etc."
+  },
+  "big-data-storage-description-2": {
+    "zh-cn": "云端服务器数据、内部服务器数据，均可集中管理",
+    "zh-tw": "雲端伺服器數據、內部伺服器數據，均可集中管理",
+    "en-US": "Connect data in cloud services and data in on-premise system"
+  },
+  "big-data-storage-description-3": {
+    "zh-cn": "本地Excel/Csv文件数据可轻松上传、更新、追加",
+    "zh-tw": "本地Excel/Csv文件數據可輕鬆上傳、更新、追加",
+    "en-US": "Data in local Excel/Csv file can also be easily uploaded, updated and appended"
+  },
+  "big-data-storage-description-4": {
+    "zh-cn": "无需技术支持，业务人员更方便的查看、筛选、导出数据",
+    "zh-tw": "無需技術支持，業務人員更方便的查看、篩選、匯出數據",
+    "en-US": "Business staffs can manage and analysis data independently without technical support"
+  },
+  "big-data-storage-description-5": {
+    "zh-cn": "强大的数据管理功能，更可设定数据库数据同步方式及周期等",
+    "zh-tw": "強大的數據管理功能，更可設定資料庫數據同步方式及週期等",
+    "en-US": "Support users to set the data synchronization mode and timing"
+  },
+  "visualized-data-analysis": {
+    "zh-cn": "可视化拖拽分析",
+    "zh-tw": "可視化拖拽分析",
+    "en-US": "Let Your Data Tell Stories"
+  },
+  "visualized-data-analysis-description-1": {
+    "zh-cn": "简单拖拽，数据图表瞬间生成",
+    "zh-tw": "簡單拖拽，數據圖表瞬間生成",
+    "en-US": "Create charts by visualized dragging and dropping"
+  },
+  "visualized-data-analysis-description-2": {
+    "zh-cn": "图表类型丰富，几十种随意挑选",
+    "zh-tw": "圖表類型豐富，幾十種隨意挑選",
+    "en-US": " Various beautiful charts are available"
+  },
+  "visualized-data-analysis-description-3": {
+    "zh-cn": "自由布局，图文混排，数据动向清晰明了",
+    "zh-tw": "自由佈局，圖文混排，數據動向清晰明了",
+    "en-US": "Decision makers can easily gain deeper insight into the data"
+  },
+  "visualized-data-analysis-description-4": {
+    "zh-cn": "图表联动，数据不再静止，让数据说话",
+    "zh-tw": "圖表聯動，數據不再靜止，讓數據說話",
+    "en-US": "Interactive charts and dashboards make actionable data stories possible"
+  },
+  "team-cooperation": {
+    "zh-cn": "团队协作",
+    "zh-tw": "團隊協作",
+    "en-US": "Team Collaboration"
+  },
+  "team-cooperation-description-1": {
+    "zh-cn": "多种类，多终端的交互式图表和仪表盘，帮助决策者从容讲述数据背后的线索",
+    "zh-tw": "多種類，多終端的交互式圖表和儀錶盤，幫助決策者從容講述數據背後的線索",
+    "en-US": "Bridge the gap between data and people"
+  },
+  "team-cooperation-description-2": {
+    "zh-cn": "深度集成即时沟通工具，帮助全员围绕商业数据分享协作，让数据驱动沟通融入日常工作的方方面面",
+    "zh-tw": "深度集成即時溝通工具，幫助全員圍繞商業數據分享協作，讓數據驅動溝通融入日常工作的方方面面",
+    "en-US": "Enables all employees to engage with real-time data, increasing everyone's productivity"
+  },
+  "team-cooperation-description-3": {
+    "zh-cn": "以数据连接全体成员，打破团队成员见的信息隔阂。帮助团队时刻了解业务关键指标，保持清晰的业务共识",
+    "zh-tw": "以數據連接全體成員，打破團隊成員間的資訊隔閡，幫助團隊時刻了解業務關鍵指標，保持清晰的業務共識",
+    "en-US": "Allows everyone to share and collaborate around business data as a natural part of the discussion"
+  },
+  "privilege-management": {
+    "zh-cn": "精细化权限管理",
+    "zh-tw": "精細化權限管理",
+    "en-US": "Permissions Management"
+  },
+  "privilege-management-description-1": {
+    "zh-cn": "灵活严谨的用户和角色体系，快速准确的赋予数据权限，兼具效率与安全",
+    "zh-tw": "靈活嚴謹的用戶和角色體系，快速準確的賦予數據權限，兼具效率與安全",
+    "en-US": "Give users the right access to only the right Data"
+  },
+  "privilege-management-description-2": {
+    "zh-cn": "提供行列粒度的数据权限控制，确保每一行每一列数据的访问都尽在控制",
+    "zh-tw": "提供行列粒度的數據權限控制，確保每一行每一列數據的訪問都盡在控制",
+    "en-US": " ElephantBI security offers comprehensive controls to help you easily provide effective oversight, from the big picture to the smallest detail"
+  },
+  "select-demo": {
+    "zh-cn": "请选择下方要体验的行业Demo",
+    "zh-tw": "請選擇下方要體驗的行業Demo",
+    "en-US": "Choose a industry"
+  },
+  "experience-demo": {
+    "zh-cn": "体验DEMO",
+    "zh-tw": "體驗DEMO",
+    "en-US": "DEMO"
+  },
+  "internet-demo-description": {
+    "zh-cn": "实时跟踪访客数，流量走势，竞争对手策略趋势等关键业务指标，掌握最新产品动向，辅助决策和调整产品方向",
+    "zh-tw": "體驗D實時追蹤訪客數，流量走勢，競爭對手策略趨勢等關鍵業務指標，掌握最新產品動向，輔助決策和調整產品方向EMO",
+    "en-US": "Through analytics, software owners can monitor the user activities on their software and truly understand customer behaviors, which will drive business decisions."
+  },
+  "retail-demo-description": {
+    "zh-cn": "从精细化管理的角度，利用数据分析，帮助零售企业给出数据解决方案，提高零售转化率同时降低退货率",
+    "zh-tw": "從精細化管理的角度，利用數據分析，幫助零售企業給出數據解決方案，提高零售轉換率同時降低退貨率",
+    "en-US": "Mash up large volumes of data or a variety of data sources to improve promotions, marketing, and your customer's experience."
+  },
+  "enterprise-service-demo-description": {
+    "zh-cn": "了解客户差异化需求，提供更专业的服务，降低获客成本，提高客户活跃度和留存度，增加客户黏性，提高续约率",
+    "zh-tw": "了解客戶差異化需求，提供更專業的服務，降低獲客成本，提高客戶活躍度和留存度，增加客戶粘性，提高續約率",
+    "en-US": "Provide more professional services to customer according to their needs, it will help reducing customer acquisition costs and increasing renewal rate."
+  },
+  "entertainment-demo-description": {
+    "zh-cn": "时刻保持最新状态，对即将发生的事件进行趋势预测，让数据变得可靠实用，数据指导精准营销活动",
+    "zh-tw": "時刻保持最新狀態，對即將發生的事件進行趨勢預測，讓數據變得可靠實用，數據指導精準營銷活動",
+    "en-US": "To truly keep up to date, capitalize on the new digital marketplace and connected consumer, leaders require accessible, real-time and reliable data."
+  },
+  "education-demo-description": {
+    "zh-cn": "从重复琐碎工作中解放大脑，指导根据创新的教学方法，提供用户分组、漏斗分析等，跟踪学生动态，提出具有针对性的提升方案",
+    "zh-tw": "從重複瑣粹工作中解放大腦，指導根據創新的教學方法，提供用戶分組、漏斗分析等，追蹤學生動態，提出具有針對性的提示方案",
+    "en-US": "Education institutions have the challenge of successfully attracting and trtaining students, ElephantBI helps to monitor marketing and student acquisition, identify and track at-risk students."
+  },
+  "financial-demo-description": {
+    "zh-cn": "以精细化运营的姿态面对行业变化，依靠数据为客户提供精准保险服务，降低获客成本，提高用户留存和增购",
+    "zh-tw": "以精細化運營的姿態面對行業變化，依靠數據為客戶提供精準保險服務，降低獲客成本，提高用戶留存和增購",
+    "en-US": "ElephantBI helps financial service experts to understand business better and see what's coming as a single platform that's easy to use, share and pull in all your data in real-time."
+  },
+  "manufacture-demo-description": {
+    "zh-cn": "整合多业务系统和大型ERP数据互通，合理分配资源降低生产成本，优化生产线管理提升产品质量",
+    "zh-tw": "整合多業務系統和大型ERP數據互通，合理分配資源降低生產成本，優化生產線管理提高產品質量",
+    "en-US": "Real-time, data analysis will help to detect demand trends early, optimize pricing strategies, give manufacturers a competitive advantage in the manufacturing industry."
+  },
+  "e-commerce-demo-description": {
+    "zh-cn": "多业务系统的数据整合，打破信息孤岛，高效的客户管理及供应商合作管理，差异化线上和线下运营，帮助电商客户科学决策",
+    "zh-tw": "多業務系統的數據整合，打破資訊孤島，高效的客戶管理及供應商合作管理，差異化線上和線下運營，幫助電商客戶科學決策",
+    "en-US": "Understand where your buyers come from, what's important to them, why they're converting, get real-time spend and ROI by tracking everything in one place."
+  },
+  "catering-demo-description": {
+    "zh-cn": "实现繁杂数据整合，提高顾客就餐率，及时调整营销策略，提供数据驱动的解决方案，轻松提高客户的满意度",
+    "zh-tw": "實現繁雜數據整合，提高顧客就餐率，及時調整營銷策略，提供數據驅動的解決方案，輕鬆提高客戶的滿意度",
+    "en-US": "Improve customer dining rate, adjust marketing strategy in time, improve customer's degree of satisfaction by integrating all data together and monitoring the changing trend of data."
+  },
+  "logistics-demo-description": {
+    "zh-cn": "轻松了解追踪客户行为，打通业务系统，科学调度车辆，提高订单完成率、准时率，提高物流效率，保证客户满意度",
+    "zh-tw": "輕鬆了解追蹤客戶行為，打通業務系統，科學調度車輛，提高訂單完成率、準時率，提高物流效率，保證客戶滿意度",
+    "en-US": "You can find trends in profitable customer acquisition, track systems for better efficiency and volume. ElephantBI will give you instant insights and grow your business."
+  },
+  "other-demo-description": {
+    "zh-cn": "旅游业，保险业，农产品，电气化工，高新科技，生活服务等更多行业，立即预约，专业行业顾问将为您进行免费线上演示",
+    "zh-tw": "旅遊業，保險業，農產品，電氣化工，高新科技，生活服務等更多行業，联系我们，专业行业顾问将为您定制行业方案",
+    "en-US": "If you are in tourist, insurance, agricultural, electrical and chemistry, high tech, services or others, contact us for a free project consultation!"
+  },
+  "home-bottom-banner-title": {
+    "zh-cn": "数据驱动，精准决策，即刻启程",
+    "zh-tw": "數據驅動，精準決策，即刻啟程",
+    "en-US": "Data Driven, Precise Decision Making. Start Now!"
+  },
+  "home-bottom-banner-description": {
+    "zh-cn": "ElephantBI专注数据价值，让数据真正服务于工作，现在开始免费试用",
+    "zh-tw": "ElephantBI專注數據價值，讓數據真正服務于工作，現在開始免費試用",
+    "en-US": "ElephantBI focuses on the value of data, making data truly work. Now start your free 14-day trial!"
+  },
+  "free-trail-description": {
+    "zh-cn": "填写右侧信息，我们将会尽快与您联系开通试用账号；您也可以直接致电0411-39026089联系我们",
+    "zh-tw": "填寫右側資訊，我們將會盡快與您聯繫開通試用賬戶；您也可以直接致電0411-39026089聯繫我們",
+    "en-US": "Fill in the form to get in touch! We will open a trial account for you. You can also contact us directly by calling +86-0411-39026089."
+  },
+  "want-free-trial": {
+    "zh-cn": "我要免费试用",
+    "zh-tw": "我要免費試用",
+    "en-US": "Free Trial"
+  },
+  "want-free-trail-description": {
+    "zh-cn": "请留下您的联系方式和需求，客户经理会在24小时内与您取得联系，并为您开通试用账号",
+    "zh-tw": "請留下您的聯繫方式和需求，客戶經理會在24小時內與您取得聯繫，并為您開通試用賬戶",
+    "en-US": "Fill in the form below to get in touch with us! We will open a trial account for you within 24 hours (except holidays)."
+  },
+  "free-trail-name": {
+    "zh-cn": "姓名",
+    "zh-tw": "姓名",
+    "en-US": "Name"
+  },
+  "free-trail-email": {
+    "zh-cn": "工作邮箱",
+    "zh-tw": "工作郵箱",
+    "en-US": "E-mail"
+  },
+  "free-trail-phone": {
+    "zh-cn": "电话",
+    "zh-tw": "電話",
+    "en-US": "Phone"
+  },
+  "free-trail-company-name": {
+    "zh-cn": "公司名称",
+    "zh-tw": "公司名稱",
+    "en-US": "Enterprise"
+  },
+  "free-trail-industry": {
+    "zh-cn": "所属行业",
+    "zh-tw": "所屬行業",
+    "en-US": "Industry"
+  },
+  "free-trail-company-size": {
+    "zh-cn": "公司规模",
+    "zh-tw": "公司規模",
+    "en-US": "Company Size"
+  },
+  "free-trail-department": {
+    "zh-cn": "所属部门",
+    "zh-tw": "所屬部門",
+    "en-US": "Department"
+  },
+  "free-trail-position": {
+    "zh-cn": "现任职位",
+    "zh-tw": "現任職位",
+    "en-US": "Job Role"
+  },
+  "free-trail-remark": {
+    "zh-cn": "请描述您希望了解的内容或问题",
+    "zh-tw": "請描述您希望了解的內容或問題",
+    "en-US": "How can we help you?"
+  },
+  "price-title": {
+    "zh-cn": "升级ElephantBI，释放数据价值",
+    "zh-tw": "升級ElephantBI，釋放數據價值",
+    "en-US": "Upgrade ElephantBI to Release Data Value"
+  },
+  "enterprise-edition": {
+    "zh-cn": "企业版",
+    "zh-tw": "企業版",
+    "en-US": "Enterprise"
+  },
+  "enterprise-edition-description-1": {
+    "zh-cn": "/人/月",
+    "zh-tw": "/人/月",
+    "en-US": "/ person / month"
+  },
+  "enterprise-edition-description-2": {
+    "zh-cn": "现在注册，开启14天免费试用",
+    "zh-tw": "現在註冊，開啟14天免費試用",
+    "en-US": "Register now,start the 14 days free trial"
+  },
+  "enterprise-custom-edition": {
+    "zh-cn": "企业定制版",
+    "zh-tw": "企業定制版",
+    "en-US": "Customization"
+  },
+  "enterprise-custom-edition-description": {
+    "zh-cn": "需私有部署/有定制需求的企业用户",
+    "zh-tw": "需私有部署/有定制需求的企業客戶",
+    "en-US": "On-Premise / Customization"
+  },
+  "data-preparation": {
+    "zh-cn": "数据准备",
+    "zh-tw": "數據準備",
+    "en-US": "Data Preparation"
+  },
+  "unlimited": {
+    "zh-cn": "不限",
+    "zh-tw": "不限",
+    "en-US": "Data Preparation"
+  },
+  "on-demand": {
+    "zh-cn": "按需",
+    "zh-tw": "按需",
+    "en-US": "Data Preparation"
+  },
+  "flexible-expansion": {
+    "zh-cn": "5G/10人(可灵活拓展)",
+    "zh-tw": "5G/10人(可靈活擴展)",
+    "en-US": "5G/10users(support extension)"
+  },
+  "user-number": {
+    "zh-cn": "用户数",
+    "zh-tw": "用戶數",
+    "en-US": "Users"
+  },
+  "datasource-connections": {
+    "zh-cn": "数据源连接个数",
+    "zh-tw": "數據源連接個數",
+    "en-US": "Number of data sources"
+  },
+  "data-storage-capacity": {
+    "zh-cn": "数据存储容量",
+    "zh-tw": "數據存儲容量",
+    "en-US": "Data storage"
+  },
+  "database-auto-refresh-rate": {
+    "zh-cn": "数据库自动刷新频率",
+    "zh-tw": "資料庫自動刷新頻率",
+    "en-US": "Automatic refresh frequency"
+  },
+  "concurrent-sync-connections": {
+    "zh-cn": "并发同步连接个数",
+    "zh-tw": "並發同步連接個數",
+    "en-US": "Number of concurrent tasks"
+  },
+  "online-data-warehouse": {
+    "zh-cn": "线上数据仓库",
+    "zh-tw": "線上數據倉庫",
+    "en-US": "Online data warehouse"
+  },
+  "database-connection": {
+    "zh-cn": "数据库连接",
+    "zh-tw": "資料庫連接",
+    "en-US": "Import data from databases"
+  },
+  "intranet-data-connection": {
+    "zh-cn": "内网数据连接",
+    "zh-tw": "內網數據連接",
+    "en-US": "Connect data in on-premise system"
+  },
+  "local-file-data-connection": {
+    "zh-cn": "本地文件数据连接",
+    "zh-tw": "本地文件數據連接",
+    "en-US": "Import data from local file"
+  },
+  "multi-table-union": {
+    "zh-cn": "多表联合",
+    "zh-tw": "多表聯合",
+    "en-US": "Data fusion"
+  },
+  "data-authority-management": {
+    "zh-cn": "数据查看权限管理",
+    "zh-tw": "數據查看權限管理",
+    "en-US": "Data privacy control"
+  },
+  "data-source-settings": {
+    "zh-cn": "数据源管理及设定",
+    "zh-tw": "數據源管理及設定",
+    "en-US": "Data source management"
+  },
+  "export-data-number": {
+    "zh-cn": "导出数据条数",
+    "zh-tw": "匯出數據條數",
+    "en-US": "Maximum exported rows"
+  },
+  "data-analysis": {
+    "zh-cn": "数据分析",
+    "zh-tw": "數據分析",
+    "en-US": "Data Analysis"
+  },
+  "crosstab-pivotTable-display": {
+    "zh-cn": "交叉表/透视表展示",
+    "zh-tw": "交叉表/透視錶展示",
+    "en-US": "Crosstab/PivotTable"
+  },
+  "various-chart-displays": {
+    "zh-cn": "各类图表展示",
+    "zh-tw": "各類圖表展示",
+    "en-US": "All interactive charts"
+  },
+  "drag-drop-operation": {
+    "zh-cn": "拖拽式操作",
+    "zh-tw": "拖拽式操作",
+    "en-US": "Drag and drop data analysis"
+  },
+  "data-screening": {
+    "zh-cn": "数据筛选",
+    "zh-tw": "數據篩選",
+    "en-US": "Data filtration"
+  },
+  "data-sorting": {
+    "zh-cn": "数据排序",
+    "zh-tw": "數據排序",
+    "en-US": "Data sorting"
+  },
+  "chart-style-settings": {
+    "zh-cn": "图表样式设定",
+    "zh-tw": "圖表樣式設定",
+    "en-US": "Chart display settings"
+  },
+  "result-display": {
+    "zh-cn": "结果展示",
+    "zh-tw": "結果展示",
+    "en-US": "Dashboard"
+  },
+  "chart-dashboard-managemet": {
+    "zh-cn": "图表仪表盘管理",
+    "zh-tw": "圖表儀錶盤管理",
+    "en-US": "Dashboard management"
+  },
+  "outside-sharing-of-dashboard": {
+    "zh-cn": "仪表盘站外分享",
+    "zh-tw": "儀錶盤站外分享",
+    "en-US": "Share dashboards"
+  },
+  "dashboard-rights-management": {
+    "zh-cn": "仪表盘权限管理",
+    "zh-tw": "儀錶盤權限管理",
+    "en-US": "Dashboard privacy control"
+  },
+  "team-management": {
+    "zh-cn": "团队管理",
+    "zh-tw": "團隊管理",
+    "en-US": "Team Cooperation"
+  },
+  "team-member-management": {
+    "zh-cn": "团队成员管理",
+    "zh-tw": "團隊成員管理",
+    "en-US": "Team management"
+  },
+  "support-batch-management": {
+    "zh-cn": "支持批量管理",
+    "zh-tw": "支持批量管理",
+    "en-US": "Batch manage members"
+  },
+  "support-member-grouping": {
+    "zh-cn": "支持成员分组",
+    "zh-tw": "支持成員分組",
+    "en-US": "Group members"
+  },
+  "team-settings": {
+    "zh-cn": "团队设定",
+    "zh-tw": "團隊設定",
+    "en-US": "Team settings"
+  },
+  "company-settings": {
+    "zh-cn": "公司设定",
+    "zh-tw": "公司設定",
+    "en-US": "Company settings"
+  },
+  "service-support": {
+    "zh-cn": "服务支持",
+    "zh-tw": "服務支持",
+    "en-US": "Services"
+  },
+  "mail-support": {
+    "zh-cn": "中英文邮件支持",
+    "zh-tw": "中英文郵件支持",
+    "en-US": "E-mail service in English and Chinese"
+  },
+  "product-manual-support": {
+    "zh-cn": "产品手册支持",
+    "zh-tw": "產品手冊支持",
+    "en-US": "Product specification"
+  },
+  "phone-support": {
+    "zh-cn": "8*5电话支持",
+    "zh-tw": "8*5電話支持",
+    "en-US": "8*5 phone service"
+  },
+  "customer-advisor": {
+    "zh-cn": "一对一客户顾问",
+    "zh-tw": "一對一客戶顧問",
+    "en-US": "Customer consultant"
+  },
+  "more-than-10-persons": {
+    "zh-cn": "≥10人",
+    "zh-tw": "≥10人",
+    "en-US": "≥10"
+  },
+  "service-description": {
+    "zh-cn": "ElephantBI拥有专业的商务团队和技术支持团队，将为您提供专业的服务",
+    "zh-tw": "ElephantBI擁有專業的商務團隊和技術支持團隊，將為您提供專業的服務",
+    "en-US": "We will answer all of your data and business questions to help you make the most of your ElephantBI experience."
+  },
+  "problem-feedback": {
+    "zh-cn": "问题反馈",
+    "zh-tw": "問題反饋",
+    "en-US": "Feedback"
+  },
+  "complaint": {
+    "zh-cn": "投诉",
+    "zh-tw": "投訴",
+    "en-US": "Complaint"
+  },
+  "presidance-phone": {
+    "zh-cn": "总裁办电话  15910603382",
+    "zh-tw": "總裁辦電話 15910603382",
+    "en-US": "President's Phone +86-15910603382"
+  },
+  "contact-us-description": {
+    "zh-cn": "请将您的需求或建议填写在下方，并可留下联系方式，ElephantBI团队将及时向您反馈处理结果",
+    "zh-tw": "請將您的需求或建議填寫在下方，並可留下聯繫方式，ElephantBI團隊將及時向您反饋處理結果",
+    "en-US": "Fill in the form below to get in touch with us!We will respond you within 24 hours (except holidays)."
+  },
+  "submit": {
+    "zh-cn": "提交",
+    "zh-tw": "提交",
+    "en-US": "Submit"
+  },
+  "wechat-custom-service": {
+    "zh-cn": "微信客服",
+    "zh-tw": "微信客服",
+    "en-US": "Live Chat"
+  },
+  "send-email": {
+    "zh-cn": "发送邮件",
+    "zh-tw": "發送郵件",
+    "en-US": "Send Email"
+  },
+  "reply-within-24-hours": {
+    "zh-cn": "我们会在24小时内给您回复",
+    "zh-tw": "我們會在24小時內給您回復",
+    "en-US": "We will respond you within 24 hours"
+  },
+  "scan-code": {
+    "zh-cn": "微信扫码联系客服",
+    "zh-tw": "微信掃碼聯繫客服",
+    "en-US": "Start live chat by scanning the code"
+  },
+  "human-resources": {
+    "zh-cn": "人事部",
+    "zh-tw": "人事部",
+    "en-US": "Human Resources"
+  },
+  "finance": {
+    "zh-cn": "财务部",
+    "zh-tw": "財務部",
+    "en-US": "Finance"
+  },
+  "administration": {
+    "zh-cn": "行政部",
+    "zh-tw": "行政部",
+    "en-US": "Administration"
+  },
+  "sales": {
+    "zh-cn": "销售部",
+    "zh-tw": "銷售部",
+    "en-US": "Sales"
+  },
+  "it": {
+    "zh-cn": "技术部",
+    "zh-tw": "技術部",
+    "en-US": "IT"
+  },
+  "marketing": {
+    "zh-cn": "市场部",
+    "zh-tw": "市場部",
+    "en-US": "Marketing"
+  },
+  "operation": {
+    "zh-cn": "运营部",
+    "zh-tw": "運營部",
+    "en-US": "Operation"
+  },
+  "product-management": {
+    "zh-cn": "产品部",
+    "zh-tw": "產品部",
+    "en-US": "Product Management"
+  },
+  "others": {
+    "zh-cn": "其他部门",
+    "zh-tw": "其他部門",
+    "en-US": "Others"
+  },
+  "internet-trail": {
+    "zh-cn": "互联网及IT行业",
+    "zh-tw": "互聯網及IT行業",
+    "en-US": "Internet"
+  },
+  "tourism-industry": {
+    "zh-cn": "旅游行业",
+    "zh-tw": "旅遊行業",
+    "en-US": "Tourism"
+  },
+  "insurance-industry": {
+    "zh-cn": "保险行业",
+    "zh-tw": "保險行業",
+    "en-US": "Insurance"
+  },
+  "agricultural-industry": {
+    "zh-cn": "农产品行业",
+    "zh-tw": "農產品行業",
+    "en-US": "Agricultural"
+  },
+  "electrical-and-chemistry-industry": {
+    "zh-cn": "电气化工行业",
+    "zh-tw": "電氣化工行業",
+    "en-US": "Electrical and Chemistry"
+  },
+  "high-tech-industry": {
+    "zh-cn": "科技研发行业",
+    "zh-tw": "科技研發行業",
+    "en-US": "High Tech"
+  },
+  "services-industry": {
+    "zh-cn": "生活服务行业",
+    "zh-tw": "生活服務行業",
+    "en-US": "Services"
+  },
+  "1-15": {
+    "zh-cn": "1-15人",
+    "zh-tw": "1-15人",
+    "en-US": "1-15"
+  },
+  "16-50": {
+    "zh-cn": "16-50人",
+    "zh-tw": "16-50人",
+    "en-US": "16-50"
+  },
+  "51-200": {
+    "zh-cn": "51-200人",
+    "zh-tw": "51-200人",
+    "en-US": "51-200"
+  },
+  "201-500": {
+    "zh-cn": "201-500人",
+    "zh-tw": "201-500人",
+    "en-US": "201-500"
+  },
+  "501-2000": {
+    "zh-cn": "501-2000人",
+    "zh-tw": "501-2000人",
+    "en-US": "501-2000"
+  },
+  "2001-5000": {
+    "zh-cn": "2001-5000人",
+    "zh-tw": "2001-5000人",
+    "en-US": "2001-5000"
+  },
+  "5001-and-above": {
+    "zh-cn": "5001人及以上",
+    "zh-tw": "5001人及以上",
+    "en-US": "5001 and above"
+  },
+  "name-required-tip": {
+    "zh-cn": "请输入您的姓名",
+    "zh-tw": "請輸入您的姓名",
+    "en-US": "Please input your name"
+  },
+  "email-required-tip": {
+    "zh-cn": "请输入电子邮箱",
+    "zh-tw": "請輸入電子郵箱",
+    "en-US": "Please input your business E-mail"
+  },
+  "phone-required-tip": {
+    "zh-cn": "请输入手机号码",
+    "zh-tw": "請輸入手機號碼",
+    "en-US": "Please input your phone number"
+  },
+  "company-required-tip": {
+    "zh-cn": "请输入您所在的公司名称",
+    "zh-tw": "請輸入您所在的公司名稱",
+    "en-US": "Please input your enterprise name"
+  },
+  "industry-required-tip": {
+    "zh-cn": "请选择您所属行业",
+    "zh-tw": "請選擇您所屬行業",
+    "en-US": "Please select your industry"
+  },
+  "enterprise-required-tip": {
+    "zh-cn": "请选择您所在的公司规模",
+    "zh-tw": "請選擇您所在的公司規模",
+    "en-US": "Please choose the size of the enterprise"
+  },
+  "department-required-tip": {
+    "zh-cn": "请选择您的所属部门",
+    "zh-tw": "請選擇您的所屬部門",
+    "en-US": "Please select your department"
+  },
+  "position-required-tip": {
+    "zh-cn": "请输入您的现任职位",
+    "zh-tw": "請輸入您的現任職位",
+    "en-US": "Please input your job role"
+  },
+  "remark-required-tip": {
+    "zh-cn": "请描述您希望了解的内容或问题",
+    "zh-tw": "請描述您希望了解的內容或問題",
+    "en-US": "How can we help you?"
+  },
+  "service-email": {
+    "zh-cn": "邮箱",
+    "zh-tw": "邮箱",
+    "en-US": "E-mail"
+  },
+  "service-phone": {
+    "zh-cn": "联系电话",
+    "zh-tw": "聯系電話",
+    "en-US": "Phone"
+  },
+  "need-and-advice": {
+    "zh-cn": "请填写您的需求或建议",
+    "zh-tw": "請填寫您的需求或建議",
+    "en-US": "How can we help you?"
+  },
+  "service-phone-tip": {
+    "zh-cn": "请输入联系电话",
+    "zh-tw": "請輸入聯繫電話",
+    "en-US": "Please input your phone number"
+  },
+  "service-company-name": {
+    "zh-cn": "请输入公司名称",
+    "zh-tw": "請輸入公司名稱",
+    "en-US": "Please input your enterprise name"
+  },
+  "err-email": {
+    "zh-cn": "邮箱格式不正确",
+    "zh-tw": "郵箱格式不正確",
+    "en-US": "Please input the correct business E-mail"
+  },
+  "err-mobile": {
+    "zh-cn": "手机格式不正确",
+    "zh-tw": "手機格式不正確",
+    "en-US": "Please input the correct phone number"
+  }
+}

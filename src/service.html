@@ -42,54 +42,62 @@
             <img src='<%= require("./assets/nav-logo-black.svg") %>' width=160 height=32 id="logo" />
           </li>
           <li class="nav-section page-list">
-            <a href="./product.html">产品</a>
-            <a href="javascript:void(0)" id="nav-industry-link">行业DEMO</a>
-            <a href="./demo.html">预约演示</a>
-            <a href="./price.html">价格</a>
-            <a class="selected" href="./service.html">服务</a>
-            <a href="./about.html">关于</a>
+            <a href="./index.html" data-locale-id="nav-product">产品</a>
+            <a href="javascript:void(0)" id="nav-industry-link" data-locale-id="nav-demo">行业DEMO</a>
+            <a href="./demo.html" data-locale-id="nav-trial">免费试用</a>
+            <a href="./price.html" data-locale-id="nav-price">价格</a>
+            <a href="./service.html" data-locale-id="nav-service">服务支持</a>
+            <a href="javascript:void(0)" data-locale-id="nav-custom">需求定制</a>
+            <span class="nav-locale">
+              <button class="nav-locale-btn" id="nav-locale-btn">English</button>
+              <div class="nav-locale-modal" id="nav-locale-modal">
+                <div class="locale-item" data-locale="zh-cn">简体中文</div>
+                <div class="locale-item" data-locale="zh-tw">繁體中文</div>
+                <div class="locale-item" data-locale="en-US">English</div>
+              </div>
+            </span>
             <div class="nav-industry-modal" id="nav-industry-modal">
               <div class="nav-industry-arrow"></div>
               <ul>
                 <li>
-                  <a class="industry0">互联网行业</a>
+                  <a class="industry0" data-locale-id="internet-industry">互联网行业</a>
                 </li>
                 <li>
-                  <a class="industry2">零售行业</a>
+                  <a class="industry2" data-locale-id="retail-industry">零售行业</a>
                 </li>
                 <li>
-                  <a class="industry4">企业服务行业</a>
+                  <a class="industry4" data-locale-id="enterprise-service-industry">企业服务行业</a>
                 </li>
                 <li>
-                  <a class="industry6">文娱行业</a>
+                  <a class="industry6" data-locale-id="entertainment-industry">文娱行业</a>
                 </li>
                 <li>
-                  <a class="industry8">教育行业</a>
+                  <a class="industry8" data-locale-id="education-industry">教育行业</a>
                 </li>
               </ul>
               <div class="divider"></div>
               <ul>
                 <li>
-                  <a class="industry1">金融行业</a>
+                  <a class="industry1" data-locale-id="financial-industry">金融行业</a>
                 </li>
                 <li>
-                  <a class="industry3">制造行业</a>
+                  <a class="industry3" data-locale-id="manufacture-industry">制造行业</a>
                 </li>
                 <li>
-                  <a class="industry5">电商行业</a>
+                  <a class="industry5" data-locale-id="e-commerce-industry">电商行业</a>
                 </li>
                 <li>
-                  <a class="industry7">餐饮行业</a>
+                  <a class="industry7" data-locale-id="catering-industry">餐饮行业</a>
                 </li>
                 <li>
-                  <a class="industry9">物流行业</a>
+                  <a class="industry9" data-locale-id="logistics-industry">物流行业</a>
                 </li>
               </ul>
             </div>
           </li>
           <li class="nav-section login">
             <span class="login-btn-content">
-              <button id="nav-login">登录</button>
+              <button id="nav-login" data-locale-id="sign-in">登录</button>
               <div class="login-modal" id="login-modal">
                 <div class="modal-arrow"></div>
                 <span class="login-block-wrapper">
@@ -98,14 +106,53 @@
                     <span id="login-fixed" class="login-cell login-fixed">elephantbi.com</span>
                   </span>
                 </span>
-                <button class="login-btn" id="login-product">登录</button>
+                <button class="login-btn" id="login-product" data-locale-id="sign-in">登录</button>
               </div>
             </span>
-            <a class="register-btn" href="./register.html">免费注册</a>
+            <a class="register-btn" href="./demo.html" data-locale-id="nav-trial">免费试用</a>
           </li>
         </ul>
       </nav>
     </header>
+    <div class="quick-entry">
+      <div class="quick-entry-item">
+        <img alt="" class="quick-entry-phone" src='<%= require("./assets/quickEntryPhone.svg") %>' />
+        <div data-locale-id="consultation" class="quick-entry-item-text">电话咨询</div>
+        <div class="quick-entry-phone-tootip quick-entry-tootip">
+          <img alt="" class="quick-entry-tootip-phone" src='<%= require("./assets/quickEntryTootipPhone.svg") %>' />
+          <span class="quick-entry-tootip-info">
+            <div data-locale-id="consultation-phone-number">0411-39026089</div>
+            <div data-locale-id="work-time">工作日 09：00-19：00</div>
+          </span>
+          <div class="tootip-arrow"></div>
+        </div>
+      </div>
+      <div class="quick-entry-item">
+        <img alt="" class="quick-entry-wechat" src='<%= require("./assets/quickEntryWechat.svg") %>' />
+        <div data-locale-id="wechat-custom-service" class="quick-entry-item-text">微信客服</div>
+        <div class="quick-entry-wechat-tootip quick-entry-tootip">
+          <img alt="" class="quick-entry-tootip-wechat" src='<%= require("./assets/footer-sq.svg") %>' />
+          <div class="footer-nav-sq-description" data-locale-id="scan-code">微信扫码联系客服</div>
+          <div class="tootip-arrow"></div>
+        </div>
+      </div>
+      <div class="quick-entry-item">
+        <img alt="" class="quick-entry-email" src='<%= require("./assets/quickEntryEmail.svg") %>' />
+        <div data-locale-id="send-email" class="quick-entry-item-text">发送邮件</div>
+        <div class="quick-entry-email-tootip quick-entry-tootip">
+          <img alt="" class="quick-entry-tootip-email" src='<%= require("./assets/quickEntryTootipEmail.svg") %>' />
+          <span class="quick-entry-tootip-info">
+            <div>bd@elephantbi.com</div>
+            <div data-locale-id="reply-within-24-hours">我们会在24小时内给您回复</div>
+          </span>
+          <div class="tootip-arrow"></div>
+        </div>
+      </div>
+      <a class="quick-entry-item" href="./demo.html">
+        <img alt="" class="quick-entry-trail" src='<%= require("./assets/quickEntryTrail.svg") %>' />
+        <div data-locale-id="nav-trial" class="quick-entry-item-text">免费试用</div>
+      </a>
+    </div>
     <main class="main-content">
       <div class="service-content">
         <div class="main-header-bg" aria-hidden="true">
@@ -122,14 +169,14 @@
           <span></span>
         </div>
         <header class="main-header">
-          <h1 class="title">服务支持</h1>
-          <span class="description">ElephantBI拥有专业的商务团队和技术支持团队，将为您提供专业的服务</span>
+          <h1 class="title" data-locale-id="nav-service">服务支持</h1>
+          <span class="description" data-locale-id="service-description">ElephantBI拥有专业的商务团队和技术支持团队，将为您提供专业的服务</span>
           <div class="banner">
             <img class="banner-image" src='<%= require("./assets/main-header-banner-server.png") %>' width=415 height=380>
           </div>
           <div>
-            <a class="free-btn" href="./register.html">免费试用</a>
-            <a class="reserve-btn demo-btn" href="./demo.html">预约演示</a>
+            <a class="free-btn" href="./demo.html" data-locale-id="nav-trial">免费试用</a>
+            <a class="reserve-btn demo-btn" href="./service.html#contactUs" data-locale-id="contact-us">联系我们</a>
           </div>
         </header>
         <section class="server-stage">
@@ -137,7 +184,7 @@
             <ul>
               <li class="server-title">
                 <img src='<%= require("./assets/wxService.svg") %>' width=46 height=48 />
-                <p>
+                <p data-locale-id="wechat-custom-service">
                   微信客服
                 </p>
               </li>
@@ -148,13 +195,13 @@
             <ul>
               <li class="server-title">
                 <img src='<%= require("./assets/server-title-icon2.png") %>' width=53 height=44 />
-                <p>
+                <p data-locale-id="business-consulting">
                   商务咨询
                 </p>
               </li>
               <li class="server-item">
                 <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
-                <span>0411-39026089</span>
+                <span data-locale-id="consultation-phone-number">0411-39026089</span>
               </li>
               <li class="server-item">
                 <img src='<%= require("./assets/footer-email.png") %>' />
@@ -166,7 +213,7 @@
             <ul>
               <li class="server-title">
                 <img src='<%= require("./assets/server-title-icon1.png") %>' width=43 height=44 />
-                <p>
+                <p data-locale-id="technical-support">
                   技术支持
                 </p>
               </li>
@@ -176,7 +223,7 @@
               </li>
               <li class="server-item">
                 <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
-                <span>0411-39551681</span>
+                <span data-locale-id="technical-phone-number">0411-39551681</span>
               </li>
               <li class="server-item">
                 <img src='<%= require("./assets/footer-email.png") %>' />
@@ -188,58 +235,58 @@
             <ul>
               <li class="server-title">
                 <img src='<%= require("./assets/server-title-icon3.png") %>' width=44 height=44 />
-                <p>
+                <p data-locale-id="complaint">
                   投诉
                 </p>
               </li>
               <li class="server-item">
                 <img src='<%= require("./assets/footer-phone.png") %>' width=17 height=17 />
-                <span>总裁办电话 15910603382</span>
+                <span data-locale-id="presidance-phone">总裁办电话 15910603382</span>
               </li>
             </ul>
           </div>
         </section>
+        <a href="#contactUs" name="contactUs" id="contactUs" ></a>
         <div class="line"></div>
         <section class="reserve-form">
-          <h3 class="reserve-form-title">我的反馈</h3>
-          <p class="reserve-form-subtitle">请将您的问题或建议填写在下方，并可留下联系方式，ElephantBI团队将及时向您反馈处理结果</p>
+          <h3 class="reserve-form-title" data-locale-id="contact-us">联系我们</h3>
+          <p class="reserve-form-subtitle" data-locale-id="contact-us-description">请将您的需求或建议填写在下方，并可留下联系方式，ElephantBI团队将及时向您反馈处理结果</p>
           <form action="POST" name="formReserve">
             <span class="form-radio">
               <label for="1">
                 <input type="radio" name="type" id="1" checked />
                 <div class="radio"></div>
-                问题反馈
+                <span data-locale-id="business-consulting">商务咨询</span>
               </label>
               <label for="2">
                 <input type="radio" name="type" id="2" />
                 <div class="radio"></div>
-                功能建议
+                <span data-locale-id="problem-feedback">问题反馈</span>
               </label>
             </span>
-            <span class="form-wrap" data-attr="请填写问题或建议">
-              <textarea class="form-textarea" name="content" id="content" cols="96" rows="5" placeholder="请填写您想反馈的问题或建议"></textarea>
+            <span class="form-wrap" data-err="请输入公司名称" data-locale-id="need-and-advice">
+              <textarea class="form-textarea" name="content" id="content" cols="96" rows="5" placeholder="请填写您的需求或建议" data-locale-id="need-and-advice"></textarea>
             </span>
-            <span class="form-item" data-attr="请输入姓名">
+            <span class="form-item" data-err="请输入公司名称" data-locale-id="name-required-tip">
               <img src='<%= require("./assets/name.svg") %>' />
-              <input class="form-input" type="text" name="name" placeholder="姓名" />
+              <input class="form-input" type="text" name="name" placeholder="姓名" data-locale-id="free-trail-name" />
             </span>
-            <span class="form-item" data-attr="请输入邮箱" data-input="请输入企业邮箱">
+            <span class="form-item" data-err="请输入公司名称" data-locale-id="email-required-tip">
               <img src='<%= require("./assets/email.svg") %>' class="form-tem-email" />
-              <input class="form-input" type="text" name="email" placeholder="邮箱" />
+              <input class="form-input" type="text" name="email" placeholder="邮箱" data-locale-id="service-email" data-input-locale-id="err-email" />
             </span>
-            <span class="form-item" data-attr="请输入联系电话" data-input="请输入数字(支持+、-)">
+            <span class="form-item"  data-err="请输入公司名称" data-locale-id="service-phone-tip">
               <img src='<%= require("./assets/mobile.svg") %>' />
-              <input class="form-input" type="text" name="mobile" placeholder="联系电话" />
+              <input class="form-input" type="text" name="mobile" placeholder="联系电话" data-locale-id="service-phone" data-input-locale-id="err-mobile" />
             </span>
-            <span class="form-item" data-attr="请输入公司姓名">
+            <span class="form-item" data-err="请输入公司名称" data-locale-id="service-company-name">
               <img src='<%= require("./assets/company.svg") %>' />
-              <input class="form-input" type="text" name="company" placeholder="公司名称" />
+              <input class="form-input" type="text" name="company" placeholder="公司名称" data-locale-id="free-trail-company-name" />
             </span>
           </form>
-          <button class="form-submit-btn" id="form-reserve-submit-btn-id">提交</button>
+          <button class="form-submit-btn" id="form-reserve-submit-btn-id" data-locale-id="submit">提交</button>
         </section>
       </div>
-
     </main>
     <footer class="footer-content">
       <ul class="footer-nav">
@@ -248,65 +295,65 @@
         </li>
         <li class="footer-nav-list">
           <ul>
-            <li class="footer-list-title">产品</li>
+            <li class="footer-list-title" data-locale-id="nav-product">产品</li>
             <li>
-              <a href="./product.html">产品介绍</a>
+              <a href="./index.html" data-locale-id="nav-product">产品介绍</a>
             </li>
             <li>
-              <a href="./demo.html">预约演示</a>
+              <a href="./demo.html" data-locale-id="nav-trial">免费试用</a>
             </li>
             <li>
-              <a href="./price.html">价格</a>
+              <a href="./price.html" data-locale-id="nav-price">价格</a>
             </li>
             <li>
-              <a href="./service.html">服务支持</a>
+              <a href="./service.html" data-locale-id="nav-service">服务支持</a>
             </li>
             <li>
-              <a href="./about.html">关于我们</a>
+              <a href="javascript:void(0)" data-locale-id="nav-custom">需求定制</a>
             </li>
           </ul>
           <ul class="footer-industry">
-            <li class="footer-list-title">行业Demo</li>
+            <li class="footer-list-title" data-locale-id="nav-demo">行业Demo</li>
             <ul>
               <li>
-                <a class="industry0">互联网行业</a>
+                <a class="industry0" data-locale-id="internet-industry">互联网行业</a>
               </li>
               <li>
-                <a class="industry2">零售行业</a>
+                <a class="industry2" data-locale-id="retail-industry">零售行业</a>
               </li>
               <li>
-                <a class="industry4">企业服务行业</a>
+                <a class="industry4" data-locale-id="enterprise-service-industry">企业服务行业</a>
               </li>
               <li>
-                <a class="industry6">文娱行业</a>
+                <a class="industry6" data-locale-id="entertainment-industry">文娱行业</a>
               </li>
               <li>
-                <a class="industry8">教育行业</a>
+                <a class="industry8" data-locale-id="education-industry">教育行业</a>
               </li>
             </ul>
             <ul>
               <li>
-                <a class="industry1">金融行业</a>
+                <a class="industry1" data-locale-id="financial-industry">金融行业</a>
               </li>
               <li>
-                <a class="industry3">制造行业</a>
+                <a class="industry3" data-locale-id="manufacture-industry">制造行业</a>
               </li>
               <li>
-                <a class="industry5">电商行业</a>
+                <a class="industry5" data-locale-id="e-commerce-industry">电商行业</a>
               </li>
               <li>
-                <a class="industry7">餐饮行业</a>
+                <a class="industry7" data-locale-id="catering-industry">餐饮行业</a>
               </li>
               <li>
-                <a class="industry9">物流行业</a>
+                <a class="industry9" data-locale-id="logistics-industry">物流行业</a>
               </li>
             </ul>
           </ul>
           <ul>
-            <li class="footer-list-title">商务咨询</li>
+            <li class="footer-list-title" data-locale-id="business-consulting">商务咨询</li>
             <li>
               <img src='<%= require("./assets/footer-phone.png") %>' width=14 height=14 />
-              <span>0411-39026089</span>
+              <span data-locale-id="consultation-phone-number">0411-39026089</span>
             </li>
             <li>
               <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 class="adjust-footer-icon" />
@@ -314,18 +361,21 @@
             </li>
             <li>
               <img src='<%= require("./assets/address.svg") %>' width=12 height=15 />
-              <span class="addressSpan">辽宁省大连市沙河口区软件园东路23号15#501AB室</span>
+              <span class="addressSpan">
+                <div data-locale-id="shenzhen-address">深圳市南山区卫星大厦15层</div>
+                <div data-locale-id="dalian-address">大连市软件园15号楼5层</div>
+              </span>
             </li>
           </ul>
           <ul>
-            <li class="footer-list-title">技术支持</li>
+            <li class="footer-list-title" data-locale-id="technical-support">技术支持</li>
             <li>
               <img src='<%= require("./assets/footer-time.png") %>' width=14 height=14 />
               <span>09:00~19:00</span>
             </li>
             <li>
               <img src='<%= require("./assets/footer-phone.png") %>' width=14 height=14 />
-              <span>0411-39551681</span>
+              <span data-locale-id="technical-phone-number">0411-39551681</span>
             </li>
             <li>
               <img src='<%= require("./assets/footer-email.png") %>' width=15 height=11.5 class="adjust-footer-icon" />
@@ -338,7 +388,7 @@
           <span class="footer-nav-sq-description">微信扫码联系客服</span>
         </li>
       </ul>
-      <div class="record">Copyright© 悦视光合科技(大连)有限公司&nbsp&nbsp&nbsp&nbsp辽ICP备18008272号</div>
+      <div class="record" data-locale-id="copyright">Copyright© 悦视光合科技(大连)有限公司&nbsp&nbsp&nbsp&nbsp辽ICP备18008272号</div>
     </footer>
   </div>
   <div class="tootip-modal" id="tootip-succeed">

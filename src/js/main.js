@@ -6,6 +6,7 @@ import 'fetch-ie8';
 require('./noCaptcha')
 const mobileReg = /^[\d|+|-]*$/;
 const emailReg = /@(163|foxmail|qq|gmail)\./;
+const allLocales = require('../locales.json');
 
 const openNewWindow = (url) => {
   window.location.href = url;
@@ -25,10 +26,10 @@ const isPC = () => {
 };
 
 function isIE() {
-	if(!!window.ActiveXObject || "ActiveXObject" in window)
-		return true;
-	else
-		return false;
+  if (!!window.ActiveXObject || "ActiveXObject" in window)
+    return true;
+  else
+    return false;
 }
 
 var joinListOnClick = function (index) {
@@ -132,13 +133,13 @@ const requestIE = (url, params) => {
   let xhr;
   if (window.XMLHttpRequest) {
     //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-    xhr=new XMLHttpRequest();
+    xhr = new XMLHttpRequest();
   } else {
     // IE6, IE5 浏览器执行代码
-    xhr=new ActiveXObject("Microsoft.XMLHTTP");
+    xhr = new ActiveXObject("Microsoft.XMLHTTP");
   }
 
-  xhr.onreadystatechange=function() {
+  xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       return Promise.resolve({ data: JSON.parse(xhr.responseText) })
     }
@@ -200,7 +201,8 @@ const addItemListen = () => {
 
 const validateTextarea = (value = '', item) => {
   if (value.length === 0) {
-    item.setAttribute('data-err', item.getAttribute('data-attr'));
+    const localeId = item.getAttribute('data-locale-id');
+    item.setAttribute('data-err', allLocales[localeId][getLocalLocale()]);
     item.className = "form-wrap errTextarea";
     return false;
   }
@@ -211,22 +213,29 @@ const validateTextarea = (value = '', item) => {
 
 const validate = (value = '', item, regs = {}) => {
   const { reg, negateReg } = regs;
+  let i = 0
   if (value.length === 0) {
-    item.setAttribute('data-err', item.getAttribute('data-attr'));
+    const localeId = item.getAttribute('data-locale-id');
+    item.setAttribute('data-err', allLocales[localeId][getLocalLocale()]);
     item.className = "form-item err";
-    return false;
+    i += 1
   }
 
   if (reg && !reg.test(value)) {
-    item.setAttribute('data-err', item.getAttribute('data-input'));
+    const localeId = item.getAttribute('data-input-locale-id')
+    item.setAttribute('data-err', allLocales[localeId][getLocalLocale()]);
     item.className = "form-item err";
-    return false;
+    i += 1
   }
 
   if (negateReg && negateReg.test(value)) {
-    item.setAttribute('data-err', item.getAttribute('data-input'));
+    const localeId = item.getAttribute('data-input-locale-id')
+    item.setAttribute('data-err', allLocales[localeId][getLocalLocale()]);
     item.className = "form-item err";
-    return false;
+    i += 1
+  }
+  if (i > 0) {
+    return false
   }
 
   item.className = "form-item";
@@ -393,17 +402,17 @@ const opentNewWindow = () => {
   const hostsName = document.getElementById('input-hosts');
   const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
   request('/website/domain', { domain: hostsName.value })
-  .then((res) => {
-    const data = res.data || {};
-    if (data.exists === 1) {
-      openNewWindow(matchBackHost[1] + '://' + hostsName.value + '.' + matchBackHost[3] + '.' + matchBackHost[4] +'/accounts/login');
-      hostsName.value === null
-      closeleLoginModal();
-    } else {
-      const parent = hostsName.parentNode.parentNode;
-      parent.setAttribute('class', parent.className + ' ' + 'err')
-    }
-  });
+    .then((res) => {
+      const data = res.data || {};
+      if (data.exists === 1) {
+        openNewWindow(matchBackHost[1] + '://' + hostsName.value + '.' + matchBackHost[3] + '.' + matchBackHost[4] + '/accounts/login');
+        hostsName.value === null
+        closeleLoginModal();
+      } else {
+        const parent = hostsName.parentNode.parentNode;
+        parent.setAttribute('class', parent.className + ' ' + 'err')
+      }
+    });
 };
 
 const jumpToProduct = () => {
@@ -723,7 +732,7 @@ const submitRegister = () => {
         onSucceed()
         sessionStorage.removeItem('mobile')
         const matchBackHost = window.backhost.match(/(.*):\/\/(.*)\.(.*)\.(.*)/)
-        window.location.href = matchBackHost[1] + '://' + registerUrl + '.' +  matchBackHost[3] + '.' + matchBackHost[4] + '/unregister/login'
+        window.location.href = matchBackHost[1] + '://' + registerUrl + '.' + matchBackHost[3] + '.' + matchBackHost[4] + '/unregister/login'
       }
       if (err) {
         if (err.response.error == "DOMAIN_EXISTS") { //域名重复
@@ -1123,15 +1132,20 @@ const validateDemoName = (value) => {
   return true
 }
 
+const getLocalLocale = () => {
+  return sessionStorage.getItem('locale') || 'zh-cn'
+}
+
 const validateDemoEmail = (value) => {
   const self = document.getElementById('demo-email')
-  const errNode = self.parentNode
+  const errNode = self.parentNode;
   const reg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/
   if (!value) {
     if (!currentError(errNode)) {
       errNode.className = errNode.className + ' error'
     }
-    errNode.setAttribute('data-err', '请输入电子邮箱')
+    const localeId = errNode.getAttribute('data-locale-id')
+    errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale()])
     return false
   }
   if (value) {
@@ -1139,7 +1153,8 @@ const validateDemoEmail = (value) => {
       if (!currentError(errNode)) {
         errNode.className = errNode.className + ' error'
       }
-      errNode.setAttribute('data-err', '邮箱格式不正确')
+      const localeId = errNode.getAttribute('data-input-locale-id')
+      errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale()])
       return false
     }
     if (currentError(errNode)) {
@@ -1151,12 +1166,13 @@ const validateDemoEmail = (value) => {
 
 const validateDemoMobile = (value) => {
   const self = document.getElementById('demo-mobile')
-  const errNode = self.parentNode
+  const errNode = self.parentNode;
   if (!value) {
     if (!currentError(errNode)) {
       errNode.className = errNode.className + ' error'
     }
-    errNode.setAttribute('data-err', '请输入手机号码')
+    const localeId = errNode.getAttribute('data-locale-id')
+    errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale()])
     return false
   }
   if (value) {
@@ -1165,7 +1181,8 @@ const validateDemoMobile = (value) => {
       if (!currentError(errNode)) {
         errNode.className = errNode.className + ' error'
       }
-      errNode.setAttribute('data-err', '手机格式不正确')
+      const localeId = errNode.getAttribute('data-input-locale-id')
+      errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale()])
       return false
     }
     if (currentError(errNode)) {
@@ -1287,15 +1304,15 @@ const switchOptions = (e) => {
   } else {
     const egOptions = document.getElementsByClassName('options')
     if (egOptions) {
-      for(let i = 0; i < egOptions.length; i ++) {
+      for (let i = 0; i < egOptions.length; i++) {
         egOptions[i].style.display = 'none'
       }
     }
     options.style.display = 'block'
   }
   if (options.style.display === 'block') {
-    for (let i = 0; i < options.children.length; i ++) {
-      options.children[i].addEventListener('click', function(e){ setSelectValue(valueNode, e.currentTarget, options) })
+    for (let i = 0; i < options.children.length; i++) {
+      options.children[i].addEventListener('click', function (e) { setSelectValue(valueNode, e.currentTarget, options) })
     }
   }
 }
@@ -1303,7 +1320,7 @@ const switchOptions = (e) => {
 const closeEgOptions = () => {
   const egOptions = document.getElementsByClassName('options')
   if (egOptions) {
-    for (let i = 0; i < egOptions.length; i ++) {
+    for (let i = 0; i < egOptions.length; i++) {
       egOptions[i].style.display = 'none'
     }
   }
@@ -1344,15 +1361,15 @@ const toogleAuthInvalidModal = (type) => {
   }
 }
 
-function addEvent(obj,type,handle){
-  try{  // Chrome、FireFox、Opera、Safari、IE9.0及其以上版本
-      obj.addEventListener(type,handle,false);
-  }catch(e){
-      try{  // IE8.0及其以下版本
-          obj.attachEvent('on' + type,handle);
-      }catch(e){  // 早期浏览器
-          obj['on' + type] = handle;
-      }
+function addEvent(obj, type, handle) {
+  try {  // Chrome、FireFox、Opera、Safari、IE9.0及其以上版本
+    obj.addEventListener(type, handle, false);
+  } catch (e) {
+    try {  // IE8.0及其以下版本
+      obj.attachEvent('on' + type, handle);
+    } catch (e) {  // 早期浏览器
+      obj['on' + type] = handle;
+    }
   }
 }
 
@@ -1411,13 +1428,13 @@ const toggleVideo = (type) => {
 }
 
 function launchFullscreen(element) {
-  if(element.requestFullscreen) {
+  if (element.requestFullscreen) {
     element.requestFullscreen();
-  } else if(element.mozRequestFullScreen) {
+  } else if (element.mozRequestFullScreen) {
     element.mozRequestFullScreen();
-  } else if(element.msRequestFullscreen){
+  } else if (element.msRequestFullscreen) {
     element.msRequestFullscreen();
-  } else if(element.webkitRequestFullscreen) {
+  } else if (element.webkitRequestFullscreen) {
     element.webkitRequestFullScreen();
   }
 }
@@ -1538,7 +1555,108 @@ const feedbackEmailVerify = (value) => {
   }
 }
 
+const translateLocale = (locale) => {
+  const localeNodes = document.querySelectorAll("[data-locale-id]");
+  for (let i = 0; i < localeNodes.length; i++) {
+    const localeId = localeNodes[i].getAttribute("data-locale-id");
+    switch (localeNodes[i].tagName.toLowerCase()) {
+      case 'input':
+      case 'textarea':
+        localeNodes[i].placeholder = allLocales[localeId] ? allLocales[localeId][locale] : localeNodes[i].placeholder;
+        break;
+      default:
+        if (localeNodes[i].getAttribute('data-err')) {
+          localeNodes[i].setAttribute('data-err', allLocales[localeId][locale])
+        } else {
+          localeNodes[i].innerHTML = allLocales[localeId] ? allLocales[localeId][locale] : localeNodes.innerHTML
+        }
+    }
+  }
+}
+
+const changeLocaleBtnText = (locale) => {
+  const localeBtn = document.getElementById('nav-locale-btn');
+  if (locale === 'en-US') {
+    localeBtn.innerHTML = '中文'
+  } else {
+    localeBtn.innerHTML = 'English'
+  }
+}
+
+const changeLocaleCheckVisible = (locale) => {
+  const localeChecks = document.getElementsByClassName('locale-check');
+  for (let i = 0; i < localeChecks.length; i++) {
+    if (localeChecks[i].getAttribute('data-locale') !== locale) {
+      localeChecks[i].style.visibility = 'hidden';
+    } else {
+      localeChecks[i].style.visibility = 'visible';
+    }
+  }
+}
+
+const changeLocale = (e) => {
+  e.stopPropagation();
+  const locale = e.target.getAttribute('data-locale');
+  changeLocaleBtnText(locale);
+  changeLocaleCheckVisible(locale)
+  sessionStorage.setItem('locale', locale);
+  translateLocale(locale)
+  toggleLocaleModal(false)
+}
+
+const toggleLocaleModal = (visible) => {
+  const localeModal = document.getElementById('nav-locale-modal');
+  if (localeModal) {
+    if (visible) {
+      localeModal.style.display = 'block'
+    } else {
+      localeModal.style.display = 'none'
+    }
+  }
+}
+
+const toogleQuickEntryTootip = (tootip, visible) => {
+  if (visible) {
+    tootip.style.display = 'block';
+  } else {
+    tootip.style.display = 'none';
+  }
+}
+
 window.onload = function () {
+  /*********new**********/
+  const localeItems = document.getElementsByClassName('locale-item'); //导航多语言弹窗每一项
+  if (localeItems) {
+    for (let i = 0; i < localeItems.length; i++) {
+      localeItems[i].addEventListener('click', changeLocale)
+    }
+  }
+
+  const localeBtn = document.getElementById('nav-locale-btn'); //多语言按钮
+  if (localeBtn) {
+    localeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleLocaleModal(true)
+    })
+  }
+
+  translateLocale(getLocalLocale() || 'zh-cn');
+  changeLocaleBtnText(getLocalLocale());
+  changeLocaleCheckVisible(getLocalLocale())
+
+  const quickEntryItems = document.getElementsByClassName('quick-entry-item');
+  if (quickEntryItems) {
+    for (let i = 0; i < quickEntryItems.length; i++) {
+      const quickEntryItem = quickEntryItems[i];
+      const quickEntryTootip = quickEntryItem.getElementsByClassName('quick-entry-tootip');
+      if (quickEntryTootip.length > 0) {
+        quickEntryItem.addEventListener('mouseenter', () => toogleQuickEntryTootip(quickEntryTootip[0], true));
+        quickEntryItem.addEventListener('mouseleave', () => toogleQuickEntryTootip(quickEntryTootip[0], false))
+      }
+    }
+  }
+
+  /*********new**********/
   const videoPlayer = document.getElementById('video-player')
   if (videoPlayer) {
     const player = videojs('video-player')
@@ -1708,7 +1826,7 @@ window.onload = function () {
   // if (wxbtnserverlogin) {
   //   wxbtnserverlogin.addEventListener('click', openWxServer, true);
   // }
-  window.onscroll = function() { //页面滚动
+  window.onscroll = function () { //页面滚动
     changeHeader() //
     toggleNavModalVisible('hide');
   }
@@ -1728,27 +1846,27 @@ window.onload = function () {
   const feedbackMobile = document.getElementById('feedback-mobile')
   const feedbackCompany = document.getElementById('feedback-company')
   if (feedbackRemark) {
-    feedbackRemark.addEventListener('input', function(e) {
+    feedbackRemark.addEventListener('input', function (e) {
       feedbackRemarkVerify(e.target.value)
     })
   }
   if (feedbackName) {
-    feedbackName.addEventListener('input', function(e) {
+    feedbackName.addEventListener('input', function (e) {
       feedbackNameVerify(e.target.value)
     })
   }
   if (feedbackEmail) {
-    feedbackEmail.addEventListener('input', function(e) {
+    feedbackEmail.addEventListener('input', function (e) {
       feedbackEmailVerify(e.target.value)
     })
   }
   if (feedbackMobile) {
-    feedbackMobile.addEventListener('input', function(e) {
+    feedbackMobile.addEventListener('input', function (e) {
       feedbackMobileVerify(e.target.value)
     })
   }
   if (feedbackCompany) {
-    feedbackCompany.addEventListener('input', function(e) {
+    feedbackCompany.addEventListener('input', function (e) {
       feedbackCompanyVerify(e.target.value)
     })
   }
@@ -1781,7 +1899,8 @@ window.onload = function () {
     toggleNavModalVisible('hide');
     hideTootip();
     closeIndustryModal();
-    closeEgOptions()
+    closeEgOptions();
+    toggleLocaleModal(false)
   }, false);
 
   // items onchange
@@ -1890,7 +2009,7 @@ window.onload = function () {
   }
 
   if (registerDisplayName) {
-    registerDisplayName.addEventListener('input', function(e) { registerDisplayNameValidate(e.target.value) })
+    registerDisplayName.addEventListener('input', function (e) { registerDisplayNameValidate(e.target.value) })
   }
 
   if (domainOperators.length > 0) {
@@ -1898,7 +2017,7 @@ window.onload = function () {
   }
 
   if (registerGroupMobile) {
-    registerGroupMobile.addEventListener('input', function(e) { registerGroupMobileValidate(e.target.value) })
+    registerGroupMobile.addEventListener('input', function (e) { registerGroupMobileValidate(e.target.value) })
   }
   /**********************************/
   /***********demo***********/
@@ -1907,22 +2026,22 @@ window.onload = function () {
   const demoMobile = document.getElementById('demo-mobile')
   const demoCompany = document.getElementById('demo-company')
   if (demoName) {
-    demoName.addEventListener('input', function(e){ validateDemoName(e.target.value) })
+    demoName.addEventListener('input', function (e) { validateDemoName(e.target.value) })
   }
   if (demoEmail) {
-    demoEmail.addEventListener('input', function(e){ validateDemoEmail(e.target.value) })
+    demoEmail.addEventListener('input', function (e) { validateDemoEmail(e.target.value) })
   }
   if (demoMobile) {
-    demoMobile.addEventListener('input', function(e){ validateDemoMobile(e.target.value) })
+    demoMobile.addEventListener('input', function (e) { validateDemoMobile(e.target.value) })
   }
   if (demoCompany) {
-    demoCompany.addEventListener('input', function(e){ validateDemoCompany(e.target.value) })
+    demoCompany.addEventListener('input', function (e) { validateDemoCompany(e.target.value) })
   }
 
   /**********fix select option***********/
   const egs = document.getElementsByClassName('eg')
   if (egs) {
-    for(let i = 0; i < egs.length; i ++) {
+    for (let i = 0; i < egs.length; i++) {
       egs[i].addEventListener('click', switchOptions)
     }
   }
@@ -1944,53 +2063,53 @@ window.onload = function () {
   const industry8 = document.getElementsByClassName('industry8')
   const industry9 = document.getElementsByClassName('industry9')
   if (industry0) {
-    for (let i = 0; i < industry0.length; i ++ ) {
-      industry0[i].addEventListener('click', function(){ toDemoDetail(0) })
+    for (let i = 0; i < industry0.length; i++) {
+      industry0[i].addEventListener('click', function () { toDemoDetail(0) })
     }
   }
   if (industry1) {
-    for (let i = 0; i < industry1.length; i ++ ) {
-      industry1[i].addEventListener('click', function(){ toDemoDetail(1) })
+    for (let i = 0; i < industry1.length; i++) {
+      industry1[i].addEventListener('click', function () { toDemoDetail(1) })
     }
   }
   if (industry2) {
-    for (let i = 0; i < industry2.length; i ++ ) {
-      industry2[i].addEventListener('click', function(){ toDemoDetail(2) })
+    for (let i = 0; i < industry2.length; i++) {
+      industry2[i].addEventListener('click', function () { toDemoDetail(2) })
     }
   }
   if (industry3) {
-    for (let i = 0; i < industry3.length; i ++ ) {
-      industry3[i].addEventListener('click', function(){ toDemoDetail(3) })
+    for (let i = 0; i < industry3.length; i++) {
+      industry3[i].addEventListener('click', function () { toDemoDetail(3) })
     }
   }
   if (industry4) {
-    for (let i = 0; i < industry4.length; i ++ ) {
-      industry4[i].addEventListener('click', function(){ toDemoDetail(4) })
+    for (let i = 0; i < industry4.length; i++) {
+      industry4[i].addEventListener('click', function () { toDemoDetail(4) })
     }
   }
   if (industry5) {
-    for (let i = 0; i < industry5.length; i ++ ) {
-      industry5[i].addEventListener('click', function(){ toDemoDetail(5) })
+    for (let i = 0; i < industry5.length; i++) {
+      industry5[i].addEventListener('click', function () { toDemoDetail(5) })
     }
   }
   if (industry6) {
-    for (let i = 0; i < industry6.length; i ++ ) {
-      industry6[i].addEventListener('click', function(){ toDemoDetail(6) })
+    for (let i = 0; i < industry6.length; i++) {
+      industry6[i].addEventListener('click', function () { toDemoDetail(6) })
     }
   }
   if (industry7) {
-    for (let i = 0; i < industry7.length; i ++ ) {
-      industry7[i].addEventListener('click', function(){ toDemoDetail(7) })
+    for (let i = 0; i < industry7.length; i++) {
+      industry7[i].addEventListener('click', function () { toDemoDetail(7) })
     }
   }
   if (industry8) {
-    for (let i = 0; i < industry8.length; i ++ ) {
-      industry8[i].addEventListener('click', function(){ toDemoDetail(8) })
+    for (let i = 0; i < industry8.length; i++) {
+      industry8[i].addEventListener('click', function () { toDemoDetail(8) })
     }
   }
   if (industry9) {
-    for (let i = 0; i < industry9.length; i ++ ) {
-      industry9[i].addEventListener('click', function(){ toDemoDetail(9) })
+    for (let i = 0; i < industry9.length; i++) {
+      industry9[i].addEventListener('click', function () { toDemoDetail(9) })
     }
   }
 
@@ -2006,7 +2125,7 @@ window.onload = function () {
   // tootip listent
   const closeJoinModal = document.getElementById('close-join-modal');
   if (closeJoinModal) {
-    closeJoinModal.addEventListener('click', function() {
+    closeJoinModal.addEventListener('click', function () {
       toogleJoinModal('hide')
     })
   }
@@ -2018,15 +2137,15 @@ window.onload = function () {
   }, true);
   const joinTeam = document.getElementById('join-team')
   if (joinTeam) {
-    joinTeam.addEventListener('click', function() { toogleJoinModal('show') })
+    joinTeam.addEventListener('click', function () { toogleJoinModal('show') })
   }
   const joinCancel = document.getElementById('login-register-cancel')
   if (joinCancel) {
-    joinCancel.addEventListener('click', function() { toogleJoinModal('hide') })
+    joinCancel.addEventListener('click', function () { toogleJoinModal('hide') })
   }
   const modalCover = document.getElementById('modal-cover')
   if (modalCover) {
-    modalCover.addEventListener('click', function() {
+    modalCover.addEventListener('click', function () {
       toogleJoinModal('hide')
       toogleAuthInvalidModal('hide')
       toggleModalCover('hide')
@@ -2034,7 +2153,7 @@ window.onload = function () {
   }
   const authConfirmBtn = document.getElementById('auth-confirm-btn')
   if (authConfirmBtn) {
-    authConfirmBtn.addEventListener('click', function() {
+    authConfirmBtn.addEventListener('click', function () {
       toogleAuthInvalidModal('hide')
     })
   }
@@ -2049,7 +2168,7 @@ window.onload = function () {
 
   const videoPlayButton = document.getElementById('play-btn')
   if (videoPlayButton) {
-    videoPlayButton.addEventListener('click', function() {
+    videoPlayButton.addEventListener('click', function () {
       toggleVideo('show')
       toggleVideoCover('show')
     })
@@ -2058,7 +2177,7 @@ window.onload = function () {
   const closeVideoBtn = document.getElementById('close-video');
   if (closeVideoBtn) {
     const player = videojs('video-player')
-    closeVideoBtn.addEventListener('click', function() {
+    closeVideoBtn.addEventListener('click', function () {
       toggleVideoCover('hide')
       toggleVideo('hide')
       toggleVideoMask('hide')
@@ -2069,7 +2188,7 @@ window.onload = function () {
   const videoCovor = document.getElementById('video-cover')
   if (videoCovor) {
     const player = videojs('video-player')
-    videoCovor.addEventListener('click', function() {
+    videoCovor.addEventListener('click', function () {
       toggleVideoCover('hide')
       toggleVideo('hide')
       toggleVideoMask('hide')
@@ -2079,14 +2198,14 @@ window.onload = function () {
 
   const videoRegisterBtn = document.getElementById('video-register-btn')
   if (videoRegisterBtn) {
-    videoRegisterBtn.addEventListener('click', function() {
+    videoRegisterBtn.addEventListener('click', function () {
       pushHmt('register')
     })
   }
 
   const videoDemoBtn = document.getElementById('video-demo-btn')
   if (videoDemoBtn) {
-    videoDemoBtn.addEventListener('click', function() {
+    videoDemoBtn.addEventListener('click', function () {
       pushHmt('demo')
     })
   }

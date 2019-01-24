@@ -149,6 +149,10 @@ header#nav-header {
   padding-top: 10px;
   width: @max-width;
 
+  .nav-locale-btn {
+    color: @font-color
+  }
+
   .nav-list {
     display: inline-block;
     position: relative;
@@ -370,7 +374,7 @@ header#nav-header {
     text-align: center;
     position: relative;
     transform: translateX(30px);
-    a {
+    a, button {
       margin: 0 15px;
 
       &:hover {
@@ -380,6 +384,42 @@ header#nav-header {
 
     li:nth-child(4) {
       margin-right: 100px;
+    }
+    .nav-locale {
+      position: relative;
+    }
+    .nav-locale-btn {
+      background: none;
+      border: none;
+      outline: none;
+      padding: 0px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+  }
+  .nav-locale-modal {
+    position: absolute;
+    left: 0px;
+    width: 100px;
+    background-color: #fff;
+    border-radius: 2px;
+    display: none;
+    .locale-item {
+      height: 28px;
+      text-align: left;
+      color: rgb(71, 71, 71);
+      line-height: 28px;
+      font-size: 12px;
+      width: 100px;
+      padding: 0px 10px;
+      cursor: pointer;
+      box-sizing: border-box;
+      img {
+        float: right;
+        width: 12px;
+        margin-top: 8px;
+        visibility: hidden;
+      }
     }
   }
   .logo {
@@ -482,6 +522,9 @@ header#nav-header {
   .addressSpan {
     display: inline-block;
     max-width: 130px;
+    div {
+      white-space: nowrap;
+    }
   }
 }
 
@@ -890,4 +933,137 @@ header#nav-header {
   background-color: #000;
   z-index: 600;
   opacity: 0.5
+}
+
+.quick-entry {
+  display: inline-block;
+  position: fixed;
+  top: 200px;
+  right: 0px;
+  background-color: #fff;
+  z-index: 100;
+  border: 1px solid #ccd3da;
+  .quick-entry-item {
+    width: 68px;
+    height: 68px;
+    border-bottom: 1px solid #ccd3da;
+    text-align: center;
+    font-size: 10px;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    text-decoration: none;
+    img {
+      margin-bottom: 3px;
+      margin-top: 10px;
+    }
+    .quick-entry-item-text {
+      line-height: 1;
+      color: #474747;
+    }
+  }
+  .quick-entry-item:last-child {
+    border-bottom: none
+  }
+  .quick-entry-phone-tootip {
+    text-align: left;
+    position: absolute;
+    width: 187px;
+    height: 68px;
+    top: 0px;
+    left: -197px;
+    background-color: #fff;
+    padding: 13px 16px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: none;
+    img {
+      display: inline-block;
+      vertical-align: top;
+      margin-top: 4px;
+      margin-right: 10px;
+    }
+    .quick-entry-tootip-info {
+      display: inline-block;
+      div:first-child {
+        font-size: 14px;
+      };
+      div:last-child {
+        font-size: 12px;
+        color: #B1B1B1;
+      }
+    }
+    .tootip-arrow {
+      width: 8px;
+      height: 8px;
+      background-color: #fff;
+      transform: rotate(45deg) translateY(-50%);
+      position: absolute;
+      right: 0px;
+      top: 34px;
+    }
+  }
+  .quick-entry-email-tootip {
+    text-align: left;
+    position: absolute;
+    width: 215px;
+    height: 68px;
+    top: 0px;
+    left: -225px;
+    background-color: #fff;
+    padding: 13px 16px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: none;
+    img {
+      display: inline-block;
+      vertical-align: top;
+      margin-top: 4px;
+      margin-right: 10px;
+    }
+    .quick-entry-tootip-info {
+      display: inline-block;
+      div:first-child {
+        font-size: 14px;
+      };
+      div:last-child {
+        font-size: 12px;
+        color: #B1B1B1;
+      }
+    }
+    .tootip-arrow {
+      width: 8px;
+      height: 8px;
+      background-color: #fff;
+      transform: rotate(45deg) translateY(-50%);
+      position: absolute;
+      right: 0px;
+      top: 34px;
+    }
+  }
+  .quick-entry-wechat-tootip {
+    text-align: center;
+    position: absolute;
+    width: 132px;
+    height: 140px;
+    left: -142px;
+    top: -36px;
+    background-color: #fff;
+    border-radius: 4px;
+    display: none;
+    img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 0px;
+    };
+    .tootip-arrow {
+      width: 8px;
+      height: 8px;
+      background-color: #fff;
+      transform: rotate(45deg) translateY(-50%);
+      position: absolute;
+      right: 0px;
+      top: 70px;
+    }
+  }
 }
