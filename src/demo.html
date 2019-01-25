@@ -51,9 +51,18 @@
             <span class="nav-locale">
               <button class="nav-locale-btn" id="nav-locale-btn">English</button>
               <div class="nav-locale-modal" id="nav-locale-modal">
-                <div class="locale-item" data-locale="zh-cn">简体中文</div>
-                <div class="locale-item" data-locale="zh-tw">繁體中文</div>
-                <div class="locale-item" data-locale="en-US">English</div>
+                <div class="locale-item" data-locale="zh-cn">
+                  <span data-locale="zh-cn">简体中文</span>
+                  <img data-locale="zh-cn" class="locale-check" id="zh-cn-check" src='<%= require("./assets/check3.svg") %>' />
+                </div>
+                <div class="locale-item" data-locale="zh-tw">
+                  <span data-locale="zh-tw">繁體中文</span>
+                  <img data-locale="zh-tw" class="locale-check" id="zh-tw-check" src='<%= require("./assets/check3.svg") %>' />
+                </div>
+                <div class="locale-item" data-locale="en-US">
+                  <span data-locale="en-US">English</span>
+                  <img data-locale="en-US" class="locale-check" id="en-US-check" src='<%= require("./assets/check3.svg") %>' />
+                </div>
               </div>
             </span>
             <div class="nav-industry-modal" id="nav-industry-modal">
@@ -191,7 +200,8 @@
               <div class="demo-item">
                 <span class="label" data-locale-id="free-trail-industry">所属行业</span>
                 <div class="demo-form-item" data-err="请选择您所属行业" data-locale-id="industry-required-tip">
-                  <input onfocus="this.blur()" class="eg" name="demoIndustry" placeholder="请选择您所属行业" id="demo-industry" data-locale-id="industry-required-tip" />
+                  <input onfocus="this.blur()" class="eg" name="demoIndustry" placeholder="请选择您所属行业" id="demo-industry"
+                    data-locale-id="industry-required-tip" />
                   <div class="options">
                     <div value="互联网及IT行业" data-locale-id="internet-trail">互联网及IT行业</div>
                     <div value="零售行业" data-locale-id="retail-industry">零售行业</div>
@@ -216,7 +226,8 @@
               <div class="demo-item">
                 <span class="label" data-locale-id="free-trail-company-size">公司规模</span>
                 <div class="demo-form-item" data-err="请选择您所在的公司规模" data-locale-id="enterprise-required-tip">
-                  <input onfocus="this.blur()" class="eg" name="demoScale" placeholder="请选择您所在的公司规模" id="demo-scale" data-locale-id="enterprise-required-tip" />
+                  <input onfocus="this.blur()" class="eg" name="demoScale" placeholder="请选择您所在的公司规模" id="demo-scale"
+                    data-locale-id="enterprise-required-tip" />
                   <div class="options">
                     <div value="1-15人" data-locale-id="1-15">1-15人</div>
                     <div value="16-50人" data-locale-id="16-50">16-50人</div>

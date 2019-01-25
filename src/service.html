@@ -51,9 +51,18 @@
             <span class="nav-locale">
               <button class="nav-locale-btn" id="nav-locale-btn">English</button>
               <div class="nav-locale-modal" id="nav-locale-modal">
-                <div class="locale-item" data-locale="zh-cn">简体中文</div>
-                <div class="locale-item" data-locale="zh-tw">繁體中文</div>
-                <div class="locale-item" data-locale="en-US">English</div>
+                <div class="locale-item" data-locale="zh-cn">
+                  <span data-locale="zh-cn">简体中文</span>
+                  <img data-locale="zh-cn" class="locale-check" id="zh-cn-check" src='<%= require("./assets/check3.svg") %>' />
+                </div>
+                <div class="locale-item" data-locale="zh-tw">
+                  <span data-locale="zh-tw">繁體中文</span>
+                  <img data-locale="zh-tw" class="locale-check" id="zh-tw-check" src='<%= require("./assets/check3.svg") %>' />
+                </div>
+                <div class="locale-item" data-locale="en-US">
+                  <span data-locale="en-US">English</span>
+                  <img data-locale="en-US" class="locale-check" id="en-US-check" src='<%= require("./assets/check3.svg") %>' />
+                </div>
               </div>
             </span>
             <div class="nav-industry-modal" id="nav-industry-modal">
@@ -246,7 +255,7 @@
             </ul>
           </div>
         </section>
-        <a href="#contactUs" name="contactUs" id="contactUs" ></a>
+        <a href="#contactUs" name="contactUs" id="contactUs"></a>
         <div class="line"></div>
         <section class="reserve-form">
           <h3 class="reserve-form-title" data-locale-id="contact-us">联系我们</h3>
@@ -265,7 +274,8 @@
               </label>
             </span>
             <span class="form-wrap" data-err="请输入公司名称" data-locale-id="need-and-advice">
-              <textarea class="form-textarea" name="content" id="content" cols="96" rows="5" placeholder="请填写您的需求或建议" data-locale-id="need-and-advice"></textarea>
+              <textarea class="form-textarea" name="content" id="content" cols="96" rows="5" placeholder="请填写您的需求或建议"
+                data-locale-id="need-and-advice"></textarea>
             </span>
             <span class="form-item" data-err="请输入公司名称" data-locale-id="name-required-tip">
               <img src='<%= require("./assets/name.svg") %>' />
@@ -273,11 +283,13 @@
             </span>
             <span class="form-item" data-err="请输入公司名称" data-locale-id="email-required-tip">
               <img src='<%= require("./assets/email.svg") %>' class="form-tem-email" />
-              <input class="form-input" type="text" name="email" placeholder="邮箱" data-locale-id="service-email" data-input-locale-id="err-email" />
+              <input class="form-input" type="text" name="email" placeholder="邮箱" data-locale-id="service-email"
+                data-input-locale-id="err-email" />
             </span>
-            <span class="form-item"  data-err="请输入公司名称" data-locale-id="service-phone-tip">
+            <span class="form-item" data-err="请输入公司名称" data-locale-id="service-phone-tip">
               <img src='<%= require("./assets/mobile.svg") %>' />
-              <input class="form-input" type="text" name="mobile" placeholder="联系电话" data-locale-id="service-phone" data-input-locale-id="err-mobile" />
+              <input class="form-input" type="text" name="mobile" placeholder="联系电话" data-locale-id="service-phone"
+                data-input-locale-id="err-mobile" />
             </span>
             <span class="form-item" data-err="请输入公司名称" data-locale-id="service-company-name">
               <img src='<%= require("./assets/company.svg") %>' />

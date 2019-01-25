@@ -51,9 +51,18 @@
             <span class="nav-locale">
               <button class="nav-locale-btn" id="nav-locale-btn">English</button>
               <div class="nav-locale-modal" id="nav-locale-modal">
-                <div class="locale-item" data-locale="zh-cn">简体中文</div>
-                <div class="locale-item" data-locale="zh-tw">繁體中文</div>
-                <div class="locale-item" data-locale="en-US">English</div>
+                <div class="locale-item" data-locale="zh-cn">
+                  <span data-locale="zh-cn">简体中文</span>
+                  <img data-locale="zh-cn" class="locale-check" id="zh-cn-check" src='<%= require("./assets/check3.svg") %>' />
+                </div>
+                <div class="locale-item" data-locale="zh-tw">
+                  <span data-locale="zh-tw">繁體中文</span>
+                  <img data-locale="zh-tw" class="locale-check" id="zh-tw-check" src='<%= require("./assets/check3.svg") %>' />
+                </div>
+                <div class="locale-item" data-locale="en-US">
+                  <span data-locale="en-US">English</span>
+                  <img data-locale="en-US" class="locale-check" id="en-US-check" src='<%= require("./assets/check3.svg") %>' />
+                </div>
               </div>
             </span>
             <div class="nav-industry-modal" id="nav-industry-modal">
