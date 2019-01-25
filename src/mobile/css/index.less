@@ -152,16 +152,27 @@
       margin: 40px 0 0 0;
 
       box-sizing: border-box;
-
-      img {
+      .box-item-main-img {
+        width: 80%;
         display: block;
         margin: 0 auto 20px auto;
       }
       .box-title-img {
         height: 90px;
+        width: 90px;
+        margin-right: 20px;
       }
-      .box-item-img {
-        width: 80%;
+      .box-item-title {
+        .box-title {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .box-title-name {
+          font-size: 36px;
+        }
+        .box-title-describe {
+          font-size: 28px;
+        }
       }
     }
 
@@ -371,12 +382,6 @@
   height: 100%;
   overflow-x: hidden;
   position: relative;
-}
-
-.box-title-img {
-  height: 100px;
-
-  margin: 0 !important;
 }
 
 .reserve-form {

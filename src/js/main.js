@@ -1562,6 +1562,7 @@ const translateLocale = (locale) => {
     switch (localeNodes[i].tagName.toLowerCase()) {
       case 'input':
       case 'textarea':
+      case 'select':
         localeNodes[i].placeholder = allLocales[localeId] ? allLocales[localeId][locale] : localeNodes[i].placeholder;
         break;
       default:
@@ -1576,10 +1577,12 @@ const translateLocale = (locale) => {
 
 const changeLocaleBtnText = (locale) => {
   const localeBtn = document.getElementById('nav-locale-btn');
-  if (locale === 'en-US') {
-    localeBtn.innerHTML = '中文'
-  } else {
-    localeBtn.innerHTML = 'English'
+  if (localeBtn) {
+    if (locale === 'en-US') {
+      localeBtn.innerHTML = '中文'
+    } else {
+      localeBtn.innerHTML = 'English'
+    }
   }
 }
 

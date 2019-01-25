@@ -159,6 +159,10 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
   }
 
+  .nav-locale-btn {
+    color: @font-color
+  }
+
   .login-modal {
     display: none;
     position: absolute;
@@ -255,6 +259,40 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-@half-percent);
     margin: 0px; 
   }
+  .nav-locale {
+    position: absolute;
+    top: @half-percent;
+    transform: translateY(-@half-percent);
+    margin: 0px; 
+    right: 100px;
+    .nav-locale-btn {
+      font-size: 28px;
+      background: none;
+      padding: 0px;
+      border: none;
+      outline: none;
+      margin-top: -6px;
+    }
+    .nav-locale-modal {
+      position: absolute;
+      background-color: #fff;
+      bottom: -220px;
+      left: -30px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
+      display: none;
+      .locale-item {
+        width: 150px;
+        height: 66px;
+        line-height: 66px;
+        padding: 0px 20px;
+        img {
+          float: right;
+          width: 24px;
+          margin-top: 21px;
+        }
+      }
+    }
+  }
 }
 
 .nav-scroll-white {
@@ -268,6 +306,8 @@ h1, h2, h3, h4, h5, h6 {
   .address-icon {
     height: 22px;
     width: 16px;
+    display: inline-block;
+    vertical-align: top;
   }
   li {
     list-style: none;
@@ -306,14 +346,19 @@ h1, h2, h3, h4, h5, h6 {
 
   .footer-nav-list ul {
     display: inline-block;
-    margin: 0 20px;
+    margin: 0 0 0 20px;
     text-align: left;
     font-size: 28px;
     color: #9b9b9b;
     vertical-align: top;
   }
   .footer-nav-list ul:nth-child(1) {
-    width: 240px
+    width: 280px;
+    margin-left: 0px;
+  }
+  .addressSpan {
+    display: inline-block;
+    padding: 0px;
   }
   .footer-nav-list li {
     margin-bottom: 20px;

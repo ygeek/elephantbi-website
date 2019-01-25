@@ -53,6 +53,23 @@
           <li class="nav-section logo">
             <img src='<%= require("./assets/nav-logo.svg") %>' width=220 height=44 id="logo" />
           </li>
+          <li class="nav-section nav-locale">
+            <button class="nav-locale-btn" id="nav-locale-btn">English</button>
+            <div class="nav-locale-modal" id="nav-locale-modal">
+              <div class="locale-item" data-locale="zh-cn">
+                <span data-locale="zh-cn">简体中文</span>
+                <img data-locale="zh-cn" class="locale-check" id="zh-cn-check" src='<%= require("./assets/check3.svg") %>' />
+              </div>
+              <div class="locale-item" data-locale="zh-tw">
+                <span data-locale="zh-tw">繁體中文</span>
+                <img data-locale="zh-tw" class="locale-check" id="zh-tw-check" src='<%= require("./assets/check3.svg") %>' />
+              </div>
+              <div class="locale-item" data-locale="en-US">
+                <span data-locale="en-US">English</span>
+                <img data-locale="en-US" class="locale-check" id="en-US-check" src='<%= require("./assets/check3.svg") %>' />
+              </div>
+            </div>
+          </li>
           <li class="nav-section menu">
             <div class="nav-mobile">
               <img src='<%= require("./assets/nav-menu-white.svg") %>' alt="" id="nav-menu-id">
@@ -64,117 +81,123 @@
     <main class="main-content">
       <div class="top-divider"></div>
       <div class="demo-section">
-        <div class="demo-title">我要预约免费演示</div>
-        <div class="demo-subtitle">为更好的制定针对性的数据方案，请让我们了解您更多，行业顾问将在24小时内与您取得联系</div>
+        <div class="demo-title" data-locale-id="want-free-trial">我要免费试用</div>
+        <div class="demo-subtitle" data-locale-id="want-free-trail-description">请留下您的联系方式和需求，客户经理会在24小时内与您取得联系，并为您开通试用账号</div>
         <form name="demoForm">
           <div class="demo-item">
-            <span class="label">姓名
+            <span class="label">
+              <span data-locale-id="free-trail-name">姓名</span>
               <span class="required">*</span>
             </span>
-            <div class="demo-form-item" data-err="请输入您的姓名">
-              <input id="demo-name" name="demoName" placeholder="请输入您的姓名" />
+            <div class="demo-form-item" data-err="请输入您的姓名" data-locale-id="name-required-tip">
+              <input id="demo-name" name="demoName" placeholder="请输入您的姓名" data-locale-id="name-required-tip" />
             </div>
           </div>
           <div class="demo-item">
-            <span class="label">工作邮箱
+            <span class="label">
+              <span data-locale-id="free-trail-email">工作邮箱</span>
               <span class="required">*</span>
             </span>
-            <div class="demo-form-item" data-err="请输入电子邮箱">
-              <input id="demo-email" name="demoEmail" placeholder="请输入电子邮箱" />
+            <div class="demo-form-item" data-err="请输入电子邮箱" data-locale-id="email-required-tip" data-input-locale-id="err-email">
+              <input id="demo-email" name="demoEmail" placeholder="请输入电子邮箱" data-locale-id="email-required-tip" />
             </div>
           </div>
           <div class="demo-item">
-            <span class="label">电话
+            <span class="label">
+              <span data-locale-id="free-trail-phone">电话</span>
               <span class="required">*</span>
             </span>
-            <div class="demo-form-item" data-err="请输入手机号">
-              <input id="demo-mobile" name="demoMobile" placeholder="请输入手机号" />
+            <div class="demo-form-item" data-err="请输入手机号" data-locale-id="phone-required-tip" data-input-locale-id="err-mobile">
+              <input id="demo-mobile" name="demoMobile" placeholder="请输入手机号" data-locale-id="phone-required-tip" />
             </div>
           </div>
           <div class="demo-item">
-            <span class="label">公司名称
+            <span class="label">
+              <span data-locale-id="free-trail-company-name">公司名称</span>
               <span class="required">*</span>
             </span>
-            <div class="demo-form-item" data-err="请输入您所在的公司名称">
-              <input id="demo-company" name="demoCompany" placeholder="请输入您所在的公司名称" />
+            <div class="demo-form-item" data-err="请输入您所在的公司名称" data-locale-id="company-required-tip">
+              <input id="demo-company" name="demoCompany" placeholder="请输入您所在的公司名称" data-locale-id="company-required-tip" />
             </div>
           </div>
           <div class="demo-item">
-            <span class="label">所属行业
+            <span class="label">
+              <span data-locale-id="free-trail-industry">所属行业</span>
               <span class="required">*</span>
             </span>
-            <div class="demo-form-item" data-err="请选择您所属行业">
-              <select id="demo-industry" name="demoIndustry" placeholder="请选择您所属行业">
+            <div class="demo-form-item" data-err="请选择您所属行业" data-locale-id="industry-required-tip">
+              <select id="demo-industry" name="demoIndustry" placeholder="请选择您所属行业" data-locale-id="industry-required-tip">
                 <option class="disabled-option" disabled selected value></option>
-                <option value="互联网及IT行业">互联网及IT行业</option>
-                <option value="零售行业">零售行业</option>
-                <option value="企业服务行业">企业服务行业</option>
-                <option value="文娱行业">文娱行业</option>
-                <option value="教育行业">教育行业</option>
-                <option value="金融行业">金融行业</option>
-                <option value="制造行业">制造行业</option>
-                <option value="电商行业">电商行业</option>
-                <option value="餐饮行业">餐饮行业</option>
-                <option value="物流行业">物流行业</option>
-                <option value="旅游行业">旅游行业</option>
-                <option value="保险行业">保险行业</option>
-                <option value="农产品行业">农产品行业</option>
-                <option value="电气化工行业">电气化工行业</option>
-                <option value="科技研发行业">科技研发行业</option>
-                <option value="生活服务行业">生活服务行业</option>
-                <option value="其他行业">其他行业</option>
+                <option value="互联网及IT行业" data-locale-id="internet-trail">互联网及IT行业</option>
+                <option value="零售行业" data-locale-id="retail-industry">零售行业</option>
+                <option value="企业服务行业" data-locale-id="enterprise-service-industry">企业服务行业</option>
+                <option value="文娱行业" data-locale-id="entertainment-industry">文娱行业</option>
+                <option value="教育行业" data-locale-id="education-industry">教育行业</option>
+                <option value="金融行业" data-locale-id="financial-industry">金融行业</option>
+                <option value="制造行业" data-locale-id="manufacture-industry">制造行业</option>
+                <option value="电商行业" data-locale-id="e-commerce-industry">电商行业</option>
+                <option value="餐饮行业" data-locale-id="catering-industry">餐饮行业</option>
+                <option value="物流行业" data-locale-id="logistics-industry">物流行业</option>
+                <option value="旅游行业" data-locale-id="tourism-industry">旅游行业</option>
+                <option value="保险行业" data-locale-id="insurance-industry">保险行业</option>
+                <option value="农产品行业" data-locale-id="agricultural-industry">农产品行业</option>
+                <option value="电气化工行业" data-locale-id="electrical-and-chemistry-industry">电气化工行业</option>
+                <option value="科技研发行业" data-locale-id="high-tech-industry">科技研发行业</option>
+                <option value="生活服务行业" data-locale-id="services-industry">生活服务行业</option>
+                <option value="其他行业" data-locale-id="other-industry">其他行业</option>
               </select>
             </div>
           </div>
           <div class="demo-item">
-            <span class="label">公司规模
+            <span class="label">
+              <span data-locale-id="free-trail-company-size">公司规模</span>
               <span class="required">*</span>
             </span>
-            <div class="demo-form-item" data-err="请选择您所在的公司规模">
-              <select id="demo-scale" name="demoScale" placeholder="请选择您所在的公司规模">
+            <div class="demo-form-item" data-err="请选择您所在的公司规模" data-locale-id="enterprise-required-tip">
+              <select id="demo-scale" name="demoScale" placeholder="请选择您所在的公司规模" data-locale-id="enterprise-required-tip">
                 <option class="disabled-option" disabled selected value></option>
-                <option value="1-15人">1-15人</option>
-                <option value="16-50人">16-50人</option>
-                <option value="51-200人">51-200人</option>
-                <option value="201-500人">201-500人</option>
-                <option value="501-2000人">501-2000人</option>
-                <option value="2001-5000人">2001-5000人</option>
-                <option value="5001及以上">5001及以上</option>
+                <option value="1-15人" data-locale-id="1-15">1-15人</option>
+                <option value="16-50人" data-locale-id="16-50">16-50人</option>
+                <option value="51-200人" data-locale-id="51-200">51-200人</option>
+                <option value="201-500人" data-locale-id="201-500">201-500人</option>
+                <option value="501-2000人" data-locale-id="501-2000">501-2000人</option>
+                <option value="2001-5000人" data-locale-id="2001-5000">2001-5000人</option>
+                <option value="5001及以上" data-locale-id="5001-and-above">5001及以上</option>
               </select>
             </div>
           </div>
           <div class="demo-item">
-            <span class="label">所属部门</span>
+            <span class="label" data-locale-id="free-trail-department">所属部门</span>
             <div class="demo-form-item">
-              <select id="department" name="demoDepart" placeholder="请选择您的所属部门">
+              <select id="department" name="demoDepart" placeholder="请选择您的所属部门" data-locale-id="department-required-tip">
                 <option class="disabled-option" disabled selected value></option>
-                <option value="人事部">人事部</option>
-                <option value="财务部">财务部</option>
-                <option value="行政部">行政部</option>
-                <option value="销售部">销售部</option>
-                <option value="技术部">技术部</option>
-                <option value="市场部">市场部</option>
-                <option value="运营部">运营部</option>
-                <option value="产品部">产品部</option>
-                <option value="其他部门">其他部门</option>
+                <option value="人事部" data-locale-id="human-resources">人事部</option>
+                <option value="财务部" data-locale-id="finance">财务部</option>
+                <option value="行政部" data-locale-id="administration">行政部</option>
+                <option value="销售部" data-locale-id="sales">销售部</option>
+                <option value="技术部" data-locale-id="it">技术部</option>
+                <option value="市场部" data-locale-id="marketing">市场部</option>
+                <option value="运营部" data-locale-id="operation">运营部</option>
+                <option value="产品部" data-locale-id="product-management">产品部</option>
+                <option value="其他部门" data-locale-id="others">其他部门</option>
               </select>
             </div>
           </div>
           <div class="demo-item">
-            <span class="label">现任职位</span>
+            <span class="label" data-locale-id="free-trail-position">现任职位</span>
             <div class="demo-form-item">
-              <input id="position" name="demoPosi" placeholder="请输入您的现任职位" />
+              <input id="position" name="demoPosi" placeholder="请输入您的现任职位" data-locale-id="position-required-tip" />
             </div>
           </div>
           <div class="demo-item">
-            <span class="label">备注</span>
+            <span class="label" data-locale-id="remark">备注</span>
             <div class="demo-form-item">
-              <textarea name="demoRemark" placeholder="请描述您希望在演示中了解的内容或问题"></textarea>
+              <textarea name="demoRemark" placeholder="请描述您希望了解的内容或问题" data-locale-id="remark-required-tip"></textarea>
             </div>
           </div>
         </form>
-        <button id="demo-submit">
-          立即预约
+        <button id="demo-submit" data-locale-id="nav-trial">
+          免费试用
         </button>
       </div>
     </main>
@@ -185,22 +208,24 @@
         </li>
         <li class="footer-nav-list">
           <ul>
-            <li class="footer-list-title">商务咨询</li>
+            <li class="footer-list-title" data-locale-id="business-consulting">商务咨询</li>
             <li>
               <img src='<%= require("./assets/footer-phone.png") %>' srcset='
                     <%= require("./assets/footer-phone.png") %> 6w,
                     <%= require("./assets/footer-phone@2x.png") %> 8w,
-                    <%= require("./assets/footer-phone@3x.png") %> 14w' sizes="
+                    <%= require("./assets/footer-phone@3x.png") %> 14w'
+                sizes="
                     (max-width:400px) 6px,
                     (max-width:800px) 8px,
                     (max-width:1500px) 14px" />
-              <span>0411-39026089</span>
+              <span data-locale-id="consultation-phone-number">0411-39026089</span>
             </li>
             <li>
               <img src='<%= require("./assets/footer-email.png") %>' srcset='
                     <%= require("./assets/footer-email.png") %> 6w,
                     <%= require("./assets/footer-email@2x.png") %> 8w,
-                    <%= require("./assets/footer-email@3x.png") %> 14w' sizes="
+                    <%= require("./assets/footer-email@3x.png") %> 14w'
+                sizes="
                     (max-width:400px) 6px,
                     (max-width:800px) 8px,
                     (max-width:1500px) 14px" />
@@ -208,16 +233,20 @@
             </li>
             <li>
               <img src='<%= require("./assets/address.svg") %>' class="address-icon" />
-              <span>辽宁省大连市沙河口区软件园东路23号15#501AB室</span>
+              <span class="addressSpan">
+                <div data-locale-id="shenzhen-address">深圳市南山区卫星大厦15层</div>
+                <div data-locale-id="dalian-address">大连市软件园15号楼5层</div>
+              </span>
             </li>
           </ul>
           <ul>
-            <li class="footer-list-title">技术支持</li>
+            <li class="footer-list-title" data-locale-id="technical-support">技术支持</li>
             <li>
               <img src='<%= require("./assets/footer-time.png") %>' srcset='
                     <%= require("./assets/footer-time.png") %> 6w,
                     <%= require("./assets/footer-time@2x.png") %> 8w,
-                    <%= require("./assets/footer-time@3x.png") %> 14w' sizes="
+                    <%= require("./assets/footer-time@3x.png") %> 14w'
+                sizes="
                     (max-width:400px) 6px,
                     (max-width:800px) 8px,
                     (max-width:1500px) 14px" />
@@ -227,17 +256,19 @@
               <img src='<%= require("./assets/footer-phone.png") %>' srcset='
                     <%= require("./assets/footer-phone.png") %> 6w,
                     <%= require("./assets/footer-phone@2x.png") %> 8w,
-                    <%= require("./assets/footer-phone@3x.png") %> 14w' sizes="
+                    <%= require("./assets/footer-phone@3x.png") %> 14w'
+                sizes="
                     (max-width:400px) 6px,
                     (max-width:800px) 8px,
                     (max-width:1500px) 14px" />
-              <span>0411-39551681</span>
+              <span data-locale-id="technical-phone-number">0411-39551681</span>
             </li>
             <li>
               <img src='<%= require("./assets/footer-email.png") %>' srcset='
                     <%= require("./assets/footer-email.png") %> 6w,
                     <%= require("./assets/footer-email@2x.png") %> 8w,
-                    <%= require("./assets/footer-email@3x.png") %> 14w' sizes="
+                    <%= require("./assets/footer-email@3x.png") %> 14w'
+                sizes="
                     (max-width:400px) 6px,
                     (max-width:800px) 8px,
                     (max-width:1500px) 14px" />
@@ -247,11 +278,10 @@
         </li>
         <li class="footer-nav-sq">
           <img src='<%= require("./assets/customService.jpg") %>' />
-          <span class="footer-nav-sq-description">微信扫码联系客服</span>
+          <span class="footer-nav-sq-description" data-locale-id="scan-code">微信扫码联系客服</span>
         </li>
       </ul>
-      <div class="recordCopy">Copyright© 悦视光合科技(大连)有限公司</div>
-      <div class="record">辽ICP备18008272号</div>
+      <div class="recordCopy" data-locale-id="mobile-copyright">Copyright© 悦视光合科技(大连)有限公司<br />辽ICP备18008272号</div>
     </footer>
   </div>
   <div class="nav-modal" id="nav-modal-id">
@@ -259,28 +289,24 @@
     <img alt="" src='<%= require("./assets/logo.svg") %>' class="nav-logo" />
     <ul class="nav-modal-content">
       <li class="nav-item">
-        <img src='<%= require("./assets/nav-icon6.svg") %>' alt="">
-        <a href="./index.html" class="nav-1">首页</a>
-      </li>
-      <li class="nav-item">
         <img src='<%= require("./assets/nav-icon3.svg") %>' alt="">
-        <a href="./product.html" class="nav-2">产品介绍</a>
+        <a href="./index.html" class="nav-2" data-locale-id="nav-product">产品介绍</a>
       </li>
       <li class="nav-item">
         <img src='<%= require("./assets/nav-icon1.svg") %>' alt="">
-        <a href="./demo.html" class="nav-3">预约演示</a>
+        <a href="./demo.html" class="nav-3" data-locale-id="nav-trial">免费试用</a>
       </li>
       <li class="nav-item">
         <img src='<%= require("./assets/nav-icon5.svg") %>' alt="">
-        <a href="./price.html" class="nav-4">价格</a>
+        <a href="./price.html" class="nav-4" data-locale-id="nav-price">价格</a>
       </li>
       <li class="nav-item">
         <img src='<%= require("./assets/nav-icon2.svg") %>' alt="">
-        <a href="./service.html" class="nav-5">服务支持</a>
+        <a href="./service.html" class="nav-5" data-locale-id="nav-service">服务支持</a>
       </li>
       <li class="nav-item">
         <img src='<%= require("./assets/nav-icon4.svg") %>' alt="">
-        <a href="./about.html" class="nav-6">关于我们</a>
+        <a class="nav-6" data-locale-id="nav-custom">需求定制</a>
       </li>
     </ul>
   </div>

@@ -53,6 +53,23 @@
           <li class="nav-section logo">
             <img src='<%= require("./assets/nav-logo-black.svg") %>' width=206 height=41 id="logo" />
           </li>
+          <li class="nav-section nav-locale">
+            <button class="nav-locale-btn" id="nav-locale-btn">English</button>
+            <div class="nav-locale-modal" id="nav-locale-modal">
+              <div class="locale-item" data-locale="zh-cn">
+                <span data-locale="zh-cn">简体中文</span>
+                <img data-locale="zh-cn" class="locale-check" id="zh-cn-check" src='<%= require("./assets/check3.svg") %>' />
+              </div>
+              <div class="locale-item" data-locale="zh-tw">
+                <span data-locale="zh-tw">繁體中文</span>
+                <img data-locale="zh-tw" class="locale-check" id="zh-tw-check" src='<%= require("./assets/check3.svg") %>' />
+              </div>
+              <div class="locale-item" data-locale="en-US">
+                <span data-locale="en-US">English</span>
+                <img data-locale="en-US" class="locale-check" id="en-US-check" src='<%= require("./assets/check3.svg") %>' />
+              </div>
+            </div>
+          </li>
           <li class="nav-section menu">
             <div class="nav-mobile">
               <img src='<%= require("./assets/nav-menu.svg") %>' alt="" id="nav-menu-id">
@@ -75,15 +92,16 @@
         <span></span>
       </div>
       <header class="main-header">
-        <h1 class="title">服务支持</h1>
-        <span class="description">ElephantBI拥有专业的商务团队和技术支持团队，将为您提供专业的服务</span>
-        <a class="free-btn demo-btn" href="./demo.html">预约演示</a>
+        <h1 class="title" data-locale-id="nav-service">服务支持</h1>
+        <span class="description" data-locale-id="service-description">ElephantBI拥有专业的商务团队和技术支持团队，将为您提供专业的服务</span>
+        <a class="free-btn demo-btn" href="./demo.html" data-locale-id="nav-trial">免费试用</a>
       </header>
       <div class="banner">
         <img class="banner-image" src='<%= require("./assets/main-header-banner-server@1x.png") %>' srcset='
           <%= require("./assets/main-header-banner-server@1x.png") %> 18w,
           <%= require("./assets/main-header-banner-server@2x.png") %> 26w,
-          <%= require("./assets/main-header-banner-server@3x.png") %> 30w' sizes="
+          <%= require("./assets/main-header-banner-server@3x.png") %> 30w'
+          sizes="
           (max-width:400px) 18px,
           (max-width:800px) 26px,
           (max-width:1500px) 30px" />
@@ -92,7 +110,7 @@
         <ul>
           <li class="server-title">
             <img src='<%= require("./assets/wxService.svg") %>' class="server-title-icon" />
-            <p>
+            <p data-locale-id="wechat-custom-service">
               微信客服
             </p>
           </li>
@@ -103,7 +121,7 @@
         <ul>
           <li class="server-title">
             <img src='<%= require("./assets/server-title-icon2.svg") %>' class="server-title-icon" />
-            <p>
+            <p data-locale-id="business-consulting">
               商务咨询
             </p>
           </li>
@@ -111,17 +129,19 @@
             <img src='<%= require("./assets/footer-phone.png") %>' srcset='
                 <%= require("./assets/footer-phone.png") %> 18w,
                 <%= require("./assets/footer-phone@2x.png") %> 26w,
-                <%= require("./assets/footer-phone@3x.png") %> 30w' sizes="
+                <%= require("./assets/footer-phone@3x.png") %> 30w'
+              sizes="
                 (max-width:400px) 18px,
                 (max-width:800px) 26px,
                 (max-width:1500px) 30px" />
-            <span>0411-39026089</span>
+            <span data-locale-id="consultation-phone-number">0411-39026089</span>
           </li>
           <li class="commercial-li">
             <img src='<%= require("./assets/footer-email.png") %>' srcset='
                 <%= require("./assets/footer-email.png") %> 19w,
                 <%= require("./assets/footer-email@2x.png") %> 26w,
-                <%= require("./assets/footer-email@3x.png") %> 30w' sizes="
+                <%= require("./assets/footer-email@3x.png") %> 30w'
+              sizes="
                 (max-width:400px) 19px,
                 (max-width:800px) 26px,
                 (max-width:1500px) 30px" />
@@ -131,7 +151,7 @@
         <ul>
           <li class="server-title">
             <img src='<%= require("./assets/server-title-icon1.svg") %>' class="server-title-icon" />
-            <p>
+            <p data-locale-id="technical-support">
               技术支持
             </p>
           </li>
@@ -139,7 +159,8 @@
             <img src='<%= require("./assets/footer-time.png") %>' srcset='
                 <%= require("./assets/footer-time.png") %> 18w,
                 <%= require("./assets/footer-time@2x.png") %> 26w,
-                <%= require("./assets/footer-time@3x.png") %> 30w' sizes="
+                <%= require("./assets/footer-time@3x.png") %> 30w'
+              sizes="
                 (max-width:400px) 18px,
                 (max-width:800px) 26px,
                 (max-width:1500px) 30px" />
@@ -149,17 +170,19 @@
             <img src='<%= require("./assets/footer-phone.png") %>' srcset='
                 <%= require("./assets/footer-phone.png") %> 18w,
                 <%= require("./assets/footer-phone@2x.png") %> 26w,
-                <%= require("./assets/footer-phone@3x.png") %> 30w' sizes="
+                <%= require("./assets/footer-phone@3x.png") %> 30w'
+              sizes="
                 (max-width:400px) 18px,
                 (max-width:800px) 26px,
                 (max-width:1500px) 30px" />
-            <span>0411-39551681</span>
+            <span data-locale-id="technical-phone-number">0411-39551681</span>
           </li>
           <li>
             <img src='<%= require("./assets/footer-email.png") %>' srcset='
                 <%= require("./assets/footer-email.png") %> 19w,
                 <%= require("./assets/footer-email@2x.png") %> 26w,
-                <%= require("./assets/footer-email@3x.png") %> 30w' sizes="
+                <%= require("./assets/footer-email@3x.png") %> 30w'
+              sizes="
                 (max-width:400px) 19px,
                 (max-width:800px) 26px,
                 (max-width:1500px) 30px" />
@@ -169,7 +192,7 @@
         <ul>
           <li class="server-title">
             <img src='<%= require("./assets/server-title-icon3.svg") %>' class="server-title-icon" />
-            <p>
+            <p data-locale-id="complaint">
               投诉
             </p>
           </li>
@@ -177,51 +200,52 @@
             <img src='<%= require("./assets/footer-phone.png") %>' srcset='
                 <%= require("./assets/footer-phone.png") %> 18w,
                 <%= require("./assets/footer-phone@2x.png") %> 26w,
-                <%= require("./assets/footer-phone@3x.png") %> 30w' sizes="
+                <%= require("./assets/footer-phone@3x.png") %> 30w'
+              sizes="
                 (max-width:400px) 18px,
                 (max-width:800px) 26px,
                 (max-width:1500px) 30px" />
-            <span>总裁办电话 15910603382</span>
+            <span data-locale-id="presidance-phone">总裁办电话 15910603382</span>
           </li>
         </ul>
       </section>
       <section class="reserve-section">
         <div class="feedback-section">
-          <div class="feedback-title">我的反馈</div>
-          <div class="feedback-subtitle">请将您的问题或建议填写在下方，如方便可留下联系方式，ElephantBI团队将及时向您反馈处理结果</div>
+          <div class="feedback-title" data-locale-id="contact-us">联系我们</div>
+          <div class="feedback-subtitle" data-locale-id="contact-us-description">请将您的需求或建议填写在下方，并可留下联系方式，ElephantBI团队将及时向您反馈处理结果</div>
           <form name="feedbackForm">
             <div class="feedback-item">
-              <span class="label">问题或建议</span>
+              <span class="label" data-locale-id="suggests">需求或建议</span>
               <div class="feedback-form-item">
-                <textarea name="feedbackRemark" id="feedback-remark" placeholder="请填写您想反馈的问题或建议"></textarea>
+                <textarea name="feedbackRemark" id="feedback-remark" placeholder="请填写您的需求或建议" data-locale-id="need-and-advice"></textarea>
               </div>
             </div>
             <div class="feedback-item">
-              <span class="label">姓名</span>
-              <div class="feedback-form-item" data-err="请输入希望使用的名称">
-                <input id="feedback-name" name="feedbackName" placeholder="请输入希望使用的名称" />
+              <span class="label" data-locale-id="free-trail-name">姓名</span>
+              <div class="feedback-form-item" data-err="请输入希望使用的名称" data-locale-id="name-required-tip">
+                <input id="feedback-name" name="feedbackName" placeholder="请输入希望使用的名称" data-locale-id="name-required-tip" />
               </div>
             </div>
             <div class="feedback-item">
-              <span class="label">邮箱</span>
-              <div class="feedback-form-item" data-err="请输入电子邮箱">
-                <input id="feedback-email" name="feedbackEmail" placeholder="请输入电子邮箱" />
+              <span class="label" data-locale-id="service-email">邮箱</span>
+              <div class="feedback-form-item" data-err="请输入电子邮箱" data-locale-id="email-required-tip">
+                <input id="feedback-email" name="feedbackEmail" placeholder="请输入电子邮箱" data-locale-id="email-required-tip" />
               </div>
             </div>
             <div class="feedback-item">
-              <span class="label">联系电话</span>
-              <div class="feedback-form-item" data-err="请输入手机号">
-                <input id="feedback-mobile" name="feedbackMobile" placeholder="请输入手机号" />
+              <span class="label" data-locale-id="service-phone">联系电话</span>
+              <div class="feedback-form-item" data-err="请输入手机号" data-locale-id="phone-required-tip">
+                <input id="feedback-mobile" name="feedbackMobile" placeholder="请输入手机号" data-locale-id="phone-required-tip" />
               </div>
             </div>
             <div class="feedback-item">
-              <span class="label">公司名称</span>
-              <div class="feedback-form-item" data-err="请输入您所在的公司名称">
-                <input id="feedback-company" name="feedbackCompany" placeholder="请输入您所在的公司名称" />
+              <span class="label" data-locale-id="free-trail-company-name">公司名称</span>
+              <div class="feedback-form-item" data-err="请输入您所在的公司名称" data-locale-id="company-required-tip">
+                <input id="feedback-company" name="feedbackCompany" placeholder="请输入您所在的公司名称" data-locale-id="company-required-tip" />
               </div>
             </div>
           </form>
-          <button id="feedback-submit">
+          <button id="feedback-submit" data-locale-id="submit">
             提交
           </button>
         </div>
@@ -235,73 +259,80 @@
         </li>
         <li class="footer-nav-list">
           <ul>
-            <li class="footer-list-title">商务咨询</li>
+            <li class="footer-list-title" data-locale-id="business-consulting">商务咨询</li>
             <li>
               <img src='<%= require("./assets/footer-phone.png") %>' srcset='
-                  <%= require("./assets/footer-phone.png") %> 6w,
-                  <%= require("./assets/footer-phone@2x.png") %> 8w,
-                  <%= require("./assets/footer-phone@3x.png") %> 14w' sizes="
-                  (max-width:400px) 6px,
-                  (max-width:800px) 8px,
-                  (max-width:1500px) 14px" />
-              <span>0411-39026089</span>
+                    <%= require("./assets/footer-phone.png") %> 6w,
+                    <%= require("./assets/footer-phone@2x.png") %> 8w,
+                    <%= require("./assets/footer-phone@3x.png") %> 14w'
+                sizes="
+                    (max-width:400px) 6px,
+                    (max-width:800px) 8px,
+                    (max-width:1500px) 14px" />
+              <span data-locale-id="consultation-phone-number">0411-39026089</span>
             </li>
             <li>
               <img src='<%= require("./assets/footer-email.png") %>' srcset='
-                  <%= require("./assets/footer-email.png") %> 6w,
-                  <%= require("./assets/footer-email@2x.png") %> 8w,
-                  <%= require("./assets/footer-email@3x.png") %> 14w' sizes="
-                  (max-width:400px) 6px,
-                  (max-width:800px) 8px,
-                  (max-width:1500px) 14px" />
+                    <%= require("./assets/footer-email.png") %> 6w,
+                    <%= require("./assets/footer-email@2x.png") %> 8w,
+                    <%= require("./assets/footer-email@3x.png") %> 14w'
+                sizes="
+                    (max-width:400px) 6px,
+                    (max-width:800px) 8px,
+                    (max-width:1500px) 14px" />
               <span>bd@elephantbi.com</span>
             </li>
             <li>
               <img src='<%= require("./assets/address.svg") %>' class="address-icon" />
-              <span>辽宁省大连市沙河口区软件园东路23号15#501AB室</span>
+              <span class="addressSpan">
+                <div data-locale-id="shenzhen-address">深圳市南山区卫星大厦15层</div>
+                <div data-locale-id="dalian-address">大连市软件园15号楼5层</div>
+              </span>
             </li>
           </ul>
           <ul>
-            <li class="footer-list-title">技术支持</li>
+            <li class="footer-list-title" data-locale-id="technical-support">技术支持</li>
             <li>
               <img src='<%= require("./assets/footer-time.png") %>' srcset='
-                  <%= require("./assets/footer-time.png") %> 6w,
-                  <%= require("./assets/footer-time@2x.png") %> 8w,
-                  <%= require("./assets/footer-time@3x.png") %> 14w' sizes="
-                  (max-width:400px) 6px,
-                  (max-width:800px) 8px,
-                  (max-width:1500px) 14px" />
+                    <%= require("./assets/footer-time.png") %> 6w,
+                    <%= require("./assets/footer-time@2x.png") %> 8w,
+                    <%= require("./assets/footer-time@3x.png") %> 14w'
+                sizes="
+                    (max-width:400px) 6px,
+                    (max-width:800px) 8px,
+                    (max-width:1500px) 14px" />
               <span>09:00~19:00</span>
             </li>
             <li>
               <img src='<%= require("./assets/footer-phone.png") %>' srcset='
-                  <%= require("./assets/footer-phone.png") %> 6w,
-                  <%= require("./assets/footer-phone@2x.png") %> 8w,
-                  <%= require("./assets/footer-phone@3x.png") %> 14w' sizes="
-                  (max-width:400px) 6px,
-                  (max-width:800px) 8px,
-                  (max-width:1500px) 14px" />
-              <span>0411-39551681</span>
+                    <%= require("./assets/footer-phone.png") %> 6w,
+                    <%= require("./assets/footer-phone@2x.png") %> 8w,
+                    <%= require("./assets/footer-phone@3x.png") %> 14w'
+                sizes="
+                    (max-width:400px) 6px,
+                    (max-width:800px) 8px,
+                    (max-width:1500px) 14px" />
+              <span data-locale-id="technical-phone-number">0411-39551681</span>
             </li>
             <li>
               <img src='<%= require("./assets/footer-email.png") %>' srcset='
-                  <%= require("./assets/footer-email.png") %> 6w,
-                  <%= require("./assets/footer-email@2x.png") %> 8w,
-                  <%= require("./assets/footer-email@3x.png") %> 14w' sizes="
-                  (max-width:400px) 6px,
-                  (max-width:800px) 8px,
-                  (max-width:1500px) 14px" />
+                    <%= require("./assets/footer-email.png") %> 6w,
+                    <%= require("./assets/footer-email@2x.png") %> 8w,
+                    <%= require("./assets/footer-email@3x.png") %> 14w'
+                sizes="
+                    (max-width:400px) 6px,
+                    (max-width:800px) 8px,
+                    (max-width:1500px) 14px" />
               <span>support@elephantbi.com</span>
             </li>
           </ul>
         </li>
         <li class="footer-nav-sq">
           <img src='<%= require("./assets/customService.jpg") %>' />
-          <span class="footer-nav-sq-description">微信扫码联系客服</span>
+          <span class="footer-nav-sq-description" data-locale-id="scan-code">微信扫码联系客服</span>
         </li>
       </ul>
-      <div class="recordCopy">Copyright© 悦视光合科技(大连)有限公司</div>
-      <div class="record">辽ICP备18008272号</div>
+      <div class="recordCopy" data-locale-id="mobile-copyright">Copyright© 悦视光合科技(大连)有限公司<br />辽ICP备18008272号</div>
     </footer>
   </div>
   <div class="nav-modal" id="nav-modal-id">
@@ -309,28 +340,24 @@
     <img alt="" src='<%= require("./assets/logo.svg") %>' class="nav-logo" />
     <ul class="nav-modal-content">
       <li class="nav-item">
-        <img src='<%= require("./assets/nav-icon6.svg") %>' alt="">
-        <a href="./index.html" class="nav-1">首页</a>
-      </li>
-      <li class="nav-item">
         <img src='<%= require("./assets/nav-icon3.svg") %>' alt="">
-        <a href="./product.html" class="nav-2">产品介绍</a>
+        <a href="./index.html" class="nav-2" data-locale-id="nav-product">产品介绍</a>
       </li>
       <li class="nav-item">
         <img src='<%= require("./assets/nav-icon1.svg") %>' alt="">
-        <a href="./demo.html" class="nav-3">预约演示</a>
+        <a href="./demo.html" class="nav-3" data-locale-id="nav-trial">免费试用</a>
       </li>
       <li class="nav-item">
         <img src='<%= require("./assets/nav-icon5.svg") %>' alt="">
-        <a href="./price.html" class="nav-4">价格</a>
+        <a href="./price.html" class="nav-4" data-locale-id="nav-price">价格</a>
       </li>
       <li class="nav-item">
         <img src='<%= require("./assets/nav-icon2.svg") %>' alt="">
-        <a href="./service.html" class="nav-5">服务支持</a>
+        <a href="./service.html" class="nav-5" data-locale-id="nav-service">服务支持</a>
       </li>
       <li class="nav-item">
         <img src='<%= require("./assets/nav-icon4.svg") %>' alt="">
-        <a href="./about.html" class="nav-6">关于我们</a>
+        <a class="nav-6" data-locale-id="nav-custom">需求定制</a>
       </li>
     </ul>
   </div>

@@ -162,7 +162,7 @@
   "big-data-storage": {
     "zh-cn": "大数据存储管理中心",
     "zh-tw": "大數據存儲管理中心",
-    "en-US": "Integrating all your data"
+    "en-US": "大数据存储管理中心"
   },
   "big-data-storage-description-1": {
     "zh-cn": "数据库一键连接，支持MySQL、PostgreSQL、Microsoft SQL、Oracle等",
@@ -192,7 +192,7 @@
   "visualized-data-analysis": {
     "zh-cn": "可视化拖拽分析",
     "zh-tw": "可視化拖拽分析",
-    "en-US": "Let Your Data Tell Stories"
+    "en-US": "可视化拖拽分析"
   },
   "visualized-data-analysis-description-1": {
     "zh-cn": "简单拖拽，数据图表瞬间生成",
@@ -217,7 +217,7 @@
   "team-cooperation": {
     "zh-cn": "团队协作",
     "zh-tw": "團隊協作",
-    "en-US": "Team Collaboration"
+    "en-US": "团队协作"
   },
   "team-cooperation-description-1": {
     "zh-cn": "多种类，多终端的交互式图表和仪表盘，帮助决策者从容讲述数据背后的线索",
@@ -237,7 +237,7 @@
   "privilege-management": {
     "zh-cn": "精细化权限管理",
     "zh-tw": "精細化權限管理",
-    "en-US": "Permissions Management"
+    "en-US": "精细化权限管理"
   },
   "privilege-management-description-1": {
     "zh-cn": "灵活严谨的用户和角色体系，快速准确的赋予数据权限，兼具效率与安全",
@@ -858,5 +858,50 @@
     "zh-cn": "手机格式不正确",
     "zh-tw": "手機格式不正確",
     "en-US": "Please input the correct phone number"
+  },
+  "remark": {
+    "zh-cn": "备注",
+    "zh-tw": "備註",
+    "en-US": "Remark"
+  },
+  "suggests": {
+    "zh-cn": "需求或建议",
+    "zh-tw": "需求或建議",
+    "en-US": "suggests"
+  },
+  "price-title-1": {
+    "zh-cn": "升级ElephantBI",
+    "zh-tw": "升級ElephantBI",
+    "en-US": "Upgrade ElephantBI"
+  },
+  "price-title-2": {
+    "zh-cn": "释放数据价值",
+    "zh-tw": "釋放數據價值",
+    "en-US": "Release Data Value"
+  },
+  "50W": {
+    "zh-cn": "50W条",
+    "zh-tw": "50W條",
+    "en-US": "50W"
+  },
+  "mobile-copyright": {
+    "zh-cn": "Copyright© 悦视光合科技(大连)有限公司<br />辽ICP备18008272号",
+    "zh-tw": "Copyright© 悅視光合科技(大連)有限公司<br />遼ICP備18008272號",
+    "en-US": "© 2019 All rights reserved. ElephantBI"
+  },
+  "more-industry-description": {
+    "zh-cn": "旅游业，保险业，农产品，电气化工，高新科技，生活服务等更多行业，敬请期待",
+    "zh-tw": "旅遊業，保險業，農產品，電氣化工，高新科技，生活服務等更多行業，敬請期待",
+    "en-US": "Tourist, insurance, agricultural, electrical and chemistry, high tech, services and more are coming soon!"
+  },
+  "more-industry": {
+    "zh-cn": "更多行业",
+    "zh-tw": "更多行業",
+    "en-US": "More industry"
+  },
+  "login-for-more-analysis": {
+    "zh-cn": "更多个性化分析需求请登录网站体验",
+    "zh-tw": "更多個性化分析需求請登錄網站體驗",
+    "en-US": "Login for more information"
   }
 }
