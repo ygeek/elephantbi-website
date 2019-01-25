@@ -252,7 +252,7 @@
   "select-demo": {
     "zh-cn": "请选择下方要体验的行业Demo",
     "zh-tw": "請選擇下方要體驗的行業Demo",
-    "en-US": "Choose a industry"
+    "en-US": "Choose an industry"
   },
   "experience-demo": {
     "zh-cn": "体验DEMO",
