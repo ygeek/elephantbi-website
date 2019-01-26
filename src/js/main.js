@@ -1587,7 +1587,10 @@ const translateLocale = (locale) => {
         if (localeNodes[i].getAttribute('data-err')) {
           localeNodes[i].setAttribute('data-err', allLocales[localeId][locale])
         } else {
-          localeNodes[i].innerHTML = allLocales[localeId] ? allLocales[localeId][locale] : localeNodes.innerHTML
+          localeNodes[i].innerHTML = allLocales[localeId] ? allLocales[localeId][locale] : localeNodes.innerHTML;
+          if (localeNodes[i].tagName.toLowerCase() === 'option' || localeNodes[i].getAttribute('data-locale-type')) {
+            localeNodes[i].setAttribute('value', allLocales[localeId][locale])
+          }
         }
     }
   }
