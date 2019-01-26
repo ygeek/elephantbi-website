@@ -1283,9 +1283,9 @@ const submitDemo = () => {
       demoForm.demoEmail.value = null
       demoForm.demoMobile.value = null
       demoForm.demoCompany.value = null
-      demoForm.demoIndustry.value = null
-      demoForm.demoScale.value = null
-      demoForm.demoDepart.value = null
+      demoForm.demoIndustry.value = '' //移动端是select，所以在这里赋值为空字符串
+      demoForm.demoScale.value = ''
+      demoForm.demoDepart.value = ''
       demoForm.demoPosi.value = null
       demoForm.demoRemark.value = null
     } else {

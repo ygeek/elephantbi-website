@@ -95,8 +95,12 @@
         -webkit-appearance:none;
         background: url("../assets/selectArrow.png") no-repeat scroll 97% center transparent;
         padding-right: 10px;
+        &:invalid {
+          color: #ddddde
+        }
         option {
           font-size: 6px;
+          color: #757575;
         }
         option.disabled-option {
           display: none;
