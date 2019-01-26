@@ -4,68 +4,49 @@ sed -i "s/http:\/\/www.elephantbi.com\//${WEBSITE_URL}/" $config
 sed -i "s/http:\/\/m.elephantbi.com\//${WEBSITE_MOBILE_URL}/" $config
 sed -i "s/DOMAIN/${DOMAIN}/g" $config
 
+#cn
 indexFile=/usr/share/nginx/html/index.html
 sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $indexFile
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $indexFile
+sed -i "s/VIDEO_URL/${VIDEO_URL}/g" $indexFile
 serverFile=/usr/share/nginx/html/service.html
 sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $serverFile
-productFile=/usr/share/nginx/html/product.html
-sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $productFile
-aboutFile=/usr/share/nginx/html/about.html
-sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $aboutFile
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $serverFile
 demoFile=/usr/share/nginx/html/demo.html
 sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $demoFile
-priceFile=/usr/share/nginx/html/price.html
-sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $priceFile
-registerFile=/usr/share/nginx/html/register.html
-sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $registerFile
-registerInfoFile=/usr/share/nginx/html/register-info.html
-sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $registerInfoFile
-
-indexFile=/usr/share/nginx/html/index.html
-sed -i "s/WX_CORP_ID/${WX_CORP_ID}/g" $indexFile
-serverFile=/usr/share/nginx/html/service.html
-sed -i "s/WX_CORP_ID/${WX_CORP_ID}/g" $serverFile
-productFile=/usr/share/nginx/html/product.html
-sed -i "s/WX_CORP_ID/${WX_CORP_ID}/g" $productFile
-aboutFile=/usr/share/nginx/html/about.html
-sed -i "s/WX_CORP_ID/${WX_CORP_ID}/g" $aboutFile
-
-indexFile=/usr/share/nginx/html/index.html
-sed -i "s/IMAGE_ENV/${ENV}/g" $indexFile
-serverFile=/usr/share/nginx/html/service.html
-sed -i "s/IMAGE_ENV/${ENV}/g" $serverFile
-productFile=/usr/share/nginx/html/product.html
-sed -i "s/IMAGE_ENV/${ENV}/g" $productFile
-aboutFile=/usr/share/nginx/html/about.html
-sed -i "s/IMAGE_ENV/${ENV}/g" $aboutFile
-
-indexFile=/usr/share/nginx/html/index.html
-sed -i "s/OAUTH_URL/${OAUTH_URL}/g" $indexFile
-serverFile=/usr/share/nginx/html/service.html
-sed -i "s/OAUTH_URL/${OAUTH_URL}/g" $serverFile
-productFile=/usr/share/nginx/html/product.html
-sed -i "s/OAUTH_URL/${OAUTH_URL}/g" $productFile
-aboutFile=/usr/share/nginx/html/about.html
-sed -i "s/OAUTH_URL/${OAUTH_URL}/g" $aboutFile
-
-indexFile=/usr/share/nginx/html/index.html
-sed -i "s/DEMO_URL/${DEMO_URL}/g" $indexFile
-serverFile=/usr/share/nginx/html/service.html
-sed -i "s/DEMO_URL/${DEMO_URL}/g" $serverFile
-productFile=/usr/share/nginx/html/product.html
-sed -i "s/DEMO_URL/${DEMO_URL}/g" $productFile
-aboutFile=/usr/share/nginx/html/about.html
-sed -i "s/DEMO_URL/${DEMO_URL}/g" $aboutFile
-demoFile=/usr/share/nginx/html/demo.html
 sed -i "s/DEMO_URL/${DEMO_URL}/g" $demoFile
 priceFile=/usr/share/nginx/html/price.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $priceFile
 sed -i "s/DEMO_URL/${DEMO_URL}/g" $priceFile
-registerFile=/usr/share/nginx/html/register.html
-sed -i "s/DEMO_URL/${DEMO_URL}/g" $registerFile
-registerInfoFile=/usr/share/nginx/html/register-info.html
-sed -i "s/DEMO_URL/${DEMO_URL}/g" $registerInfoFile
 
-indexFile=/usr/share/nginx/html/index.html
-sed -i "s/VIDEO_URL/${VIDEO_URL}/g" $indexFile
+#en
+indexFileEn=/usr/share/nginx/html/en/index.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $indexFileEn
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $indexFileEn
+sed -i "s/VIDEO_URL/${VIDEO_URL}/g" $indexFileEn
+serverFileEn=/usr/share/nginx/html/en/service.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $serverFileEn
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $serverFileEn
+demoFileEn=/usr/share/nginx/html/en/demo.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $demoFileEn
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $demoFileEn
+priceFileEn=/usr/share/nginx/html/en/price.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $priceFileEn
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $priceFileEn
+
+#tw
+indexFileTw=/usr/share/nginx/html/tw/index.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $indexFileTw
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $indexFileTw
+sed -i "s/VIDEO_URL/${VIDEO_URL}/g" $indexFileTw
+serverFileTw=/usr/share/nginx/html/tw/service.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $serverFileTw
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $serverFileTw
+demoFileTw=/usr/share/nginx/html/tw/demo.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $demoFileTw
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $demoFileTw
+priceFileTw=/usr/share/nginx/html/tw/price.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $priceFileTw
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $priceFileTw
 
 nginx -p /usr/share/nginx -g "daemon off;"

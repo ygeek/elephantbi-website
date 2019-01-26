@@ -7,6 +7,13 @@ require('./noCaptcha')
 const mobileReg = /^[\d|+|-]*$/;
 const emailReg = /@(163|foxmail|qq|gmail)\./;
 const allLocales = require('../locales.json');
+const enPathReg = /\/en\/(.*)/
+const twPathReg = /\/tw\/(.*)/;
+const mapLocaleToFolder = {
+  'zh-cn': '',
+  'zh-tw': '/tw',
+  'en-US': '/en'
+}
 
 const openNewWindow = (url) => {
   window.location.href = url;
@@ -1133,7 +1140,13 @@ const validateDemoName = (value) => {
 }
 
 const getLocalLocale = () => {
-  return sessionStorage.getItem('locale') || 'zh-cn'
+  const pathname = window.location.pathname;
+  if (pathname.indexOf('/en') > -1) {
+    return 'en-US'
+  } else if (pathname.indexOf('/tw') > -1) {
+    return 'zh-tw'
+  }
+  return 'zh-cn'
 }
 
 const validateDemoEmail = (value) => {
@@ -1600,11 +1613,16 @@ const changeLocaleCheckVisible = (locale) => {
 const changeLocale = (e) => {
   e.stopPropagation();
   const locale = e.target.getAttribute('data-locale');
-  changeLocaleBtnText(locale);
-  changeLocaleCheckVisible(locale)
-  sessionStorage.setItem('locale', locale);
-  translateLocale(locale)
-  toggleLocaleModal(false)
+  const prevPathname = window.location.pathname;
+  const origin = window.location.origin;
+  let currentPath = '';
+  if (enPathReg.exec(prevPathname) || twPathReg.exec(prevPathname)) {
+    const test = enPathReg.exec(prevPathname) || twPathReg.exec(prevPathname);
+    currentPath = mapLocaleToFolder[locale] + '/' + test[1]
+  } else {
+    currentPath = mapLocaleToFolder[locale] + prevPathname
+  }
+  window.location.href = origin + currentPath
 }
 
 const toggleLocaleModal = (visible) => {
@@ -1643,7 +1661,7 @@ window.onload = function () {
     })
   }
 
-  translateLocale(getLocalLocale() || 'zh-cn');
+  translateLocale(getLocalLocale());
   changeLocaleBtnText(getLocalLocale());
   changeLocaleCheckVisible(getLocalLocale())
 
@@ -1839,8 +1857,6 @@ window.onload = function () {
   const formSubmitBtn = document.getElementById('form-submit-btn-id'); //移动端表单提交按钮
   const loginModal = document.getElementById('login-modal'); //登陆弹窗
   const navLogin = document.getElementById('nav-login'); //导航登陆按钮
-  const logo = document.getElementById("logo"); //导航logo
-  const footerLogo = document.getElementById("footer-logo") //页底logo
   const industryLink = document.getElementById("nav-industry-link") //导航行业信息链接
 
   const feedbackRemark = document.getElementById('feedback-remark')
@@ -1946,12 +1962,6 @@ window.onload = function () {
   }
   if (formSubmitBtn) { //移动端表单提交按钮
     formSubmitBtn.addEventListener('click', submitForm, true);
-  }
-  if (logo) { //导航logo
-    logo.addEventListener('click', jumpHomePage, true);
-  }
-  if (footerLogo) { //页底logo
-    footerLogo.addEventListener('click', jumpHomePage, true);
   }
   /***********mobile***********/
   const industryLeftBtn = document.getElementById('industry-left')

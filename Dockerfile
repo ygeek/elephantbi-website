@@ -18,9 +18,18 @@ COPY . /root/webapp/
 RUN NODE_ENV=production yarn run build && \
     mkdir -p /run/nginx && \
     rm -f /etc/nginx/sites-enabled/* && \
+    mkdir -p /usr/share/nginx/logs && \
+    touch /usr/share/nginx/logs/error.log && \
+    touch /usr/share/nginx/logs/access.log && \
     mkdir -p /usr/share/nginx/html && \
+    mkdir -p /usr/share/nginx/html/en && \
+    mkdir -p /usr/share/nginx/html/tw && \
     cp -r dist/* /usr/share/nginx/html && \
+    cp -r dist/* /usr/share/nginx/html/en && \
+    cp -r dist/* /usr/share/nginx/html/tw && \
     cp src/elephantbi.mp4 /usr/share/nginx/html && \
+    cp src/elephantbi.mp4 /usr/share/nginx/html/en && \
+    cp src/elephantbi.mp4 /usr/share/nginx/html/tw && \
     cp -r root_pc/* /usr/share/nginx/html
 
 EXPOSE 80

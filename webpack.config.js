@@ -26,12 +26,8 @@ module.exports = [
   {
     entry: {
       index: './src/css/index.less',
-      product: './src/css/product.less',
       service: './src/css/service.less',
-      about: './src/css/about.less',
       price: './src/css/price.less',
-      register: './src/css/register.less',
-      register_info: './src/css/register-info.less',
       demo: './src/css/demo.less',
       main: ['babel-polyfill', './src/js/main.js']
     },
@@ -85,19 +81,9 @@ module.exports = [
         template: './src/index.html'
       }),
       new HtmlWebpackPlugin({
-        chunks: ['main', 'product'],
-        filename: 'product.html',
-        template: './src/product.html'
-      }),
-      new HtmlWebpackPlugin({
         chunks: ['main', 'service'],
         filename: 'service.html',
         template: './src/service.html'
-      }),
-      new HtmlWebpackPlugin({
-        chunks: ['main', 'about'],
-        filename: 'about.html',
-        template: './src/about.html'
       }),
       new HtmlWebpackPlugin({
         chunks: ['main', 'price'],
@@ -108,16 +94,6 @@ module.exports = [
         chunks: ['main', 'demo'],
         filename: 'demo.html',
         template: './src/demo.html'
-      }),
-      new HtmlWebpackPlugin({
-        chunks: ['main', 'register'],
-        filename: 'register.html',
-        template: './src/register.html'
-      }),
-      new HtmlWebpackPlugin({
-        chunks: ['main', 'register_info'],
-        filename: 'register-info.html',
-        template: './src/register-info.html'
       }),
       new UglifyJsPlugin(),
       new CompressionPlugin({

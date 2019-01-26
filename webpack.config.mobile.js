@@ -28,9 +28,7 @@ module.exports = [
   {
     entry: {
       index: './src/mobile/css/index.less',
-      product: './src/mobile/css/product.less',
       service: './src/mobile/css/service.less',
-      about: './src/mobile/css/about.less',
       demo: './src/mobile/css/demo.less',
       price: './src/mobile/css/price.less',
       main: './src/js/main.js'
@@ -85,19 +83,9 @@ module.exports = [
         template: './src/mobile/index.html'
       }),
       new HtmlWebpackPlugin({
-        chunks: ['main', 'product'],
-        filename: 'product.html',
-        template: './src/mobile/product.html'
-      }),
-      new HtmlWebpackPlugin({
         chunks: ['main', 'service'],
         filename: 'service.html',
         template: './src/mobile/service.html'
-      }),
-      new HtmlWebpackPlugin({
-        chunks: ['main', 'about'],
-        filename: 'about.html',
-        template: './src/mobile/about.html'
       }),
       new HtmlWebpackPlugin({
         chunks: ['main', 'demo'],
