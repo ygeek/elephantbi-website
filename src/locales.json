@@ -147,12 +147,12 @@
   "home-banner-description-2": {
     "zh-cn": "实时连接聚合企业所有数据，简单灵活的交互式可视化数据分析",
     "zh-tw": "實時連接聚合企業所有數據，簡單靈活的交互式可視化數據分析",
-    "en-US": "Pull from everywhere, integrate everything, connect everyone"
+    "en-US": "Pull from everywhere, integrate everything, connect everyone. Update data automatically, so you can track time-sensitive trends and see business performance in real time"
   },
   "home-banner-description-3": {
     "zh-cn": "先进的敏捷BI模式，深入挖掘大数据价值，更快获得全局洞察，精准制定数据支持的商业决策",
     "zh-tw": "先進的敏捷BI模式，深入挖掘大數據價值，更快獲得全局洞察，精準制定數據支持的商業決策",
-    "en-US": "Update data automatically, so you can track time-sensitive trends and see business performance in real time"
+    "en-US": ""
   },
   "contact-us": {
     "zh-cn": "联系我们",
