@@ -872,7 +872,7 @@
   "suggests": {
     "zh-cn": "需求或建议",
     "zh-tw": "需求或建議",
-    "en-US": "suggests"
+    "en-US": "Suggests"
   },
   "price-title-1": {
     "zh-cn": "升级ElephantBI",
