@@ -1488,7 +1488,7 @@ const feedbackRemarkVerify = (value) => {
 
 const feedbackNameVerify = (value) => {
   const self = document.getElementById('feedback-name')
-  const errNode = self.parentNode
+  const errNode = self.parentNode;
   if (!value) {
     if (!currentError(errNode)) {
       errNode.className = errNode.className + ' error'
@@ -1504,6 +1504,7 @@ const feedbackNameVerify = (value) => {
 const feedbackCompanyVerify = (value) => {
   const self = document.getElementById('feedback-company')
   const errNode = self.parentNode
+
   if (!value) {
     if (!currentError(errNode)) {
       errNode.className = errNode.className + ' error'
@@ -1521,18 +1522,20 @@ const feedbackMobileVerify = (value) => {
   const errNode = self.parentNode
   if (!value) {
     if (!currentError(errNode)) {
+      const localeId = errNode.getAttribute('data-locale-id')
+      errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale])
       errNode.className = errNode.className + ' error'
     }
-    errNode.setAttribute('data-err', '请输入手机号码')
     return false
   }
   if (value) {
     const reg = /^[1][3,4,5,7,8][0-9]{9}$/
     if (!reg.test(value)) {
       if (!currentError(errNode)) {
+        const localeId = errNode.getAttribute('data-input-locale-id')
+        errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale])
         errNode.className = errNode.className + ' error'
       }
-      errNode.setAttribute('data-err', '手机格式不正确')
       return false
     }
     if (currentError(errNode)) {
@@ -1548,17 +1551,19 @@ const feedbackEmailVerify = (value) => {
   const reg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/
   if (!value) {
     if (!currentError(errNode)) {
+      const localeId = errNode.getAttribute('data-locale-id')
+      errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale])
       errNode.className = errNode.className + ' error'
     }
-    errNode.setAttribute('data-err', '请输入电子邮箱')
     return false
   }
   if (value) {
     if (!reg.test(value)) { //邮箱验证不通过
       if (!currentError(errNode)) {
+        const localeId = errNode.getAttribute('data-input-locale-id')
+        errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale])
         errNode.className = errNode.className + ' error'
       }
-      errNode.setAttribute('data-err', '邮箱格式不正确')
       return false
     }
     if (currentError(errNode)) {
