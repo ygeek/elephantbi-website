@@ -271,7 +271,7 @@ header#nav-header {
         border: 1px solid #f1584d;
       }
       &:after {
-        content: '输入的域名不存在，请重新检查。\A如果您还没有注册请前往免费注册。' !important;
+        content: attr(data-err) !important;
         white-space: pre;
         display: block;
         padding-left: 0px;

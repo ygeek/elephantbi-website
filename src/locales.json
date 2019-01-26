@@ -928,5 +928,15 @@
     "zh-cn": "请电话联系：0411-39026089",
     "zh-tw": "請電話聯系：0411-39026089",
     "en-US": "Call us: +86-411-39026089"
+  },
+  "login-err": {
+    "zh-cn": "输入的域名不存在，请重新检查。如果您还没有注册请前往免费注册",
+    "zh-tw": "輸入的域名不存在，請重新檢查。如果您還沒有註冊請前往免費註冊",
+    "en-US": "The domain name isn’t exist. Please go to free registration."
+  },
+  "login-placeholder": {
+    "zh-cn": "请输入团队域名",
+    "zh-tw": "請輸入團隊域名",
+    "en-US": "Please input your domain to log in."
   }
 }
