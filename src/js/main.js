@@ -1896,7 +1896,7 @@ window.onload = function () {
   }
 
   if (industryLink) {
-    industryLink.addEventListener('click', showIndustryModal, true)
+    industryLink.addEventListener('mouseenter', showIndustryModal, true)
   }
 
   var joinLists = document.getElementsByClassName('list-item'); //关于我们页面招聘信息
