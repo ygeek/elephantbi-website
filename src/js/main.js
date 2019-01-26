@@ -8,10 +8,10 @@ const mobileReg = /^[\d|+|-]*$/;
 const emailReg = /@(163|foxmail|qq|gmail)\./;
 const allLocales = require('../locales.json');
 const enPathReg = /\/en\/(.*)/
-const twPathReg = /\/tw\/(.*)/;
+const hkPathReg = /\/hk\/(.*)/;
 const mapLocaleToFolder = {
   'zh-cn': '',
-  'zh-tw': '/tw',
+  'zh-tw': '/hk',
   'en-US': '/en'
 }
 
@@ -1143,7 +1143,7 @@ const getLocalLocale = () => {
   const pathname = window.location.pathname;
   if (pathname.indexOf('/en') > -1) {
     return 'en-US'
-  } else if (pathname.indexOf('/tw') > -1) {
+  } else if (pathname.indexOf('/hk') > -1) {
     return 'zh-tw'
   }
   return 'zh-cn'
@@ -1624,8 +1624,8 @@ const changeLocale = (e) => {
   const prevPathname = window.location.pathname;
   const origin = window.location.origin;
   let currentPath = '';
-  if (enPathReg.exec(prevPathname) || twPathReg.exec(prevPathname)) {
-    const test = enPathReg.exec(prevPathname) || twPathReg.exec(prevPathname);
+  if (enPathReg.exec(prevPathname) || hkPathReg.exec(prevPathname)) {
+    const test = enPathReg.exec(prevPathname) || hkPathReg.exec(prevPathname);
     currentPath = mapLocaleToFolder[locale] + '/' + test[1]
   } else {
     currentPath = mapLocaleToFolder[locale] + prevPathname

@@ -20,13 +20,13 @@ RUN NODE_ENV=production yarn run build-mobile && \
     rm -f /etc/nginx/sites-enabled/* && \
     mkdir -p /usr/share/nginx/html && \
     mkdir -p /usr/share/nginx/html/en && \
-    mkdir -p /usr/share/nginx/html/tw && \
+    mkdir -p /usr/share/nginx/html/hk && \
     cp -r dist/* /usr/share/nginx/html && \
     cp -r dist/* /usr/share/nginx/html/en && \
-    cp -r dist/* /usr/share/nginx/html/tw && \
+    cp -r dist/* /usr/share/nginx/html/hk && \
     cp src/elephantbi.mp4 /usr/share/nginx/html && \
     cp src/elephantbi.mp4 /usr/share/nginx/html/en && \
-    cp src/elephantbi.mp4 /usr/share/nginx/html/tw && \
+    cp src/elephantbi.mp4 /usr/share/nginx/html/hk && \
     cp -r root_mobile/* /usr/share/nginx/html
 
 EXPOSE 80

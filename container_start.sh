@@ -35,18 +35,18 @@ sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $priceFileEn
 sed -i "s/DEMO_URL/${DEMO_URL}/g" $priceFileEn
 
 #tw
-indexFileTw=/usr/share/nginx/html/tw/index.html
-sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $indexFileTw
-sed -i "s/DEMO_URL/${DEMO_URL}/g" $indexFileTw
-sed -i "s/VIDEO_URL/${VIDEO_URL}/g" $indexFileTw
-serverFileTw=/usr/share/nginx/html/tw/service.html
-sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $serverFileTw
-sed -i "s/DEMO_URL/${DEMO_URL}/g" $serverFileTw
-demoFileTw=/usr/share/nginx/html/tw/demo.html
-sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $demoFileTw
-sed -i "s/DEMO_URL/${DEMO_URL}/g" $demoFileTw
-priceFileTw=/usr/share/nginx/html/tw/price.html
-sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $priceFileTw
-sed -i "s/DEMO_URL/${DEMO_URL}/g" $priceFileTw
+indexFileHk=/usr/share/nginx/html/hk/index.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $indexFileHk
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $indexFileHk
+sed -i "s/VIDEO_URL/${VIDEO_URL}/g" $indexFileHk
+serverFileHk=/usr/share/nginx/html/hk/service.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $serverFileHk
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $serverFileHk
+demoFileHk=/usr/share/nginx/html/hk/demo.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $demoFileHk
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $demoFileHk
+priceFileHk=/usr/share/nginx/html/hk/price.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $priceFileHk
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $priceFileHk
 
 nginx -p /usr/share/nginx -g "daemon off;"
