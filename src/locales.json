@@ -908,5 +908,25 @@
     "zh-cn": "更多个性化分析需求请登录网站体验",
     "zh-tw": "更多個性化分析需求請登錄網站體驗",
     "en-US": ""
+  },
+  "submit-success": {
+    "zh-cn": "提交成功",
+    "zh-tw": "提交成功",
+    "en-US": "Thanks for contacting us!"
+  },
+  "get-in-touch": {
+    "zh-cn": "ElephantBI团队会尽快跟您联系",
+    "zh-tw": "ElephantBI團隊會盡快跟您聯繫",
+    "en-US": "We will get in touch with you shortly."
+  },
+  "submit-failed": {
+    "zh-cn": "提交失败",
+    "zh-tw": "提交失敗",
+    "en-US": "Fail to submit"
+  },
+  "submit-fail-describe": {
+    "zh-cn": "请电话联系：0411-39026089",
+    "zh-tw": "請電話聯系：0411-39026089",
+    "en-US": "Call us: +86-411-39026089"
   }
 }
