@@ -29,6 +29,8 @@ module.exports = [
       service: './src/css/service.less',
       price: './src/css/price.less',
       demo: './src/css/demo.less',
+      register: './src/css/register.less',
+      registerInfo: './src/css/register-info.less',
       main: ['babel-polyfill', './src/js/main.js']
     },
     output: {
@@ -94,6 +96,16 @@ module.exports = [
         chunks: ['main', 'demo'],
         filename: 'demo.html',
         template: './src/demo.html'
+      }),
+      new HtmlWebpackPlugin({
+        chunks: ['main', 'register'],
+        filename: 'register.html',
+        template: './src/register.html'
+      }),
+      new HtmlWebpackPlugin({
+        chunks: ['main', 'registerInfo'],
+        filename: 'register-info.html',
+        template: './src/register-info.html'
       }),
       new UglifyJsPlugin(),
       new CompressionPlugin({

@@ -18,6 +18,12 @@ sed -i "s/DEMO_URL/${DEMO_URL}/g" $demoFile
 priceFile=/usr/share/nginx/html/price.html
 sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $priceFile
 sed -i "s/DEMO_URL/${DEMO_URL}/g" $priceFile
+registerFile=/usr/share/nginx/html/register.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $registerFile
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $registerFile
+registerInfoFile=/usr/share/nginx/html/register-info.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $registerInfoFile
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $registerInfoFile
 
 #en
 indexFileEn=/usr/share/nginx/html/en/index.html
@@ -33,6 +39,12 @@ sed -i "s/DEMO_URL/${DEMO_URL}/g" $demoFileEn
 priceFileEn=/usr/share/nginx/html/en/price.html
 sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $priceFileEn
 sed -i "s/DEMO_URL/${DEMO_URL}/g" $priceFileEn
+registerFile=/usr/share/nginx/html/register.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $registerFile
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $registerFile
+registerInfoFile=/usr/share/nginx/html/register-info.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $registerInfoFile
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $registerInfoFile
 
 #tw
 indexFileHk=/usr/share/nginx/html/hk/index.html
@@ -48,5 +60,11 @@ sed -i "s/DEMO_URL/${DEMO_URL}/g" $demoFileHk
 priceFileHk=/usr/share/nginx/html/hk/price.html
 sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $priceFileHk
 sed -i "s/DEMO_URL/${DEMO_URL}/g" $priceFileHk
+registerFile=/usr/share/nginx/html/register.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $registerFile
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $registerFile
+registerInfoFile=/usr/share/nginx/html/register-info.html
+sed -i "s/https:\/\/api.elephantbi.com/${BACKEND_URL}/g" $registerInfoFile
+sed -i "s/DEMO_URL/${DEMO_URL}/g" $registerInfoFile
 
 nginx -p /usr/share/nginx -g "daemon off;"
