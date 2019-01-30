@@ -4,8 +4,8 @@ require('es6-promise').polyfill();
 import 'fetch-detector';
 import 'fetch-ie8';
 require('./noCaptcha')
-const mobileReg = /^[\d|+|-]*$/;
-const emailReg = /@(163|foxmail|qq|gmail)\./;
+const mobileReg = /^[1][3,4,5,7,8][0-9]{9}$/;
+const emailReg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
 const allLocales = require('../locales.json');
 const enPathReg = /\/en\/(.*)/
 const hkPathReg = /\/hk\/(.*)/;
@@ -228,7 +228,8 @@ const validate = (value = '', item, regs = {}) => {
     i += 1
   }
 
-  if (reg && !reg.test(value)) {
+  if (reg && reg.test(value)) {
+    console.log(reg, reg.test(value))
     const localeId = item.getAttribute('data-input-locale-id')
     item.setAttribute('data-err', allLocales[localeId][getLocalLocale()]);
     item.className = "form-item err";
@@ -236,6 +237,7 @@ const validate = (value = '', item, regs = {}) => {
   }
 
   if (negateReg && negateReg.test(value)) {
+    console.log(negateReg, negateReg.test(value))
     const localeId = item.getAttribute('data-input-locale-id')
     item.setAttribute('data-err', allLocales[localeId][getLocalLocale()]);
     item.className = "form-item err";
@@ -272,7 +274,6 @@ const submitForm = () => {
   const title = form1.title.value;
 
   const allItem = form1.querySelectorAll('.form-item');
-
   const validateAll = () => {
     let isErr = false;
 
@@ -1090,12 +1091,24 @@ const submitFeedback = () => {
   const email = feedbackForm.feedbackEmail.value;
   const mobile = feedbackForm.feedbackMobile.value;
   const company = feedbackForm.feedbackCompany.value;
-  const remark = feedbackForm.feedbackRemark.value
+  const remark = feedbackForm.feedbackRemark.value;
+  const type0 = feedbackForm.type0
+  const type1 = feedbackForm.type1
+  let type
+  if (type0 && type1) {
+    if (type0.checked) {
+      type = 0
+    }
+    if (type1.checked) {
+      type = 1
+    }
+  }
   let errNum = 0;
   if (!feedbackNameVerify(name)) { errNum += 1 }
   if (!feedbackEmailVerify(email)) { errNum += 1 }
   if (!feedbackMobileVerify(mobile)) { errNum += 1 }
   if (!feedbackCompanyVerify(company)) { errNum += 1 }
+  if (!feedbackRemarkVerify(remark)) { errNum += 1 }
   if (errNum > 0) {
     return false
   }
@@ -1105,7 +1118,8 @@ const submitFeedback = () => {
     mobile,
     company,
     content: remark,
-    source: getSource()
+    source: getSource(),
+    type
   }
   request('/website/feedback', params).then(({ data }) => {
     if (data) {
@@ -1521,9 +1535,9 @@ const feedbackMobileVerify = (value) => {
   const self = document.getElementById('feedback-mobile')
   const errNode = self.parentNode
   if (!value) {
+    const localeId = errNode.getAttribute('data-locale-id')
+    errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale()])
     if (!currentError(errNode)) {
-      const localeId = errNode.getAttribute('data-locale-id')
-      errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale])
       errNode.className = errNode.className + ' error'
     }
     return false
@@ -1531,9 +1545,9 @@ const feedbackMobileVerify = (value) => {
   if (value) {
     const reg = /^[1][3,4,5,7,8][0-9]{9}$/
     if (!reg.test(value)) {
+      const localeId = errNode.getAttribute('data-input-locale-id')
+      errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale()])
       if (!currentError(errNode)) {
-        const localeId = errNode.getAttribute('data-input-locale-id')
-        errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale])
         errNode.className = errNode.className + ' error'
       }
       return false
@@ -1550,18 +1564,18 @@ const feedbackEmailVerify = (value) => {
   const errNode = self.parentNode
   const reg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/
   if (!value) {
+    const localeId = errNode.getAttribute('data-locale-id')
+    errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale()])
     if (!currentError(errNode)) {
-      const localeId = errNode.getAttribute('data-locale-id')
-      errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale])
       errNode.className = errNode.className + ' error'
     }
     return false
   }
   if (value) {
     if (!reg.test(value)) { //邮箱验证不通过
+      const localeId = errNode.getAttribute('data-input-locale-id')
+      errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale()])
       if (!currentError(errNode)) {
-        const localeId = errNode.getAttribute('data-input-locale-id')
-        errNode.setAttribute('data-err', allLocales[localeId][getLocalLocale])
         errNode.className = errNode.className + ' error'
       }
       return false

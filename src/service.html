@@ -258,41 +258,41 @@
         <section class="reserve-form">
           <h3 class="reserve-form-title" data-locale-id="contact-us">联系我们</h3>
           <p class="reserve-form-subtitle" data-locale-id="contact-us-description">请将您的需求或建议填写在下方，并可留下联系方式，ElephantBI团队将及时向您反馈处理结果</p>
-          <form action="POST" name="formReserve">
+          <form action="POST" name="feedbackForm">
             <span class="form-radio">
               <label for="1">
-                <input type="radio" name="type" id="1" checked />
+                <input type="radio" name="type0" id="1" checked />
                 <div class="radio"></div>
                 <span data-locale-id="business-consulting">商务咨询</span>
               </label>
               <label for="2">
-                <input type="radio" name="type" id="2" />
+                <input type="radio" name="type1" id="2" />
                 <div class="radio"></div>
                 <span data-locale-id="problem-feedback">问题反馈</span>
               </label>
             </span>
             <span class="form-wrap" data-err="请输入公司名称" data-locale-id="need-and-advice">
-              <textarea class="form-textarea" name="content" id="content" cols="96" rows="5" placeholder="请填写您的需求或建议"
+              <textarea name="feedbackRemark" id="feedback-remark" cols="96" rows="5" placeholder="请填写您的需求或建议"
                 data-locale-id="need-and-advice"></textarea>
             </span>
-            <span class="form-item" data-err="请输入公司名称" data-locale-id="name-required-tip">
+            <span class="feedback-form-item" data-err="请输入公司名称" data-locale-id="name-required-tip">
               <img src='<%= require("./assets/name.svg") %>' />
-              <input class="form-input" type="text" name="name" placeholder="姓名" data-locale-id="free-trail-name" />
+              <input class="form-input" id="feedback-name" type="text" name="feedbackName" placeholder="姓名" data-locale-id="free-trail-name" />
             </span>
-            <span class="form-item" data-err="请输入公司名称" data-locale-id="email-required-tip" data-input-locale-id="err-email">
+            <span class="feedback-form-item" data-err="请输入公司名称" data-locale-id="email-required-tip" data-input-locale-id="err-email">
               <img src='<%= require("./assets/email.svg") %>' class="form-tem-email" />
-              <input class="form-input" type="text" name="email" placeholder="邮箱" data-locale-id="service-email" />
+              <input class="form-input" id="feedback-email" type="text" name="feedbackEmail" placeholder="邮箱" data-locale-id="service-email" />
             </span>
-            <span class="form-item" data-err="请输入公司名称" data-locale-id="service-phone-tip" data-input-locale-id="err-mobile">
+            <span class="feedback-form-item" data-err="请输入公司名称" data-locale-id="service-phone-tip" data-input-locale-id="err-mobile">
               <img src='<%= require("./assets/mobile.svg") %>' />
-              <input class="form-input" type="text" name="mobile" placeholder="联系电话" data-locale-id="service-phone" />
+              <input class="form-input" id="feedback-mobile" type="text" name="feedbackMobile" placeholder="联系电话" data-locale-id="service-phone" />
             </span>
-            <span class="form-item" data-err="请输入公司名称" data-locale-id="service-company-name">
+            <span class="feedback-form-item" data-err="请输入公司名称" data-locale-id="service-company-name">
               <img src='<%= require("./assets/company.svg") %>' />
-              <input class="form-input" type="text" name="company" placeholder="公司名称" data-locale-id="free-trail-company-name" />
+              <input class="form-input" id="feedback-company" type="text" name="feedbackCompany" placeholder="公司名称" data-locale-id="free-trail-company-name" />
             </span>
           </form>
-          <button class="form-submit-btn" id="form-reserve-submit-btn-id" data-locale-id="submit">提交</button>
+          <button class="form-submit-btn" id="feedback-submit" data-locale-id="submit">提交</button>
         </section>
       </div>
     </main>

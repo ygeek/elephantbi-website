@@ -549,7 +549,7 @@ header#nav-header {
     margin-bottom: 60px;
   }
 
-  .form-item {
+  .feedback-form-item {
     display: inline-block;
     width: 400px;
     height: 30px;
@@ -569,7 +569,8 @@ header#nav-header {
       margin-bottom: -1px;
     }
   }
-  .form-textarea {
+
+  textarea {
     width: 905px;
     min-height: 182px;
     padding: 10px;
@@ -592,6 +593,7 @@ header#nav-header {
       opacity: 1; /* Firefox */
     }
   }
+
   .form-radio {
     display: inline-block;
     width: 920px;
@@ -762,8 +764,7 @@ header#nav-header {
   z-index: 9999;
 }
 
-.err{
-  border-bottom: 1px solid #f1584d !important;
+.err, .error{
 
   &:after {
     content: attr(data-err) !important;
@@ -777,12 +778,13 @@ header#nav-header {
 .form-wrap {
   display: inline-block;
   margin-bottom: 40px;
+  height: 204px;
   &:after {
     content: ' ';
     display: block;
     height: 18px;
     padding-left: 25px;
-    transform: translateY(-60px);
+    text-align: left
   }
 }
 
