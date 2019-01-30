@@ -17,7 +17,7 @@
     window.DEMOURL = 'DEMO_URL'
   </script>
   <script>
-    if (window.host === 'https://www.elephantbi.com') {      
+    if (window.host === 'https://www.elephantbi.com') {
       var _hmt = _hmt || [];
       (function () {
         var hm = document.createElement("script");
@@ -193,10 +193,12 @@
       </header>
       <section class="show-box">
         <div class="box-item left">
-          <img class="box-title box-title-img" src='<%= require("./assets/box-left-icon1.png") %>' width=57 height=57 />
-          <div class="box-title">
-            <div class="box-title-name" data-locale-id="big-data-storage">大数据存储管理中心</div>
-            <p>Integrating all your data</p>
+          <div class="box-title-wrapper">
+            <img class="box-title box-title-img" src='<%= require("./assets/box-left-icon1.png") %>' width=57 height=57 />
+            <div class="box-title-content box-title">
+              <div class="box-title-name" data-locale-id="big-data-storage">大数据存储管理中心</div>
+              <p data-locale-id="big-data-storage-en">Integrating all your data</p>
+            </div>
           </div>
           <ul class="box-list">
             <li data-locale-id="big-data-storage-description-1">数据库一键连接，支持MySQL、PostgreSQL、Microsoft SQL、Oracle等</li>
@@ -216,10 +218,12 @@
         </div>
         <div class="box-item right">
           <div class="box-right-content">
-            <img class="box-title box-title-img" src='<%= require("./assets/box-right-icon1.png") %>' width=57 height=57 />
-            <div class="box-title">
-              <div class="box-title-name" data-locale-id="visualized-data-analysis">可视化拖拽分析</div>
-              <p>Let Your Data Tell Stories</p>
+            <div class="box-title-wrapper">
+              <img class="box-title box-title-img" src='<%= require("./assets/box-right-icon1.png") %>' width=57 height=57 />
+              <div class="box-title-content box-title">
+                <div class="box-title-name" data-locale-id="visualized-data-analysis">可视化拖拽分析</div>
+                <p data-locale-id="visualized-data-analysis-en">Let Your Data Tell Stories</p>
+              </div>
             </div>
             <ul class="box-list">
               <li data-locale-id="visualized-data-analysis-description-1">简单拖拽，数据图表瞬间生成</li>
@@ -232,10 +236,12 @@
       </section>
       <section class="show-box">
         <div class="box-item left">
-          <img class="box-title box-title-img" src='<%= require("./assets/box-left-icon2.png") %>' width=57 height=57 />
-          <div class="box-title">
-            <div class="box-title-name" data-locale-id="team-cooperation">团队协作</div>
-            <p>Team Collaboration</p>
+          <div class="box-title-wrapper">
+            <img class="box-title box-title-img" src='<%= require("./assets/box-left-icon2.png") %>' width=57 height=57 />
+            <div class="box-title-content box-title">
+              <div class="box-title-name" data-locale-id="team-cooperation">团队协作</div>
+              <p data-locale-id="team-cooperation-en">Team Collaboration</p>
+            </div>
           </div>
           <ul class="box-list">
             <li data-locale-id="team-cooperation-description-1">多种类，多终端的交互式图表和仪表盘，帮助决策者从容讲述数据背后的线索</li>
@@ -253,10 +259,12 @@
         </div>
         <div class="box-item right">
           <div class="box-right-content">
-            <img class="box-title box-title-img" src='<%= require("./assets/box-right-icon2.png") %>' width=57 height=57 />
-            <div class="box-title">
-              <div class="box-title-name" data-locale-id="privilege-management">精细化权限管理</div>
-              <p>Permissions Management</p>
+            <div class="box-title-wrapper">
+              <img class="box-title box-title-img" src='<%= require("./assets/box-right-icon2.png") %>' width=57 height=57 />
+              <div class="box-title-content box-title">
+                <div class="box-title-name" data-locale-id="privilege-management">精细化权限管理</div>
+                <p data-locale-id="privilege-management-en">Permissions Management</p>
+              </div>
             </div>
             <ul class="box-list">
               <li data-locale-id="privilege-management-description-1">灵活严谨的用户和角色体系，快速准确的赋予数据权限，兼具效率与安全</li>
@@ -265,7 +273,7 @@
           </div>
         </div>
       </section>
-      <a href="#demo" name="demo" id="demo" ></a>
+      <a href="#demo" name="demo" id="demo"></a>
       <section class="industry-section">
         <div class="industry-main-title" data-locale-id="select-demo">请选择下方要体验的行业Demo</div>
         <ul class="industry-list">
@@ -478,20 +486,15 @@
       <div class="replay-text">重新播放</div>
       <div class="actions">
         <a id="video-register-btn" class="free-btn" href="./register.html" data-locale-id="nav-trial">免费试用</a>
-        <a id="video-demo-btn" onclick="_hmt.push(['_trackEvent', 'demo'])" class="reserve-btn" href="./service.html#contactUs" data-locale-id="contact-us">联系我们</a>
+        <a id="video-demo-btn" onclick="_hmt.push(['_trackEvent', 'demo'])" class="reserve-btn" href="./service.html#contactUs"
+          data-locale-id="contact-us">联系我们</a>
       </div>
       <div class="custom-service-sq">
         <img alt="" src='<%= require("./assets/customService.jpg") %>' width=80 height=80 class="custom-service" />
         扫描二维码联系客服
       </div>
     </div>
-    <video
-      id="video-player"
-      class="video-js"
-      controls
-      preload="auto"
-      data-setup='{}'
-    >
+    <video id="video-player" class="video-js" controls preload="auto" data-setup='{}'>
       <source src="VIDEO_URL" type="video/mp4">
     </video>
     <img alt="" src='<%= require("./assets/close-video.svg") %>' class="close-video" id="close-video" />

@@ -162,7 +162,12 @@
   "big-data-storage": {
     "zh-cn": "大数据存储管理中心",
     "zh-tw": "大數據存儲管理中心",
-    "en-US": "大数据存储管理中心"
+    "en-US": "Integrating all your data"
+  },
+  "big-data-storage-en": {
+    "zh-cn": "Integrating all your data",
+    "zh-tw": "Integrating all your data",
+    "en-US": ""
   },
   "big-data-storage-description-1": {
     "zh-cn": "数据库一键连接，支持MySQL、PostgreSQL、Microsoft SQL、Oracle等",
@@ -192,7 +197,12 @@
   "visualized-data-analysis": {
     "zh-cn": "可视化拖拽分析",
     "zh-tw": "可視化拖拽分析",
-    "en-US": "可视化拖拽分析"
+    "en-US": "Let Your Data Tell Stories"
+  },
+  "visualized-data-analysis-en": {
+    "zh-cn": "Let Your Data Tell Stories",
+    "zh-tw": "Let Your Data Tell Stories",
+    "en-US": ""
   },
   "visualized-data-analysis-description-1": {
     "zh-cn": "简单拖拽，数据图表瞬间生成",
@@ -217,7 +227,12 @@
   "team-cooperation": {
     "zh-cn": "团队协作",
     "zh-tw": "團隊協作",
-    "en-US": "团队协作"
+    "en-US": "Team Collaboration"
+  },
+  "team-cooperation-en": {
+    "zh-cn": "Team Collaboration",
+    "zh-tw": "Team Collaboration",
+    "en-US": ""
   },
   "team-cooperation-description-1": {
     "zh-cn": "多种类，多终端的交互式图表和仪表盘，帮助决策者从容讲述数据背后的线索",
@@ -237,7 +252,12 @@
   "privilege-management": {
     "zh-cn": "精细化权限管理",
     "zh-tw": "精細化權限管理",
-    "en-US": "精细化权限管理"
+    "en-US": "Permissions Management"
+  },
+  "privilege-management-en": {
+    "zh-cn": "Permissions Management",
+    "zh-tw": "Permissions Management",
+    "en-US": ""
   },
   "privilege-management-description-1": {
     "zh-cn": "灵活严谨的用户和角色体系，快速准确的赋予数据权限，兼具效率与安全",
