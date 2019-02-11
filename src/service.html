@@ -46,23 +46,6 @@
             <a href="./price.html" data-locale-id="nav-price">价格</a>
             <a href="./service.html" data-locale-id="nav-service">服务支持</a>
             <a href="javascript:void(0)" data-locale-id="nav-custom">需求定制</a>
-            <span class="nav-locale">
-              <button class="nav-locale-btn" id="nav-locale-btn">English</button>
-              <div class="nav-locale-modal" id="nav-locale-modal">
-                <div class="locale-item" data-locale="zh-cn">
-                  <span data-locale="zh-cn">简体中文</span>
-                  <img data-locale="zh-cn" class="locale-check" id="zh-cn-check" src='<%= require("./assets/check3.svg") %>' />
-                </div>
-                <div class="locale-item" data-locale="zh-tw">
-                  <span data-locale="zh-tw">繁體中文</span>
-                  <img data-locale="zh-tw" class="locale-check" id="zh-tw-check" src='<%= require("./assets/check3.svg") %>' />
-                </div>
-                <div class="locale-item" data-locale="en-US">
-                  <span data-locale="en-US">English</span>
-                  <img data-locale="en-US" class="locale-check" id="en-US-check" src='<%= require("./assets/check3.svg") %>' />
-                </div>
-              </div>
-            </span>
             <div class="nav-industry-modal" id="nav-industry-modal">
               <div class="nav-industry-arrow"></div>
               <ul>
@@ -104,6 +87,23 @@
           </li>
           <li class="nav-section login">
             <span class="login-btn-content">
+              <span class="nav-locale">
+                <button class="nav-locale-btn" id="nav-locale-btn">English</button>
+                <div class="nav-locale-modal" id="nav-locale-modal">
+                  <div class="locale-item" data-locale="zh-cn">
+                    <span data-locale="zh-cn">简体中文</span>
+                    <img data-locale="zh-cn" class="locale-check" id="zh-cn-check" src='<%= require("./assets/check3.svg") %>' />
+                  </div>
+                  <div class="locale-item" data-locale="zh-tw">
+                    <span data-locale="zh-tw">繁體中文</span>
+                    <img data-locale="zh-tw" class="locale-check" id="zh-tw-check" src='<%= require("./assets/check3.svg") %>' />
+                  </div>
+                  <div class="locale-item" data-locale="en-US">
+                    <span data-locale="en-US">English</span>
+                    <img data-locale="en-US" class="locale-check" id="en-US-check" src='<%= require("./assets/check3.svg") %>' />
+                  </div>
+                </div>
+              </span>
               <button id="nav-login" data-locale-id="sign-in">登录</button>
               <div class="login-modal" id="login-modal">
                 <div class="modal-arrow"></div>
@@ -277,19 +277,24 @@
             </span>
             <span class="feedback-form-item" data-err="请输入公司名称" data-locale-id="name-required-tip">
               <img src='<%= require("./assets/name.svg") %>' />
-              <input class="form-input" id="feedback-name" type="text" name="feedbackName" placeholder="姓名" data-locale-id="free-trail-name" />
+              <input class="form-input" id="feedback-name" type="text" name="feedbackName" placeholder="姓名"
+                data-locale-id="free-trail-name" />
             </span>
-            <span class="feedback-form-item" data-err="请输入公司名称" data-locale-id="email-required-tip" data-input-locale-id="err-email">
+            <span class="feedback-form-item" data-err="请输入公司名称" data-locale-id="email-required-tip"
+              data-input-locale-id="err-email">
               <img src='<%= require("./assets/email.svg") %>' class="form-tem-email" />
-              <input class="form-input" id="feedback-email" type="text" name="feedbackEmail" placeholder="邮箱" data-locale-id="service-email" />
+              <input class="form-input" id="feedback-email" type="text" name="feedbackEmail" placeholder="邮箱"
+                data-locale-id="service-email" />
             </span>
             <span class="feedback-form-item" data-err="请输入公司名称" data-locale-id="service-phone-tip" data-input-locale-id="err-mobile">
               <img src='<%= require("./assets/mobile.svg") %>' />
-              <input class="form-input" id="feedback-mobile" type="text" name="feedbackMobile" placeholder="联系电话" data-locale-id="service-phone" />
+              <input class="form-input" id="feedback-mobile" type="text" name="feedbackMobile" placeholder="联系电话"
+                data-locale-id="service-phone" />
             </span>
             <span class="feedback-form-item" data-err="请输入公司名称" data-locale-id="service-company-name">
               <img src='<%= require("./assets/company.svg") %>' />
-              <input class="form-input" id="feedback-company" type="text" name="feedbackCompany" placeholder="公司名称" data-locale-id="free-trail-company-name" />
+              <input class="form-input" id="feedback-company" type="text" name="feedbackCompany" placeholder="公司名称"
+                data-locale-id="free-trail-company-name" />
             </span>
           </form>
           <button class="form-submit-btn" id="feedback-submit" data-locale-id="submit">提交</button>

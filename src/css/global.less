@@ -150,7 +150,7 @@ header#nav-header {
   width: @max-width;
 
   .nav-locale-btn {
-    color: @font-color;
+    color: @font-color !important;
   }
 
   .nav-list {
@@ -170,7 +170,7 @@ header#nav-header {
     background-color: #fff;
     border-radius: 5px;
     bottom: -200px;
-    left: 360px;
+    left: 340px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08);
     display: none;
     .nav-industry-arrow {
@@ -365,12 +365,11 @@ header#nav-header {
   }
   .page-list {
     .clearAStyle(@font-color);
-
     height: 50px;
 
     line-height: 50px;
     font-size: 14px;
-    text-align: center;
+    padding-left: 270px;
     position: relative;
     transform: translateX(30px);
     a, button {
@@ -384,20 +383,25 @@ header#nav-header {
     li:nth-child(4) {
       margin-right: 100px;
     }
-    .nav-locale {
-      position: relative;
-    }
-    .nav-locale-btn {
-      background: none;
-      border: none;
-      outline: none;
-      padding: 0px;
-      font-size: 12px;
-      width: 80px;
-      height: 32px;
-      cursor: pointer;
+  }
+
+  .nav-locale {
+    position: relative;
+  }
+  .nav-locale-btn {
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+    padding: 0px !important;
+    font-size: 12px !important;
+    width: 80px !important;
+    height: 32px !important;
+    cursor: pointer !important;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3) !important
     }
   }
+
   .nav-locale-modal {
     position: absolute;
     left: 0px;
@@ -956,6 +960,9 @@ header#nav-header {
     position: relative;
     display: block;
     text-decoration: none;
+    &:hover {
+      background-color: #DDDDDD
+    }
     img {
       margin-bottom: 3px;
       margin-top: 10px;
