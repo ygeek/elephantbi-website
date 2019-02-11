@@ -41,7 +41,7 @@
               <img src='<%= require("./assets/nav-logo.svg") %>' id="logo" width=160 height=32 />
             </a>
           </li>
-          <li class="nav-section page-list">
+          <li class="nav-section page-list" data-locale-style>
             <a href="./index.html" data-locale-id="nav-product">产品</a>
             <a href="javascript:void(0)" id="nav-industry-link" data-locale-id="nav-demo">行业DEMO</a>
             <a href="./demo.html" data-locale-id="nav-trial">免费试用</a>
@@ -276,7 +276,7 @@
       <a href="#demo" name="demo" id="demo"></a>
       <section class="industry-section">
         <div class="industry-main-title" data-locale-id="select-demo">请选择下方要体验的行业Demo</div>
-        <ul class="industry-list">
+        <ul class="industry-list" data-locale-style>
           <li>
             <img class="industry-title-img" width=30 height=30 src='<%= require("./assets/industry1.svg") %>' />
             <div class="industry-title" data-locale-id="internet-industry">互联网行业</div>
@@ -373,7 +373,7 @@
         <a class="register-section-button free-btn" href="./demo.html" data-locale-id="nav-trial">免费试用</a>
       </section>
     </main>
-    <footer class="footer-content">
+    <footer class="footer-content" data-locale-style>
       <ul class="footer-nav">
         <li class="footer-nav-icon">
           <a href="./index.html">
@@ -448,10 +448,11 @@
             </li>
             <li>
               <img src='<%= require("./assets/address.svg") %>' width=12 height=15 />
-              <span class="addressSpan">
-                <div data-locale-id="shenzhen-address">深圳市南山区卫星大厦15层</div>
-                <div data-locale-id="dalian-address">大连市软件园15号楼5层</div>
-              </span>
+              <span data-locale-id="shenzhen-address">深圳市南山区卫星大厦15层</span>
+            </li>
+            <li>
+              <img src='<%= require("./assets/address.svg") %>' width=12 height=15 />
+              <span data-locale-id="dalian-address">大连市软件园15号楼5层</span>
             </li>
           </ul>
           <ul>

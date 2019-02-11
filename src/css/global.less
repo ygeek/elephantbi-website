@@ -385,6 +385,12 @@ header#nav-header {
     }
   }
 
+  .page-list.en {
+    a:nth-child(2) {
+      display: none;
+    }
+  }
+
   .nav-locale {
     position: relative;
   }
@@ -495,6 +501,7 @@ header#nav-header {
   }
   .footer-nav-list li {
     margin-bottom: 10px;
+    white-space: nowrap;
     a {
       .clearAStyle(#6b7c93);
       color: #6b7c93;
@@ -511,12 +518,15 @@ header#nav-header {
 
   .footer-nav-list span {
     padding-left: 10px;
+    display: inline-block;
+    white-space: normal;
   }
   .footer-list-title {
     font-size: 14px;
   }
   .footer-nav-sq {
     margin-right: 50px;
+    text-align: center;
   }
   .footer-nav-sq-description {
     display: block;
@@ -531,6 +541,17 @@ header#nav-header {
     div {
       white-space: nowrap;
     }
+  }
+}
+
+.footer-content.en {
+  .footer-industry {
+    display: none;
+  }
+
+  .footer-nav-list ul {
+    margin: 0px 35px;
+    max-width: 230px;
   }
 }
 

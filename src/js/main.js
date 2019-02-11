@@ -1632,6 +1632,17 @@ const changeLocaleCheckVisible = (locale) => {
   }
 }
 
+const changeLocaleClassName = (locale) => {
+  const nodes =  document.querySelectorAll("[data-locale-style]");
+  for (let i = 0; i < nodes.length; i ++) {
+    if (locale === 'en-US') {
+      nodes[i].setAttribute('class', nodes[i].className + ' en')
+    } else {
+      nodes[i].setAttribute('class', nodes[i].className.replace(' en', ''))
+    }
+  }
+}
+
 const changeLocale = (e) => {
   e.stopPropagation();
   const locale = e.target.getAttribute('data-locale');
@@ -1686,6 +1697,7 @@ window.onload = function () {
   translateLocale(getLocalLocale());
   changeLocaleBtnText(getLocalLocale());
   changeLocaleCheckVisible(getLocalLocale())
+  changeLocaleClassName(getLocalLocale())
 
   const quickEntryItems = document.getElementsByClassName('quick-entry-item');
   if (quickEntryItems) {
