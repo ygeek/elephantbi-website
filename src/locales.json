@@ -772,32 +772,32 @@
   "1-15": {
     "zh-cn": "1-15人",
     "zh-tw": "1-15人",
-    "en-US": "1-15"
+    "en-US": "1-15 employees"
   },
   "16-50": {
     "zh-cn": "16-50人",
     "zh-tw": "16-50人",
-    "en-US": "16-50"
+    "en-US": "16-50 employees"
   },
   "51-200": {
     "zh-cn": "51-200人",
     "zh-tw": "51-200人",
-    "en-US": "51-200"
+    "en-US": "51-200 employees"
   },
   "201-500": {
     "zh-cn": "201-500人",
     "zh-tw": "201-500人",
-    "en-US": "201-500"
+    "en-US": "201-500 employees"
   },
   "501-2000": {
     "zh-cn": "501-2000人",
     "zh-tw": "501-2000人",
-    "en-US": "501-2000"
+    "en-US": "501-2000 employees"
   },
   "2001-5000": {
     "zh-cn": "2001-5000人",
     "zh-tw": "2001-5000人",
-    "en-US": "2001-5000"
+    "en-US": "2001-5000 employees"
   },
   "5001-and-above": {
     "zh-cn": "5001人及以上",
@@ -957,6 +957,6 @@
   "login-placeholder": {
     "zh-cn": "请输入团队域名",
     "zh-tw": "請輸入團隊域名",
-    "en-US": "Please input your domain to log in."
+    "en-US": "Please input your domain."
   }
 }
