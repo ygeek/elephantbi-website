@@ -1310,7 +1310,11 @@ const submitDemo = () => {
 /*************demo*************/
 
 const toDemoDetail = (id) => {
-  window.location.href = window.DEMOURL + '/demo/' + id
+  if (hkPathReg.exec(window.location.pathname)) {
+    window.location.href = window.DEMOURL + '/demo/hk/' + id
+  } else {
+    window.location.href = window.DEMOURL + '/demo/' + id
+  }
 }
 
 const setSelectValue = (valueNode, currentNode, targetOptions) => {
