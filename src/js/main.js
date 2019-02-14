@@ -1092,8 +1092,8 @@ const submitFeedback = () => {
   const mobile = feedbackForm.feedbackMobile.value;
   const company = feedbackForm.feedbackCompany.value;
   const remark = feedbackForm.feedbackRemark.value;
-  const type0 = feedbackForm.type0
-  const type1 = feedbackForm.type1
+  const type0 = feedbackForm.type[0]
+  const type1 = feedbackForm.type[1]
   let type
   if (type0 && type1) {
     if (type0.checked) {
