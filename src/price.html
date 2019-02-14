@@ -12,7 +12,8 @@
     window.host = window.location.origin;
     window.backhost = 'https://api.elephantbi.com';
     var SOURCE = "官网";
-    window.DEMOURL = 'DEMO_URL'
+    window.DEMOURL = 'DEMO_URL';
+    window.xyDataTechUrl = 'DATATECH_URL'
   </script>
   <script>
     if (window.host === 'https://www.elephantbi.com') {
@@ -45,7 +46,7 @@
             <a href="./demo.html" data-locale-id="nav-trial">免费试用</a>
             <a href="./price.html" data-locale-id="nav-price">价格</a>
             <a href="./service.html" data-locale-id="nav-service">服务支持</a>
-            <a href="javascript:void(0)" data-locale-id="nav-custom">需求定制</a>
+            <a href="javascript:void(0)" data-locale-id="nav-custom" class="jumpToXYDataTech">需求定制</a>
             <div class="nav-industry-modal" id="nav-industry-modal">
               <div class="nav-industry-arrow"></div>
               <ul>
@@ -498,7 +499,7 @@
               <a href="./service.html" data-locale-id="nav-service">服务支持</a>
             </li>
             <li>
-              <a href="javascript:void(0)" data-locale-id="nav-custom">需求定制</a>
+              <a href="javascript:void(0)" data-locale-id="nav-custom" class="jumpToXYDataTech">需求定制</a>
             </li>
           </ul>
           <ul class="footer-industry">

@@ -1137,6 +1137,17 @@ const submitFeedback = () => {
 
 /**********mobile end*************/
 
+const jumpToDataTech = () => {
+  const pathname = window.location.pathname;
+  if (pathname.indexOf('/en') > -1) {
+    window.location.href = window.xyDataTechUrl + '/en'
+  } else if (pathname.indexOf('/hk') > -1) {
+    window.location.href = window.xyDataTechUrl + '/hk'
+  }
+  window.location.href = window.xyDataTechUrl
+  
+}
+
 /*************demo*************/
 const validateDemoName = (value) => {
   const self = document.getElementById('demo-name')
@@ -2259,5 +2270,12 @@ window.onload = function () {
     videoDemoBtn.addEventListener('click', function () {
       pushHmt('demo')
     })
+  }
+
+  const dataTechLink = document.getElementsByClassName('jumpToXYDataTech');
+  if (dataTechLink) {
+    for(let i = 0; i < dataTechLink.length; i ++) {
+      dataTechLink[i].addEventListener('click', jumpToDataTech)
+    }
   }
 }
