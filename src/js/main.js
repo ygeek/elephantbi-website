@@ -1143,9 +1143,9 @@ const jumpToDataTech = () => {
     window.location.href = window.xyDataTechUrl + '/en'
   } else if (pathname.indexOf('/hk') > -1) {
     window.location.href = window.xyDataTechUrl + '/hk'
+  } else {
+    window.location.href = window.xyDataTechUrl
   }
-  window.location.href = window.xyDataTechUrl
-  
 }
 
 /*************demo*************/
