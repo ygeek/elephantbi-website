@@ -2280,4 +2280,13 @@ window.onload = function () {
       dataTechLink[i].addEventListener('click', jumpToDataTech)
     }
   }
+
+  const demoIndustry = document.getElementById('demo-industry');
+  const demoScale = document.getElementById('demo-scale');
+  if (demoIndustry) {
+    demoIndustry.addEventListener('change', (e) => validateDemoIndustry(e.target.value))
+  }
+  if (demoScale) {
+    demoScale.addEventListener('change', (e) => validateDemoScale(e.target.value))
+  }
 }
