@@ -485,7 +485,7 @@
   <div class="official-video" id="official-video">
     <div class="video-mask" id="video-mask">
       <img alt="" src='<%= require("./assets/replay.svg") %>' id="video-replay" class="video-replay" />
-      <div class="replay-text">重新播放</div>
+      <div class="replay-text" data-locale-id="replay">#replay#</div>
       <div class="actions">
         <a id="video-register-btn" class="free-btn" href="./demo.html" data-locale-id="nav-trial">#nav-trial#</a>
         <a id="video-demo-btn" onclick="_hmt.push(['_trackEvent', 'demo'])" class="reserve-btn" href="./service.html#contactUs"
@@ -493,7 +493,7 @@
       </div>
       <div class="custom-service-sq">
         <img alt="" src='<%= require("./assets/customService.jpg") %>' width=80 height=80 class="custom-service" />
-        扫描二维码联系客服
+        <span data-locale-id="video-scan-code">#video-scan-code#</span>
       </div>
     </div>
     <video id="video-player" class="video-js" controls preload="auto" data-setup='{}'>

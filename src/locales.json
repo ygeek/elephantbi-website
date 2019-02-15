@@ -958,5 +958,15 @@
     "zh-cn": "请输入团队域名",
     "zh-tw": "請輸入團隊域名",
     "en-US": "Please input your domain."
+  },
+  "video-scan-code": {
+    "zh-cn": "扫描二维码联系客服",
+    "zh-tw": "掃描二維碼聯繫客服",
+    "en-US": "Start live chat by scanning the QR code"
+  },
+  "replay": {
+    "zh-cn": "重新播放",
+    "zh-tw": "重新播放",
+    "en-US": "Replay"
   }
 }
