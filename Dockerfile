@@ -27,9 +27,18 @@ RUN NODE_ENV=production yarn run build && \
     cp -r dist/* /usr/share/nginx/html && \
     cp -r dist/* /usr/share/nginx/html/en && \
     cp -r dist/* /usr/share/nginx/html/hk && \
+    cp -r replaceCN.js /usr/share/nginx/html && \
+    cp -r replaceEN.js /usr/share/nginx/html/en && \
+    cp -r replaceTW.js /usr/share/nginx/html/hk && \
     cp src/elephantbi.mp4 /usr/share/nginx/html && \
     cp src/elephantbi.mp4 /usr/share/nginx/html/en && \
     cp src/elephantbi.mp4 /usr/share/nginx/html/hk && \
+    cp -r src/locales.json /usr/share/nginx/html && \
+    cp -r src/locales.json /usr/share/nginx/html/en && \
+    cp -r src/locales.json /usr/share/nginx/html/hk && \
+    node /usr/share/nginx/html/replaceCN.js && \
+    node /usr/share/nginx/html/en/replaceEN.js && \
+    node /usr/share/nginx/html/hk/replaceTW.js && \
     cp -r root_pc/* /usr/share/nginx/html
 
 EXPOSE 80
