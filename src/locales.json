@@ -957,7 +957,7 @@
   "login-placeholder": {
     "zh-cn": "请输入团队域名",
     "zh-tw": "請輸入團隊域名",
-    "en-US": "Please input your domain."
+    "en-US": "Input domain."
   },
   "video-scan-code": {
     "zh-cn": "扫描二维码联系客服",

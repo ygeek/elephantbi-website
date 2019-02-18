@@ -31,6 +31,7 @@
     window.corpid = 'WX_CORP_ID';
     window.imageEnv = 'IMAGE_ENV';
     window.OAUTHURL = 'OAUTH_URL';
+    window.xyDataTechUrl = 'XYDATATECH_URL'
   </script>
   <script>
     if (window.host === 'https://m.elephantbi.com') {
@@ -412,10 +413,10 @@
         <img src='<%= require("./assets/nav-icon2.svg") %>' alt="">
         <a href="./service.html" class="nav-5" data-locale-id="nav-service">服务支持</a>
       </li>
-      <!-- <li class="nav-item">
+      <li class="nav-item">
         <img src='<%= require("./assets/nav-icon4.svg") %>' alt="">
-        <a class="nav-6" data-locale-id="nav-custom">需求定制</a>
-      </li> -->
+        <a class="nav-6 jumpToXYDataTech" data-locale-id="nav-custom">需求定制</a>
+      </li>
     </ul>
   </div>
   <div id="cover"></div>
