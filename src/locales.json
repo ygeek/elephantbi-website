@@ -682,7 +682,7 @@
   "scan-code": {
     "zh-cn": "微信扫码联系客服",
     "zh-tw": "微信掃碼聯繫客服",
-    "en-US": "Start live chat by scanning the code"
+    "en-US": "Start live chat by scanning the QR code"
   },
   "human-resources": {
     "zh-cn": "人事部",
