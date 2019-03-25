@@ -95,9 +95,9 @@
     "en-US": "Call us"
   },
   "consultation-phone-number": {
-    "zh-cn": "0411-39026089",
-    "zh-tw": "+86-411-39026089",
-    "en-US": "+86-411-39026089"
+    "zh-cn": "+86-15910603382",
+    "zh-tw": "+86-15910603382",
+    "en-US": "+86-15910603382"
   },
   "work-time": {
     "zh-cn": "工作日 09：00-19：00",
@@ -108,6 +108,11 @@
     "zh-cn": "商务咨询",
     "zh-tw": "商務咨詢",
     "en-US": "Consulting"
+  },
+  "beijing-address": {
+    "zh-cn": "北京市海淀区圣熙8号4层",
+    "zh-tw": "北京市海澱區聖熙8號4層",
+    "en-US": "Beijing Office 4th Floor, Hee No.8 St. Mall, Haidian District, Beijing, China"
   },
   "shenzhen-address": {
     "zh-cn": "深圳市南山区卫星大厦15层",
@@ -125,9 +130,9 @@
     "en-US": "Technical Support"
   },
   "technical-phone-number": {
-    "zh-cn": "0411-39551681",
-    "zh-tw": "+86-411-39551681",
-    "en-US": "+86-411-39551681"
+    "zh-cn": "+86-15801196367",
+    "zh-tw": "+86-15801196367",
+    "en-US": "+86-15801196367"
   },
   "copyright": {
     "zh-cn": "Copyright© 悦视光合科技(大连)有限公司  辽ICP备18008272号",
@@ -345,9 +350,9 @@
     "en-US": "ElephantBI focuses on the value of data, making data truly work. Now start your free 14-day trial!"
   },
   "free-trail-description": {
-    "zh-cn": "填写右侧信息，我们将会尽快与您联系开通试用账号；您也可以直接致电0411-39026089联系我们",
-    "zh-tw": "填寫右側資訊，我們將會盡快與您聯繫開通試用賬戶；您也可以直接致電+86-411-39026089聯繫我們",
-    "en-US": "Fill in the form to get in touch! We will open a trial account for you. You can also contact us directly by calling +86-411-39026089."
+    "zh-cn": "填写右侧信息，我们将会尽快与您联系开通试用账号；您也可以直接致电+86-15910603382联系我们",
+    "zh-tw": "填寫右側資訊，我們將會盡快與您聯繫開通試用賬戶；您也可以直接致電+86-15910603382聯繫我們",
+    "en-US": "Fill in the form to get in touch! We will open a trial account for you. You can also contact us directly by calling +86-15910603382."
   },
   "want-free-trial": {
     "zh-cn": "我要免费试用",
@@ -945,9 +950,9 @@
     "en-US": "Fail to submit"
   },
   "submit-fail-describe": {
-    "zh-cn": "请电话联系：0411-39026089",
-    "zh-tw": "請電話聯系：+86-411-39026089",
-    "en-US": "Call us: +86-411-39026089"
+    "zh-cn": "请电话联系：+86-15910603382",
+    "zh-tw": "請電話聯系：+86-15910603382",
+    "en-US": "Call us: +86-15910603382"
   },
   "login-err": {
     "zh-cn": "输入的域名不存在，请重新检查。如果您还没有注册请前往免费注册",
@@ -968,5 +973,10 @@
     "zh-cn": "重新播放",
     "zh-tw": "重新播放",
     "en-US": "Replay"
+  },
+  "xydata-email": {
+    "zh-cn": "contact@xydatatech.com",
+    "zh-tw": "contact@xydatatech.com",
+    "en-US": "contact@xydatatech.com"
   }
 }
