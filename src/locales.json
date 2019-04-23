@@ -24,10 +24,15 @@
     "zh-tw": "服務支持",
     "en-US": "Service"
   },
-  "nav-custom": {
+  "bottom-custom": {
     "zh-cn": "关于我们",
     "zh-tw": "關於我們",
     "en-US": "About us"
+  },
+  "nav-custom": {
+    "zh-cn": "需求定制",
+    "zh-tw": "需求定制",
+    "en-US": "Customization"
   },
   "sign-in": {
     "zh-cn": "登录",

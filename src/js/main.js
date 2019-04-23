@@ -1139,15 +1139,14 @@ const submitFeedback = () => {
 
 /**********mobile end*************/
 
-const jumpToDataTech = () => {
+const jumpToDataTechGenerator = (anchor = '') => () => {
   const pathname = window.location.pathname;
-  const teamAnchor = '#team';
   if (pathname.indexOf('/en') > -1) {
-    window.location.href = window.xyDataTechUrl + '/en' + teamAnchor;
+    window.location.href = window.xyDataTechUrl + '/en' + anchor;
   } else if (pathname.indexOf('/hk') > -1) {
-    window.location.href = window.xyDataTechUrl + '/hk' + teamAnchor;
+    window.location.href = window.xyDataTechUrl + '/hk' + anchor;
   } else {
-    window.location.href = window.xyDataTechUrl + '/' + teamAnchor;
+    window.location.href = window.xyDataTechUrl + '/' + anchor;
   }
 }
 
@@ -2278,7 +2277,10 @@ window.onload = function () {
   const dataTechLink = document.getElementsByClassName('jumpToXYDataTech');
   if (dataTechLink) {
     for(let i = 0; i < dataTechLink.length; i ++) {
-      dataTechLink[i].addEventListener('click', jumpToDataTech)
+      const element = dataTechLink[i];
+      const hasAnchor = element.getAttribute('data-locale-id') === 'bottom-custom';
+      const onClick = jumpToDataTechGenerator(hasAnchor && '#team');
+      element.addEventListener('click', onClick)
     }
   }
 
