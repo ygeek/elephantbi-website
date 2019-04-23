@@ -1141,12 +1141,13 @@ const submitFeedback = () => {
 
 const jumpToDataTech = () => {
   const pathname = window.location.pathname;
+  const teamAnchor = '#team';
   if (pathname.indexOf('/en') > -1) {
-    window.location.href = window.xyDataTechUrl + '/en'
+    window.location.href = window.xyDataTechUrl + '/en' + teamAnchor;
   } else if (pathname.indexOf('/hk') > -1) {
-    window.location.href = window.xyDataTechUrl + '/hk'
+    window.location.href = window.xyDataTechUrl + '/hk' + teamAnchor;
   } else {
-    window.location.href = window.xyDataTechUrl
+    window.location.href = window.xyDataTechUrl + '/' + teamAnchor;
   }
 }
 
