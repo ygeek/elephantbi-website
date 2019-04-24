@@ -2279,7 +2279,8 @@ window.onload = function () {
     for(let i = 0; i < dataTechLink.length; i ++) {
       const element = dataTechLink[i];
       const hasAnchor = element.getAttribute('data-locale-id') === 'bottom-custom';
-      const onClick = jumpToDataTechGenerator(hasAnchor && '#team');
+      const anchor = (hasAnchor && '#team') || '';
+      const onClick = jumpToDataTechGenerator(anchor);
       element.addEventListener('click', onClick)
     }
   }
